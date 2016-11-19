@@ -4,9 +4,9 @@
   <subtitle>lysm</subtitle>
   <link href="/lysmBetter/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="http://lysmBetter.top/"/>
   <updated>2016-11-17T07:38:01.000Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>http://lysmBetter.top/</id>
   
   <author>
     <name>Better</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2016/11/17/hello-world/"/>
-    <id>http://yoursite.com/2016/11/17/hello-world/</id>
+    <link href="http://lysmBetter.top/2016/11/17/hello-world/"/>
+    <id>http://lysmBetter.top/2016/11/17/hello-world/</id>
     <published>2016-11-17T07:38:01.000Z</published>
     <updated>2016-11-17T07:38:01.000Z</updated>
     
