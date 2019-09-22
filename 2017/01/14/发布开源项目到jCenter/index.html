@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hans">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <!--
+        © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+        Version: 1.3.3
+    -->
+    <script>
+window.lsVersion = "1.3.3",
+window.oldVersion = [
+    
+        
+            "0.2.0","0.0.1","0.1.0","1.0.0","1.0.1","1.1.0","1.1.1","1.2.0","1.3.0","1.3.2"
+        
+    
+]
+</script>
+
+    <!-- ### DNS Prefetch ### -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+
+    <!-- ### Preload ### -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+<!-- Title -->
+<title>发布开源项目到JCenter | Better</title>
+
+<!-- favicon -->
+<!-- Favicons -->
+
+    <link rel="icon" type="image/ico" href="/img/suka-favicon.ico">
+
+
+
+
+
+
+<!-- Android Chrome Color -->
+
+
+
+<meta name="format-detection" content="telephone=no">
+
+<!-- Description -->
+<meta name="description" content="思路是：
+
+独立开源模块
+上传到Bintray
+发布到JCenter">
+
+<!-- Keywords -->
+<meta name="keywords" content=", 开源, JCenter仓库, AndroidStudio">
+
+<!-- Disable Fucking Bloody Baidu Tranformation -->
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!-- ### Import File ### -->
+    
+        <!-- spectre.css -->
+
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css">
+
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: #0070ff;
+    }
+
+    a:active, a:focus, a:hover {
+        color: #0070ff;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: #005eb9;
+        opacity: 1;
+    }
+
+    .post-entry .card-body a {
+        color: #0070ff;
+    }
+
+    .avatar {
+        background: #444;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: #0070ff;
+    }
+
+    .navbar-link:hover {
+        color: #0070ff;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: #727e96;
+        border-color: #727e96;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: #727e96;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style>
+
+<!-- style.css -->
+
+    <link rel="stylesheet" href="/css/style.min.css">
+
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    
+        <link rel="stylesheet" href="/css/highlight/github.min.css">
+    
+
+
+
+    
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <!-- ### RSS ### -->
+    
+
+    <!-- ### WebApp ### -->
+    <meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="Better">
+<meta name="msapplication-starturl" content="http://lysmbetter.top">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Better">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- Manifest Import -->
+
+<!-- Open Search -->
+
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="发布开源项目到JCenter | Better">
+<meta property="og:site_name" content="Better">
+
+<meta property="og:locale" content="zh-Hans">
+
+<meta property="og:url" content="http://lysmbetter.top/2017/01/14/发布开源项目到jCenter/">
+<meta property="og:image" content="http://lysmbetter.top/img/suka-favicon.ico">
+
+<meta property="og:description" content="思路是：
+
+独立开源模块
+上传到Bintray
+发布到JCenter">
+
+<meta name="twitter:card" content="summary">
+
+
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2017-01-14T05:54:47.000Z">
+    <meta property="article:modified_time" content="2017-01-14T05:54:47.000Z">
+    <meta property="article:author" content="Better">
+    <meta property="og:article:tag" content=", 开源, JCenter仓库, AndroidStudio"> 
+
+
+
+
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://lysmbetter.top/2017/01/14/发布开源项目到jCenter/">
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "http://lysmbetter.top/2017/01/14/发布开源项目到jCenter/",
+    "@type": "BlogPosting",
+    "logo": "http://lysmbetter.top/img/suka-favicon.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://lysmbetter.top/2017/01/14/发布开源项目到jCenter/"
+    },
+    "headline": "发布开源项目到JCenter | Better",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "http://lysmbetter.top/img/suka-favicon.ico"
+    },
+    
+    "datePublished": "2017-01-14T05:54:47.000Z",
+    "dateModified": "2018-11-08T13:51:21.688Z",
+    "author": {
+        "@type": "Person",
+        "name": "Better",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://lysmbetter.top/img/default_avatar.png"
+        },
+        "description": "Hi, nice to meet you."
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Better",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "http://lysmbetter.top/img/suka-favicon.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "http://lysmbetter.top/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": ", 开源, JCenter仓库, AndroidStudio",
+    "description": "思路是：
+
+独立开源模块
+上传到Bintray
+发布到JCenter"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+
+
+</head>
+
+    <body>
+        
+
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">Better</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                Hi, nice to meet you.
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">首页</a>
+    
+    
+        <a href="/archives/" class="navbar-link">归档</a>
+    
+    
+        <a href="/search" class="navbar-link">搜索</a>
+    
+    
+    
+        <div class="dropdown dropdown-right">
+    <a class="navbar-link dropdown-toggle" tabindex="0">分享</a>
+    <ul class="menu share-menu">
+
+        <!-- Share Weibo -->
+        
+        <li class="menu-item">
+            <a href="http://service.weibo.com/share/share.php?appkey=&title=Better&url=http://lysmbetter.top&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">分享到微博</a>
+        </li>
+        
+
+        <!-- Share Twitter -->
+        
+        <li class="menu-item">
+            <a href="https://twitter.com/intent/tweet?text=Better&url=http://lysmbetter.top&via=Better" target="_blank" rel="external noopener noreferrer nofollow">分享到 Twitter</a>
+        </li>
+        
+
+        <!-- Share Facebook -->
+        
+        <li class="menu-item">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow">分享到 Facebook</a>
+        </li>
+        
+
+        <!-- Share Google+ -->
+        
+        <li class="menu-item">
+            <a href="https://plus.google.com/share?url=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow">分享到 Google+</a>
+        </li>
+        
+
+        <!-- Share LinkedIn -->
+        
+        <li class="menu-item">
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top&title=发布开源项目到JCenter" target="_blank" rel="external noopener noreferrer nofollow">分享到 LinkedIn</a>
+        </li>
+        
+
+        <!-- Share QQ -->
+        
+        <li class="menu-item">
+            <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=发布开源项目到JCenter&summary=描述文字&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow"> 分享到 QQ</a>
+        </li>
+        
+
+        <!-- Share Telegram -->
+        
+        <li class="menu-item">
+            <a href="https://t.me/share/url?url=http://lysmbetter.top&text=发布开源项目到JCenter" target="_blank" rel="external noopener noreferrer nofollow">分享到 Telegram</a>
+        </li>
+        
+
+        <!-- QRCode -->
+        
+        <li class="menu-item">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB3ElEQVR42u3bwXLCMAyE4bz/S7cnZijj7q4SDvHmzwWmAfLBOLIlq8fPDY8DFChQoBaoQxyr8+9/ez3/fHw9/3NBcx1QXajloDMf7N7/eT65Dqgu1Gowq4GsbojVgHfXAfUcVHpudUO4LwXquajkvJp0QT0TpSbSVSBMg+lk4gfVg0oH6NXHr2YzoG6LGhchQkSSVHyt6gLqVig3ASucW+wpZLxKALUdyhU2XPCbFt8kFFQdShUk1OB2xdv4pgBVgXJJgSpiJMnoKLkAVYFyg1oVOhTWFdPsyhPU1qi0oOouoooaUTAGVYFyhdJksacGeBKYQXWh/muIcJvZyeaR+3I2ooPaEpUGO1ucMMhosgdVgUoGa5qwumTV/hCgKlBpw0xSyHdFDYsFVYFyBQs32SZNFS5ogupDpYnA2ZvCbTyB6kSlienZADlq6gK1NWrSeOOK9pcXjaAqUOliL5lcR40RSbMEqC1RkwVZckO4zaW4aAZqW1TSGKgav9IgHAVWUBWotKE5CbJnJnZQnagrDV6ukSsp5ILqRMkk8Zj9c/2kOBtVh0HVoU43aU0TVVCPQE0btSZNFqC6UekGksOr99nXgapBTRMHt7GdLAjH1WFQ26DudIACBQrU2/ELCctBcI3v0qAAAAAASUVORK5CYII=" alr="QRCode">
+        </li>
+        
+
+    </ul>
+</div>
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    
+    
+
+
+<div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">发布开源项目到JCenter</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/default_avatar.png" src="/img/suka-lazyload.gif" alt="Better's Avatar">
+        <span>2017-01-14</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/Android/">Android</a>
+        
+        
+            <!-- Busuanzi Post Views -->
+<span id="busuanzi_container_page_pv" hidden>
+    <span class="suka-devide-dot"></span>
+    <span></span>
+    <span id="busuanzi_value_page_pv"></span>
+    <span>Views</span>
+</span>
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=发布开源项目到JCenter&url=http://lysmbetter.top/2017/01/14/发布开源项目到jCenter/&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">分享到微博</a>
+    </li>
+    
+
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=发布开源项目到JCenter&url=http://lysmbetter.top/2017/01/14/发布开源项目到jCenter/&via=Better" target="_blank" rel="external noopener noreferrer nofollow">分享到 Twitter</a>
+    </li>
+    
+
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top/2017/01/14/发布开源项目到jCenter/" target="_blank" rel="external noopener noreferrer nofollow">分享到 Facebook</a>
+    </li>
+    
+
+    <!-- Share Google+ -->
+    
+    <li class="menu-item">
+        <a href="https://plus.google.com/share?url=http://lysmbetter.top/2017/01/14/发布开源项目到jCenter/" target="_blank" rel="external noopener noreferrer nofollow">分享到 Google+</a>
+    </li>
+    
+
+    <!-- Share LinkedIn -->
+    
+    <li class="menu-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top/2017/01/14/发布开源项目到jCenter/&title=Better" target="_blank" rel="external noopener noreferrer nofollow">分享到 LinkedIn</a>
+    </li>
+    
+
+    <!-- Share QQ -->
+    
+    <li class="menu-item">
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Better&summary=描述文字&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top/2017/01/14/发布开源项目到jCenter/" target="_blank" rel="external noopener noreferrer nofollow"> 分享到 QQ</a>
+    </li>
+    
+
+    <!-- Share Telegram -->
+    
+    <li class="menu-item">
+        <a href="https://t.me/share/url?url=http://lysmbetter.top/2017/01/14/发布开源项目到jCenter/&text=Better" target="_blank" rel="external noopener noreferrer nofollow">分享到 Telegram</a>
+    </li>
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB3ElEQVR42u3bwXLCMAyE4bz/S7cnZijj7q4SDvHmzwWmAfLBOLIlq8fPDY8DFChQoBaoQxyr8+9/ez3/fHw9/3NBcx1QXajloDMf7N7/eT65Dqgu1Gowq4GsbojVgHfXAfUcVHpudUO4LwXquajkvJp0QT0TpSbSVSBMg+lk4gfVg0oH6NXHr2YzoG6LGhchQkSSVHyt6gLqVig3ASucW+wpZLxKALUdyhU2XPCbFt8kFFQdShUk1OB2xdv4pgBVgXJJgSpiJMnoKLkAVYFyg1oVOhTWFdPsyhPU1qi0oOouoooaUTAGVYFyhdJksacGeBKYQXWh/muIcJvZyeaR+3I2ooPaEpUGO1ucMMhosgdVgUoGa5qwumTV/hCgKlBpw0xSyHdFDYsFVYFyBQs32SZNFS5ogupDpYnA2ZvCbTyB6kSlienZADlq6gK1NWrSeOOK9pcXjaAqUOliL5lcR40RSbMEqC1RkwVZckO4zaW4aAZqW1TSGKgav9IgHAVWUBWotKE5CbJnJnZQnagrDV6ukSsp5ILqRMkk8Zj9c/2kOBtVh0HVoU43aU0TVVCPQE0btSZNFqC6UekGksOr99nXgapBTRMHt7GdLAjH1WFQ26DudIACBQrU2/ELCctBcI3v0qAAAAAASUVORK5CYII=" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                            <div id="post-toc">
+                                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#独立模块"><span class="post-toc-number">1.</span> <span class="post-toc-text">独立模块</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#发布到Bintray"><span class="post-toc-number">2.</span> <span class="post-toc-text">发布到Bintray</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#注册Bintray账号"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">注册Bintray账号</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置Bintray"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">配置Bintray</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#添加插件"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">添加插件</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#配置开发者信息"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">配置开发者信息</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#配置项目信息"><span class="post-toc-number">2.2.3.</span> <span class="post-toc-text">配置项目信息</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#上传的bintray"><span class="post-toc-number">2.2.4.</span> <span class="post-toc-text">上传的bintray</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#发布到jCenter"><span class="post-toc-number">3.</span> <span class="post-toc-text">发布到jCenter</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#遇到的问题"><span class="post-toc-number">4.</span> <span class="post-toc-text">遇到的问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Thinks"><span class="post-toc-number">5.</span> <span class="post-toc-text">Thinks</span></a></li></ol>
+                            </div>
+                        
+                    
+                    <article id="post-content">
+                        <p>思路是：</p>
+<ol>
+<li>独立开源模块</li>
+<li>上传到Bintray</li>
+<li>发布到JCenter<h2 id="独立模块"><a href="#独立模块" class="headerlink" title="独立模块"></a>独立模块</h2>就是抽出相应的代码到独立的modle里面，以便生成aar文件。比如我将的我<a href="https://github.com/471448446/DAndroid/tree/master/demo_android/BBanner" target="_blank" rel="noopener">banner</a>部分代码封装在一个modle里面。<br><img src="https://lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com/lysmbetter/jCenter_01.png" alt="项目"><h2 id="发布到Bintray"><a href="#发布到Bintray" class="headerlink" title="发布到Bintray"></a>发布到Bintray</h2>至于为什么要发布到bintray上 <a href="http://lysmbetter.top/2017/01/13/Maven%E5%BA%93/">参考</a><h3 id="注册Bintray账号"><a href="#注册Bintray账号" class="headerlink" title="注册Bintray账号"></a>注册Bintray账号</h3>有的话请跳过，没有的话 <a href="https://bintray.com/" target="_blank" rel="noopener">传送门</a> 。如果是企业级别的就注册企业的，个人开发者就注册个人的，企业的要收费，有30天试用期。<br>注册之后可以新建一个maven库。<br><img src="https://lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com/lysmbetter/jCenter_2.png" alt="maven库"><h3 id="配置Bintray"><a href="#配置Bintray" class="headerlink" title="配置Bintray"></a>配置Bintray</h3><h4 id="添加插件"><a href="#添加插件" class="headerlink" title="添加插件"></a>添加插件</h4>因为要使用到Bintray和Maven的服务，在项目的的<code>build.gradle</code>文件中添加两个插件，参考 <a href="https://github.com/bintray/gradle-bintray-plugin" target="_blank" rel="noopener">Bintray plugin</a>  <a href="https://github.com/dcendents/android-maven-gradle-plugin" target="_blank" rel="noopener">maven plugin</a></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">classpath &apos;com.github.dcendents:android-maven-gradle-plugin:1.5&apos;</span><br><span class="line">classpath &apos;com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.2&apos;</span><br></pre></td></tr></table></figure>
+
+<p>大概长这个样子<br><img src="https://lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com/lysmbetter/jCenter_3.png" alt="引入插件"></p>
+<h4 id="配置开发者信息"><a href="#配置开发者信息" class="headerlink" title="配置开发者信息"></a>配置开发者信息</h4><p>在<code>local.properties</code>中添加:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">bintray.user=开发者注册账号</span><br><span class="line">bintray.apikey=开发者key</span><br><span class="line">##developer</span><br><span class="line">developer.id=这个可以随便写，一般是你开源社区的昵称</span><br><span class="line">developer.name=你的名字</span><br><span class="line">developer.email=联系邮箱，国内的qq，163统统不行。</span><br></pre></td></tr></table></figure>
+
+<p>user:如果user你不记得是什么了可以打开的bintray主页面即：<code>https://bintray.com/xxx</code>这个xxx就是你需要填写的user。<br>API key:在个人页面点击头像，选择view prefile。在做上方，点击头像羡慕的Edit，然后你就看见了<br><img src="https://lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com/lysmbetter/jCenter_4.png" alt="api key"><br>涉及到隐身开发者信息，所以最好不要同步到开源社区上了，当然在这个信息化时代，不存在什么个人隐私信息。</p>
+<h4 id="配置项目信息"><a href="#配置项目信息" class="headerlink" title="配置项目信息"></a>配置项目信息</h4><p>在modle下面新建一个project.properties 文件，用于几种记录信息并输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#project</span><br><span class="line">#项目名称</span><br><span class="line">project.name=项目名称</span><br><span class="line">project.version=版本号</span><br><span class="line">project.bintrayRepo=就是你刚刚建立的maven库名字</span><br><span class="line">#项目组ID 通常情况下如果你的包名为com.example.test，那么项目组ID就是com.example</span><br><span class="line">project.groupId=xx</span><br><span class="line">#项目ID  通常情况下如果你的包名为com.example.test，那么项目ID就是test</span><br><span class="line">#保持你的library module的名字同artifactId一样</span><br><span class="line">project.artifactId=xx</span><br><span class="line">#包类型，Android库是aar</span><br><span class="line">project.packaging=aar</span><br><span class="line">#项目官方网站的地址，没有的话就用Github上的地址</span><br><span class="line">project.siteUrl=https://github.com/471448446/DAndroid/tree/master/demo_android/BBanner</span><br><span class="line">#项目的Git地址</span><br><span class="line">project.gitUrl=https://github.com/471448446/DAndroid/tree/master/demo_android/BBanner</span><br><span class="line">#项目描述</span><br><span class="line">project.des=a simple banner for android</span><br><span class="line"></span><br><span class="line">#javadoc</span><br><span class="line">javadoc.name=BBanner</span><br></pre></td></tr></table></figure>
+
+<p>然后在modler下新建bintrayUpload.gradle文件，填入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br></pre></td><td class="code"><pre><span class="line">apply plugin: &apos;com.jfrog.bintray&apos;</span><br><span class="line">apply plugin: &apos;com.github.dcendents.android-maven&apos;</span><br><span class="line"></span><br><span class="line">//需要在local.properties文件中取值</span><br><span class="line">Properties properties = new Properties()</span><br><span class="line">File localPropertiesFile = project.file(&quot;../local.properties&quot;);</span><br><span class="line">if (localPropertiesFile.exists()) &#123;</span><br><span class="line">    properties.load(localPropertiesFile.newDataInputStream())</span><br><span class="line">&#125;</span><br><span class="line">File projectPropertiesFile = project.file(&quot;project.properties&quot;);</span><br><span class="line">if (projectPropertiesFile.exists()) &#123;</span><br><span class="line">    properties.load(projectPropertiesFile.newDataInputStream())</span><br><span class="line">&#125;</span><br><span class="line">//properties.load(project.rootProject.file(&apos;local.properties&apos;).newDataInputStream())</span><br><span class="line"></span><br><span class="line">// read properties</span><br><span class="line">def projectName = properties.getProperty(&quot;project.name&quot;)</span><br><span class="line">def projectVersion = properties.getProperty(&quot;project.version&quot;)</span><br><span class="line">def projectBintrayRepo = properties.getProperty(&quot;project.bintrayRepo&quot;)</span><br><span class="line">def projectGroupId = properties.getProperty(&quot;project.groupId&quot;)</span><br><span class="line">def projectArtifactId = properties.getProperty(&quot;project.artifactId&quot;)</span><br><span class="line">def projectPackaging = properties.getProperty(&quot;project.packaging&quot;)</span><br><span class="line">def projectSiteUrl = properties.getProperty(&quot;project.siteUrl&quot;)</span><br><span class="line">def projectGitUrl = properties.getProperty(&quot;project.gitUrl&quot;)</span><br><span class="line">def projectDes = properties.getProperty(&quot;project.des&quot;)</span><br><span class="line"></span><br><span class="line">def developerId = properties.getProperty(&quot;developer.id&quot;)</span><br><span class="line">def developerName = properties.getProperty(&quot;developer.name&quot;)</span><br><span class="line">def developerEmail = properties.getProperty(&quot;developer.email&quot;)</span><br><span class="line"></span><br><span class="line">def bintrayUser = properties.getProperty(&quot;bintray.user&quot;)</span><br><span class="line">def bintrayApikey = properties.getProperty(&quot;bintray.apikey&quot;)</span><br><span class="line"></span><br><span class="line">def javadocName = properties.getProperty(&quot;javadoc.name&quot;)</span><br><span class="line"></span><br><span class="line">//maven配置</span><br><span class="line">version = projectVersion // 指定版本</span><br><span class="line">group = projectGroupId // 这里需要和真实包名对应，不能随便填写</span><br><span class="line"></span><br><span class="line">task generateSourcesJar(type: Jar) &#123;</span><br><span class="line">    from android.sourceSets.main.java.srcDirs //通过from函数指定代码源，这里是默认代码源</span><br><span class="line">    classifier &apos;sources&apos;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">task generateJavadocs(type: Javadoc) &#123;</span><br><span class="line">    source = android.sourceSets.main.java.srcDirs //source指定了代码源</span><br><span class="line">    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//这里dependsOn意为仅当generateJavadocs完成后才开始本task</span><br><span class="line">task generateJavadocsJar(type: Jar, dependsOn: generateJavadocs) &#123;</span><br><span class="line">    from generateJavadocs.destinationDir</span><br><span class="line">    classifier &apos;javadoc&apos;</span><br><span class="line">&#125;</span><br><span class="line">//将你生成的源代码和Javadoc Jar文件添加到Maven中</span><br><span class="line">artifacts &#123;</span><br><span class="line">    archives generateJavadocsJar</span><br><span class="line">    archives generateSourcesJar</span><br><span class="line">&#125;</span><br><span class="line">// bintray configuration</span><br><span class="line">bintray &#123;</span><br><span class="line">    user = bintrayUser</span><br><span class="line">    key = bintrayApikey</span><br><span class="line"></span><br><span class="line">    pkg &#123;</span><br><span class="line">        repo = projectBintrayRepo</span><br><span class="line">        //发布到JCenter上的项目名字</span><br><span class="line">        name = projectName</span><br><span class="line">        vcsUrl = projectGitUrl</span><br><span class="line">        websiteUrl = projectSiteUrl</span><br><span class="line">        licenses = [&quot;Apache-2.0&quot;]</span><br><span class="line">        publish = true</span><br><span class="line">    &#125;</span><br><span class="line">    configurations = [&apos;archives&apos;]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//版权申明</span><br><span class="line">install &#123;</span><br><span class="line">    repositories.mavenInstaller &#123;</span><br><span class="line">        // This generates POM.xml with proper parameters</span><br><span class="line">        pom &#123;</span><br><span class="line">            project &#123;</span><br><span class="line">                packaging projectPackaging</span><br><span class="line">                // Add your description here</span><br><span class="line">                name projectDes</span><br><span class="line">                groupId projectGroupId</span><br><span class="line">                artifactId projectArtifactId</span><br><span class="line">                url projectSiteUrl</span><br><span class="line">                version projectVersion</span><br><span class="line">                // Set your license</span><br><span class="line">                licenses &#123;</span><br><span class="line">                    license &#123;</span><br><span class="line">                        name &apos;The Apache Software License, Version 2.0&apos;</span><br><span class="line">                        url &apos;http://www.apache.org/licenses/LICENSE-2.0.txt&apos;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                developers &#123;</span><br><span class="line">                    developer &#123;</span><br><span class="line">                        id developerId</span><br><span class="line">                        name developerName</span><br><span class="line">                        email developerEmail</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                scm &#123;</span><br><span class="line">                    connection projectGitUrl</span><br><span class="line">                    developerConnection projectGitUrl</span><br><span class="line">                    url projectSiteUrl</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个基本上没什么修改的。<br>最后在modle的build.gradle的文末(ps:不要添加在文首)添加：<br><code>apply from: &quot;bintrayUpload.gradle&quot;</code><br>到处配置以及结束。</p>
+<h4 id="上传的bintray"><a href="#上传的bintray" class="headerlink" title="上传的bintray"></a>上传的bintray</h4><p>在项目的gradle里面，点击gradle选择modle项目，以次输入并点击确认 :</p>
+<ol>
+<li><code>install</code> </li>
+<li><code>bintrayUpload</code><br><img src="https://lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com/lysmbetter/jCenter_5.png" alt="gradle task"><br>也可以在gradle的命令行里面输入: </li>
+<li><code>gradlew install</code></li>
+<li><code>gradlew bintrayUpload</code><br>在linux或者mac下如果你没有将gradle命令添加到全局那么在gradlew前面需要添加<code>./</code><br>上传成功后你的项目就在bintray的maven里面的。你可以在<a href="http://jcenter.bintray.com/" target="_blank" rel="noopener">查看</a>是否上传没有。<h2 id="发布到jCenter"><a href="#发布到jCenter" class="headerlink" title="发布到jCenter"></a>发布到jCenter</h2>这个时候的开源库还是在你的私人仓库里面引用方式是：在modle里面添加你的maven url，然后在complie你的项目名字。<a href="http://lysmbetter.top/2017/01/13/Maven%E5%BA%93/">maven库的引用</a><br>发布到jCenter方式很简单，只需点击Add to JCenter<br><img src="https://lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com/lysmbetter/jCenter_6.png" alt="发布"><br>审核成功后你就可以快乐的引用了。<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2></li>
+</ol>
+<ul>
+<li>如果你是个人用户的话，注册bintray账号就别注册企业版的，如果你需要消费，哪也无妨。个人版的注册在页面的最底部。当时也是先注册，在注销(会删除所有的库)，在注册。</li>
+<li><code>error：
+Error:(3, 0) No service of type Factory&lt;LoggingManagerInternal&gt; available in ProjectScopeServices.
+&lt;a href=&quot;openFile:/Users/better/Documents/WorkSpace/git/DAndroid/demo_android/BBanner/banner/build.gradle&quot;&gt;Open File&lt;/a&gt;</code> 使用bintray和maven插件的时候最好使用最新的 </li>
+<li><code>Error : cause android.compileSdkVersion is missing</code> 申明bintrayUpload.gradle时最好不要紧跟着申明modle语句之后,如果你没分了配置文件的话不会遇见这个错误。</li>
+</ul>
+<h2 id="Thinks"><a href="#Thinks" class="headerlink" title="Thinks"></a>Thinks</h2><p><a href="https://github.com/xiaopansky/android-library-publish-to-jcenter" target="_blank" rel="noopener">5分钟发布Android Library项目到JCenter</a><br><a href="http://dannylee1991.github.io/2016/12/03/%E5%8F%91%E5%B8%83aar%E5%88%B0jcenter%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%A7%BF%E5%8A%BF/" target="_blank" rel="noopener">发布aar到jcenter的正确姿势</a><br><a href="http://sherlockshi.github.io/2016/09/29/15_Android/1555_Maven/%E4%BD%BF%E7%94%A8Android%20Studio%E6%8A%8A%E8%87%AA%E5%B7%B1%E7%9A%84Android%20library%E5%88%86%E5%8F%91%E5%88%B0jCenter/" target="_blank" rel="noopener">使用Android Studio把自己的Android library分发到JCenter</a></p>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
+    <script>
+        var dateUpdate = Date.parse("2018-11-08");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2017-01-14T05:54:47.000Z" itemprop="datePublished">2017-01-14</time>
+
+    , 最后修改于&nbsp;<time datetime="2018-11-08T13:51:21.688Z" itemprop="dateModified">2018-11-08</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+
+<a class="post-categories-list-item" href='/categories/Android/'>Android</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+
+<a class="post-tags-list-item" href="/tags/开源/" rel="tag">#&nbsp;开源</a>
+
+<a class="post-tags-list-item" href="/tags/JCenter仓库/" rel="tag">#&nbsp;JCenter仓库</a>
+
+<a class="post-tags-list-item" href="/tags/AndroidStudio/" rel="tag">#&nbsp;AndroidStudio</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                
+<div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2017/02/15/Shortcuts/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">ShortCuts</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2017/01/13/Maven库/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">Maven库</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span data-year></span>
+        <a class="footer-copyright-a" href="http://lysmbetter.top">Better</a>
+    </p>
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+            
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+        
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+        
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+
+
+    /* Copyright */
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.querySelector('span[data-year]')
+    
+        copyrightContent.textContent = copyrightNow
+    
+
+
+
+/* Cnosole Log */
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+</script>
+
+<!-- vanilla-lazyload -->
+
+    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
+
+
+
+    <!-- Busuanzi -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+
+
+
+<!-- gallery.js -->
+
+
+<!-- Comment -->
+
+
+<!-- ### Custom Footer ### -->
+
+
+    </body>
+
+</html>

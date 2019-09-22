@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hans">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <!--
+        © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+        Version: 1.3.3
+    -->
+    <script>
+window.lsVersion = "1.3.3",
+window.oldVersion = [
+    
+        
+            "0.2.0","0.0.1","0.1.0","1.0.0","1.0.1","1.1.0","1.1.1","1.2.0","1.3.0","1.3.2"
+        
+    
+]
+</script>
+
+    <!-- ### DNS Prefetch ### -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+
+    <!-- ### Preload ### -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+<!-- Title -->
+<title>N文件共享之android.os.FileUriExposedException | Better</title>
+
+<!-- favicon -->
+<!-- Favicons -->
+
+    <link rel="icon" type="image/ico" href="/img/suka-favicon.ico">
+
+
+
+
+
+
+<!-- Android Chrome Color -->
+
+
+
+<meta name="format-detection" content="telephone=no">
+
+<!-- Description -->
+<meta name="description" content="在Android N上直接分享文件会报错，比如调起安装 APK 文件：
+">
+
+<!-- Keywords -->
+<meta name="keywords" content=", Android N, FileUriExposedException, 文件共享">
+
+<!-- Disable Fucking Bloody Baidu Tranformation -->
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!-- ### Import File ### -->
+    
+        <!-- spectre.css -->
+
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css">
+
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: #0070ff;
+    }
+
+    a:active, a:focus, a:hover {
+        color: #0070ff;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: #005eb9;
+        opacity: 1;
+    }
+
+    .post-entry .card-body a {
+        color: #0070ff;
+    }
+
+    .avatar {
+        background: #444;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: #0070ff;
+    }
+
+    .navbar-link:hover {
+        color: #0070ff;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: #727e96;
+        border-color: #727e96;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: #727e96;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style>
+
+<!-- style.css -->
+
+    <link rel="stylesheet" href="/css/style.min.css">
+
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    
+        <link rel="stylesheet" href="/css/highlight/github.min.css">
+    
+
+
+
+    
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <!-- ### RSS ### -->
+    
+
+    <!-- ### WebApp ### -->
+    <meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="Better">
+<meta name="msapplication-starturl" content="http://lysmbetter.top">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Better">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- Manifest Import -->
+
+<!-- Open Search -->
+
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="N文件共享之android.os.FileUriExposedException | Better">
+<meta property="og:site_name" content="Better">
+
+<meta property="og:locale" content="zh-Hans">
+
+<meta property="og:url" content="http://lysmbetter.top/2016/12/30/Android N文件共享之android-os-FileUriExposedException/">
+<meta property="og:image" content="http://lysmbetter.top/img/suka-favicon.ico">
+
+<meta property="og:description" content="在Android N上直接分享文件会报错，比如调起安装 APK 文件：
+">
+
+<meta name="twitter:card" content="summary">
+
+
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2016-12-30T01:23:18.000Z">
+    <meta property="article:modified_time" content="2016-12-30T01:23:18.000Z">
+    <meta property="article:author" content="Better">
+    <meta property="og:article:tag" content=", Android N, FileUriExposedException, 文件共享"> 
+
+
+
+
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://lysmbetter.top/2016/12/30/Android N文件共享之android-os-FileUriExposedException/">
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "http://lysmbetter.top/2016/12/30/Android N文件共享之android-os-FileUriExposedException/",
+    "@type": "BlogPosting",
+    "logo": "http://lysmbetter.top/img/suka-favicon.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://lysmbetter.top/2016/12/30/Android N文件共享之android-os-FileUriExposedException/"
+    },
+    "headline": "N文件共享之android.os.FileUriExposedException | Better",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "http://lysmbetter.top/img/suka-favicon.ico"
+    },
+    
+    "datePublished": "2016-12-30T01:23:18.000Z",
+    "dateModified": "2019-05-12T06:21:05.834Z",
+    "author": {
+        "@type": "Person",
+        "name": "Better",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://lysmbetter.top/img/default_avatar.png"
+        },
+        "description": "Hi, nice to meet you."
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Better",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "http://lysmbetter.top/img/suka-favicon.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "http://lysmbetter.top/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": ", Android N, FileUriExposedException, 文件共享",
+    "description": "在Android N上直接分享文件会报错，比如调起安装 APK 文件：
+"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+
+
+</head>
+
+    <body>
+        
+
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">Better</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                Hi, nice to meet you.
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">首页</a>
+    
+    
+        <a href="/archives/" class="navbar-link">归档</a>
+    
+    
+        <a href="/search" class="navbar-link">搜索</a>
+    
+    
+    
+        <div class="dropdown dropdown-right">
+    <a class="navbar-link dropdown-toggle" tabindex="0">分享</a>
+    <ul class="menu share-menu">
+
+        <!-- Share Weibo -->
+        
+        <li class="menu-item">
+            <a href="http://service.weibo.com/share/share.php?appkey=&title=Better&url=http://lysmbetter.top&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">分享到微博</a>
+        </li>
+        
+
+        <!-- Share Twitter -->
+        
+        <li class="menu-item">
+            <a href="https://twitter.com/intent/tweet?text=Better&url=http://lysmbetter.top&via=Better" target="_blank" rel="external noopener noreferrer nofollow">分享到 Twitter</a>
+        </li>
+        
+
+        <!-- Share Facebook -->
+        
+        <li class="menu-item">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow">分享到 Facebook</a>
+        </li>
+        
+
+        <!-- Share Google+ -->
+        
+        <li class="menu-item">
+            <a href="https://plus.google.com/share?url=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow">分享到 Google+</a>
+        </li>
+        
+
+        <!-- Share LinkedIn -->
+        
+        <li class="menu-item">
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top&title=N文件共享之android.os.FileUriExposedException" target="_blank" rel="external noopener noreferrer nofollow">分享到 LinkedIn</a>
+        </li>
+        
+
+        <!-- Share QQ -->
+        
+        <li class="menu-item">
+            <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=N文件共享之android.os.FileUriExposedException&summary=描述文字&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow"> 分享到 QQ</a>
+        </li>
+        
+
+        <!-- Share Telegram -->
+        
+        <li class="menu-item">
+            <a href="https://t.me/share/url?url=http://lysmbetter.top&text=N文件共享之android.os.FileUriExposedException" target="_blank" rel="external noopener noreferrer nofollow">分享到 Telegram</a>
+        </li>
+        
+
+        <!-- QRCode -->
+        
+        <li class="menu-item">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAAAAAAYplnuAAACqklEQVR42u3by27qQBBFUf7/p8kkA4TcdfZpGyTkzSRxRK6XkSpdr/t4/uDrIVq0aNE3RD+G1+t7jr5//f3Dm/z//PU9718rh2jREE1uePS+I0zzINNDHH5gokUX6HfcKoiOrtHBAB965RAt+ko0venqPelDEC36m+jpwFhdrw6cVXIkWvQn0GOiEhDk4KEPfEmWJ/r26Kmg/ObXy6px0bdGk+Q9JTs0WJsC+FTXVPSt0bSpMjVuUoNxCvJVw/PwPqJFA3TCkOSHFrrkegpM0aJbNClOU0K102ynDU3Roil6KmRTYrTTtEzNmWXDSLRoiE6o1EwkAZgOnKpZI1o0bECSRnc7WFol+M3yimjRDZom5CngzhQA43BItOgSnf64p+KXJvjkHvEgEi0aoEmy3gyT2sOGDI1Ei27RbUClB0sHUPPgokXvoulAvzkYyKIKeYkWvbOkQpOXdqmlHTiNzU/RojfQ6aBomoakWE1FtWjRu2g6lKQJPAnCdNiMi1eiRQc0WTghBwe5bgemokU36DZxSgFDF052GpWiRVM0CZopGNNhkQZEZNAkWnSLJkMiMsRMBwk9fKrNGtGihyWVZaMELkyRxJ4WvGOWJ1o0KGzJYmvbiG+CMhXbokU/4f/dagc99GBIHwr990WLbtBpKI+a3TBwmyBGCZNo0XDmQpdNSMNl+hlp5uNJgGjRsGHYLndvDTXBsEq06F10TFpOFghk6QUtqYgWDRdk04GBhpQllCZaokU3A/0UOFMhSgfzzWI4zvJEix6a6ikAdw6baRklLQSgQZFo0UXCRAKIFAZNw310iBZ9EfpMoZuSfRqEokVfjaYBmh6oWWqJWwiiRZ/Mp1fX5HdSYZA+CNGiGzRJWOiAcmre0KCOC7KiRYf96V95iRYtWvSN0H+TSFjG/Nu1+QAAAABJRU5ErkJggg==" alr="QRCode">
+        </li>
+        
+
+    </ul>
+</div>
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    
+    
+
+
+<div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">N文件共享之android.os.FileUriExposedException</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/default_avatar.png" src="/img/suka-lazyload.gif" alt="Better's Avatar">
+        <span>2016-12-30</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/Android-Error/">Android-Error</a>
+        
+        
+            <!-- Busuanzi Post Views -->
+<span id="busuanzi_container_page_pv" hidden>
+    <span class="suka-devide-dot"></span>
+    <span></span>
+    <span id="busuanzi_value_page_pv"></span>
+    <span>Views</span>
+</span>
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=N文件共享之android.os.FileUriExposedException&url=http://lysmbetter.top/2016/12/30/Android N文件共享之android-os-FileUriExposedException/&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">分享到微博</a>
+    </li>
+    
+
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=N文件共享之android.os.FileUriExposedException&url=http://lysmbetter.top/2016/12/30/Android N文件共享之android-os-FileUriExposedException/&via=Better" target="_blank" rel="external noopener noreferrer nofollow">分享到 Twitter</a>
+    </li>
+    
+
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top/2016/12/30/Android N文件共享之android-os-FileUriExposedException/" target="_blank" rel="external noopener noreferrer nofollow">分享到 Facebook</a>
+    </li>
+    
+
+    <!-- Share Google+ -->
+    
+    <li class="menu-item">
+        <a href="https://plus.google.com/share?url=http://lysmbetter.top/2016/12/30/Android N文件共享之android-os-FileUriExposedException/" target="_blank" rel="external noopener noreferrer nofollow">分享到 Google+</a>
+    </li>
+    
+
+    <!-- Share LinkedIn -->
+    
+    <li class="menu-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top/2016/12/30/Android N文件共享之android-os-FileUriExposedException/&title=Better" target="_blank" rel="external noopener noreferrer nofollow">分享到 LinkedIn</a>
+    </li>
+    
+
+    <!-- Share QQ -->
+    
+    <li class="menu-item">
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Better&summary=描述文字&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top/2016/12/30/Android N文件共享之android-os-FileUriExposedException/" target="_blank" rel="external noopener noreferrer nofollow"> 分享到 QQ</a>
+    </li>
+    
+
+    <!-- Share Telegram -->
+    
+    <li class="menu-item">
+        <a href="https://t.me/share/url?url=http://lysmbetter.top/2016/12/30/Android N文件共享之android-os-FileUriExposedException/&text=Better" target="_blank" rel="external noopener noreferrer nofollow">分享到 Telegram</a>
+    </li>
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAAAAAAYplnuAAACqklEQVR42u3by27qQBBFUf7/p8kkA4TcdfZpGyTkzSRxRK6XkSpdr/t4/uDrIVq0aNE3RD+G1+t7jr5//f3Dm/z//PU9718rh2jREE1uePS+I0zzINNDHH5gokUX6HfcKoiOrtHBAB965RAt+ko0venqPelDEC36m+jpwFhdrw6cVXIkWvQn0GOiEhDk4KEPfEmWJ/r26Kmg/ObXy6px0bdGk+Q9JTs0WJsC+FTXVPSt0bSpMjVuUoNxCvJVw/PwPqJFA3TCkOSHFrrkegpM0aJbNClOU0K102ynDU3Roil6KmRTYrTTtEzNmWXDSLRoiE6o1EwkAZgOnKpZI1o0bECSRnc7WFol+M3yimjRDZom5CngzhQA43BItOgSnf64p+KXJvjkHvEgEi0aoEmy3gyT2sOGDI1Ei27RbUClB0sHUPPgokXvoulAvzkYyKIKeYkWvbOkQpOXdqmlHTiNzU/RojfQ6aBomoakWE1FtWjRu2g6lKQJPAnCdNiMi1eiRQc0WTghBwe5bgemokU36DZxSgFDF052GpWiRVM0CZopGNNhkQZEZNAkWnSLJkMiMsRMBwk9fKrNGtGihyWVZaMELkyRxJ4WvGOWJ1o0KGzJYmvbiG+CMhXbokU/4f/dagc99GBIHwr990WLbtBpKI+a3TBwmyBGCZNo0XDmQpdNSMNl+hlp5uNJgGjRsGHYLndvDTXBsEq06F10TFpOFghk6QUtqYgWDRdk04GBhpQllCZaokU3A/0UOFMhSgfzzWI4zvJEix6a6ikAdw6baRklLQSgQZFo0UXCRAKIFAZNw310iBZ9EfpMoZuSfRqEokVfjaYBmh6oWWqJWwiiRZ/Mp1fX5HdSYZA+CNGiGzRJWOiAcmre0KCOC7KiRYf96V95iRYtWvSN0H+TSFjG/Nu1+QAAAABJRU5ErkJggg==" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                            <div id="post-toc">
+                                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#添加Provider"><span class="post-toc-number">1.</span> <span class="post-toc-text">添加Provider</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#添加分享文件路径信息"><span class="post-toc-number">2.</span> <span class="post-toc-text">添加分享文件路径信息</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#适配android-N"><span class="post-toc-number">3.</span> <span class="post-toc-text">适配android N</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考"><span class="post-toc-number">4.</span> <span class="post-toc-text">参考</span></a></li></ol>
+                            </div>
+                        
+                    
+                    <article id="post-content">
+                        <p>在Android N上直接分享文件会报错，比如调起安装 APK 文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android.os.FileUriExposedException: file:///storage/72AD-2013/ELTP/apk/ELTP.apk exposed beyond app through Intent.getData()</span><br></pre></td></tr></table></figure>
+
+<p>由于Android N出于安全考虑，禁止用户直接共享文件，必须以provider的方式来共享文件。<br>即：</p>
+<ul>
+<li>禁止以file://URI公开你的文件的方式共享文件。</li>
+<li>以content://URI并授予URI临时访问权限的方式来访问 </li>
+</ul>
+<p>解决方法是使用<code>FileProvider</code>来规避,安装一下三个步凑来添加</p>
+<h1 id="添加Provider"><a href="#添加Provider" class="headerlink" title="添加Provider"></a>添加Provider</h1><p><img src="https://lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com/lysmbetter/FileUriExposedException_01.png" alt><br>注意：<br>authorities：app的包名<br>grantUriPermissions：必须是true，表示授予 URI 临时访问权限<br>exported：false，不导出给其他APP用<br>resource：中的@xml/file_paths是我们接下来要添加的文件</p>
+<h1 id="添加分享文件路径信息"><a href="#添加分享文件路径信息" class="headerlink" title="添加分享文件路径信息"></a>添加分享文件路径信息</h1><p><img src="https://lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com/lysmbetter/FileUriExposedExpcetion_02.png" alt></p>
+<p>path可以选择的路径有：</p>
+<table>
+<thead>
+<tr>
+<th>tag</th>
+<th>对应的目录路径</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&lt;files-path name=”name” path=”path”/&gt;</td>
+<td><a href="https://developer.android.com/reference/android/content/Context.html?hl=zh-tw#getFilesDir()" target="_blank" rel="noopener">Context.getFilesDir()</a></td>
+</tr>
+<tr>
+<td>&lt;external-path name=”name” path=”path”/&gt;</td>
+<td><a href="https://developer.android.com/reference/android/os/Environment.html?hl=zh-tw#getExternalStorageDirectory()" target="_blank" rel="noopener">Environment.getExternalStorageDirectory()</a></td>
+</tr>
+<tr>
+<td>&lt;cache-path name=”name” path=”path”/&gt;</td>
+<td><a href="https://developer.android.com/reference/android/content/Context.html?hl=zh-tw#getCacheDir()" target="_blank" rel="noopener">Context.getCacheDir()</a></td>
+</tr>
+<tr>
+<td>&lt;external-files-path name=”name” path=”path”/&gt;</td>
+<td>Context#getExternalFilesDir(String)</td>
+</tr>
+<tr>
+<td>&lt;external-cache-path/ name=”name” path=”path”&gt;</td>
+<td><a href="https://developer.android.com/reference/android/content/Context.html#getExternalCacheDir()" target="_blank" rel="noopener">Context.getExternalCacheDir()</a></td>
+</tr>
+<tr>
+<td>&lt;external-media-path name=”name” path=”path” /&gt;</td>
+<td><a href="https://developer.android.com/reference/android/content/Context.html#getExternalMediaDirs()" target="_blank" rel="noopener">Context.getExternalMediaDirs()</a></td>
+</tr>
+</tbody></table>
+<ul>
+<li>name：就是你给这个访问路径起个名字,只是显示用随便取</li>
+<li>path：需要临时授权访问的路径名称（.代表当前路径下所有路径） </li>
+</ul>
+<p><a href="https://blog.csdn.net/xx326664162/article/details/78298956" target="_blank" rel="noopener">比如-来源</a>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;paths xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--代表外部存储区域的根目录下的文件 Environment.getExternalStorageDirectory()/DCIM/camerademo目录--&gt;</span><br><span class="line">    &lt;external-path name=&quot;DCIM&quot; path=&quot;DCIM/camerademo&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--代表外部存储区域的根目录下的文件 Environment.getExternalStorageDirectory()/目录--&gt;</span><br><span class="line">    &lt;external-path path=&quot;.&quot; name=&quot;external_storage_root&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--代表外部存储区域的根目录下的文件 Environment.getExternalStorageDirectory()/Pictures/camerademo目录--&gt;</span><br><span class="line">    &lt;external-path name=&quot;Pictures&quot; path=&quot;Pictures/camerademo&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--代表app 私有的存储区域 Context.getFilesDir()目录下的images目录 /data/user/0/com.hm.camerademo/files/images--&gt;</span><br><span class="line">    &lt;files-path name=&quot;private_files&quot; path=&quot;images&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--代表app 私有的存储区域 Context.getCacheDir()目录下的images目录 /data/user/0/com.hm.camerademo/cache/images--&gt;</span><br><span class="line">    &lt;cache-path name=&quot;private_cache&quot; path=&quot;images&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--代表app 外部存储区域根目录下的文件 Context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)目录下的Pictures目录--&gt;</span><br><span class="line">    &lt;!--/storage/emulated/0/Android/data/com.xx.xxxxxx/files/Pictures--&gt;</span><br><span class="line">    &lt;external-files-path name=&quot;external_files&quot; path=&quot;Pictures&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--代表app 外部存储区域根目录下的文件 Context.getExternalCacheDir目录下的images目录--&gt;</span><br><span class="line">    &lt;!--/storage/emulated/0/Android/data/com.xx.xxxxxx/cache/images--&gt;</span><br><span class="line">    &lt;external-cache-path name=&quot;external_cache&quot; path=&quot;&quot; /&gt;</span><br><span class="line">&lt;/paths&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="适配android-N"><a href="#适配android-N" class="headerlink" title="适配android N"></a>适配android N</h1><p>涉及到文件分享的时候，做下适配，使用<code>Fileprovider</code>来生成Uri</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">private void installFile() &#123;</span><br><span class="line">		File f = new File(updateFilePath);</span><br><span class="line">		Intent intent = new Intent(Intent.ACTION_VIEW);</span><br><span class="line">		if (Utils.isBelowAndroidVersion(Build.VERSION_CODES.N))&#123;</span><br><span class="line">			intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);</span><br><span class="line">			intent.setDataAndType(Uri.fromFile(f), &quot;application/vnd.android.package-archive&quot;);</span><br><span class="line">		&#125; else &#123;</span><br><span class="line">			intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);</span><br><span class="line">			intent.setDataAndType(FileProvider.getUriForFile(context,&quot;com.yzzy.elt.passenger.fileprovider&quot;,f),&quot;application/vnd.android.package-archive&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		context.startActivityForResult(intent, C.REQUST_CODE_UPDATE);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<p>打开apk：<code>application/vnd.android.package-archive</code><br>打开图片：<code>image/*</code></p>
+<p><strong>最后需要将对应的Url添加访问权限</strong><br>添加flag,该方式主要用于针对intent.setData，setDataAndType以及setClipData相关方式传递uri的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);</span><br></pre></td></tr></table></figure>
+
+<p>或者找出匹配的Intent使用函数来</p>
+<ul>
+<li>授权 grantUriPermission(String toPackage, Uri uri, int modeFlags) </li>
+<li>移除权限 revokeUriPermission(Uri uri, int modeFlags);</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">List&lt;ResolveInfo&gt; resInfoList = context.getPackageManager()</span><br><span class="line">            .queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);</span><br><span class="line">for (ResolveInfo resolveInfo : resInfoList) &#123;</span><br><span class="line">    String packageName = resolveInfo.activityInfo.packageName;</span><br><span class="line">    context.grantUriPermission(packageName, uri, flag);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://developer.android.com/reference/android/support/v4/content/FileProvider" target="_blank" rel="noopener">developer-FileProvider</a></p>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
+    <script>
+        var dateUpdate = Date.parse("2019-05-12");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2016-12-30T01:23:18.000Z" itemprop="datePublished">2016-12-30</time>
+
+    , 最后修改于&nbsp;<time datetime="2019-05-12T06:21:05.834Z" itemprop="dateModified">2019-05-12</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+
+<a class="post-categories-list-item" href='/categories/Android-Error/'>Android-Error</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+
+<a class="post-tags-list-item" href="/tags/Android-N/" rel="tag">#&nbsp;Android N</a>
+
+<a class="post-tags-list-item" href="/tags/FileUriExposedException/" rel="tag">#&nbsp;FileUriExposedException</a>
+
+<a class="post-tags-list-item" href="/tags/文件共享/" rel="tag">#&nbsp;文件共享</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                
+<div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2017/01/03/Android签名证书的sha1值/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">AndroidStudioSHA1值</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2016/12/22/查看android手机cpu架构/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">查看Android手机CPU架构</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span data-year></span>
+        <a class="footer-copyright-a" href="http://lysmbetter.top">Better</a>
+    </p>
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+            
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+        
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+        
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+
+
+    /* Copyright */
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.querySelector('span[data-year]')
+    
+        copyrightContent.textContent = copyrightNow
+    
+
+
+
+/* Cnosole Log */
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+</script>
+
+<!-- vanilla-lazyload -->
+
+    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
+
+
+
+    <!-- Busuanzi -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+
+
+
+<!-- gallery.js -->
+
+
+<!-- Comment -->
+
+
+<!-- ### Custom Footer ### -->
+
+
+    </body>
+
+</html>

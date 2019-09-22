@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hans">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <!--
+        © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+        Version: 1.3.3
+    -->
+    <script>
+window.lsVersion = "1.3.3",
+window.oldVersion = [
+    
+        
+            "0.2.0","0.0.1","0.1.0","1.0.0","1.0.1","1.1.0","1.1.1","1.2.0","1.3.0","1.3.2"
+        
+    
+]
+</script>
+
+    <!-- ### DNS Prefetch ### -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+
+    <!-- ### Preload ### -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+<!-- Title -->
+<title>Java反射10-数组 | Better</title>
+
+<!-- favicon -->
+<!-- Favicons -->
+
+    <link rel="icon" type="image/ico" href="/img/suka-favicon.ico">
+
+
+
+
+
+
+<!-- Android Chrome Color -->
+
+
+
+<meta name="format-detection" content="telephone=no">
+
+<!-- Description -->
+<meta name="description" content="
+java.lang.reflect.Array
+Creating Arrays
+Accessing Arrays
+Obtaining the Class Obje...">
+
+<!-- Keywords -->
+<meta name="keywords" content=", Java反射, Array">
+
+<!-- Disable Fucking Bloody Baidu Tranformation -->
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!-- ### Import File ### -->
+    
+        <!-- spectre.css -->
+
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css">
+
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: #0070ff;
+    }
+
+    a:active, a:focus, a:hover {
+        color: #0070ff;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: #005eb9;
+        opacity: 1;
+    }
+
+    .post-entry .card-body a {
+        color: #0070ff;
+    }
+
+    .avatar {
+        background: #444;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: #0070ff;
+    }
+
+    .navbar-link:hover {
+        color: #0070ff;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: #727e96;
+        border-color: #727e96;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: #727e96;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style>
+
+<!-- style.css -->
+
+    <link rel="stylesheet" href="/css/style.min.css">
+
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    
+        <link rel="stylesheet" href="/css/highlight/github.min.css">
+    
+
+
+
+    
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <!-- ### RSS ### -->
+    
+
+    <!-- ### WebApp ### -->
+    <meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="Better">
+<meta name="msapplication-starturl" content="http://lysmbetter.top">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Better">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- Manifest Import -->
+
+<!-- Open Search -->
+
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="Java反射10-数组 | Better">
+<meta property="og:site_name" content="Better">
+
+<meta property="og:locale" content="zh-Hans">
+
+<meta property="og:url" content="http://lysmbetter.top/2017/02/26/Java反射10-数组/">
+<meta property="og:image" content="http://lysmbetter.top/img/suka-favicon.ico">
+
+<meta property="og:description" content="
+java.lang.reflect.Array
+Creating Arrays
+Accessing Arrays
+Obtaining the Class Obje...">
+
+<meta name="twitter:card" content="summary">
+
+
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2017-02-26T09:40:21.000Z">
+    <meta property="article:modified_time" content="2017-02-26T09:40:21.000Z">
+    <meta property="article:author" content="Better">
+    <meta property="og:article:tag" content=", Java反射, Array"> 
+
+
+
+
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://lysmbetter.top/2017/02/26/Java反射10-数组/">
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "http://lysmbetter.top/2017/02/26/Java反射10-数组/",
+    "@type": "BlogPosting",
+    "logo": "http://lysmbetter.top/img/suka-favicon.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://lysmbetter.top/2017/02/26/Java反射10-数组/"
+    },
+    "headline": "Java反射10-数组 | Better",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "http://lysmbetter.top/img/suka-favicon.ico"
+    },
+    
+    "datePublished": "2017-02-26T09:40:21.000Z",
+    "dateModified": "2018-08-05T06:55:06.882Z",
+    "author": {
+        "@type": "Person",
+        "name": "Better",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://lysmbetter.top/img/default_avatar.png"
+        },
+        "description": "Hi, nice to meet you."
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Better",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "http://lysmbetter.top/img/suka-favicon.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "http://lysmbetter.top/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": ", Java反射, Array",
+    "description": "
+java.lang.reflect.Array
+Creating Arrays
+Accessing Arrays
+Obtaining the Class Obje..."
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+
+
+</head>
+
+    <body>
+        
+
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">Better</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                Hi, nice to meet you.
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">首页</a>
+    
+    
+        <a href="/archives/" class="navbar-link">归档</a>
+    
+    
+        <a href="/search" class="navbar-link">搜索</a>
+    
+    
+    
+        <div class="dropdown dropdown-right">
+    <a class="navbar-link dropdown-toggle" tabindex="0">分享</a>
+    <ul class="menu share-menu">
+
+        <!-- Share Weibo -->
+        
+        <li class="menu-item">
+            <a href="http://service.weibo.com/share/share.php?appkey=&title=Better&url=http://lysmbetter.top&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">分享到微博</a>
+        </li>
+        
+
+        <!-- Share Twitter -->
+        
+        <li class="menu-item">
+            <a href="https://twitter.com/intent/tweet?text=Better&url=http://lysmbetter.top&via=Better" target="_blank" rel="external noopener noreferrer nofollow">分享到 Twitter</a>
+        </li>
+        
+
+        <!-- Share Facebook -->
+        
+        <li class="menu-item">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow">分享到 Facebook</a>
+        </li>
+        
+
+        <!-- Share Google+ -->
+        
+        <li class="menu-item">
+            <a href="https://plus.google.com/share?url=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow">分享到 Google+</a>
+        </li>
+        
+
+        <!-- Share LinkedIn -->
+        
+        <li class="menu-item">
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top&title=Java反射10-数组" target="_blank" rel="external noopener noreferrer nofollow">分享到 LinkedIn</a>
+        </li>
+        
+
+        <!-- Share QQ -->
+        
+        <li class="menu-item">
+            <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Java反射10-数组&summary=描述文字&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow"> 分享到 QQ</a>
+        </li>
+        
+
+        <!-- Share Telegram -->
+        
+        <li class="menu-item">
+            <a href="https://t.me/share/url?url=http://lysmbetter.top&text=Java反射10-数组" target="_blank" rel="external noopener noreferrer nofollow">分享到 Telegram</a>
+        </li>
+        
+
+        <!-- QRCode -->
+        
+        <li class="menu-item">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB2ElEQVR42u3b0aqDQAyEYd//pc+5KhTZzExsC278vSlUXT9h3TSJPf5uuB2gQIECtUAdYnvtfz/ufM5q3/m75DqgZqGWk24x4AqkINV45XVAjUJVE3w1SdV53eNBPQ9VTeoKVO0DBWp1UrX4uQcE1DNRVaA8768CcYX4ya8EULdHpYnDp58/yWZA3Q5liw5iYXSJhVt4L1ddQN0aVS1yKulUE9ch5ZigxqDSgoU6Lk0a1MMAagZKXTBJNJMfevHNgBqBcj/2P3kQut+DmoGqEkWXdKqAroKuTExBjUF1EoU0CLtFFtRslJvo6gY6BX2XrIKaiXITtdtoTBdOUHNQUeHBFCjcyzlxMAc1AtWFdRuUSeMS1DyUCppqkjpccrOgZqIuJY6NlyJkEE4KHKC2R6kA7Aq3rlgWNYxAbY2qmodu4KSJqcaXARnU1qhoAgYNxaTJ1EocQG2PSgpoCt1paIOajXIT0xX0VZEjCfA2IIPaDpUW8F2hLDnPFUdAzUAlLzS7P0+kC6t6sEDNQnUajEmRLB1Hruigtkd1/3DRuWjyEIF6DurbE1omrKAeg7ryolcneQA1E5U0hNSLEQ4UNcJBjUG5oPmVSRwEdFAzUHfaQIECBept+weXKh69mlIoyAAAAABJRU5ErkJggg==" alr="QRCode">
+        </li>
+        
+
+    </ul>
+</div>
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    
+    
+
+
+<div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">Java反射10-数组</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/default_avatar.png" src="/img/suka-lazyload.gif" alt="Better's Avatar">
+        <span>2017-02-26</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/Java译文/">Java译文</a>
+        
+        
+            <!-- Busuanzi Post Views -->
+<span id="busuanzi_container_page_pv" hidden>
+    <span class="suka-devide-dot"></span>
+    <span></span>
+    <span id="busuanzi_value_page_pv"></span>
+    <span>Views</span>
+</span>
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=Java反射10-数组&url=http://lysmbetter.top/2017/02/26/Java反射10-数组/&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">分享到微博</a>
+    </li>
+    
+
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=Java反射10-数组&url=http://lysmbetter.top/2017/02/26/Java反射10-数组/&via=Better" target="_blank" rel="external noopener noreferrer nofollow">分享到 Twitter</a>
+    </li>
+    
+
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top/2017/02/26/Java反射10-数组/" target="_blank" rel="external noopener noreferrer nofollow">分享到 Facebook</a>
+    </li>
+    
+
+    <!-- Share Google+ -->
+    
+    <li class="menu-item">
+        <a href="https://plus.google.com/share?url=http://lysmbetter.top/2017/02/26/Java反射10-数组/" target="_blank" rel="external noopener noreferrer nofollow">分享到 Google+</a>
+    </li>
+    
+
+    <!-- Share LinkedIn -->
+    
+    <li class="menu-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top/2017/02/26/Java反射10-数组/&title=Better" target="_blank" rel="external noopener noreferrer nofollow">分享到 LinkedIn</a>
+    </li>
+    
+
+    <!-- Share QQ -->
+    
+    <li class="menu-item">
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Better&summary=描述文字&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top/2017/02/26/Java反射10-数组/" target="_blank" rel="external noopener noreferrer nofollow"> 分享到 QQ</a>
+    </li>
+    
+
+    <!-- Share Telegram -->
+    
+    <li class="menu-item">
+        <a href="https://t.me/share/url?url=http://lysmbetter.top/2017/02/26/Java反射10-数组/&text=Better" target="_blank" rel="external noopener noreferrer nofollow">分享到 Telegram</a>
+    </li>
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB2ElEQVR42u3b0aqDQAyEYd//pc+5KhTZzExsC278vSlUXT9h3TSJPf5uuB2gQIECtUAdYnvtfz/ufM5q3/m75DqgZqGWk24x4AqkINV45XVAjUJVE3w1SdV53eNBPQ9VTeoKVO0DBWp1UrX4uQcE1DNRVaA8768CcYX4ya8EULdHpYnDp58/yWZA3Q5liw5iYXSJhVt4L1ddQN0aVS1yKulUE9ch5ZigxqDSgoU6Lk0a1MMAagZKXTBJNJMfevHNgBqBcj/2P3kQut+DmoGqEkWXdKqAroKuTExBjUF1EoU0CLtFFtRslJvo6gY6BX2XrIKaiXITtdtoTBdOUHNQUeHBFCjcyzlxMAc1AtWFdRuUSeMS1DyUCppqkjpccrOgZqIuJY6NlyJkEE4KHKC2R6kA7Aq3rlgWNYxAbY2qmodu4KSJqcaXARnU1qhoAgYNxaTJ1EocQG2PSgpoCt1paIOajXIT0xX0VZEjCfA2IIPaDpUW8F2hLDnPFUdAzUAlLzS7P0+kC6t6sEDNQnUajEmRLB1Hruigtkd1/3DRuWjyEIF6DurbE1omrKAeg7ryolcneQA1E5U0hNSLEQ4UNcJBjUG5oPmVSRwEdFAzUHfaQIECBept+weXKh69mlIoyAAAAABJRU5ErkJggg==" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                            <div id="post-toc">
+                                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#java-lang-reflect-Array"><span class="post-toc-number">1.</span> <span class="post-toc-text">java.lang.reflect.Array</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#创建数组"><span class="post-toc-number">2.</span> <span class="post-toc-text">创建数组</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#访问数组"><span class="post-toc-number">3.</span> <span class="post-toc-text">访问数组</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#获取数组的类对象"><span class="post-toc-number">4.</span> <span class="post-toc-text">获取数组的类对象</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#获取数组的主键类型"><span class="post-toc-number">5.</span> <span class="post-toc-text">获取数组的主键类型</span></a></li></ol>
+                            </div>
+                        
+                    
+                    <article id="post-content">
+                        <ul>
+<li>java.lang.reflect.Array</li>
+<li>Creating Arrays</li>
+<li>Accessing Arrays</li>
+<li>Obtaining the Class Object of an Array</li>
+<li>Obtaining the Component Type of an Array</li>
+</ul>
+<p>通过Java反射操作数组有时候有点棘手。尤其是当你获取是准确的数组对象，比如<code>int[]</code>等。本文将讲述通过Java反射来创建数组以及得到他们的对象。<br>注意：在阅读了<a href="http://jroller.com/eyallupu/entry/two_side_notes_about_arrays" target="_blank" rel="noopener">Eyal Lupu - All About Java</a>本文已经更新了。本文引用了它的观点。</p>
+<h2 id="java-lang-reflect-Array"><a href="#java-lang-reflect-Array" class="headerlink" title="java.lang.reflect.Array"></a>java.lang.reflect.Array</h2><p>通过Java反射来操作数组是通过<code>java.lang.reflect.Array</code>来完成的。不要和<code>java.util.Array</code>中的数组搞混淆了。后者包含了一些了的有效的数组排序，转换成集合的方法等。</p>
+<h2 id="创建数组"><a href="#创建数组" class="headerlink" title="创建数组"></a>创建数组</h2><p>通过Java反射创建数据是通过<code>java.lang.reflect.Array</code>类完成的。例子中展示了怎样创建数组：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int[] intArray = (int[]) Array.newInstance(int.class, 3);</span><br></pre></td></tr></table></figure>
+
+<p>例子中创建了一个int类型的数组。<code>Array.newInstance()</code>方法的第一个参数告诉了我们数组的元素类型。第二参数告诉了数组的长度。</p>
+<h2 id="访问数组"><a href="#访问数组" class="headerlink" title="访问数组"></a>访问数组</h2><p>使用Java反射是能够访问数组中的每个元素的。这是通过<code>Array.get(...)</code>和<code>Array.set(...)</code>方法完成的。例子如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">int[] intArray = (int[]) Array.newInstance(int.class, 3);</span><br><span class="line"></span><br><span class="line">Array.set(intArray, 0, 123);</span><br><span class="line">Array.set(intArray, 1, 456);</span><br><span class="line">Array.set(intArray, 2, 789);</span><br><span class="line"></span><br><span class="line">System.out.println(&quot;intArray[0] = &quot; + Array.get(intArray, 0));</span><br><span class="line">System.out.println(&quot;intArray[1] = &quot; + Array.get(intArray, 1));</span><br><span class="line">System.out.println(&quot;intArray[2] = &quot; + Array.get(intArray, 2));</span><br></pre></td></tr></table></figure>
+
+<p>代码将输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">intArray[0] = 123</span><br><span class="line">intArray[1] = 456</span><br><span class="line">intArray[2] = 789</span><br></pre></td></tr></table></figure>
+
+<h2 id="获取数组的类对象"><a href="#获取数组的类对象" class="headerlink" title="获取数组的类对象"></a>获取数组的类对象</h2><p>在我使用脚步语言<a href="http://butterfly.jenkov.com/" target="_blank" rel="noopener">Butterfly DI Container</a>的时候，总会有个问题怎样通过Java反射区去获取数组对象的类对象。如果不适用反射的话，你可以这样获取：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class stringArrayClass = String[].class;</span><br></pre></td></tr></table></figure>
+
+<p>使用Class.forName（）这样做不是很简单。比如你可以想下面这样获取基本数据类型的int型数组。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class intArray = Class.forName(&quot;[I&quot;);</span><br></pre></td></tr></table></figure>
+
+<p>JVM通过字母<code>I</code>表示int。在<code>I</code>左边的<code>[</code>字符表示我申明的是int型数组的的类。其他基本的数据类型都可以这样做。<br>对于其他的对象型数据类型获取方式略有(slightly)不同。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class stringArrayClass = Class.forName(&quot;[Ljava.lang.String;&quot;);</span><br></pre></td></tr></table></figure>
+
+<p>注意类型左边的到<code>[L</code>和右边的<code>;</code>符号。这意味着返回一个指定类型的数组。<br>作为反例，能不能通过<code>Class.forName()</code>来获取基本的数据类型数组。下面的列子将会报<code>ClassNotFoundException</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Class intClass1 = Class.forName(&quot;I&quot;);</span><br><span class="line">Class intClass2 = Class.forName(&quot;int&quot;);</span><br></pre></td></tr></table></figure>
+
+<p>我通常像下面的方式来获取基本的数据类型和对象型数据的类名：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public Class getClass(String className)&#123;</span><br><span class="line">  if(&quot;int&quot; .equals(className)) return int .class;</span><br><span class="line">  if(&quot;long&quot;.equals(className)) return long.class;</span><br><span class="line">  ...</span><br><span class="line">  return Class.forName(className);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>一旦你获取到了类的类型，这里有一张简单方式来获取类的数组。你也需叫做解决方式，是先创建一个空的指定类型的数组，然后从这个空的数组中获取指定的类对象。这看起来是个骗人的，但是确实有效的。代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Class theClass = getClass(theClassName);</span><br><span class="line">Class stringArrayClass = Array.newInstance(theClass, 0).getClass();</span><br></pre></td></tr></table></figure>
+
+<p>这提供了一个单一的，统一的方法来访问任何类型的数组的数组类。没有使用到类名等等。<br>为了确认类对象确确是一个数组，你可以使用<code>Class.isArray()</code>方法来检查。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Class stringArrayClass = Array.newInstance(String.class, 0).getClass();</span><br><span class="line">System.out.println(&quot;is array: &quot; + stringArrayClass.isArray());</span><br></pre></td></tr></table></figure>
+
+<h2 id="获取数组的主键类型"><a href="#获取数组的主键类型" class="headerlink" title="获取数组的主键类型"></a>获取数组的主键类型</h2><p>一旦你获取到了数组的类对象，你可以使用<code>Class.getComponentType()</code>获取到他的主键类型。主键类型就是数组元素的类型。比如说int[] 数组的主键类型就是int类型的对象。String[] 数组的主键类型就是String类型的类对象。<br>例子如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String[] strings = new String[3];</span><br><span class="line">Class stringArrayClass = strings.getClass();</span><br><span class="line">Class stringArrayComponentType = stringArrayClass.getComponentType();</span><br><span class="line">System.out.println(stringArrayComponentType);</span><br></pre></td></tr></table></figure>
+
+<p>代码将输出<code>java.lang.String</code>,并且这个主键类型是String数组的。</p>
+<p><a href="http://tutorials.jenkov.com/java-reflection/arrays.html" target="_blank" rel="noopener">原文</a></p>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
+    <script>
+        var dateUpdate = Date.parse("2018-08-05");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2017-02-26T09:40:21.000Z" itemprop="datePublished">2017-02-26</time>
+
+    , 最后修改于&nbsp;<time datetime="2018-08-05T06:55:06.882Z" itemprop="dateModified">2018-08-05</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+
+<a class="post-categories-list-item" href='/categories/Java译文/'>Java译文</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+
+<a class="post-tags-list-item" href="/tags/Java反射/" rel="tag">#&nbsp;Java反射</a>
+
+<a class="post-tags-list-item" href="/tags/Array/" rel="tag">#&nbsp;Array</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                
+<div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2017/02/26/Java反射11-动态代理/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">Java反射11-动态代理</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2017/02/26/Java反射9-泛型/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">Java反射9-泛型</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span data-year></span>
+        <a class="footer-copyright-a" href="http://lysmbetter.top">Better</a>
+    </p>
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+            
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+        
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+        
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+
+
+    /* Copyright */
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.querySelector('span[data-year]')
+    
+        copyrightContent.textContent = copyrightNow
+    
+
+
+
+/* Cnosole Log */
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+</script>
+
+<!-- vanilla-lazyload -->
+
+    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
+
+
+
+    <!-- Busuanzi -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+
+
+
+<!-- gallery.js -->
+
+
+<!-- Comment -->
+
+
+<!-- ### Custom Footer ### -->
+
+
+    </body>
+
+</html>

@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hans">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <!--
+        © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+        Version: 1.3.3
+    -->
+    <script>
+window.lsVersion = "1.3.3",
+window.oldVersion = [
+    
+        
+            "0.2.0","0.0.1","0.1.0","1.0.0","1.0.1","1.1.0","1.1.1","1.2.0","1.3.0","1.3.2"
+        
+    
+]
+</script>
+
+    <!-- ### DNS Prefetch ### -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+
+    <!-- ### Preload ### -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+<!-- Title -->
+<title>Java反射9-泛型 | Better</title>
+
+<!-- favicon -->
+<!-- Favicons -->
+
+    <link rel="icon" type="image/ico" href="/img/suka-favicon.ico">
+
+
+
+
+
+
+<!-- Android Chrome Color -->
+
+
+
+<meta name="format-detection" content="telephone=no">
+
+<!-- Description -->
+<meta name="description" content="
+The Generics Reflection Rule of Thumb
+Generic Method Return Types
+Generic Method Parameter...">
+
+<!-- Keywords -->
+<meta name="keywords" content=", Java反射, Generic">
+
+<!-- Disable Fucking Bloody Baidu Tranformation -->
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!-- ### Import File ### -->
+    
+        <!-- spectre.css -->
+
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css">
+
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: #0070ff;
+    }
+
+    a:active, a:focus, a:hover {
+        color: #0070ff;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: #005eb9;
+        opacity: 1;
+    }
+
+    .post-entry .card-body a {
+        color: #0070ff;
+    }
+
+    .avatar {
+        background: #444;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: #0070ff;
+    }
+
+    .navbar-link:hover {
+        color: #0070ff;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: #727e96;
+        border-color: #727e96;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: #727e96;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style>
+
+<!-- style.css -->
+
+    <link rel="stylesheet" href="/css/style.min.css">
+
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    
+        <link rel="stylesheet" href="/css/highlight/github.min.css">
+    
+
+
+
+    
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <!-- ### RSS ### -->
+    
+
+    <!-- ### WebApp ### -->
+    <meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="Better">
+<meta name="msapplication-starturl" content="http://lysmbetter.top">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Better">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- Manifest Import -->
+
+<!-- Open Search -->
+
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="Java反射9-泛型 | Better">
+<meta property="og:site_name" content="Better">
+
+<meta property="og:locale" content="zh-Hans">
+
+<meta property="og:url" content="http://lysmbetter.top/2017/02/26/Java反射9-泛型/">
+<meta property="og:image" content="http://lysmbetter.top/img/suka-favicon.ico">
+
+<meta property="og:description" content="
+The Generics Reflection Rule of Thumb
+Generic Method Return Types
+Generic Method Parameter...">
+
+<meta name="twitter:card" content="summary">
+
+
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2017-02-26T06:53:28.000Z">
+    <meta property="article:modified_time" content="2017-02-26T06:53:28.000Z">
+    <meta property="article:author" content="Better">
+    <meta property="og:article:tag" content=", Java反射, Generic"> 
+
+
+
+
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://lysmbetter.top/2017/02/26/Java反射9-泛型/">
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "http://lysmbetter.top/2017/02/26/Java反射9-泛型/",
+    "@type": "BlogPosting",
+    "logo": "http://lysmbetter.top/img/suka-favicon.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://lysmbetter.top/2017/02/26/Java反射9-泛型/"
+    },
+    "headline": "Java反射9-泛型 | Better",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "http://lysmbetter.top/img/suka-favicon.ico"
+    },
+    
+    "datePublished": "2017-02-26T06:53:28.000Z",
+    "dateModified": "2018-08-05T06:55:37.237Z",
+    "author": {
+        "@type": "Person",
+        "name": "Better",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://lysmbetter.top/img/default_avatar.png"
+        },
+        "description": "Hi, nice to meet you."
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Better",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "http://lysmbetter.top/img/suka-favicon.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "http://lysmbetter.top/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": ", Java反射, Generic",
+    "description": "
+The Generics Reflection Rule of Thumb
+Generic Method Return Types
+Generic Method Parameter..."
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+
+
+</head>
+
+    <body>
+        
+
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">Better</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                Hi, nice to meet you.
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">首页</a>
+    
+    
+        <a href="/archives/" class="navbar-link">归档</a>
+    
+    
+        <a href="/search" class="navbar-link">搜索</a>
+    
+    
+    
+        <div class="dropdown dropdown-right">
+    <a class="navbar-link dropdown-toggle" tabindex="0">分享</a>
+    <ul class="menu share-menu">
+
+        <!-- Share Weibo -->
+        
+        <li class="menu-item">
+            <a href="http://service.weibo.com/share/share.php?appkey=&title=Better&url=http://lysmbetter.top&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">分享到微博</a>
+        </li>
+        
+
+        <!-- Share Twitter -->
+        
+        <li class="menu-item">
+            <a href="https://twitter.com/intent/tweet?text=Better&url=http://lysmbetter.top&via=Better" target="_blank" rel="external noopener noreferrer nofollow">分享到 Twitter</a>
+        </li>
+        
+
+        <!-- Share Facebook -->
+        
+        <li class="menu-item">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow">分享到 Facebook</a>
+        </li>
+        
+
+        <!-- Share Google+ -->
+        
+        <li class="menu-item">
+            <a href="https://plus.google.com/share?url=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow">分享到 Google+</a>
+        </li>
+        
+
+        <!-- Share LinkedIn -->
+        
+        <li class="menu-item">
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top&title=Java反射9-泛型" target="_blank" rel="external noopener noreferrer nofollow">分享到 LinkedIn</a>
+        </li>
+        
+
+        <!-- Share QQ -->
+        
+        <li class="menu-item">
+            <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Java反射9-泛型&summary=描述文字&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow"> 分享到 QQ</a>
+        </li>
+        
+
+        <!-- Share Telegram -->
+        
+        <li class="menu-item">
+            <a href="https://t.me/share/url?url=http://lysmbetter.top&text=Java反射9-泛型" target="_blank" rel="external noopener noreferrer nofollow">分享到 Telegram</a>
+        </li>
+        
+
+        <!-- QRCode -->
+        
+        <li class="menu-item">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB20lEQVR42u3a0W7EIAxE0fz/T7evqxWeuU5TCZzJy27VDZxIDmDD9bPhdQUVVFBBLVCXuMqbv/63uqf6W/UT1ByU6/jz5lWDFVI9yLKfoEahqo5Wjd1BuH6CehdKfXcBXLUX1LtRq8G0gqsHCupdKBKo1aRcLeb+bZUQ1PYotaB/8vOxbCaorVG26GACmiSlj1ddgtoaRQZENSGrF4QOuEHNQqnAdUmleymqgA/qHSiVCLgE4k7yuewjqHEoWox1E7KazP+8yAtqe5Qq0HeKrWSTyRZGghqBsoUssGhziz/6sgQ1C9VJQFXjBF/2G9QYFAncToHfFTXa2UxQx6FIsVQVPshAiib1oMag1MRMgpcmnq7doOahSKGCFlVJ0oB3HII6DuUK+moAJIfByO+DmoXqBGbnICHdNA9qFspNui7pJL+jDxXUHBQplpJBkx6kLwfroMahyEYQLaiRA6j2BEdQY1A06Elg356QgzoW1dncJsV6twiUG05BjUB1C65kwu0s9mTiENSxqG7xrJNYuMNhNnEI6lhUp/hFkgEyIdtAD2o0im4qkntbBwWDGo2Si/7mxvdjgR7UtqhOwkBwJNCDmotyRQhadKWHKexBwaCORu10BRVUUEF9XL+DTRCvNlUXDwAAAABJRU5ErkJggg==" alr="QRCode">
+        </li>
+        
+
+    </ul>
+</div>
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    
+    
+
+
+<div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">Java反射9-泛型</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/default_avatar.png" src="/img/suka-lazyload.gif" alt="Better's Avatar">
+        <span>2017-02-26</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/Java译文/">Java译文</a>
+        
+        
+            <!-- Busuanzi Post Views -->
+<span id="busuanzi_container_page_pv" hidden>
+    <span class="suka-devide-dot"></span>
+    <span></span>
+    <span id="busuanzi_value_page_pv"></span>
+    <span>Views</span>
+</span>
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=Java反射9-泛型&url=http://lysmbetter.top/2017/02/26/Java反射9-泛型/&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">分享到微博</a>
+    </li>
+    
+
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=Java反射9-泛型&url=http://lysmbetter.top/2017/02/26/Java反射9-泛型/&via=Better" target="_blank" rel="external noopener noreferrer nofollow">分享到 Twitter</a>
+    </li>
+    
+
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top/2017/02/26/Java反射9-泛型/" target="_blank" rel="external noopener noreferrer nofollow">分享到 Facebook</a>
+    </li>
+    
+
+    <!-- Share Google+ -->
+    
+    <li class="menu-item">
+        <a href="https://plus.google.com/share?url=http://lysmbetter.top/2017/02/26/Java反射9-泛型/" target="_blank" rel="external noopener noreferrer nofollow">分享到 Google+</a>
+    </li>
+    
+
+    <!-- Share LinkedIn -->
+    
+    <li class="menu-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top/2017/02/26/Java反射9-泛型/&title=Better" target="_blank" rel="external noopener noreferrer nofollow">分享到 LinkedIn</a>
+    </li>
+    
+
+    <!-- Share QQ -->
+    
+    <li class="menu-item">
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Better&summary=描述文字&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top/2017/02/26/Java反射9-泛型/" target="_blank" rel="external noopener noreferrer nofollow"> 分享到 QQ</a>
+    </li>
+    
+
+    <!-- Share Telegram -->
+    
+    <li class="menu-item">
+        <a href="https://t.me/share/url?url=http://lysmbetter.top/2017/02/26/Java反射9-泛型/&text=Better" target="_blank" rel="external noopener noreferrer nofollow">分享到 Telegram</a>
+    </li>
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB20lEQVR42u3a0W7EIAxE0fz/T7evqxWeuU5TCZzJy27VDZxIDmDD9bPhdQUVVFBBLVCXuMqbv/63uqf6W/UT1ByU6/jz5lWDFVI9yLKfoEahqo5Wjd1BuH6CehdKfXcBXLUX1LtRq8G0gqsHCupdKBKo1aRcLeb+bZUQ1PYotaB/8vOxbCaorVG26GACmiSlj1ddgtoaRQZENSGrF4QOuEHNQqnAdUmleymqgA/qHSiVCLgE4k7yuewjqHEoWox1E7KazP+8yAtqe5Qq0HeKrWSTyRZGghqBsoUssGhziz/6sgQ1C9VJQFXjBF/2G9QYFAncToHfFTXa2UxQx6FIsVQVPshAiib1oMag1MRMgpcmnq7doOahSKGCFlVJ0oB3HII6DuUK+moAJIfByO+DmoXqBGbnICHdNA9qFspNui7pJL+jDxXUHBQplpJBkx6kLwfroMahyEYQLaiRA6j2BEdQY1A06Elg356QgzoW1dncJsV6twiUG05BjUB1C65kwu0s9mTiENSxqG7xrJNYuMNhNnEI6lhUp/hFkgEyIdtAD2o0im4qkntbBwWDGo2Si/7mxvdjgR7UtqhOwkBwJNCDmotyRQhadKWHKexBwaCORu10BRVUUEF9XL+DTRCvNlUXDwAAAABJRU5ErkJggg==" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                            <div id="post-toc">
+                                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#泛型的大体规则"><span class="post-toc-number">1.</span> <span class="post-toc-text">泛型的大体规则</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#泛型方法的返回类型"><span class="post-toc-number">2.</span> <span class="post-toc-text">泛型方法的返回类型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#泛型方法参数的类型"><span class="post-toc-number">3.</span> <span class="post-toc-text">泛型方法参数的类型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#泛型成员变量的泛型"><span class="post-toc-number">4.</span> <span class="post-toc-text">泛型成员变量的泛型</span></a></li></ol>
+                            </div>
+                        
+                    
+                    <article id="post-content">
+                        <ul>
+<li>The Generics Reflection Rule of Thumb</li>
+<li>Generic Method Return Types</li>
+<li>Generic Method Parameter Types</li>
+<li>Generic Field Types</li>
+</ul>
+<p>我经常在一些文章或者论坛里面读到Java泛型在编译的时候已经被抹掉了，所以在运行时你不能获取到Java泛型。这完全是不对的。在少数情况下，可以在运行时访问泛型信息。这些情况实际上涵盖了我们对Java泛型信息的几个需求。本文将解释这些情况。</p>
+<h2 id="泛型的大体规则"><a href="#泛型的大体规则" class="headerlink" title="泛型的大体规则"></a>泛型的大体规则</h2><p>以下两种情形会使用到泛型：</p>
+<ol>
+<li>将类/接口声明为可参数化。</li>
+<li>使用可参数化的类。</li>
+</ol>
+<p>当你创建一个类或者接口的时候，你看申明它可以参数化。<code>java.util.List</code>就是这种情况。比如用<code>java.util.List</code>你可以创建一个String的列表，而不是只能创建Object类型的列表。<br>像<code>java.util.List</code>这种使用泛型的的情形在程序运行的时候是没有办法去获取泛型到底被参数成了什么类型。这是合理的，因为泛型能被参数化为当前程序的所有类型。但是在程序运行时候，当你检查使用了泛型的方法或者作用域时，你是能够获取到泛型到底被那种数据参数化了。简而言之：<br>在运行时你是不能直接获取到泛型到底被那种数据参数化了，但是却可以通过使用泛型的方法和作用域来获取泛型的参数类型。或者说它有具体的参数化类型。接下来的几节将了解这些情况。</p>
+<h2 id="泛型方法的返回类型"><a href="#泛型方法的返回类型" class="headerlink" title="泛型方法的返回类型"></a>泛型方法的返回类型</h2><p>若果你获取到了<code>java.lang.reflect.Method</code>对象，是能够去获取到方法的返回类型的（注：泛型的类型的参数类型）。这种方式是不能获取到所有方法的泛型参数类型，但是却可以获取到类中定义的使用了泛型的成员变量类型。你可以阅读’Java反射-方法’来了解怎么获取Method对象。下面这个例子讲述了类中的一个方法的返回类型包含泛型：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public class MyClass &#123;</span><br><span class="line"></span><br><span class="line">  protected List&lt;String&gt; stringList = ...;</span><br><span class="line"></span><br><span class="line">  public List&lt;String&gt; getStringList()&#123;</span><br><span class="line">    return this.stringList;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在MyClass类中是能够获取到<code>getStringList()</code>方法返回的泛型数据类型的。或者说，是能够获取到<code>getStringList()</code>方法返回了一个String类型的List而不是只能知道返回了一个List。代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Method method = MyClass.class.getMethod(&quot;getStringList&quot;, null);</span><br><span class="line"></span><br><span class="line">Type returnType = method.getGenericReturnType();</span><br><span class="line"></span><br><span class="line">if(returnType instanceof ParameterizedType)&#123;</span><br><span class="line">    ParameterizedType type = (ParameterizedType) returnType;</span><br><span class="line">    Type[] typeArguments = type.getActualTypeArguments();</span><br><span class="line">    for(Type typeArgument : typeArguments)&#123;</span><br><span class="line">        Class typeArgClass = (Class) typeArgument;</span><br><span class="line">        System.out.println(&quot;typeArgClass = &quot; + typeArgClass);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面的代码片段将输出<code>typeArgClass = java.lang.String</code>。Type[]数组typeArguments将包含一个元素–一个代表实现了Type接口的<code>java.lang.String</code>类的对象。类实现类型接口。</p>
+<h2 id="泛型方法参数的类型"><a href="#泛型方法参数的类型" class="headerlink" title="泛型方法参数的类型"></a>泛型方法参数的类型</h2><p>你要可以放过Java反射获取带有泛型的参数的泛型类型。下面的例子中类中有个方法的参数是一个可参数化的List：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class MyClass &#123;</span><br><span class="line">  protected List&lt;String&gt; stringList = ...;</span><br><span class="line"></span><br><span class="line">  public void setStringList(List&lt;String&gt; list)&#123;</span><br><span class="line">    this.stringList = list;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>你可以获取到泛型参数的泛型类型：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">method = Myclass.class.getMethod(&quot;setStringList&quot;, List.class);</span><br><span class="line"></span><br><span class="line">Type[] genericParameterTypes = method.getGenericParameterTypes();</span><br><span class="line"></span><br><span class="line">for(Type genericParameterType : genericParameterTypes)&#123;</span><br><span class="line">    if(genericParameterType instanceof ParameterizedType)&#123;</span><br><span class="line">        ParameterizedType aType = (ParameterizedType) genericParameterType;</span><br><span class="line">        Type[] parameterArgTypes = aType.getActualTypeArguments();</span><br><span class="line">        for(Type parameterArgType : parameterArgTypes)&#123;</span><br><span class="line">            Class parameterArgClass = (Class) parameterArgType;</span><br><span class="line">            System.out.println(&quot;parameterArgClass = &quot; + parameterArgClass);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>代码将输出<code>parameterArgType = java.lang.String</code>。这Type[]数组parameterArgTypes将包含一个元素–一个代表实现了Type接口的<code>java.lang.String</code>类的对象。类实现类型接口。</p>
+<h2 id="泛型成员变量的泛型"><a href="#泛型成员变量的泛型" class="headerlink" title="泛型成员变量的泛型"></a>泛型成员变量的泛型</h2><p>获取public的成员变量的泛型也是可以的。成员变量对象是类的成员-静态的或者实例变量。你可以阅读‘Java反射-成员变量’来了解怎样获取成员变量的对象。下面的例子是前面的例子，类中有一个叫做stringList的对象：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public class MyClass &#123;</span><br><span class="line">  public List&lt;String&gt; stringList = ...;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Field field = MyClass.class.getField(&quot;stringList&quot;);</span><br><span class="line"></span><br><span class="line">Type genericFieldType = field.getGenericType();</span><br><span class="line"></span><br><span class="line">if(genericFieldType instanceof ParameterizedType)&#123;</span><br><span class="line">    ParameterizedType aType = (ParameterizedType) genericFieldType;</span><br><span class="line">    Type[] fieldArgTypes = aType.getActualTypeArguments();</span><br><span class="line">    for(Type fieldArgType : fieldArgTypes)&#123;</span><br><span class="line">        Class fieldArgClass = (Class) fieldArgType;</span><br><span class="line">        System.out.println(&quot;fieldArgClass = &quot; + fieldArgClass);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这段代码将输出<code>fieldArgClass = java.lang.String</code>。Type[]数组fieldArgTypes包含一个元素-一个代表实现了Type接口的<code>java.lang.String</code>类的对象。类实现类型接口。</p>
+<p><a href="http://tutorials.jenkov.com/java-reflection/generics.html" target="_blank" rel="noopener">原文</a></p>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
+    <script>
+        var dateUpdate = Date.parse("2018-08-05");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2017-02-26T06:53:28.000Z" itemprop="datePublished">2017-02-26</time>
+
+    , 最后修改于&nbsp;<time datetime="2018-08-05T06:55:37.237Z" itemprop="dateModified">2018-08-05</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+
+<a class="post-categories-list-item" href='/categories/Java译文/'>Java译文</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+
+<a class="post-tags-list-item" href="/tags/Java反射/" rel="tag">#&nbsp;Java反射</a>
+
+<a class="post-tags-list-item" href="/tags/Generic/" rel="tag">#&nbsp;Generic</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                
+<div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2017/02/26/Java反射10-数组/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">Java反射10-数组</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2017/02/26/Java反射8-注解/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">Java反射8-注解</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span data-year></span>
+        <a class="footer-copyright-a" href="http://lysmbetter.top">Better</a>
+    </p>
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+            
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+        
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+        
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+
+
+    /* Copyright */
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.querySelector('span[data-year]')
+    
+        copyrightContent.textContent = copyrightNow
+    
+
+
+
+/* Cnosole Log */
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+</script>
+
+<!-- vanilla-lazyload -->
+
+    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
+
+
+
+    <!-- Busuanzi -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+
+
+
+<!-- gallery.js -->
+
+
+<!-- Comment -->
+
+
+<!-- ### Custom Footer ### -->
+
+
+    </body>
+
+</html>
