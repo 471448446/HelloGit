@@ -1,26 +1,18 @@
 <!DOCTYPE html>
 
 <html lang="zh-Hans">
-    <head><meta name="generator" content="Hexo 3.9.0">
+    <head>
     <meta charset="utf-8">
     <!--
-        © SukkaW
+        hexo-theme-suka © SukkaW
         GitHub: https://github.com/SukkaW/hexo-theme-suka
-        Version: 1.3.3
     -->
-    <script>
-window.lsVersion = "1.3.3",
-window.oldVersion = [
-    
-        
-            "0.2.0","0.0.1","0.1.0","1.0.0","1.0.1","1.1.0","1.1.1","1.2.0","1.3.0","1.3.2"
-        
-    
-]
-</script>
 
-    <!-- ### DNS Prefetch ### -->
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
     <meta http-equiv="x-dns-prefetch-control" content="on">
+
 <!-- busuanzi -->
 
     <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
@@ -42,8 +34,7 @@ window.oldVersion = [
 
 
 
-
-    <!-- ### Preload ### -->
+    <!-- ## Preload ## -->
     
     <!-- Busuanzi -->
     
@@ -56,47 +47,18 @@ window.oldVersion = [
 
 
     <!-- ### Meta & Title & Info ### -->
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
-<meta name="renderer" content="webkit">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
 
-<!-- Title -->
-<title>Category: Java译文 | Better</title>
+    <!-- Title -->
+    <title>Category: Java译文 | Better</title>
 
-<!-- favicon -->
-<!-- Favicons -->
-
-    <link rel="icon" type="image/ico" href="/img/suka-favicon.ico">
-
-
-
-
-
-
-<!-- Android Chrome Color -->
-
-
-
-<meta name="format-detection" content="telephone=no">
-
-<!-- Description -->
-<meta name="description" content="描述文字">
-
-<!-- Keywords -->
-<meta name="keywords" content>
-
-<!-- Disable Fucking Bloody Baidu Tranformation -->
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/suka-favicon.ico">
 
     <!-- ### Import File ### -->
-    
-        <!-- spectre.css -->
-
-    <link rel="stylesheet" href="/lib/spectre/spectre.min.css">
-
-
-<style>
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css"><style>
     body {
         background-color: #f8f9fa;
     }
@@ -117,6 +79,8 @@ window.oldVersion = [
         color: #005eb9;
         opacity: 1;
     }
+
+    
 
     .post-entry .card-body a {
         color: #0070ff;
@@ -159,12 +123,7 @@ window.oldVersion = [
         background: #f8f9fa;
         opacity: .85;
     }
-</style>
-
-<!-- style.css -->
-
-    <link rel="stylesheet" href="/css/style.min.css">
-
+</style><link rel="stylesheet" href="/css/style.min.css">
 
 
 
@@ -177,48 +136,28 @@ window.oldVersion = [
     
 
 
-    
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
 
     <!-- ### Site Verification ### -->
     
 
 
-    <!-- ### RSS ### -->
-    
-
-    <!-- ### WebApp ### -->
-    <meta name="mobile-web-app-capable" content="yes">
-<meta name="application-name" content="Better">
-<meta name="msapplication-starturl" content="http://lysmbetter.top">
-
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Better">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-<!-- Manifest Import -->
-
-<!-- Open Search -->
-
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="Better"><meta name="msapplication-starturl" content="http://lysmbetter.top"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Better"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- ### The Open Graph & Twitter Card Protocol ### -->
-    <meta property="og:title" content="Category: Java译文 | Better">
-<meta property="og:site_name" content="Better">
+    <meta property="og:title" content="Category: Java译文 | Better"><meta property="og:site_name" content="Better"><meta property="og:type" content="website"><meta property="og:url" content="http:&#x2F;&#x2F;lysmbetter.top&#x2F;categories&#x2F;Java%E8%AF%91%E6%96%87&#x2F;"><meta property="og:locale" content="zh-Hans"><meta name="description" content="业精于勤荒于嬉 - Better - Better">
 
-<meta property="og:locale" content="zh-Hans">
+    
 
-<meta property="og:url" content="http://lysmbetter.top/categories/Java译文/">
-<meta property="og:image" content="http://lysmbetter.top/img/suka-favicon.ico">
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://lysmbetter.top/categories/Java%E8%AF%91%E6%96%87/">
 
-<meta property="og:description" content="描述文字">
-
-<meta name="twitter:card" content="summary">
-
-
-    <meta property="og:type" content="blog">
-
-
-
-
+    <meta name="generator" content="Hexo 4.0.0">
 
     <!-- ### Analytics ### -->
     
@@ -229,10 +168,6 @@ window.oldVersion = [
 
 
 
-
-    <!-- ### Canonical link ### -->
-    <link rel="canonical" href="http://lysmbetter.top/categories/Java译文/">
-
     <!-- ### Structured Data ### -->
     
 
@@ -241,13 +176,9 @@ window.oldVersion = [
 
     <!-- ### Custom Head ### -->
     
-
-
 </head>
 
     <body>
-        
-
             
 
             <!-- ### Main content ### -->
@@ -258,7 +189,7 @@ window.oldVersion = [
     <p class="text-center header-slogan">
         
             
-                Hi, nice to meet you.
+                业精于勤荒于嬉
             
         
     </p>
@@ -274,69 +205,10 @@ window.oldVersion = [
         <a href="/search" class="navbar-link">Search</a>
     
     
+        <a href="/tags/" class="navbar-link">Tags</a>
     
-        <div class="dropdown dropdown-right">
-    <a class="navbar-link dropdown-toggle" tabindex="0">Share</a>
-    <ul class="menu share-menu">
-
-        <!-- Share Weibo -->
-        
-        <li class="menu-item">
-            <a href="http://service.weibo.com/share/share.php?appkey=&title=Better&url=http://lysmbetter.top&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
-        </li>
-        
-
-        <!-- Share Twitter -->
-        
-        <li class="menu-item">
-            <a href="https://twitter.com/intent/tweet?text=Better&url=http://lysmbetter.top&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
-        </li>
-        
-
-        <!-- Share Facebook -->
-        
-        <li class="menu-item">
-            <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
-        </li>
-        
-
-        <!-- Share Google+ -->
-        
-        <li class="menu-item">
-            <a href="https://plus.google.com/share?url=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
-        </li>
-        
-
-        <!-- Share LinkedIn -->
-        
-        <li class="menu-item">
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top&title=" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
-        </li>
-        
-
-        <!-- Share QQ -->
-        
-        <li class="menu-item">
-            <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=&summary=描述文字&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
-        </li>
-        
-
-        <!-- Share Telegram -->
-        
-        <li class="menu-item">
-            <a href="https://t.me/share/url?url=http://lysmbetter.top&text=" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
-        </li>
-        
-
-        <!-- QRCode -->
-        
-        <li class="menu-item">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB20lEQVR42u3b227DIBCEYd7/pdPbpIKZnxwkPB5umrSx+SJhDrvb8TiwjaKKKqqoCWqI9nLB0/v/r2fXrN6rforKQU0H3aKD2Q1n91BfatlPUVGoVUcEMXswVp2rexV1L5Qa8DPg7D5FFeUmxhl2tXgXdT+U63j1GbWZ+9kuoajjUWpD/82fXzvNFHU0ygYdBPaTh+SjqEtRR6PUQKTI1QKsDrHThb6oGJQavGoDRyZHFzApKhPlNl8KRA4R5HNF5aHIYHeH1WGam0SLykC5Bdc9EGrQk4BuUXkoFVglwVb3N4koKh71TnBeHRJ2A2lFZaBcMpEG01zg3j0gReWg6EJKk9bqelvYU1QEinZMJs7dAFpRmSiy4NJimp2kI44OF3VplCu+UUFVWjS4HXUp6rIo8pokIgdsKAlZVARKDW65Qdso6lpuDIuKQ5HCGZoIIl8QZ7GKujRqJ8lICipoUqqoPNQ7AS8X2NgO9hcVgSJBDVqQ4yZNmyQoKgKFCo2H/8cwEoTdKsAp6tKoneAWTUa6xGNR+ShS0EcSkLTQC2fbi4pEkcMm3QzKQ2pRt0KRg+jqdyQJVVQeajfJQwexKmYuKhdFghAkiU0CcKpIuqgM1EmtqKKKKuqp/QF3K7EA8QxbcQAAAABJRU5ErkJggg==" alr="QRCode">
-        </li>
-        
-
-    </ul>
-</div>
+        <a href="/about/" class="navbar-link">About</a>
+    
     
     
 </nav>
@@ -352,21 +224,18 @@ window.oldVersion = [
             <div class="post-stream-container">
                 
                     <div class="grid-item">
-                        
-    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
-
-<article class="post-entry container px-0 card">
+                        <article class="post-entry container px-0 card">
         <div class="columns col-gapless">
             
                 <div class="column col-12">
                     
-    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/2017/04/10/java-网络/" rel="bookmark">Java-网络</a></h2>
+    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/2017/04/10/java-%E7%BD%91%E7%BB%9C/" rel="bookmark">Java-网络</a></h2>
 
 
 <p class="mb-0 card-body">
     
         网络编程指的是让所写的代码在几个设备之间运行，为的是将这些设备通过网络彼此相连。在J2SE下的java.net包中的API，提供了一些低级别的类和接口，帮助你专注于解决手上的问题。
-    <a href="/2017/04/10/java-网络/">Read more</a>
+    <a href="/2017/04/10/java-%E7%BD%91%E7%BB%9C/">Read more</a>
 </p>
 
 
@@ -378,7 +247,7 @@ window.oldVersion = [
         <time>2017-04-10</time>
         
             <span class="suka-devide-dot"></span>
-            <a class="category-link" href="/categories/Java译文/">Java译文</a>
+            <a class="category-link" href="/categories/Java%E8%AF%91%E6%96%87/">Java译文</a>
         
         
     </div>
@@ -391,15 +260,12 @@ window.oldVersion = [
                     </div>
                 
                     <div class="grid-item">
-                        
-    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
-
-<article class="post-entry container px-0 card">
+                        <article class="post-entry container px-0 card">
         <div class="columns col-gapless">
             
                 <div class="column col-12">
                     
-    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/2017/02/28/Java反射12-动态加载和重加载类/" rel="bookmark">Java反射12-动态加载和重加载类</a></h2>
+    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/2017/02/28/Java%E5%8F%8D%E5%B0%8412-%E5%8A%A8%E6%80%81%E5%8A%A0%E8%BD%BD%E5%92%8C%E9%87%8D%E5%8A%A0%E8%BD%BD%E7%B1%BB/" rel="bookmark">Java反射12-动态加载和重加载类</a></h2>
 
 
 <p class="mb-0 card-body">
@@ -409,7 +275,7 @@ The ClassLoader
 The ClassLoader Hierarchy
 Class Loading
 Dynamic Class Loading
-    <a href="/2017/02/28/Java反射12-动态加载和重加载类/">Read more</a>
+    <a href="/2017/02/28/Java%E5%8F%8D%E5%B0%8412-%E5%8A%A8%E6%80%81%E5%8A%A0%E8%BD%BD%E5%92%8C%E9%87%8D%E5%8A%A0%E8%BD%BD%E7%B1%BB/">Read more</a>
 </p>
 
 
@@ -421,7 +287,7 @@ Dynamic Class Loading
         <time>2017-02-28</time>
         
             <span class="suka-devide-dot"></span>
-            <a class="category-link" href="/categories/Java译文/">Java译文</a>
+            <a class="category-link" href="/categories/Java%E8%AF%91%E6%96%87/">Java译文</a>
         
         
     </div>
@@ -434,15 +300,12 @@ Dynamic Class Loading
                     </div>
                 
                     <div class="grid-item">
-                        
-    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
-
-<article class="post-entry container px-0 card">
+                        <article class="post-entry container px-0 card">
         <div class="columns col-gapless">
             
                 <div class="column col-12">
                     
-    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/2017/02/26/Java反射11-动态代理/" rel="bookmark">Java反射11-动态代理</a></h2>
+    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/2017/02/26/Java%E5%8F%8D%E5%B0%8411-%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/" rel="bookmark">Java反射11-动态代理</a></h2>
 
 
 <p class="mb-0 card-body">
@@ -452,7 +315,7 @@ Creating Proxies
 InvocationHandler’s
 Known Use Cases
 Database Connection and Tran...
-    <a href="/2017/02/26/Java反射11-动态代理/">Read more</a>
+    <a href="/2017/02/26/Java%E5%8F%8D%E5%B0%8411-%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/">Read more</a>
 </p>
 
 
@@ -464,7 +327,7 @@ Database Connection and Tran...
         <time>2017-02-26</time>
         
             <span class="suka-devide-dot"></span>
-            <a class="category-link" href="/categories/Java译文/">Java译文</a>
+            <a class="category-link" href="/categories/Java%E8%AF%91%E6%96%87/">Java译文</a>
         
         
     </div>
@@ -477,15 +340,12 @@ Database Connection and Tran...
                     </div>
                 
                     <div class="grid-item">
-                        
-    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
-
-<article class="post-entry container px-0 card">
+                        <article class="post-entry container px-0 card">
         <div class="columns col-gapless">
             
                 <div class="column col-12">
                     
-    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/2017/02/26/Java反射10-数组/" rel="bookmark">Java反射10-数组</a></h2>
+    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/2017/02/26/Java%E5%8F%8D%E5%B0%8410-%E6%95%B0%E7%BB%84/" rel="bookmark">Java反射10-数组</a></h2>
 
 
 <p class="mb-0 card-body">
@@ -495,7 +355,7 @@ java.lang.reflect.Array
 Creating Arrays
 Accessing Arrays
 Obtaining the Class Obje...
-    <a href="/2017/02/26/Java反射10-数组/">Read more</a>
+    <a href="/2017/02/26/Java%E5%8F%8D%E5%B0%8410-%E6%95%B0%E7%BB%84/">Read more</a>
 </p>
 
 
@@ -507,7 +367,7 @@ Obtaining the Class Obje...
         <time>2017-02-26</time>
         
             <span class="suka-devide-dot"></span>
-            <a class="category-link" href="/categories/Java译文/">Java译文</a>
+            <a class="category-link" href="/categories/Java%E8%AF%91%E6%96%87/">Java译文</a>
         
         
     </div>
@@ -520,15 +380,12 @@ Obtaining the Class Obje...
                     </div>
                 
                     <div class="grid-item">
-                        
-    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
-
-<article class="post-entry container px-0 card">
+                        <article class="post-entry container px-0 card">
         <div class="columns col-gapless">
             
                 <div class="column col-12">
                     
-    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/2017/02/26/Java反射9-泛型/" rel="bookmark">Java反射9-泛型</a></h2>
+    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/2017/02/26/Java%E5%8F%8D%E5%B0%849-%E6%B3%9B%E5%9E%8B/" rel="bookmark">Java反射9-泛型</a></h2>
 
 
 <p class="mb-0 card-body">
@@ -537,7 +394,7 @@ Obtaining the Class Obje...
 The Generics Reflection Rule of Thumb
 Generic Method Return Types
 Generic Method Parameter...
-    <a href="/2017/02/26/Java反射9-泛型/">Read more</a>
+    <a href="/2017/02/26/Java%E5%8F%8D%E5%B0%849-%E6%B3%9B%E5%9E%8B/">Read more</a>
 </p>
 
 
@@ -549,7 +406,7 @@ Generic Method Parameter...
         <time>2017-02-26</time>
         
             <span class="suka-devide-dot"></span>
-            <a class="category-link" href="/categories/Java译文/">Java译文</a>
+            <a class="category-link" href="/categories/Java%E8%AF%91%E6%96%87/">Java译文</a>
         
         
     </div>
@@ -562,15 +419,12 @@ Generic Method Parameter...
                     </div>
                 
                     <div class="grid-item">
-                        
-    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
-
-<article class="post-entry container px-0 card">
+                        <article class="post-entry container px-0 card">
         <div class="columns col-gapless">
             
                 <div class="column col-12">
                     
-    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/2017/02/26/Java反射8-注解/" rel="bookmark">Java反射8-注解</a></h2>
+    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/2017/02/26/Java%E5%8F%8D%E5%B0%848-%E6%B3%A8%E8%A7%A3/" rel="bookmark">Java反射8-注解</a></h2>
 
 
 <p class="mb-0 card-body">
@@ -580,7 +434,7 @@ What are Java Annotations?
 Class Annotations
 Method Annotations
 Parameter Annotat...
-    <a href="/2017/02/26/Java反射8-注解/">Read more</a>
+    <a href="/2017/02/26/Java%E5%8F%8D%E5%B0%848-%E6%B3%A8%E8%A7%A3/">Read more</a>
 </p>
 
 
@@ -592,7 +446,7 @@ Parameter Annotat...
         <time>2017-02-26</time>
         
             <span class="suka-devide-dot"></span>
-            <a class="category-link" href="/categories/Java译文/">Java译文</a>
+            <a class="category-link" href="/categories/Java%E8%AF%91%E6%96%87/">Java译文</a>
         
         
     </div>
@@ -605,15 +459,12 @@ Parameter Annotat...
                     </div>
                 
                     <div class="grid-item">
-                        
-    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
-
-<article class="post-entry container px-0 card">
+                        <article class="post-entry container px-0 card">
         <div class="columns col-gapless">
             
                 <div class="column col-12">
                     
-    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/2017/02/26/Java反射7-私有成员变量域和方法/" rel="bookmark">Java反射7-私有成员变量域和方法</a></h2>
+    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/2017/02/26/Java%E5%8F%8D%E5%B0%847-%E7%A7%81%E6%9C%89%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E5%9F%9F%E5%92%8C%E6%96%B9%E6%B3%95/" rel="bookmark">Java反射7-私有成员变量域和方法</a></h2>
 
 
 <p class="mb-0 card-body">
@@ -623,7 +474,7 @@ Accessing Private Fields
 Accessing Private Methods
 
 获取私有的成员变量域和方法也是可能的。这甚至不是那么的困难。在单元测...
-    <a href="/2017/02/26/Java反射7-私有成员变量域和方法/">Read more</a>
+    <a href="/2017/02/26/Java%E5%8F%8D%E5%B0%847-%E7%A7%81%E6%9C%89%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E5%9F%9F%E5%92%8C%E6%96%B9%E6%B3%95/">Read more</a>
 </p>
 
 
@@ -635,7 +486,7 @@ Accessing Private Methods
         <time>2017-02-26</time>
         
             <span class="suka-devide-dot"></span>
-            <a class="category-link" href="/categories/Java译文/">Java译文</a>
+            <a class="category-link" href="/categories/Java%E8%AF%91%E6%96%87/">Java译文</a>
         
         
     </div>
@@ -648,21 +499,18 @@ Accessing Private Methods
                     </div>
                 
                     <div class="grid-item">
-                        
-    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
-
-<article class="post-entry container px-0 card">
+                        <article class="post-entry container px-0 card">
         <div class="columns col-gapless">
             
                 <div class="column col-12">
                     
-    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/2017/02/26/Java反射6-setter和getter/" rel="bookmark">Java反射6-setter和getter</a></h2>
+    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/2017/02/26/Java%E5%8F%8D%E5%B0%846-setter%E5%92%8Cgetter/" rel="bookmark">Java反射6-setter和getter</a></h2>
 
 
 <p class="mb-0 card-body">
     
         使用Java反射使得你能在程序运行时获取到类的方法。这就使得我们可以获取类中定义的getter和setter方法。你不能准确的获取getter和setter方法，但是遍历所有的方法来确定是不是getter和setter。...
-    <a href="/2017/02/26/Java反射6-setter和getter/">Read more</a>
+    <a href="/2017/02/26/Java%E5%8F%8D%E5%B0%846-setter%E5%92%8Cgetter/">Read more</a>
 </p>
 
 
@@ -674,7 +522,7 @@ Accessing Private Methods
         <time>2017-02-26</time>
         
             <span class="suka-devide-dot"></span>
-            <a class="category-link" href="/categories/Java译文/">Java译文</a>
+            <a class="category-link" href="/categories/Java%E8%AF%91%E6%96%87/">Java译文</a>
         
         
     </div>
@@ -687,15 +535,12 @@ Accessing Private Methods
                     </div>
                 
                     <div class="grid-item">
-                        
-    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
-
-<article class="post-entry container px-0 card">
+                        <article class="post-entry container px-0 card">
         <div class="columns col-gapless">
             
                 <div class="column col-12">
                     
-    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/2017/02/23/Java反射5-方法/" rel="bookmark">Java反射5-方法</a></h2>
+    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/2017/02/23/Java%E5%8F%8D%E5%B0%845-%E6%96%B9%E6%B3%95/" rel="bookmark">Java反射5-方法</a></h2>
 
 
 <p class="mb-0 card-body">
@@ -704,7 +549,7 @@ Accessing Private Methods
 Obtaining Method Objects
 Method Parameters and Return Types
 Invoking Methods using Method ...
-    <a href="/2017/02/23/Java反射5-方法/">Read more</a>
+    <a href="/2017/02/23/Java%E5%8F%8D%E5%B0%845-%E6%96%B9%E6%B3%95/">Read more</a>
 </p>
 
 
@@ -716,7 +561,7 @@ Invoking Methods using Method ...
         <time>2017-02-23</time>
         
             <span class="suka-devide-dot"></span>
-            <a class="category-link" href="/categories/Java译文/">Java译文</a>
+            <a class="category-link" href="/categories/Java%E8%AF%91%E6%96%87/">Java译文</a>
         
         
     </div>
@@ -729,15 +574,12 @@ Invoking Methods using Method ...
                     </div>
                 
                     <div class="grid-item">
-                        
-    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
-
-<article class="post-entry container px-0 card">
+                        <article class="post-entry container px-0 card">
         <div class="columns col-gapless">
             
                 <div class="column col-12">
                     
-    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/2017/02/23/Java反射4-成员变量/" rel="bookmark">Java反射4-成员变量</a></h2>
+    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/2017/02/23/Java%E5%8F%8D%E5%B0%844-%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F/" rel="bookmark">Java反射4-成员变量</a></h2>
 
 
 <p class="mb-0 card-body">
@@ -747,7 +589,7 @@ Obtaining Field Objects
 Field Name
 Field Type
 Getting and Setting Field Values
-    <a href="/2017/02/23/Java反射4-成员变量/">Read more</a>
+    <a href="/2017/02/23/Java%E5%8F%8D%E5%B0%844-%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F/">Read more</a>
 </p>
 
 
@@ -759,7 +601,7 @@ Getting and Setting Field Values
         <time>2017-02-23</time>
         
             <span class="suka-devide-dot"></span>
-            <a class="category-link" href="/categories/Java译文/">Java译文</a>
+            <a class="category-link" href="/categories/Java%E8%AF%91%E6%96%87/">Java译文</a>
         
         
     </div>
@@ -779,7 +621,7 @@ Getting and Setting Field Values
     
     
         <li class="page-item page-next">
-            <a href="/categories/Java译文/page/2/" rel="next">
+            <a href="/categories/Java%E8%AF%91%E6%96%87/page/2/" rel="next">
                 <span class="page-item-title">Next</span>
                 <span class="page-item-subtitle"><i class="icon icon-forward" aria-hidden="true"></i></span>
             </a>
@@ -796,9 +638,11 @@ Getting and Setting Field Values
             <!-- ### Footer ### -->
             <footer class="text-center">
     <!-- footer copyright -->
-    <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span data-year></span>
-        <a class="footer-copyright-a" href="http://lysmbetter.top">Better</a>
-    </p>
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="http://lysmbetter.top">Better</a>
+        </p>
+
     <!-- footer custom text -->
     <p class="footer-text mb-0">
     
@@ -806,7 +650,6 @@ Getting and Setting Field Values
     <!-- footer develop info -->
     <p class="footer-develop mb-0">
         
-            
     <!-- Busuanzi User Views -->
     <span id="busuanzi_container_site_uv" hidden>
         <span></span>
@@ -819,7 +662,7 @@ Getting and Setting Field Values
 
 
 
-        
+
         
         Powered by&nbsp;<!--
          --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
@@ -827,40 +670,23 @@ Getting and Setting Field Values
     </p>
 </footer>
 
-        
 
         <!-- ### Import File ### -->
         <!-- ### Footer JS Import ### -->
 
 <script>
+
+    
 window.lazyLoadOptions = {
     elements_selector: ".lazyload",
     threshold: 50
 };
-
-
-
-    /* Copyright */
-    var copyrightNow = new Date().getFullYear();
-    var copyrightContent = document.querySelector('span[data-year]')
-    
-        copyrightContent.textContent = copyrightNow
-    
-
-
-
-/* Cnosole Log */
+document.getElementById('copyright-year').textContent = new Date().getFullYear();
 console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
 </script>
 
-<!-- vanilla-lazyload -->
-
-    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
-
-
-
-    <!-- Busuanzi -->
-    
+<script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
     <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
 
 
@@ -869,17 +695,10 @@ console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c 
 
 
 
-
-
-
-<!-- gallery.js -->
-
-
 <!-- Comment -->
 
 
 <!-- ### Custom Footer ### -->
-
 
     </body>
 

@@ -1,26 +1,18 @@
 <!DOCTYPE html>
 
 <html lang="zh-Hans">
-    <head><meta name="generator" content="Hexo 3.9.0">
+    <head>
     <meta charset="utf-8">
     <!--
-        © SukkaW
+        hexo-theme-suka © SukkaW
         GitHub: https://github.com/SukkaW/hexo-theme-suka
-        Version: 1.3.3
     -->
-    <script>
-window.lsVersion = "1.3.3",
-window.oldVersion = [
-    
-        
-            "0.2.0","0.0.1","0.1.0","1.0.0","1.0.1","1.1.0","1.1.1","1.2.0","1.3.0","1.3.2"
-        
-    
-]
-</script>
 
-    <!-- ### DNS Prefetch ### -->
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
     <meta http-equiv="x-dns-prefetch-control" content="on">
+
 <!-- busuanzi -->
 
     <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
@@ -42,8 +34,7 @@ window.oldVersion = [
 
 
 
-
-    <!-- ### Preload ### -->
+    <!-- ## Preload ## -->
     
     <!-- Busuanzi -->
     
@@ -56,48 +47,18 @@ window.oldVersion = [
 
 
     <!-- ### Meta & Title & Info ### -->
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
-<meta name="renderer" content="webkit">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
 
-<!-- Title -->
-<title>查看Android手机CPU架构 | Better</title>
+    <!-- Title -->
+    <title>查看Android手机CPU架构 | Better</title>
 
-<!-- favicon -->
-<!-- Favicons -->
-
-    <link rel="icon" type="image/ico" href="/img/suka-favicon.ico">
-
-
-
-
-
-
-<!-- Android Chrome Color -->
-
-
-
-<meta name="format-detection" content="telephone=no">
-
-<!-- Description -->
-<meta name="description" content="进入bash窗口，执行：adb shellcd /proccat cpuinfo 
-">
-
-<!-- Keywords -->
-<meta name="keywords" content=", CPU架构, CPU">
-
-<!-- Disable Fucking Bloody Baidu Tranformation -->
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/suka-favicon.ico">
 
     <!-- ### Import File ### -->
-    
-        <!-- spectre.css -->
-
-    <link rel="stylesheet" href="/lib/spectre/spectre.min.css">
-
-
-<style>
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css"><style>
     body {
         background-color: #f8f9fa;
     }
@@ -118,6 +79,8 @@ window.oldVersion = [
         color: #005eb9;
         opacity: 1;
     }
+
+    
 
     .post-entry .card-body a {
         color: #0070ff;
@@ -160,12 +123,7 @@ window.oldVersion = [
         background: #f8f9fa;
         opacity: .85;
     }
-</style>
-
-<!-- style.css -->
-
-    <link rel="stylesheet" href="/css/style.min.css">
-
+</style><link rel="stylesheet" href="/css/style.min.css">
 
 
 
@@ -176,59 +134,32 @@ window.oldVersion = [
 
     <!-- Prettify Theme -->
     
-    
-        <link rel="stylesheet" href="/css/highlight/github.min.css">
-    
+    <link rel="preload" href="/css/highlight/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/css/highlight/github.min.css"></noscript>
 
 
 
-    
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
 
     <!-- ### Site Verification ### -->
     
 
 
-    <!-- ### RSS ### -->
-    
-
-    <!-- ### WebApp ### -->
-    <meta name="mobile-web-app-capable" content="yes">
-<meta name="application-name" content="Better">
-<meta name="msapplication-starturl" content="http://lysmbetter.top">
-
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Better">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-<!-- Manifest Import -->
-
-<!-- Open Search -->
-
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="Better"><meta name="msapplication-starturl" content="http://lysmbetter.top"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Better"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- ### The Open Graph & Twitter Card Protocol ### -->
-    <meta property="og:title" content="查看Android手机CPU架构 | Better">
-<meta property="og:site_name" content="Better">
+    <meta property="og:title" content="查看Android手机CPU架构 | Better"><meta property="og:site_name" content="Better"><meta property="og:type" content="article"><meta property="og:url" content="http:&#x2F;&#x2F;lysmbetter.top&#x2F;2016&#x2F;12&#x2F;22&#x2F;%E6%9F%A5%E7%9C%8Bandroid%E6%89%8B%E6%9C%BAcpu%E6%9E%B6%E6%9E%84&#x2F;"><meta property="og:locale" content="zh-Hans"><meta name="description" content="进入bash窗口，执行：adb shellcd &#x2F;proccat cpuinfo - Better - Better"><meta name="keywords" content="CPU架构, CPU"><meta property="og:image" content="https:&#x2F;&#x2F;lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com&#x2F;lysmbetter&#x2F;cpu_%E6%9E%B6%E6%9E%84.png"><meta property="article:published_time" content="2016-12-22T14:13:45.000Z"><meta property="article:modified_time" content="2018-11-08T13:50:54.019Z"><meta property="og:updated_time" content="2018-11-08T13:50:54.019Z"><meta property="article:author" content="Better"><meta property="article:tag" content="CPU架构, CPU"><meta name="twitter:card" content="summary">
 
-<meta property="og:locale" content="zh-Hans">
+    
 
-<meta property="og:url" content="http://lysmbetter.top/2016/12/22/查看android手机cpu架构/">
-<meta property="og:image" content="http://lysmbetter.top/img/suka-favicon.ico">
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://lysmbetter.top/2016/12/22/%E6%9F%A5%E7%9C%8Bandroid%E6%89%8B%E6%9C%BAcpu%E6%9E%B6%E6%9E%84/">
 
-<meta property="og:description" content="进入bash窗口，执行：adb shellcd /proccat cpuinfo 
-">
-
-<meta name="twitter:card" content="summary">
-
-
-    <meta property="og:type" content="article">
-    <meta property="article:published_time" content="2016-12-22T14:13:45.000Z">
-    <meta property="article:modified_time" content="2016-12-22T14:13:45.000Z">
-    <meta property="article:author" content="Better">
-    <meta property="og:article:tag" content=", CPU架构, CPU"> 
-
-
-
-
+    <meta name="generator" content="Hexo 4.0.0">
 
     <!-- ### Analytics ### -->
     
@@ -239,10 +170,6 @@ window.oldVersion = [
 
 
 
-
-    <!-- ### Canonical link ### -->
-    <link rel="canonical" href="http://lysmbetter.top/2016/12/22/查看android手机cpu架构/">
-
     <!-- ### Structured Data ### -->
     
 
@@ -251,12 +178,12 @@ window.oldVersion = [
 <script type="application/ld+json">
 {
     "@context": "http://schema.org",
-    "url": "http://lysmbetter.top/2016/12/22/查看android手机cpu架构/",
+    "url": "http://lysmbetter.top/2016/12/22/%E6%9F%A5%E7%9C%8Bandroid%E6%89%8B%E6%9C%BAcpu%E6%9E%B6%E6%9E%84/",
     "@type": "BlogPosting",
     "logo": "http://lysmbetter.top/img/suka-favicon.ico",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://lysmbetter.top/2016/12/22/查看android手机cpu架构/"
+        "@id": "http://lysmbetter.top/2016/12/22/%E6%9F%A5%E7%9C%8Bandroid%E6%89%8B%E6%9C%BAcpu%E6%9E%B6%E6%9E%84/"
     },
     "headline": "查看Android手机CPU架构 | Better",
     
@@ -274,7 +201,7 @@ window.oldVersion = [
             "@type": "ImageObject",
             "url": "http://lysmbetter.top/img/default_avatar.png"
         },
-        "description": "Hi, nice to meet you."
+        "description": "业精于勤荒于嬉"
     },
     "publisher": {
         "@type": "Organization",
@@ -291,9 +218,8 @@ window.oldVersion = [
         "query-input": "required name=search_term_string"
     },
     
-    "keywords": ", CPU架构, CPU",
-    "description": "进入bash窗口，执行：adb shellcd /proccat cpuinfo 
-"
+    "keywords": "CPU架构, CPU",
+    "description": "进入bash窗口，执行：adb shellcd /proccat cpuinfo - Better - Better"
 }
 </script>
 
@@ -301,13 +227,9 @@ window.oldVersion = [
 
     <!-- ### Custom Head ### -->
     
-
-
 </head>
 
     <body>
-        
-
             
 
             <!-- ### Main content ### -->
@@ -318,7 +240,7 @@ window.oldVersion = [
     <p class="text-center header-slogan">
         
             
-                Hi, nice to meet you.
+                业精于勤荒于嬉
             
         
     </p>
@@ -334,69 +256,10 @@ window.oldVersion = [
         <a href="/search" class="navbar-link">Search</a>
     
     
+        <a href="/tags/" class="navbar-link">Tags</a>
     
-        <div class="dropdown dropdown-right">
-    <a class="navbar-link dropdown-toggle" tabindex="0">Share</a>
-    <ul class="menu share-menu">
-
-        <!-- Share Weibo -->
-        
-        <li class="menu-item">
-            <a href="http://service.weibo.com/share/share.php?appkey=&title=Better&url=http://lysmbetter.top&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
-        </li>
-        
-
-        <!-- Share Twitter -->
-        
-        <li class="menu-item">
-            <a href="https://twitter.com/intent/tweet?text=Better&url=http://lysmbetter.top&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
-        </li>
-        
-
-        <!-- Share Facebook -->
-        
-        <li class="menu-item">
-            <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
-        </li>
-        
-
-        <!-- Share Google+ -->
-        
-        <li class="menu-item">
-            <a href="https://plus.google.com/share?url=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
-        </li>
-        
-
-        <!-- Share LinkedIn -->
-        
-        <li class="menu-item">
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top&title=查看Android手机CPU架构" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
-        </li>
-        
-
-        <!-- Share QQ -->
-        
-        <li class="menu-item">
-            <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=查看Android手机CPU架构&summary=描述文字&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
-        </li>
-        
-
-        <!-- Share Telegram -->
-        
-        <li class="menu-item">
-            <a href="https://t.me/share/url?url=http://lysmbetter.top&text=查看Android手机CPU架构" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
-        </li>
-        
-
-        <!-- QRCode -->
-        
-        <li class="menu-item">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAABzElEQVR42u3bwXKDMAyEYd7/pdsr00GrleuDWX4uaZIBvszYQpLd6+fA4wIFChSoB9QljscTxef376r36j6gclDuze8Xqf5W53b3AZWF+jvwulcZBB8mSncfUN9GOdDufFCgnMEvbwjqc6huoD4la9U1VPDckiWAOh6lEvqdr9uqGVBHo5yEzZ0IKwnhUtcF1NEoNRDVZOi+U++rBgqoHFSVdLkPZBdfNUpAZaG6AOgM2v8UtaDyUZMCVMEV3kryQL0a5Sb67gRwm2ygMlFq8bArBFQDX/0Au0IG9XpUFwynD+wqgJY/ClQESsHUAqO7oOQ2ZEHloKyEfnBUjZOu4ACVg+oWeaabadwCFVQ+anUjxMqGwvK6oKJQXeBT+MkmwXHwBPU6lHqQugPYLWbbSQAqBuVcwEnm3IK1XEgCFYty/4nCCahOYxZULsrZANg18Z3rlIEXVBxq90KRu3kHVBbK2Sg4GbQrD3hQWSi3qbqyODk5B1QWymluOU1WtfnUWvwGFYWaLC66xYKaSHaDA9RnUN2GZjfh2zrQQb0GZQ1SESxVobE80EEdj1pp4jufjX4YqBiUCmpdw6PbCDhqyoGKQJ10gAIFCtTt+AVy1XBPkRcw1gAAAABJRU5ErkJggg==" alr="QRCode">
-        </li>
-        
-
-    </ul>
-</div>
+        <a href="/about/" class="navbar-link">About</a>
+    
     
     
 </nav>
@@ -404,11 +267,7 @@ window.oldVersion = [
 
             
     <!-- ## Post ## -->
-    
-    
-
-
-<div class="post-container">
+    <div class="post-container">
     <div id="post-card" class="card">
         
         <div class="card-item-container">
@@ -448,56 +307,56 @@ window.oldVersion = [
     <!-- Share Weibo -->
     
     <li class="menu-item">
-        <a href="http://service.weibo.com/share/share.php?appkey=&title=查看Android手机CPU架构&url=http://lysmbetter.top/2016/12/22/查看android手机cpu架构/&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=查看Android手机CPU架构&url=http://lysmbetter.top/2016/12/22/%E6%9F%A5%E7%9C%8Bandroid%E6%89%8B%E6%9C%BAcpu%E6%9E%B6%E6%9E%84/&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
     </li>
     
 
     <!-- Share Twitter -->
     
     <li class="menu-item">
-        <a href="https://twitter.com/intent/tweet?text=查看Android手机CPU架构&url=http://lysmbetter.top/2016/12/22/查看android手机cpu架构/&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+        <a href="https://twitter.com/intent/tweet?text=查看Android手机CPU架构&url=http://lysmbetter.top/2016/12/22/%E6%9F%A5%E7%9C%8Bandroid%E6%89%8B%E6%9C%BAcpu%E6%9E%B6%E6%9E%84/&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
     </li>
     
 
     <!-- Share Facebook -->
     
     <li class="menu-item">
-        <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top/2016/12/22/查看android手机cpu架构/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top/2016/12/22/%E6%9F%A5%E7%9C%8Bandroid%E6%89%8B%E6%9C%BAcpu%E6%9E%B6%E6%9E%84/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
     </li>
     
 
     <!-- Share Google+ -->
     
     <li class="menu-item">
-        <a href="https://plus.google.com/share?url=http://lysmbetter.top/2016/12/22/查看android手机cpu架构/" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
+        <a href="https://plus.google.com/share?url=http://lysmbetter.top/2016/12/22/%E6%9F%A5%E7%9C%8Bandroid%E6%89%8B%E6%9C%BAcpu%E6%9E%B6%E6%9E%84/" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
     </li>
     
 
     <!-- Share LinkedIn -->
     
     <li class="menu-item">
-        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top/2016/12/22/查看android手机cpu架构/&title=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top/2016/12/22/%E6%9F%A5%E7%9C%8Bandroid%E6%89%8B%E6%9C%BAcpu%E6%9E%B6%E6%9E%84/&title=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
     </li>
     
 
     <!-- Share QQ -->
     
     <li class="menu-item">
-        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Better&summary=描述文字&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top/2016/12/22/查看android手机cpu架构/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Better&summary=业精于勤荒于嬉&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top/2016/12/22/%E6%9F%A5%E7%9C%8Bandroid%E6%89%8B%E6%9C%BAcpu%E6%9E%B6%E6%9E%84/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
     </li>
     
 
     <!-- Share Telegram -->
     
     <li class="menu-item">
-        <a href="https://t.me/share/url?url=http://lysmbetter.top/2016/12/22/查看android手机cpu架构/&text=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+        <a href="https://t.me/share/url?url=http://lysmbetter.top/2016/12/22/%E6%9F%A5%E7%9C%8Bandroid%E6%89%8B%E6%9C%BAcpu%E6%9E%B6%E6%9E%84/&text=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
     </li>
     
 
     <!-- QRCode -->
     
     <li class="menu-item">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAABzElEQVR42u3bwXKDMAyEYd7/pdsr00GrleuDWX4uaZIBvszYQpLd6+fA4wIFChSoB9QljscTxef376r36j6gclDuze8Xqf5W53b3AZWF+jvwulcZBB8mSncfUN9GOdDufFCgnMEvbwjqc6huoD4la9U1VPDckiWAOh6lEvqdr9uqGVBHo5yEzZ0IKwnhUtcF1NEoNRDVZOi+U++rBgqoHFSVdLkPZBdfNUpAZaG6AOgM2v8UtaDyUZMCVMEV3kryQL0a5Sb67gRwm2ygMlFq8bArBFQDX/0Au0IG9XpUFwynD+wqgJY/ClQESsHUAqO7oOQ2ZEHloKyEfnBUjZOu4ACVg+oWeaabadwCFVQ+anUjxMqGwvK6oKJQXeBT+MkmwXHwBPU6lHqQugPYLWbbSQAqBuVcwEnm3IK1XEgCFYty/4nCCahOYxZULsrZANg18Z3rlIEXVBxq90KRu3kHVBbK2Sg4GbQrD3hQWSi3qbqyODk5B1QWymluOU1WtfnUWvwGFYWaLC66xYKaSHaDA9RnUN2GZjfh2zrQQb0GZQ1SESxVobE80EEdj1pp4jufjX4YqBiUCmpdw6PbCDhqyoGKQJ10gAIFCtTt+AVy1XBPkRcw1gAAAABJRU5ErkJggg==" alt="QRCode">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAAAAAAYplnuAAACsUlEQVR42u3aSW7jQBBEUd7/0vbaBivjR5GwIdTXxgNk6jXRycrp+vrA1yVatGjRB6Kv4XX3nh8XWfy8eu/qutghWjRE3/6nD7///eGr7yfU6norh2jRDXp1sdX30+9WuFUwYodo0S+i7w6O6etdYKV/lGjR/4EmQTW9Lx0uokW/hSZBQ5P6KXBJovU4yxN9PHoqKP/y62vVuOij0ajxNwTTdKhMxUIqaB93TUUfiyYXTYUtTezJDREt+g309EerBz0tBkgRkJIs0aIbNB30pOKzab5MBcbqBokWvYsmBwlJllKATcPT5UNBtGiIroIhFAGkUKYHyljYihYd9j1Ikk6LV9KYnxo3uHIRLTrUiE+T9pQIkRuBA1G0aLCXRwJu+rC2QCAFBO4wiRYdDoqpICAJUzMUIkWBaNG76J0kqlkQTM0c3IAULRosXj1dmpqCKAXb5BAt+gm6WZKlzffUxKEFrmjRFJ3+kAxAySLKNGhNDXjRolt0GnJSNGnOkOtWHSbRosHwkyZS7XJ3Cv4xWEWLBmi6tEoPoLSIQpqZaFNdtOjwnN5Z7tsZCjXLA3GZULRo0IAkF20/uLlBW5s1okUXC7LN4IckP2SBoC4CRIsGh0sa+O8scu8sZ42Vi2jRoAFJF1PSUIgM88mwSrToFt0OItOySnOgkOtUJ6Jo0TDBoYcGDdJ2eCRadIOeHvCo2ISFaUqqUoImWjRFN41tkvSk5iQZsKKBvmjRIJ+eBqJpeSUdNqRYjjdGtGiATgt+NBFKAZWaQWmRULToBk2T9NSEmQKVFhE4EEWL3ixsSZORLmqln2MzXrToF9DNwiBddGmHraJFv4meGt1Tg4cMUcnS4uOnh+hj0STJTx/QNmLoMoxo0S16StZJ85s0HNPwiTQ1RYtuBkWf8BItWrTog9DfyraLabuAVngAAAAASUVORK5CYII=" alt="QRCode">
     </li>
     
 
@@ -510,6 +369,7 @@ window.oldVersion = [
                 <div class="card-body">
                     
                         
+                        
                     
                     <article id="post-content">
                         <p>进入bash窗口，执行：<br>adb shell<br>cd /proc<br>cat cpuinfo </p>
@@ -521,6 +381,7 @@ window.oldVersion = [
 
     <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
     <script>
+    (function() {
         var dateUpdate = Date.parse("2018-11-08");
         var nowDate = new Date();
         var a = nowDate.getTime();
@@ -531,6 +392,7 @@ window.oldVersion = [
         } else {
             document.getElementById('date-expire-notification').style.display = 'none';
         }
+    })();
     </script>
 
 
@@ -543,7 +405,6 @@ window.oldVersion = [
 
 <span class="post-categories-list mt-2">
 
-
 <a class="post-categories-list-item" href='/categories/Android/'>Android</a>
 
 </span>
@@ -552,8 +413,7 @@ window.oldVersion = [
 
 <span class="post-tags-list mt-2">
 
-
-<a class="post-tags-list-item" href="/tags/CPU架构/" rel="tag">#&nbsp;CPU架构</a>
+<a class="post-tags-list-item" href="/tags/CPU%E6%9E%B6%E6%9E%84/" rel="tag">#&nbsp;CPU架构</a>
 
 <a class="post-tags-list-item" href="/tags/CPU/" rel="tag">#&nbsp;CPU</a>
 
@@ -563,13 +423,12 @@ window.oldVersion = [
 </p>
 
                 </div>
-                
-<div class="post-nav px-2 bg-gray">
+                <div class="post-nav px-2 bg-gray">
 <ul class="pagination">
     <!-- Prev Nav -->
     
         <li class="page-item page-prev">
-            <a href="/2016/12/30/Android N文件共享之android-os-FileUriExposedException/" rel="prev">
+            <a href="/2016/12/30/Android%20N%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB%E4%B9%8Bandroid-os-FileUriExposedException/" rel="prev">
                 <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
                 <div class="page-item-subtitle">N文件共享之android.os.FileUriExposedException</div>
             </a>
@@ -579,7 +438,7 @@ window.oldVersion = [
     <!-- Next Nav -->
     
         <li class="page-item page-next">
-            <a href="/2016/11/20/Github pages和hexo博客搭建指南/" rel="next">
+            <a href="/2016/11/20/Github%20pages%E5%92%8Chexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%8C%87%E5%8D%97/" rel="next">
                 <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
                 <div class="page-item-subtitle">Github Pages和Hexo博客搭建指南</div>
             </a>
@@ -600,9 +459,11 @@ window.oldVersion = [
             <!-- ### Footer ### -->
             <footer class="text-center">
     <!-- footer copyright -->
-    <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span data-year></span>
-        <a class="footer-copyright-a" href="http://lysmbetter.top">Better</a>
-    </p>
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="http://lysmbetter.top">Better</a>
+        </p>
+
     <!-- footer custom text -->
     <p class="footer-text mb-0">
     
@@ -610,7 +471,6 @@ window.oldVersion = [
     <!-- footer develop info -->
     <p class="footer-develop mb-0">
         
-            
     <!-- Busuanzi User Views -->
     <span id="busuanzi_container_site_uv" hidden>
         <span></span>
@@ -623,7 +483,7 @@ window.oldVersion = [
 
 
 
-        
+
         
         Powered by&nbsp;<!--
          --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
@@ -631,40 +491,23 @@ window.oldVersion = [
     </p>
 </footer>
 
-        
 
         <!-- ### Import File ### -->
         <!-- ### Footer JS Import ### -->
 
 <script>
+
+    
 window.lazyLoadOptions = {
     elements_selector: ".lazyload",
     threshold: 50
 };
-
-
-
-    /* Copyright */
-    var copyrightNow = new Date().getFullYear();
-    var copyrightContent = document.querySelector('span[data-year]')
-    
-        copyrightContent.textContent = copyrightNow
-    
-
-
-
-/* Cnosole Log */
+document.getElementById('copyright-year').textContent = new Date().getFullYear();
 console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
 </script>
 
-<!-- vanilla-lazyload -->
-
-    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
-
-
-
-    <!-- Busuanzi -->
-    
+<script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
     <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
 
 
@@ -673,17 +516,10 @@ console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c 
 
 
 
-
-
-
-<!-- gallery.js -->
-
-
 <!-- Comment -->
 
 
 <!-- ### Custom Footer ### -->
-
 
     </body>
 

@@ -1,26 +1,18 @@
 <!DOCTYPE html>
 
 <html lang="zh-Hans">
-    <head><meta name="generator" content="Hexo 3.9.0">
+    <head>
     <meta charset="utf-8">
     <!--
-        © SukkaW
+        hexo-theme-suka © SukkaW
         GitHub: https://github.com/SukkaW/hexo-theme-suka
-        Version: 1.3.3
     -->
-    <script>
-window.lsVersion = "1.3.3",
-window.oldVersion = [
-    
-        
-            "0.2.0","0.0.1","0.1.0","1.0.0","1.0.1","1.1.0","1.1.1","1.2.0","1.3.0","1.3.2"
-        
-    
-]
-</script>
 
-    <!-- ### DNS Prefetch ### -->
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
     <meta http-equiv="x-dns-prefetch-control" content="on">
+
 <!-- busuanzi -->
 
     <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
@@ -42,8 +34,7 @@ window.oldVersion = [
 
 
 
-
-    <!-- ### Preload ### -->
+    <!-- ## Preload ## -->
     
     <!-- Busuanzi -->
     
@@ -56,51 +47,18 @@ window.oldVersion = [
 
 
     <!-- ### Meta & Title & Info ### -->
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
-<meta name="renderer" content="webkit">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
 
-<!-- Title -->
-<title>Java反射4-成员变量 | Better</title>
+    <!-- Title -->
+    <title>Java反射4-成员变量 | Better</title>
 
-<!-- favicon -->
-<!-- Favicons -->
-
-    <link rel="icon" type="image/ico" href="/img/suka-favicon.ico">
-
-
-
-
-
-
-<!-- Android Chrome Color -->
-
-
-
-<meta name="format-detection" content="telephone=no">
-
-<!-- Description -->
-<meta name="description" content="
-Obtaining Field Objects
-Field Name
-Field Type
-Getting and Setting Field Values">
-
-<!-- Keywords -->
-<meta name="keywords" content=", Java反射, 成员变量, Field">
-
-<!-- Disable Fucking Bloody Baidu Tranformation -->
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/suka-favicon.ico">
 
     <!-- ### Import File ### -->
-    
-        <!-- spectre.css -->
-
-    <link rel="stylesheet" href="/lib/spectre/spectre.min.css">
-
-
-<style>
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css"><style>
     body {
         background-color: #f8f9fa;
     }
@@ -121,6 +79,8 @@ Getting and Setting Field Values">
         color: #005eb9;
         opacity: 1;
     }
+
+    
 
     .post-entry .card-body a {
         color: #0070ff;
@@ -163,12 +123,7 @@ Getting and Setting Field Values">
         background: #f8f9fa;
         opacity: .85;
     }
-</style>
-
-<!-- style.css -->
-
-    <link rel="stylesheet" href="/css/style.min.css">
-
+</style><link rel="stylesheet" href="/css/style.min.css">
 
 
 
@@ -179,62 +134,32 @@ Getting and Setting Field Values">
 
     <!-- Prettify Theme -->
     
-    
-        <link rel="stylesheet" href="/css/highlight/github.min.css">
-    
+    <link rel="preload" href="/css/highlight/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/css/highlight/github.min.css"></noscript>
 
 
 
-    
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
 
     <!-- ### Site Verification ### -->
     
 
 
-    <!-- ### RSS ### -->
-    
-
-    <!-- ### WebApp ### -->
-    <meta name="mobile-web-app-capable" content="yes">
-<meta name="application-name" content="Better">
-<meta name="msapplication-starturl" content="http://lysmbetter.top">
-
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Better">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-<!-- Manifest Import -->
-
-<!-- Open Search -->
-
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="Better"><meta name="msapplication-starturl" content="http://lysmbetter.top"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Better"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- ### The Open Graph & Twitter Card Protocol ### -->
-    <meta property="og:title" content="Java反射4-成员变量 | Better">
-<meta property="og:site_name" content="Better">
+    <meta property="og:title" content="Java反射4-成员变量 | Better"><meta property="og:site_name" content="Better"><meta property="og:type" content="article"><meta property="og:url" content="http:&#x2F;&#x2F;lysmbetter.top&#x2F;2017&#x2F;02&#x2F;23&#x2F;Java%E5%8F%8D%E5%B0%844-%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F&#x2F;"><meta property="og:locale" content="zh-Hans"><meta name="description" content="Obtaining Field Objects Field Name Field Type Getting and Setting Field Values  通过Java反射你能获取到类的成员变量以及可以在运行时get&#x2F;set他们的值。这是通过类java.lng.reflect.Fidld来完成的。记得去阅读Sun公司的JavaDoc。 获取成员变量成员变量是通过Class类获取的： 12Cla - Better - Better"><meta name="keywords" content="Java反射, 成员变量, Field"><meta property="article:published_time" content="2017-02-23T13:45:48.000Z"><meta property="article:modified_time" content="2018-08-05T06:58:00.766Z"><meta property="og:updated_time" content="2018-08-05T06:58:00.766Z"><meta property="article:author" content="Better"><meta property="article:tag" content="Java反射, 成员变量, Field"><meta name="twitter:card" content="summary">
 
-<meta property="og:locale" content="zh-Hans">
+    
 
-<meta property="og:url" content="http://lysmbetter.top/2017/02/23/Java反射4-成员变量/">
-<meta property="og:image" content="http://lysmbetter.top/img/suka-favicon.ico">
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://lysmbetter.top/2017/02/23/Java%E5%8F%8D%E5%B0%844-%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F/">
 
-<meta property="og:description" content="
-Obtaining Field Objects
-Field Name
-Field Type
-Getting and Setting Field Values">
-
-<meta name="twitter:card" content="summary">
-
-
-    <meta property="og:type" content="article">
-    <meta property="article:published_time" content="2017-02-23T13:45:48.000Z">
-    <meta property="article:modified_time" content="2017-02-23T13:45:48.000Z">
-    <meta property="article:author" content="Better">
-    <meta property="og:article:tag" content=", Java反射, 成员变量, Field"> 
-
-
-
-
+    <meta name="generator" content="Hexo 4.0.0">
 
     <!-- ### Analytics ### -->
     
@@ -245,10 +170,6 @@ Getting and Setting Field Values">
 
 
 
-
-    <!-- ### Canonical link ### -->
-    <link rel="canonical" href="http://lysmbetter.top/2017/02/23/Java反射4-成员变量/">
-
     <!-- ### Structured Data ### -->
     
 
@@ -257,12 +178,12 @@ Getting and Setting Field Values">
 <script type="application/ld+json">
 {
     "@context": "http://schema.org",
-    "url": "http://lysmbetter.top/2017/02/23/Java反射4-成员变量/",
+    "url": "http://lysmbetter.top/2017/02/23/Java%E5%8F%8D%E5%B0%844-%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F/",
     "@type": "BlogPosting",
     "logo": "http://lysmbetter.top/img/suka-favicon.ico",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://lysmbetter.top/2017/02/23/Java反射4-成员变量/"
+        "@id": "http://lysmbetter.top/2017/02/23/Java%E5%8F%8D%E5%B0%844-%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F/"
     },
     "headline": "Java反射4-成员变量 | Better",
     
@@ -280,7 +201,7 @@ Getting and Setting Field Values">
             "@type": "ImageObject",
             "url": "http://lysmbetter.top/img/default_avatar.png"
         },
-        "description": "Hi, nice to meet you."
+        "description": "业精于勤荒于嬉"
     },
     "publisher": {
         "@type": "Organization",
@@ -297,12 +218,8 @@ Getting and Setting Field Values">
         "query-input": "required name=search_term_string"
     },
     
-    "keywords": ", Java反射, 成员变量, Field",
-    "description": "
-Obtaining Field Objects
-Field Name
-Field Type
-Getting and Setting Field Values"
+    "keywords": "Java反射, 成员变量, Field",
+    "description": "Obtaining Field Objects Field Name Field Type Getting and Setting Field Values  通过Java反射你能获取到类的成员变量以及可以在运行时get/set他们的值。这是通过类java.lng.reflect.Fidld来完成的。记得去阅读Sun公司的JavaDoc。 获取成员变量成员变量是通过Class类获取的： 12Cla - Better - Better"
 }
 </script>
 
@@ -310,13 +227,9 @@ Getting and Setting Field Values"
 
     <!-- ### Custom Head ### -->
     
-
-
 </head>
 
     <body>
-        
-
             
 
             <!-- ### Main content ### -->
@@ -327,7 +240,7 @@ Getting and Setting Field Values"
     <p class="text-center header-slogan">
         
             
-                Hi, nice to meet you.
+                业精于勤荒于嬉
             
         
     </p>
@@ -343,69 +256,10 @@ Getting and Setting Field Values"
         <a href="/search" class="navbar-link">Search</a>
     
     
+        <a href="/tags/" class="navbar-link">Tags</a>
     
-        <div class="dropdown dropdown-right">
-    <a class="navbar-link dropdown-toggle" tabindex="0">Share</a>
-    <ul class="menu share-menu">
-
-        <!-- Share Weibo -->
-        
-        <li class="menu-item">
-            <a href="http://service.weibo.com/share/share.php?appkey=&title=Better&url=http://lysmbetter.top&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
-        </li>
-        
-
-        <!-- Share Twitter -->
-        
-        <li class="menu-item">
-            <a href="https://twitter.com/intent/tweet?text=Better&url=http://lysmbetter.top&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
-        </li>
-        
-
-        <!-- Share Facebook -->
-        
-        <li class="menu-item">
-            <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
-        </li>
-        
-
-        <!-- Share Google+ -->
-        
-        <li class="menu-item">
-            <a href="https://plus.google.com/share?url=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
-        </li>
-        
-
-        <!-- Share LinkedIn -->
-        
-        <li class="menu-item">
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top&title=Java反射4-成员变量" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
-        </li>
-        
-
-        <!-- Share QQ -->
-        
-        <li class="menu-item">
-            <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Java反射4-成员变量&summary=描述文字&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
-        </li>
-        
-
-        <!-- Share Telegram -->
-        
-        <li class="menu-item">
-            <a href="https://t.me/share/url?url=http://lysmbetter.top&text=Java反射4-成员变量" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
-        </li>
-        
-
-        <!-- QRCode -->
-        
-        <li class="menu-item">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB3ElEQVR42u3ay27EIAxA0fz/T7ebLtoU29eaGQmcm000LzgjBbAN19eG1yVKlChRC9SVXPfv/Gng53V0/9ch6UfUGFTUSPT5Ch39nvYjah7q/uDd3+92mA2MVT+inoda4bJOs0lW1LNRqwmzWoRXQFHPQ6UL5a2R1esu/KUoQdT2qCygf+f9bdmMqK1RZdGhwFbB3UeqLqK2RnWT0WgiJQ/46o+KmoeKEs4KRAPDbNCEC7Ko41GdZDQqltEHPS2ciBqBqooWVWJQLdrkEjUPVTWUFUM6E2RZeBM1ApUGXUkjnWCOFE5EzUF1JsFOsJdhwyBQ1EhUBq3eI0lsu7gv6jhUBiMPPl280WQqahSKBG5kU5IEd62qi6gjUeSgDMWQwxXtDSNRR6KyYhhpnCQL7U1IUceiSMGLJK7VYl0OAFEjUNEDnm36kDsZQKJmo2hgRhOINOmku+2ijkZFELrRTSZTnDiIOh6VHaChGLJ5VP5pUSNQnYOCnQ0mOgBePnwqajsUDe6r5IIkERlW1CxUVjyrNpKqTe4q8RA1F9U5SEomVFooEyWKBmxko7w8gCNqLOqVhJMe1BE1D0UX5Nbhh0bBTNQsVKeA2jkIWA0IVHURdRxqp0uUKFGifl3fsUAgn92t2WcAAAAASUVORK5CYII=" alr="QRCode">
-        </li>
-        
-
-    </ul>
-</div>
+        <a href="/about/" class="navbar-link">About</a>
+    
     
     
 </nav>
@@ -413,11 +267,7 @@ Getting and Setting Field Values"
 
             
     <!-- ## Post ## -->
-    
-    
-
-
-<div class="post-container">
+    <div class="post-container">
     <div id="post-card" class="card">
         
         <div class="card-item-container">
@@ -436,7 +286,7 @@ Getting and Setting Field Values"
         <span>2017-02-23</span>
         
             <span class="suka-devide-dot"></span>
-            <a class="category-link" href="/categories/Java译文/">Java译文</a>
+            <a class="category-link" href="/categories/Java%E8%AF%91%E6%96%87/">Java译文</a>
         
         
             <!-- Busuanzi Post Views -->
@@ -457,56 +307,56 @@ Getting and Setting Field Values"
     <!-- Share Weibo -->
     
     <li class="menu-item">
-        <a href="http://service.weibo.com/share/share.php?appkey=&title=Java反射4-成员变量&url=http://lysmbetter.top/2017/02/23/Java反射4-成员变量/&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=Java反射4-成员变量&url=http://lysmbetter.top/2017/02/23/Java%E5%8F%8D%E5%B0%844-%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F/&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
     </li>
     
 
     <!-- Share Twitter -->
     
     <li class="menu-item">
-        <a href="https://twitter.com/intent/tweet?text=Java反射4-成员变量&url=http://lysmbetter.top/2017/02/23/Java反射4-成员变量/&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+        <a href="https://twitter.com/intent/tweet?text=Java反射4-成员变量&url=http://lysmbetter.top/2017/02/23/Java%E5%8F%8D%E5%B0%844-%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F/&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
     </li>
     
 
     <!-- Share Facebook -->
     
     <li class="menu-item">
-        <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top/2017/02/23/Java反射4-成员变量/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top/2017/02/23/Java%E5%8F%8D%E5%B0%844-%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
     </li>
     
 
     <!-- Share Google+ -->
     
     <li class="menu-item">
-        <a href="https://plus.google.com/share?url=http://lysmbetter.top/2017/02/23/Java反射4-成员变量/" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
+        <a href="https://plus.google.com/share?url=http://lysmbetter.top/2017/02/23/Java%E5%8F%8D%E5%B0%844-%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F/" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
     </li>
     
 
     <!-- Share LinkedIn -->
     
     <li class="menu-item">
-        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top/2017/02/23/Java反射4-成员变量/&title=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top/2017/02/23/Java%E5%8F%8D%E5%B0%844-%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F/&title=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
     </li>
     
 
     <!-- Share QQ -->
     
     <li class="menu-item">
-        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Better&summary=描述文字&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top/2017/02/23/Java反射4-成员变量/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Better&summary=业精于勤荒于嬉&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top/2017/02/23/Java%E5%8F%8D%E5%B0%844-%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
     </li>
     
 
     <!-- Share Telegram -->
     
     <li class="menu-item">
-        <a href="https://t.me/share/url?url=http://lysmbetter.top/2017/02/23/Java反射4-成员变量/&text=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+        <a href="https://t.me/share/url?url=http://lysmbetter.top/2017/02/23/Java%E5%8F%8D%E5%B0%844-%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F/&text=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
     </li>
     
 
     <!-- QRCode -->
     
     <li class="menu-item">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB3ElEQVR42u3ay27EIAxA0fz/T7ebLtoU29eaGQmcm000LzgjBbAN19eG1yVKlChRC9SVXPfv/Gng53V0/9ch6UfUGFTUSPT5Ch39nvYjah7q/uDd3+92mA2MVT+inoda4bJOs0lW1LNRqwmzWoRXQFHPQ6UL5a2R1esu/KUoQdT2qCygf+f9bdmMqK1RZdGhwFbB3UeqLqK2RnWT0WgiJQ/46o+KmoeKEs4KRAPDbNCEC7Ko41GdZDQqltEHPS2ciBqBqooWVWJQLdrkEjUPVTWUFUM6E2RZeBM1ApUGXUkjnWCOFE5EzUF1JsFOsJdhwyBQ1EhUBq3eI0lsu7gv6jhUBiMPPl280WQqahSKBG5kU5IEd62qi6gjUeSgDMWQwxXtDSNRR6KyYhhpnCQL7U1IUceiSMGLJK7VYl0OAFEjUNEDnm36kDsZQKJmo2hgRhOINOmku+2ijkZFELrRTSZTnDiIOh6VHaChGLJ5VP5pUSNQnYOCnQ0mOgBePnwqajsUDe6r5IIkERlW1CxUVjyrNpKqTe4q8RA1F9U5SEomVFooEyWKBmxko7w8gCNqLOqVhJMe1BE1D0UX5Nbhh0bBTNQsVKeA2jkIWA0IVHURdRxqp0uUKFGifl3fsUAgn92t2WcAAAAASUVORK5CYII=" alt="QRCode">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAAAAAAYplnuAAACrklEQVR42u3cW27bQBAFUe5/0/KvIXP61h3SAgSWfhLHFHUUpN2PaeV4feHjEC1atOgHoo/h8edJ4Pur61dfNw7Roin69B/92w1/3/j99+/XJNDqDUaHaNEFenVTCpuCMQUhvU606LvQJEGcBV4KaPp6okX/Bzr92Rl4WcyDe4sWfRU93TgV9bsBnRKVaNG76Kmh/OSvt3Xjoh+NjkO/k2QxFf+rhpcmnlumpqIfjZ4CgSBpUZXujQagokWX6BRUKbCaQQ8pwOJQXbTooWCaXrgJRNIcTAX/9ANAtGiCTgPDVWNAhzpT0DWBKVr0Dnr8wT4U7ylYUzNLkppo0RSdDttJwJAEQYIyHfSLFk3QTSKhL7BqHlJDG5cDRIsGaBp8JOnsDuVxUIoWXfSIqZBvFktI4UQPUMcmQLToMMtLC380kMgSeRo8oipPtGiAvlL8pOvT4mGVEUWLBk1Ac4BPDjrT4iFZwIqNrWjRcEmFHHxOz6UD+qnZEC36KposrU6HnHRI2RxCiRa9i04LsmSQQwc9zaH+9tRU9GPRO0uENMDaJZR4vWjREE0TRVPg0MHlVsEkWnSop6chYTvEocGdBvTooEi0aFgwxaHJsfnBXri8skw2okUDNC2Y0kEnPSBqlrTiSYBo0TC5NElhAjeD960tBNGi4X/gQAqltkmlB/d4q1e0aIC+epDTLJ+kpuI0gYkWXaB3D+DpELItnmITIFp0iaZLrzTISLMQ/8JEiwbonWWVKenQAyWauKrNGtGi4ZCFYMgC4pRw0sBStOhX+YEzUpxPxdVuQDdvXrToBk0P3VPjSj/gs/U80aJvRE/JoXmDJMGIFv0p9PQmyLCcfA8vyIoWHdC04aQH/m2je2sTIPrx6DQIJEFEGgCSuMalcdGiAfqbHqJFixb9IPQPkwuZd3A/dQMAAAAASUVORK5CYII=" alt="QRCode">
     </li>
     
 
@@ -519,9 +369,8 @@ Getting and Setting Field Values"
                 <div class="card-body">
                     
                         
-                            <div id="post-toc">
-                                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#获取成员变量"><span class="post-toc-number">1.</span> <span class="post-toc-text">获取成员变量</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#成员变量名称"><span class="post-toc-number">2.</span> <span class="post-toc-text">成员变量名称</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#成员变量类型"><span class="post-toc-number">3.</span> <span class="post-toc-text">成员变量类型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#获取或者改值"><span class="post-toc-number">4.</span> <span class="post-toc-text">获取或者改值</span></a></li></ol>
-                            </div>
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#获取成员变量"><span class="post-toc-number">1.</span> <span class="post-toc-text">获取成员变量</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#成员变量名称"><span class="post-toc-number">2.</span> <span class="post-toc-text">成员变量名称</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#成员变量类型"><span class="post-toc-number">3.</span> <span class="post-toc-text">成员变量类型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#获取或者改值"><span class="post-toc-number">4.</span> <span class="post-toc-text">获取或者改值</span></a></li></ol></div>
                         
                     
                     <article id="post-content">
@@ -534,23 +383,17 @@ Getting and Setting Field Values"
 <p>通过Java反射你能获取到类的成员变量以及可以在运行时get/set他们的值。这是通过类<code>java.lng.reflect.Fidld</code>来完成的。记得去阅读Sun公司的JavaDoc。</p>
 <h2 id="获取成员变量"><a href="#获取成员变量" class="headerlink" title="获取成员变量"></a>获取成员变量</h2><p>成员变量是通过Class类获取的：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Class aClass = ...//obtain class object</span><br><span class="line">Field[] fields = aClass.getFields();</span><br></pre></td></tr></table></figure>
-
 <p>fields数组的值与类中每个申明为public的成员变量对应。<br>如果你知道类中成员变量的命名，你可以这样获取：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Class  aClass = MyObject.class</span><br><span class="line">Field field = aClass.getField(&quot;someField&quot;);</span><br></pre></td></tr></table></figure>
-
 <p>列子中返回类MyObject中申明为public的成员变量的对象:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public class MyObject&#123;</span><br><span class="line">  public String someField = null;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>如果<code>getField()</code>方法没有获取到指定的参数对应的成员变量对象，将会抛出<code>NoSuchFieldException</code>。</p>
 <h2 id="成员变量名称"><a href="#成员变量名称" class="headerlink" title="成员变量名称"></a>成员变量名称</h2><p>一旦你成功获取了成员变量的对象，你可以获取到它在类中定义的名称。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Field field = ... //obtain field object</span><br><span class="line">String fieldName = field.getName();</span><br></pre></td></tr></table></figure>
-
 <h2 id="成员变量类型"><a href="#成员变量类型" class="headerlink" title="成员变量类型"></a>成员变量类型</h2><p>通过<code>Field.getType()</code>方法你可以确定成员变量的类型：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Field field = aClass.getField(&quot;someField&quot;);</span><br><span class="line">Object fieldType = field.getType();</span><br></pre></td></tr></table></figure>
-
 <h2 id="获取或者改值"><a href="#获取或者改值" class="headerlink" title="获取或者改值"></a>获取或者改值</h2><p>一旦你获取到了成员变量的对象你可以通过<code>Field.get()</code>和<code>Field.set()</code>方法来改变它的值:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Class  aClass = MyObject.class</span><br><span class="line">Field field = aClass.getField(&quot;someField&quot;);</span><br><span class="line"></span><br><span class="line">MyObject objectInstance = new MyObject();</span><br><span class="line"></span><br><span class="line">Object value = field.get(objectInstance);</span><br><span class="line"></span><br><span class="line">field.set(objetInstance, value);</span><br></pre></td></tr></table></figure>
-
 <p>传递给get和set方法的objectInstance参数应该是拥有该字段的类的实例。例子中使用到了类MyObject对象，因为<code>someField</code>这个成员变量对象对应的成员变量本身就是是MyObject类的成员。<br>get和set方法传递<code>null</code>来操作static的成员变量域，而不是类的对象。</p>
 <p><a href="http://tutorials.jenkov.com/java-reflection/fields.html#fieldname" target="_blank" rel="noopener">原文</a></p>
 
@@ -560,6 +403,7 @@ Getting and Setting Field Values"
 
     <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
     <script>
+    (function() {
         var dateUpdate = Date.parse("2018-08-05");
         var nowDate = new Date();
         var a = nowDate.getTime();
@@ -570,6 +414,7 @@ Getting and Setting Field Values"
         } else {
             document.getElementById('date-expire-notification').style.display = 'none';
         }
+    })();
     </script>
 
 
@@ -582,8 +427,7 @@ Getting and Setting Field Values"
 
 <span class="post-categories-list mt-2">
 
-
-<a class="post-categories-list-item" href='/categories/Java译文/'>Java译文</a>
+<a class="post-categories-list-item" href='/categories/Java%E8%AF%91%E6%96%87/'>Java译文</a>
 
 </span>
 
@@ -591,10 +435,9 @@ Getting and Setting Field Values"
 
 <span class="post-tags-list mt-2">
 
+<a class="post-tags-list-item" href="/tags/Java%E5%8F%8D%E5%B0%84/" rel="tag">#&nbsp;Java反射</a>
 
-<a class="post-tags-list-item" href="/tags/Java反射/" rel="tag">#&nbsp;Java反射</a>
-
-<a class="post-tags-list-item" href="/tags/成员变量/" rel="tag">#&nbsp;成员变量</a>
+<a class="post-tags-list-item" href="/tags/%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F/" rel="tag">#&nbsp;成员变量</a>
 
 <a class="post-tags-list-item" href="/tags/Field/" rel="tag">#&nbsp;Field</a>
 
@@ -604,13 +447,12 @@ Getting and Setting Field Values"
 </p>
 
                 </div>
-                
-<div class="post-nav px-2 bg-gray">
+                <div class="post-nav px-2 bg-gray">
 <ul class="pagination">
     <!-- Prev Nav -->
     
         <li class="page-item page-prev">
-            <a href="/2017/02/23/Java反射5-方法/" rel="prev">
+            <a href="/2017/02/23/Java%E5%8F%8D%E5%B0%845-%E6%96%B9%E6%B3%95/" rel="prev">
                 <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
                 <div class="page-item-subtitle">Java反射5-方法</div>
             </a>
@@ -620,7 +462,7 @@ Getting and Setting Field Values"
     <!-- Next Nav -->
     
         <li class="page-item page-next">
-            <a href="/2017/02/23/Java反射3-构造器/" rel="next">
+            <a href="/2017/02/23/Java%E5%8F%8D%E5%B0%843-%E6%9E%84%E9%80%A0%E5%99%A8/" rel="next">
                 <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
                 <div class="page-item-subtitle">Java反射3-构造器</div>
             </a>
@@ -641,9 +483,11 @@ Getting and Setting Field Values"
             <!-- ### Footer ### -->
             <footer class="text-center">
     <!-- footer copyright -->
-    <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span data-year></span>
-        <a class="footer-copyright-a" href="http://lysmbetter.top">Better</a>
-    </p>
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="http://lysmbetter.top">Better</a>
+        </p>
+
     <!-- footer custom text -->
     <p class="footer-text mb-0">
     
@@ -651,7 +495,6 @@ Getting and Setting Field Values"
     <!-- footer develop info -->
     <p class="footer-develop mb-0">
         
-            
     <!-- Busuanzi User Views -->
     <span id="busuanzi_container_site_uv" hidden>
         <span></span>
@@ -664,7 +507,7 @@ Getting and Setting Field Values"
 
 
 
-        
+
         
         Powered by&nbsp;<!--
          --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
@@ -672,40 +515,23 @@ Getting and Setting Field Values"
     </p>
 </footer>
 
-        
 
         <!-- ### Import File ### -->
         <!-- ### Footer JS Import ### -->
 
 <script>
+
+    
 window.lazyLoadOptions = {
     elements_selector: ".lazyload",
     threshold: 50
 };
-
-
-
-    /* Copyright */
-    var copyrightNow = new Date().getFullYear();
-    var copyrightContent = document.querySelector('span[data-year]')
-    
-        copyrightContent.textContent = copyrightNow
-    
-
-
-
-/* Cnosole Log */
+document.getElementById('copyright-year').textContent = new Date().getFullYear();
 console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
 </script>
 
-<!-- vanilla-lazyload -->
-
-    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
-
-
-
-    <!-- Busuanzi -->
-    
+<script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
     <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
 
 
@@ -714,17 +540,10 @@ console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c 
 
 
 
-
-
-
-<!-- gallery.js -->
-
-
 <!-- Comment -->
 
 
 <!-- ### Custom Footer ### -->
-
 
     </body>
 

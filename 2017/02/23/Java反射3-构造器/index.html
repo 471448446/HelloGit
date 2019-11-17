@@ -1,26 +1,18 @@
 <!DOCTYPE html>
 
 <html lang="zh-Hans">
-    <head><meta name="generator" content="Hexo 3.9.0">
+    <head>
     <meta charset="utf-8">
     <!--
-        © SukkaW
+        hexo-theme-suka © SukkaW
         GitHub: https://github.com/SukkaW/hexo-theme-suka
-        Version: 1.3.3
     -->
-    <script>
-window.lsVersion = "1.3.3",
-window.oldVersion = [
-    
-        
-            "0.2.0","0.0.1","0.1.0","1.0.0","1.0.1","1.1.0","1.1.1","1.2.0","1.3.0","1.3.2"
-        
-    
-]
-</script>
 
-    <!-- ### DNS Prefetch ### -->
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
     <meta http-equiv="x-dns-prefetch-control" content="on">
+
 <!-- busuanzi -->
 
     <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
@@ -42,8 +34,7 @@ window.oldVersion = [
 
 
 
-
-    <!-- ### Preload ### -->
+    <!-- ## Preload ## -->
     
     <!-- Busuanzi -->
     
@@ -56,50 +47,18 @@ window.oldVersion = [
 
 
     <!-- ### Meta & Title & Info ### -->
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
-<meta name="renderer" content="webkit">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
 
-<!-- Title -->
-<title>Java反射3-构造器 | Better</title>
+    <!-- Title -->
+    <title>Java反射3-构造器 | Better</title>
 
-<!-- favicon -->
-<!-- Favicons -->
-
-    <link rel="icon" type="image/ico" href="/img/suka-favicon.ico">
-
-
-
-
-
-
-<!-- Android Chrome Color -->
-
-
-
-<meta name="format-detection" content="telephone=no">
-
-<!-- Description -->
-<meta name="description" content="
-Obtaining Constructor Objects
-Constructor Parameters
-Instantiating Objects using Construct...">
-
-<!-- Keywords -->
-<meta name="keywords" content=", Java反射, 构造器, Constructors">
-
-<!-- Disable Fucking Bloody Baidu Tranformation -->
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/suka-favicon.ico">
 
     <!-- ### Import File ### -->
-    
-        <!-- spectre.css -->
-
-    <link rel="stylesheet" href="/lib/spectre/spectre.min.css">
-
-
-<style>
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css"><style>
     body {
         background-color: #f8f9fa;
     }
@@ -120,6 +79,8 @@ Instantiating Objects using Construct...">
         color: #005eb9;
         opacity: 1;
     }
+
+    
 
     .post-entry .card-body a {
         color: #0070ff;
@@ -162,12 +123,7 @@ Instantiating Objects using Construct...">
         background: #f8f9fa;
         opacity: .85;
     }
-</style>
-
-<!-- style.css -->
-
-    <link rel="stylesheet" href="/css/style.min.css">
-
+</style><link rel="stylesheet" href="/css/style.min.css">
 
 
 
@@ -178,61 +134,32 @@ Instantiating Objects using Construct...">
 
     <!-- Prettify Theme -->
     
-    
-        <link rel="stylesheet" href="/css/highlight/github.min.css">
-    
+    <link rel="preload" href="/css/highlight/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/css/highlight/github.min.css"></noscript>
 
 
 
-    
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
 
     <!-- ### Site Verification ### -->
     
 
 
-    <!-- ### RSS ### -->
-    
-
-    <!-- ### WebApp ### -->
-    <meta name="mobile-web-app-capable" content="yes">
-<meta name="application-name" content="Better">
-<meta name="msapplication-starturl" content="http://lysmbetter.top">
-
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Better">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-<!-- Manifest Import -->
-
-<!-- Open Search -->
-
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="Better"><meta name="msapplication-starturl" content="http://lysmbetter.top"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Better"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- ### The Open Graph & Twitter Card Protocol ### -->
-    <meta property="og:title" content="Java反射3-构造器 | Better">
-<meta property="og:site_name" content="Better">
+    <meta property="og:title" content="Java反射3-构造器 | Better"><meta property="og:site_name" content="Better"><meta property="og:type" content="article"><meta property="og:url" content="http:&#x2F;&#x2F;lysmbetter.top&#x2F;2017&#x2F;02&#x2F;23&#x2F;Java%E5%8F%8D%E5%B0%843-%E6%9E%84%E9%80%A0%E5%99%A8&#x2F;"><meta property="og:locale" content="zh-Hans"><meta name="description" content="Obtaining Constructor Objects Constructor Parameters Instantiating Objects using Constructor Object  在程序运行时，能通过Java反射你能获取到类的构造器。这是通过Java类java.lang.reflect.Constructor完成的。通过这篇文你将得到更多关于构造器的信息。 获取构造器对象构造 - Better - Better"><meta name="keywords" content="Java反射, 构造器, Constructors"><meta property="article:published_time" content="2017-02-23T13:26:40.000Z"><meta property="article:modified_time" content="2018-08-05T06:57:53.711Z"><meta property="og:updated_time" content="2018-08-05T06:57:53.711Z"><meta property="article:author" content="Better"><meta property="article:tag" content="Java反射, 构造器, Constructors"><meta name="twitter:card" content="summary">
 
-<meta property="og:locale" content="zh-Hans">
+    
 
-<meta property="og:url" content="http://lysmbetter.top/2017/02/23/Java反射3-构造器/">
-<meta property="og:image" content="http://lysmbetter.top/img/suka-favicon.ico">
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://lysmbetter.top/2017/02/23/Java%E5%8F%8D%E5%B0%843-%E6%9E%84%E9%80%A0%E5%99%A8/">
 
-<meta property="og:description" content="
-Obtaining Constructor Objects
-Constructor Parameters
-Instantiating Objects using Construct...">
-
-<meta name="twitter:card" content="summary">
-
-
-    <meta property="og:type" content="article">
-    <meta property="article:published_time" content="2017-02-23T13:26:40.000Z">
-    <meta property="article:modified_time" content="2017-02-23T13:26:40.000Z">
-    <meta property="article:author" content="Better">
-    <meta property="og:article:tag" content=", Java反射, 构造器, Constructors"> 
-
-
-
-
+    <meta name="generator" content="Hexo 4.0.0">
 
     <!-- ### Analytics ### -->
     
@@ -243,10 +170,6 @@ Instantiating Objects using Construct...">
 
 
 
-
-    <!-- ### Canonical link ### -->
-    <link rel="canonical" href="http://lysmbetter.top/2017/02/23/Java反射3-构造器/">
-
     <!-- ### Structured Data ### -->
     
 
@@ -255,12 +178,12 @@ Instantiating Objects using Construct...">
 <script type="application/ld+json">
 {
     "@context": "http://schema.org",
-    "url": "http://lysmbetter.top/2017/02/23/Java反射3-构造器/",
+    "url": "http://lysmbetter.top/2017/02/23/Java%E5%8F%8D%E5%B0%843-%E6%9E%84%E9%80%A0%E5%99%A8/",
     "@type": "BlogPosting",
     "logo": "http://lysmbetter.top/img/suka-favicon.ico",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://lysmbetter.top/2017/02/23/Java反射3-构造器/"
+        "@id": "http://lysmbetter.top/2017/02/23/Java%E5%8F%8D%E5%B0%843-%E6%9E%84%E9%80%A0%E5%99%A8/"
     },
     "headline": "Java反射3-构造器 | Better",
     
@@ -278,7 +201,7 @@ Instantiating Objects using Construct...">
             "@type": "ImageObject",
             "url": "http://lysmbetter.top/img/default_avatar.png"
         },
-        "description": "Hi, nice to meet you."
+        "description": "业精于勤荒于嬉"
     },
     "publisher": {
         "@type": "Organization",
@@ -295,11 +218,8 @@ Instantiating Objects using Construct...">
         "query-input": "required name=search_term_string"
     },
     
-    "keywords": ", Java反射, 构造器, Constructors",
-    "description": "
-Obtaining Constructor Objects
-Constructor Parameters
-Instantiating Objects using Construct..."
+    "keywords": "Java反射, 构造器, Constructors",
+    "description": "Obtaining Constructor Objects Constructor Parameters Instantiating Objects using Constructor Object  在程序运行时，能通过Java反射你能获取到类的构造器。这是通过Java类java.lang.reflect.Constructor完成的。通过这篇文你将得到更多关于构造器的信息。 获取构造器对象构造 - Better - Better"
 }
 </script>
 
@@ -307,13 +227,9 @@ Instantiating Objects using Construct..."
 
     <!-- ### Custom Head ### -->
     
-
-
 </head>
 
     <body>
-        
-
             
 
             <!-- ### Main content ### -->
@@ -324,7 +240,7 @@ Instantiating Objects using Construct..."
     <p class="text-center header-slogan">
         
             
-                Hi, nice to meet you.
+                业精于勤荒于嬉
             
         
     </p>
@@ -340,69 +256,10 @@ Instantiating Objects using Construct..."
         <a href="/search" class="navbar-link">Search</a>
     
     
+        <a href="/tags/" class="navbar-link">Tags</a>
     
-        <div class="dropdown dropdown-right">
-    <a class="navbar-link dropdown-toggle" tabindex="0">Share</a>
-    <ul class="menu share-menu">
-
-        <!-- Share Weibo -->
-        
-        <li class="menu-item">
-            <a href="http://service.weibo.com/share/share.php?appkey=&title=Better&url=http://lysmbetter.top&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
-        </li>
-        
-
-        <!-- Share Twitter -->
-        
-        <li class="menu-item">
-            <a href="https://twitter.com/intent/tweet?text=Better&url=http://lysmbetter.top&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
-        </li>
-        
-
-        <!-- Share Facebook -->
-        
-        <li class="menu-item">
-            <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
-        </li>
-        
-
-        <!-- Share Google+ -->
-        
-        <li class="menu-item">
-            <a href="https://plus.google.com/share?url=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
-        </li>
-        
-
-        <!-- Share LinkedIn -->
-        
-        <li class="menu-item">
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top&title=Java反射3-构造器" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
-        </li>
-        
-
-        <!-- Share QQ -->
-        
-        <li class="menu-item">
-            <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Java反射3-构造器&summary=描述文字&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
-        </li>
-        
-
-        <!-- Share Telegram -->
-        
-        <li class="menu-item">
-            <a href="https://t.me/share/url?url=http://lysmbetter.top&text=Java反射3-构造器" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
-        </li>
-        
-
-        <!-- QRCode -->
-        
-        <li class="menu-item">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB0klEQVR42u3a0Y6DMAxEUf7/p7tPK1VsMjNGrJQ4l5dWLQ2nkgmxneuz4HGBAgUK1AB1ieN+zu/7P4OZ38TXAdUGNQy64HP1/v77aDxQrVD3wFOBrUCzz9x1QJ2FUpPqbHJVr6BAOWQVC+oM1GzyGw3iEP++SgC1PEoF7puvr2UzoJZG2aLDIMjVInB2/qtVF1BLoyqLOZV4Pgl0UD1RSZDPHspP/xioM1CzSTBZ/D9JPocLQVAtUEkBNUokRYF/NkZU3Ae1JaoCcQmHayqpYAfVA6WaiZUmULWZCeocVAJMAt3dKMMxQbVCqQVb0mh0584mUlD9UGlRLFmwqeZANAGDaoOqXiABJE0nUD1RrtGYNh2Th7vb2AOqN8o1hZLCf5pggOqFSgtaqjimFonupokXeaC2Q6nFvgPKh2y4mQJUL5QLyiQ5dQmFawSA6oeqNgxdMSTdgBp3sUBtiUoKEwkiuYFkIRbU1qgnm3CSAohLOl7ZfApqSVS1eZgiqwkuqF4o96BNN3i5xnU5cQC1NcoFZpKkVooctsAB6ghU8p0rZpR2L4JqjXJJauXhPL1xQLVCuQ1XafOxEuig+qJKRYiwoVjZTAGqF2qlAxQoUKC+jh/a8VFgrmi8mwAAAABJRU5ErkJggg==" alr="QRCode">
-        </li>
-        
-
-    </ul>
-</div>
+        <a href="/about/" class="navbar-link">About</a>
+    
     
     
 </nav>
@@ -410,11 +267,7 @@ Instantiating Objects using Construct..."
 
             
     <!-- ## Post ## -->
-    
-    
-
-
-<div class="post-container">
+    <div class="post-container">
     <div id="post-card" class="card">
         
         <div class="card-item-container">
@@ -433,7 +286,7 @@ Instantiating Objects using Construct..."
         <span>2017-02-23</span>
         
             <span class="suka-devide-dot"></span>
-            <a class="category-link" href="/categories/Java译文/">Java译文</a>
+            <a class="category-link" href="/categories/Java%E8%AF%91%E6%96%87/">Java译文</a>
         
         
             <!-- Busuanzi Post Views -->
@@ -454,56 +307,56 @@ Instantiating Objects using Construct..."
     <!-- Share Weibo -->
     
     <li class="menu-item">
-        <a href="http://service.weibo.com/share/share.php?appkey=&title=Java反射3-构造器&url=http://lysmbetter.top/2017/02/23/Java反射3-构造器/&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=Java反射3-构造器&url=http://lysmbetter.top/2017/02/23/Java%E5%8F%8D%E5%B0%843-%E6%9E%84%E9%80%A0%E5%99%A8/&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
     </li>
     
 
     <!-- Share Twitter -->
     
     <li class="menu-item">
-        <a href="https://twitter.com/intent/tweet?text=Java反射3-构造器&url=http://lysmbetter.top/2017/02/23/Java反射3-构造器/&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+        <a href="https://twitter.com/intent/tweet?text=Java反射3-构造器&url=http://lysmbetter.top/2017/02/23/Java%E5%8F%8D%E5%B0%843-%E6%9E%84%E9%80%A0%E5%99%A8/&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
     </li>
     
 
     <!-- Share Facebook -->
     
     <li class="menu-item">
-        <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top/2017/02/23/Java反射3-构造器/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top/2017/02/23/Java%E5%8F%8D%E5%B0%843-%E6%9E%84%E9%80%A0%E5%99%A8/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
     </li>
     
 
     <!-- Share Google+ -->
     
     <li class="menu-item">
-        <a href="https://plus.google.com/share?url=http://lysmbetter.top/2017/02/23/Java反射3-构造器/" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
+        <a href="https://plus.google.com/share?url=http://lysmbetter.top/2017/02/23/Java%E5%8F%8D%E5%B0%843-%E6%9E%84%E9%80%A0%E5%99%A8/" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
     </li>
     
 
     <!-- Share LinkedIn -->
     
     <li class="menu-item">
-        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top/2017/02/23/Java反射3-构造器/&title=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top/2017/02/23/Java%E5%8F%8D%E5%B0%843-%E6%9E%84%E9%80%A0%E5%99%A8/&title=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
     </li>
     
 
     <!-- Share QQ -->
     
     <li class="menu-item">
-        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Better&summary=描述文字&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top/2017/02/23/Java反射3-构造器/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Better&summary=业精于勤荒于嬉&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top/2017/02/23/Java%E5%8F%8D%E5%B0%843-%E6%9E%84%E9%80%A0%E5%99%A8/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
     </li>
     
 
     <!-- Share Telegram -->
     
     <li class="menu-item">
-        <a href="https://t.me/share/url?url=http://lysmbetter.top/2017/02/23/Java反射3-构造器/&text=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+        <a href="https://t.me/share/url?url=http://lysmbetter.top/2017/02/23/Java%E5%8F%8D%E5%B0%843-%E6%9E%84%E9%80%A0%E5%99%A8/&text=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
     </li>
     
 
     <!-- QRCode -->
     
     <li class="menu-item">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB0klEQVR42u3a0Y6DMAxEUf7/p7tPK1VsMjNGrJQ4l5dWLQ2nkgmxneuz4HGBAgUK1AB1ieN+zu/7P4OZ38TXAdUGNQy64HP1/v77aDxQrVD3wFOBrUCzz9x1QJ2FUpPqbHJVr6BAOWQVC+oM1GzyGw3iEP++SgC1PEoF7puvr2UzoJZG2aLDIMjVInB2/qtVF1BLoyqLOZV4Pgl0UD1RSZDPHspP/xioM1CzSTBZ/D9JPocLQVAtUEkBNUokRYF/NkZU3Ae1JaoCcQmHayqpYAfVA6WaiZUmULWZCeocVAJMAt3dKMMxQbVCqQVb0mh0584mUlD9UGlRLFmwqeZANAGDaoOqXiABJE0nUD1RrtGYNh2Th7vb2AOqN8o1hZLCf5pggOqFSgtaqjimFonupokXeaC2Q6nFvgPKh2y4mQJUL5QLyiQ5dQmFawSA6oeqNgxdMSTdgBp3sUBtiUoKEwkiuYFkIRbU1qgnm3CSAohLOl7ZfApqSVS1eZgiqwkuqF4o96BNN3i5xnU5cQC1NcoFZpKkVooctsAB6ghU8p0rZpR2L4JqjXJJauXhPL1xQLVCuQ1XafOxEuig+qJKRYiwoVjZTAGqF2qlAxQoUKC+jh/a8VFgrmi8mwAAAABJRU5ErkJggg==" alt="QRCode">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAAAAAAYplnuAAACoUlEQVR42u3czU7DMBBF4b7/S8OGDciee66bIFU53aDSJvlSyR3PD7y+PvDxEi1atOgHol/D49cBP893r6/Otzpudw7iEC2aoncX/3ux1TGri9ObWP3cOUSLbtHp5Kv3745bPd99ANQhWvSdaHrxdNOrBSxa9N3oFETSwqSBS7Toq9HjRmXYnF/985JdnujHo/8TRRbw29m46EejY9EvFFZ2wWZKdG+vmop+NLpNNKcbIwVH+gEsi0SiRQN0k9ymRZQKM6SQOX44okUDNCmmpGLibiFNGyIaxESLbtE0kJDmaFpozeZftOh30BOK3AAtUNIFiBaiaNEATRPbkwQ1NVHRsIBo0SWaJgAnQSgVeN7+9hAtGjbjycnSJunk9bH5KVp06I1PyWxaqFNi22z8SRIsWjRFj28sb4IUdGigES36SnRaWAmRCjG0mS9adItOG/KTQSlStEHDg6JFv4GeiuAo6SQN+eJcdeYiWjTcME3NTFKomZqidZFdtOgCnRYfHc4mScM0jDK+Jlo0RNOiCh02ITdHmkXjZI1o0WDwihRZUmBJCUFaoNWGSbTo8Mc5TaOeDFolDH2PaNEn9enjZPNV/GFvcRwOLqJFL4o16cA00E2CC0LR5qdo0aChT0+YgkR7AyTwiBZ9go5DT+CiKSidJL6iRZ+iUUMdAJqNPSlmihZ9gm4KkbQYQ8+Rzo+6W6JFb9BkWHAq3DQBgw7LihbdoptCYzMQSxr8TZNItGiKbjZKzUB4WqhpaHx5g6JFQzQpqtOG/1RAp8V7lNiKFg1zRJKspoDQLGryJSBa9NXok2DQJMNkUYoWfQe6TQpowx4Pz4oWXaBpgSUtrPT79L6xWSVadPH/PdrhPjI0SwIT3ZSJFk3Rn/QQLVq06AehvwHpPJpo2XFuQgAAAABJRU5ErkJggg==" alt="QRCode">
     </li>
     
 
@@ -516,9 +369,8 @@ Instantiating Objects using Construct..."
                 <div class="card-body">
                     
                         
-                            <div id="post-toc">
-                                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#获取构造器对象"><span class="post-toc-number">1.</span> <span class="post-toc-text">获取构造器对象</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#构造器的参数"><span class="post-toc-number">2.</span> <span class="post-toc-text">构造器的参数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#生成类对象"><span class="post-toc-number">3.</span> <span class="post-toc-text">生成类对象</span></a></li></ol>
-                            </div>
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#获取构造器对象"><span class="post-toc-number">1.</span> <span class="post-toc-text">获取构造器对象</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#构造器的参数"><span class="post-toc-number">2.</span> <span class="post-toc-text">构造器的参数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#生成类对象"><span class="post-toc-number">3.</span> <span class="post-toc-text">生成类对象</span></a></li></ol></div>
                         
                     
                     <article id="post-content">
@@ -530,17 +382,13 @@ Instantiating Objects using Construct..."
 <p>在程序运行时，能通过Java反射你能获取到类的构造器。这是通过Java类<code>java.lang.reflect.Constructor</code>完成的。通过这篇文你将得到更多关于构造器的信息。</p>
 <h2 id="获取构造器对象"><a href="#获取构造器对象" class="headerlink" title="获取构造器对象"></a>获取构造器对象</h2><p>构造器对象是通过Class对象获取的，比如：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Class aClass = ...//obtain class object</span><br><span class="line">Constructor[] constructors = aClass.getConstructors();</span><br></pre></td></tr></table></figure>
-
 <p>这个constructos数组中的值是类中每个申明为public的构造器。<br>如果你知道类中构造器的一些更具体的参数，你可以直接获取他而不是直接获取所有的。例子中返回了中有String参数的构造器的对象。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Class aClass = ...//obtain class object</span><br><span class="line">Constructor constructor = aClass.getConstructor(new Class[]&#123;String.class&#125;);</span><br></pre></td></tr></table></figure>
-
 <p>如果类中没有申明有String参数的构造器，即没有找到时，<code>getConstructor()</code>方法会抛出<code>NoSuchMethodException</code>异常。</p>
 <h2 id="构造器的参数"><a href="#构造器的参数" class="headerlink" title="构造器的参数"></a>构造器的参数</h2><p>你可以获取一个构造器的参数：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Constructor constructor = ... // obtain constructor - see above</span><br><span class="line">Class[] parameterTypes = constructor.getParameterTypes();</span><br></pre></td></tr></table></figure>
-
 <h2 id="生成类对象"><a href="#生成类对象" class="headerlink" title="生成类对象"></a>生成类对象</h2><p>你可以通过构造器生产对应的类对象：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//get constructor that takes a String as argument</span><br><span class="line">Constructor constructor = MyObject.class.getConstructor(String.class);</span><br><span class="line"></span><br><span class="line">MyObject myObject = (MyObject)</span><br><span class="line">        constructor.newInstance(&quot;constructor-arg1&quot;);</span><br></pre></td></tr></table></figure>
-
 <p><code>Constructor.newInstance()</code>方法指定了一系列的参数，你必须准确的指定每个参数使得于你使用的构造器参数对应。在这个列子中，我们使用了一个带有String参数的构造器，所以必须知道一个String的值。</p>
 <p><a href="http://tutorials.jenkov.com/java-reflection/constructors.html" target="_blank" rel="noopener">原文</a></p>
 
@@ -550,6 +398,7 @@ Instantiating Objects using Construct..."
 
     <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
     <script>
+    (function() {
         var dateUpdate = Date.parse("2018-08-05");
         var nowDate = new Date();
         var a = nowDate.getTime();
@@ -560,6 +409,7 @@ Instantiating Objects using Construct..."
         } else {
             document.getElementById('date-expire-notification').style.display = 'none';
         }
+    })();
     </script>
 
 
@@ -572,8 +422,7 @@ Instantiating Objects using Construct..."
 
 <span class="post-categories-list mt-2">
 
-
-<a class="post-categories-list-item" href='/categories/Java译文/'>Java译文</a>
+<a class="post-categories-list-item" href='/categories/Java%E8%AF%91%E6%96%87/'>Java译文</a>
 
 </span>
 
@@ -581,10 +430,9 @@ Instantiating Objects using Construct..."
 
 <span class="post-tags-list mt-2">
 
+<a class="post-tags-list-item" href="/tags/Java%E5%8F%8D%E5%B0%84/" rel="tag">#&nbsp;Java反射</a>
 
-<a class="post-tags-list-item" href="/tags/Java反射/" rel="tag">#&nbsp;Java反射</a>
-
-<a class="post-tags-list-item" href="/tags/构造器/" rel="tag">#&nbsp;构造器</a>
+<a class="post-tags-list-item" href="/tags/%E6%9E%84%E9%80%A0%E5%99%A8/" rel="tag">#&nbsp;构造器</a>
 
 <a class="post-tags-list-item" href="/tags/Constructors/" rel="tag">#&nbsp;Constructors</a>
 
@@ -594,13 +442,12 @@ Instantiating Objects using Construct..."
 </p>
 
                 </div>
-                
-<div class="post-nav px-2 bg-gray">
+                <div class="post-nav px-2 bg-gray">
 <ul class="pagination">
     <!-- Prev Nav -->
     
         <li class="page-item page-prev">
-            <a href="/2017/02/23/Java反射4-成员变量/" rel="prev">
+            <a href="/2017/02/23/Java%E5%8F%8D%E5%B0%844-%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F/" rel="prev">
                 <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
                 <div class="page-item-subtitle">Java反射4-成员变量</div>
             </a>
@@ -610,7 +457,7 @@ Instantiating Objects using Construct..."
     <!-- Next Nav -->
     
         <li class="page-item page-next">
-            <a href="/2017/02/22/Java反射2-类/" rel="next">
+            <a href="/2017/02/22/Java%E5%8F%8D%E5%B0%842-%E7%B1%BB/" rel="next">
                 <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
                 <div class="page-item-subtitle">Java反射2-类</div>
             </a>
@@ -631,9 +478,11 @@ Instantiating Objects using Construct..."
             <!-- ### Footer ### -->
             <footer class="text-center">
     <!-- footer copyright -->
-    <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span data-year></span>
-        <a class="footer-copyright-a" href="http://lysmbetter.top">Better</a>
-    </p>
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="http://lysmbetter.top">Better</a>
+        </p>
+
     <!-- footer custom text -->
     <p class="footer-text mb-0">
     
@@ -641,7 +490,6 @@ Instantiating Objects using Construct..."
     <!-- footer develop info -->
     <p class="footer-develop mb-0">
         
-            
     <!-- Busuanzi User Views -->
     <span id="busuanzi_container_site_uv" hidden>
         <span></span>
@@ -654,7 +502,7 @@ Instantiating Objects using Construct..."
 
 
 
-        
+
         
         Powered by&nbsp;<!--
          --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
@@ -662,40 +510,23 @@ Instantiating Objects using Construct..."
     </p>
 </footer>
 
-        
 
         <!-- ### Import File ### -->
         <!-- ### Footer JS Import ### -->
 
 <script>
+
+    
 window.lazyLoadOptions = {
     elements_selector: ".lazyload",
     threshold: 50
 };
-
-
-
-    /* Copyright */
-    var copyrightNow = new Date().getFullYear();
-    var copyrightContent = document.querySelector('span[data-year]')
-    
-        copyrightContent.textContent = copyrightNow
-    
-
-
-
-/* Cnosole Log */
+document.getElementById('copyright-year').textContent = new Date().getFullYear();
 console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
 </script>
 
-<!-- vanilla-lazyload -->
-
-    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
-
-
-
-    <!-- Busuanzi -->
-    
+<script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
     <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
 
 
@@ -704,17 +535,10 @@ console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c 
 
 
 
-
-
-
-<!-- gallery.js -->
-
-
 <!-- Comment -->
 
 
 <!-- ### Custom Footer ### -->
-
 
     </body>
 

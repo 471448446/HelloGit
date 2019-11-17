@@ -1,26 +1,18 @@
 <!DOCTYPE html>
 
 <html lang="zh-Hans">
-    <head><meta name="generator" content="Hexo 3.9.0">
+    <head>
     <meta charset="utf-8">
     <!--
-        © SukkaW
+        hexo-theme-suka © SukkaW
         GitHub: https://github.com/SukkaW/hexo-theme-suka
-        Version: 1.3.3
     -->
-    <script>
-window.lsVersion = "1.3.3",
-window.oldVersion = [
-    
-        
-            "0.2.0","0.0.1","0.1.0","1.0.0","1.0.1","1.1.0","1.1.1","1.2.0","1.3.0","1.3.2"
-        
-    
-]
-</script>
 
-    <!-- ### DNS Prefetch ### -->
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
     <meta http-equiv="x-dns-prefetch-control" content="on">
+
 <!-- busuanzi -->
 
     <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
@@ -42,8 +34,7 @@ window.oldVersion = [
 
 
 
-
-    <!-- ### Preload ### -->
+    <!-- ## Preload ## -->
     
     <!-- Busuanzi -->
     
@@ -56,48 +47,18 @@ window.oldVersion = [
 
 
     <!-- ### Meta & Title & Info ### -->
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
-<meta name="renderer" content="webkit">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
 
-<!-- Title -->
-<title>Android开发中地图坐标系以及调用地图导航 | Better</title>
+    <!-- Title -->
+    <title>Android开发中地图坐标系以及调用地图导航 | Better</title>
 
-<!-- favicon -->
-<!-- Favicons -->
-
-    <link rel="icon" type="image/ico" href="/img/suka-favicon.ico">
-
-
-
-
-
-
-<!-- Android Chrome Color -->
-
-
-
-<meta name="format-detection" content="telephone=no">
-
-<!-- Description -->
-<meta name="description" content="android开发中你会使用到地图，国内常用的地图有高德，百度，腾讯。这里主要谈一下各自的坐标系，以及如何在app里面调起他们的地图app导航。
-">
-
-<!-- Keywords -->
-<meta name="keywords" content=", Android地图, 地图坐标系">
-
-<!-- Disable Fucking Bloody Baidu Tranformation -->
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/suka-favicon.ico">
 
     <!-- ### Import File ### -->
-    
-        <!-- spectre.css -->
-
-    <link rel="stylesheet" href="/lib/spectre/spectre.min.css">
-
-
-<style>
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css"><style>
     body {
         background-color: #f8f9fa;
     }
@@ -118,6 +79,8 @@ window.oldVersion = [
         color: #005eb9;
         opacity: 1;
     }
+
+    
 
     .post-entry .card-body a {
         color: #0070ff;
@@ -160,12 +123,7 @@ window.oldVersion = [
         background: #f8f9fa;
         opacity: .85;
     }
-</style>
-
-<!-- style.css -->
-
-    <link rel="stylesheet" href="/css/style.min.css">
-
+</style><link rel="stylesheet" href="/css/style.min.css">
 
 
 
@@ -176,59 +134,32 @@ window.oldVersion = [
 
     <!-- Prettify Theme -->
     
-    
-        <link rel="stylesheet" href="/css/highlight/github.min.css">
-    
+    <link rel="preload" href="/css/highlight/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/css/highlight/github.min.css"></noscript>
 
 
 
-    
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
 
     <!-- ### Site Verification ### -->
     
 
 
-    <!-- ### RSS ### -->
-    
-
-    <!-- ### WebApp ### -->
-    <meta name="mobile-web-app-capable" content="yes">
-<meta name="application-name" content="Better">
-<meta name="msapplication-starturl" content="http://lysmbetter.top">
-
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Better">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-<!-- Manifest Import -->
-
-<!-- Open Search -->
-
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="Better"><meta name="msapplication-starturl" content="http://lysmbetter.top"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Better"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- ### The Open Graph & Twitter Card Protocol ### -->
-    <meta property="og:title" content="Android开发中地图坐标系以及调用地图导航 | Better">
-<meta property="og:site_name" content="Better">
+    <meta property="og:title" content="Android开发中地图坐标系以及调用地图导航 | Better"><meta property="og:site_name" content="Better"><meta property="og:type" content="article"><meta property="og:url" content="http:&#x2F;&#x2F;lysmbetter.top&#x2F;2017&#x2F;04&#x2F;08&#x2F;Android%E5%BC%80%E5%8F%91%E4%B8%AD%E5%9C%B0%E5%9B%BE%E5%9D%90%E6%A0%87%E7%B3%BB%E4%BB%A5%E5%8F%8A%E8%B0%83%E7%94%A8%E5%9C%B0%E5%9B%BE%E5%AF%BC%E8%88%AA&#x2F;"><meta property="og:locale" content="zh-Hans"><meta name="description" content="android开发中你会使用到地图，国内常用的地图有高德，百度，腾讯。这里主要谈一下各自的坐标系，以及如何在app里面调起他们的地图app导航。 地图坐标系地球人共同约定的地图准则。  WGS84：国际通用的地球坐标系。Google地图非中国范围在使用。 GCJ102:WGS84坐标系经加密后的坐标系，又名火星坐标系。Google地图中国范围，高德，腾讯在使用。 BD09：GCJ02坐标系经加密后 - Better - Better"><meta name="keywords" content="Android地图, 地图坐标系"><meta property="article:published_time" content="2017-04-08T01:50:55.000Z"><meta property="article:modified_time" content="2018-08-05T07:09:41.701Z"><meta property="og:updated_time" content="2018-08-05T07:09:41.701Z"><meta property="article:author" content="Better"><meta property="article:tag" content="Android地图, 地图坐标系"><meta name="twitter:card" content="summary">
 
-<meta property="og:locale" content="zh-Hans">
+    
 
-<meta property="og:url" content="http://lysmbetter.top/2017/04/08/Android开发中地图坐标系以及调用地图导航/">
-<meta property="og:image" content="http://lysmbetter.top/img/suka-favicon.ico">
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://lysmbetter.top/2017/04/08/Android%E5%BC%80%E5%8F%91%E4%B8%AD%E5%9C%B0%E5%9B%BE%E5%9D%90%E6%A0%87%E7%B3%BB%E4%BB%A5%E5%8F%8A%E8%B0%83%E7%94%A8%E5%9C%B0%E5%9B%BE%E5%AF%BC%E8%88%AA/">
 
-<meta property="og:description" content="android开发中你会使用到地图，国内常用的地图有高德，百度，腾讯。这里主要谈一下各自的坐标系，以及如何在app里面调起他们的地图app导航。
-">
-
-<meta name="twitter:card" content="summary">
-
-
-    <meta property="og:type" content="article">
-    <meta property="article:published_time" content="2017-04-08T01:50:55.000Z">
-    <meta property="article:modified_time" content="2017-04-08T01:50:55.000Z">
-    <meta property="article:author" content="Better">
-    <meta property="og:article:tag" content=", Android地图, 地图坐标系"> 
-
-
-
-
+    <meta name="generator" content="Hexo 4.0.0">
 
     <!-- ### Analytics ### -->
     
@@ -239,10 +170,6 @@ window.oldVersion = [
 
 
 
-
-    <!-- ### Canonical link ### -->
-    <link rel="canonical" href="http://lysmbetter.top/2017/04/08/Android开发中地图坐标系以及调用地图导航/">
-
     <!-- ### Structured Data ### -->
     
 
@@ -251,12 +178,12 @@ window.oldVersion = [
 <script type="application/ld+json">
 {
     "@context": "http://schema.org",
-    "url": "http://lysmbetter.top/2017/04/08/Android开发中地图坐标系以及调用地图导航/",
+    "url": "http://lysmbetter.top/2017/04/08/Android%E5%BC%80%E5%8F%91%E4%B8%AD%E5%9C%B0%E5%9B%BE%E5%9D%90%E6%A0%87%E7%B3%BB%E4%BB%A5%E5%8F%8A%E8%B0%83%E7%94%A8%E5%9C%B0%E5%9B%BE%E5%AF%BC%E8%88%AA/",
     "@type": "BlogPosting",
     "logo": "http://lysmbetter.top/img/suka-favicon.ico",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://lysmbetter.top/2017/04/08/Android开发中地图坐标系以及调用地图导航/"
+        "@id": "http://lysmbetter.top/2017/04/08/Android%E5%BC%80%E5%8F%91%E4%B8%AD%E5%9C%B0%E5%9B%BE%E5%9D%90%E6%A0%87%E7%B3%BB%E4%BB%A5%E5%8F%8A%E8%B0%83%E7%94%A8%E5%9C%B0%E5%9B%BE%E5%AF%BC%E8%88%AA/"
     },
     "headline": "Android开发中地图坐标系以及调用地图导航 | Better",
     
@@ -274,7 +201,7 @@ window.oldVersion = [
             "@type": "ImageObject",
             "url": "http://lysmbetter.top/img/default_avatar.png"
         },
-        "description": "Hi, nice to meet you."
+        "description": "业精于勤荒于嬉"
     },
     "publisher": {
         "@type": "Organization",
@@ -291,9 +218,8 @@ window.oldVersion = [
         "query-input": "required name=search_term_string"
     },
     
-    "keywords": ", Android地图, 地图坐标系",
-    "description": "android开发中你会使用到地图，国内常用的地图有高德，百度，腾讯。这里主要谈一下各自的坐标系，以及如何在app里面调起他们的地图app导航。
-"
+    "keywords": "Android地图, 地图坐标系",
+    "description": "android开发中你会使用到地图，国内常用的地图有高德，百度，腾讯。这里主要谈一下各自的坐标系，以及如何在app里面调起他们的地图app导航。 地图坐标系地球人共同约定的地图准则。  WGS84：国际通用的地球坐标系。Google地图非中国范围在使用。 GCJ102:WGS84坐标系经加密后的坐标系，又名火星坐标系。Google地图中国范围，高德，腾讯在使用。 BD09：GCJ02坐标系经加密后 - Better - Better"
 }
 </script>
 
@@ -301,13 +227,9 @@ window.oldVersion = [
 
     <!-- ### Custom Head ### -->
     
-
-
 </head>
 
     <body>
-        
-
             
 
             <!-- ### Main content ### -->
@@ -318,7 +240,7 @@ window.oldVersion = [
     <p class="text-center header-slogan">
         
             
-                Hi, nice to meet you.
+                业精于勤荒于嬉
             
         
     </p>
@@ -334,69 +256,10 @@ window.oldVersion = [
         <a href="/search" class="navbar-link">Search</a>
     
     
+        <a href="/tags/" class="navbar-link">Tags</a>
     
-        <div class="dropdown dropdown-right">
-    <a class="navbar-link dropdown-toggle" tabindex="0">Share</a>
-    <ul class="menu share-menu">
-
-        <!-- Share Weibo -->
-        
-        <li class="menu-item">
-            <a href="http://service.weibo.com/share/share.php?appkey=&title=Better&url=http://lysmbetter.top&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
-        </li>
-        
-
-        <!-- Share Twitter -->
-        
-        <li class="menu-item">
-            <a href="https://twitter.com/intent/tweet?text=Better&url=http://lysmbetter.top&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
-        </li>
-        
-
-        <!-- Share Facebook -->
-        
-        <li class="menu-item">
-            <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
-        </li>
-        
-
-        <!-- Share Google+ -->
-        
-        <li class="menu-item">
-            <a href="https://plus.google.com/share?url=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
-        </li>
-        
-
-        <!-- Share LinkedIn -->
-        
-        <li class="menu-item">
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top&title=Android开发中地图坐标系以及调用地图导航" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
-        </li>
-        
-
-        <!-- Share QQ -->
-        
-        <li class="menu-item">
-            <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Android开发中地图坐标系以及调用地图导航&summary=描述文字&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
-        </li>
-        
-
-        <!-- Share Telegram -->
-        
-        <li class="menu-item">
-            <a href="https://t.me/share/url?url=http://lysmbetter.top&text=Android开发中地图坐标系以及调用地图导航" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
-        </li>
-        
-
-        <!-- QRCode -->
-        
-        <li class="menu-item">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAAAAAAYplnuAAACp0lEQVR42u3c207rQBBEUf//T8MrgkzXro6FQN554eTqFeuMp2/K9fEPb5do0aJFPxB9Dbcfb3rx+Omx0/Nf7796fHKIFk3RL//TDx/46vnvr5ved/p3dIgWXaBPKIIn9+miHE+OaNE3odOB02ZD3yda9G+h04YzBUmnL9WcJNGiN+hToNL8HQP4IVG4PcoT/Xj0dMDf/HtbNi760ehY9AsbxWmTIsHUKbh6u2oq+tHoaSHQQuMU+KQgiR5ftOgGTYuApLiYEohUSB9fL1o0QE+J6vRB08bwznvGJpNo0QU6FQVJA3Qq2KTiDClUihbdoFNxpWkUta8lX1K06AbdNHfaIZVtEhEXomjR5eayadA3i6sZxhIteoumiW47ZEgS4PVCFC0aFNXJZpMSVrKZ0KaRaNF3oOnB6IB3+rxqSEW06IAmhce2kURe1xRxRIt+Fz0ln2Rg6p0G0XohihYNEtF0INoY3Xwx0aI36BTo00FWEvjToZg6CRAtGi5E0hBtE4TULBoL86JFAzS5wJPnU/CfBrvSBUC0aIomw6tTEE8T1OnLkqKNaNENOhXMp82GFBZTU5UMyIgWTdFkIWwSXJL4No1+0aIpOgU2ZBOhxURyoqqrh2jRYXNpAqjNUMs2KRYtepMjkiIiLYK3GwkZAhAtukG3F33SgCfDK+RkoYBJtGjwQztk89kmBWmTOlpEiy7Qm8A/BULTQk8DXVWUJ1r04od2yCAhGXKdTlYclBEtGqCv4ZYal1NAlQawmmBMtOgWTZo+U0Gx2TDapLlKAkSLLhs8pFhOmkPpAlB3bEWLXvxoNklc04JNi3HVKBIteokmhRbSxCeNUNGi70BPTf32Pi3kkEKnaNEbNCkE0oU0FXxI0RNXTUWLXtan/9JNtGjRoh+E/gRjvBvZsa+EowAAAABJRU5ErkJggg==" alr="QRCode">
-        </li>
-        
-
-    </ul>
-</div>
+        <a href="/about/" class="navbar-link">About</a>
+    
     
     
 </nav>
@@ -404,11 +267,7 @@ window.oldVersion = [
 
             
     <!-- ## Post ## -->
-    
-    
-
-
-<div class="post-container">
+    <div class="post-container">
     <div id="post-card" class="card">
         
         <div class="card-item-container">
@@ -448,56 +307,56 @@ window.oldVersion = [
     <!-- Share Weibo -->
     
     <li class="menu-item">
-        <a href="http://service.weibo.com/share/share.php?appkey=&title=Android开发中地图坐标系以及调用地图导航&url=http://lysmbetter.top/2017/04/08/Android开发中地图坐标系以及调用地图导航/&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=Android开发中地图坐标系以及调用地图导航&url=http://lysmbetter.top/2017/04/08/Android%E5%BC%80%E5%8F%91%E4%B8%AD%E5%9C%B0%E5%9B%BE%E5%9D%90%E6%A0%87%E7%B3%BB%E4%BB%A5%E5%8F%8A%E8%B0%83%E7%94%A8%E5%9C%B0%E5%9B%BE%E5%AF%BC%E8%88%AA/&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
     </li>
     
 
     <!-- Share Twitter -->
     
     <li class="menu-item">
-        <a href="https://twitter.com/intent/tweet?text=Android开发中地图坐标系以及调用地图导航&url=http://lysmbetter.top/2017/04/08/Android开发中地图坐标系以及调用地图导航/&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+        <a href="https://twitter.com/intent/tweet?text=Android开发中地图坐标系以及调用地图导航&url=http://lysmbetter.top/2017/04/08/Android%E5%BC%80%E5%8F%91%E4%B8%AD%E5%9C%B0%E5%9B%BE%E5%9D%90%E6%A0%87%E7%B3%BB%E4%BB%A5%E5%8F%8A%E8%B0%83%E7%94%A8%E5%9C%B0%E5%9B%BE%E5%AF%BC%E8%88%AA/&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
     </li>
     
 
     <!-- Share Facebook -->
     
     <li class="menu-item">
-        <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top/2017/04/08/Android开发中地图坐标系以及调用地图导航/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top/2017/04/08/Android%E5%BC%80%E5%8F%91%E4%B8%AD%E5%9C%B0%E5%9B%BE%E5%9D%90%E6%A0%87%E7%B3%BB%E4%BB%A5%E5%8F%8A%E8%B0%83%E7%94%A8%E5%9C%B0%E5%9B%BE%E5%AF%BC%E8%88%AA/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
     </li>
     
 
     <!-- Share Google+ -->
     
     <li class="menu-item">
-        <a href="https://plus.google.com/share?url=http://lysmbetter.top/2017/04/08/Android开发中地图坐标系以及调用地图导航/" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
+        <a href="https://plus.google.com/share?url=http://lysmbetter.top/2017/04/08/Android%E5%BC%80%E5%8F%91%E4%B8%AD%E5%9C%B0%E5%9B%BE%E5%9D%90%E6%A0%87%E7%B3%BB%E4%BB%A5%E5%8F%8A%E8%B0%83%E7%94%A8%E5%9C%B0%E5%9B%BE%E5%AF%BC%E8%88%AA/" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
     </li>
     
 
     <!-- Share LinkedIn -->
     
     <li class="menu-item">
-        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top/2017/04/08/Android开发中地图坐标系以及调用地图导航/&title=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top/2017/04/08/Android%E5%BC%80%E5%8F%91%E4%B8%AD%E5%9C%B0%E5%9B%BE%E5%9D%90%E6%A0%87%E7%B3%BB%E4%BB%A5%E5%8F%8A%E8%B0%83%E7%94%A8%E5%9C%B0%E5%9B%BE%E5%AF%BC%E8%88%AA/&title=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
     </li>
     
 
     <!-- Share QQ -->
     
     <li class="menu-item">
-        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Better&summary=描述文字&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top/2017/04/08/Android开发中地图坐标系以及调用地图导航/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Better&summary=业精于勤荒于嬉&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top/2017/04/08/Android%E5%BC%80%E5%8F%91%E4%B8%AD%E5%9C%B0%E5%9B%BE%E5%9D%90%E6%A0%87%E7%B3%BB%E4%BB%A5%E5%8F%8A%E8%B0%83%E7%94%A8%E5%9C%B0%E5%9B%BE%E5%AF%BC%E8%88%AA/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
     </li>
     
 
     <!-- Share Telegram -->
     
     <li class="menu-item">
-        <a href="https://t.me/share/url?url=http://lysmbetter.top/2017/04/08/Android开发中地图坐标系以及调用地图导航/&text=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+        <a href="https://t.me/share/url?url=http://lysmbetter.top/2017/04/08/Android%E5%BC%80%E5%8F%91%E4%B8%AD%E5%9C%B0%E5%9B%BE%E5%9D%90%E6%A0%87%E7%B3%BB%E4%BB%A5%E5%8F%8A%E8%B0%83%E7%94%A8%E5%9C%B0%E5%9B%BE%E5%AF%BC%E8%88%AA/&text=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
     </li>
     
 
     <!-- QRCode -->
     
     <li class="menu-item">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAAAAAAYplnuAAACp0lEQVR42u3c207rQBBEUf//T8MrgkzXro6FQN554eTqFeuMp2/K9fEPb5do0aJFPxB9Dbcfb3rx+Omx0/Nf7796fHKIFk3RL//TDx/46vnvr5ved/p3dIgWXaBPKIIn9+miHE+OaNE3odOB02ZD3yda9G+h04YzBUmnL9WcJNGiN+hToNL8HQP4IVG4PcoT/Xj0dMDf/HtbNi760ehY9AsbxWmTIsHUKbh6u2oq+tHoaSHQQuMU+KQgiR5ftOgGTYuApLiYEohUSB9fL1o0QE+J6vRB08bwznvGJpNo0QU6FQVJA3Qq2KTiDClUihbdoFNxpWkUta8lX1K06AbdNHfaIZVtEhEXomjR5eayadA3i6sZxhIteoumiW47ZEgS4PVCFC0aFNXJZpMSVrKZ0KaRaNF3oOnB6IB3+rxqSEW06IAmhce2kURe1xRxRIt+Fz0ln2Rg6p0G0XohihYNEtF0INoY3Xwx0aI36BTo00FWEvjToZg6CRAtGi5E0hBtE4TULBoL86JFAzS5wJPnU/CfBrvSBUC0aIomw6tTEE8T1OnLkqKNaNENOhXMp82GFBZTU5UMyIgWTdFkIWwSXJL4No1+0aIpOgU2ZBOhxURyoqqrh2jRYXNpAqjNUMs2KRYtepMjkiIiLYK3GwkZAhAtukG3F33SgCfDK+RkoYBJtGjwQztk89kmBWmTOlpEiy7Qm8A/BULTQk8DXVWUJ1r04od2yCAhGXKdTlYclBEtGqCv4ZYal1NAlQawmmBMtOgWTZo+U0Gx2TDapLlKAkSLLhs8pFhOmkPpAlB3bEWLXvxoNklc04JNi3HVKBIteokmhRbSxCeNUNGi70BPTf32Pi3kkEKnaNEbNCkE0oU0FXxI0RNXTUWLXtan/9JNtGjRoh+E/gRjvBvZsa+EowAAAABJRU5ErkJggg==" alt="QRCode">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPQAAAD0CAAAAACJRFQiAAAElUlEQVR42u2cS3bcQAwD5/6XdvaJmih0vBmxtIlH0aer/UyTAJLPz8LjI7TQQgsttNBfBv0Zjn9uAn//dO3p89P55v7T+07rFFroLdCPP/TD+aeF/33faYGne6YNSecoh9BCb4I+vTgVkceCMTzrtMixAD2cf7omcggttNA/T9edzk3F6jgEDO+7XYvQQgudC1lqOJoBIA0ZpNAJLbTQdwMHBaYbRAQHMtxMz/vvKUtoob8ceioy3/Tnr6mhQgv9xdC1CVY2BFMhSw0HGVLI9UILvQmaNBbkZeTeVvhL5kASIoQWeiN009x/ioMWNDI8nIw6MoSMzYnQQr8QmooAjdk2FbhJnEhQN0VRaKE3Qk/iWipiNPyShL9UWKm4OK5BaKEXQdNAKm360/2puNF7UhBHaKG3QZ9uaoJzzYJJkbwppCS4J7TQW6CJ0U4HBNK4nADTUNGIEo/XCy30AmhaRG5FhiQYJAGCiITUABRa6A3QN4I/haMFj4by0oASN0xooRdCt2Ea2jRMDUky3ol4ScIDQgu9DZoO6+klRGS4Hho++R/L4CSC0EK/EJqYaDTYNj2Hin30/PSO4wYLLfQi6BsTLZlqZJBJIQAasEPfRKGFXgCdAjFt4JUWyKY5aYzAcVgRWugF0PTBVKxLQiMRGdqQQGqshBZ6EzRpEEjzfzPwU/MvbdD0DRBa6I3QN6Y7NfWIQUgGHhLQjSag0EIvgp4KB10EEeiahoVuFCnKQgu9ETo1/HSgTwWOBPVaQ54MIkILvQE6FYcbE48smBj7bYMyiQpCC70dOsEQ0YAYeGnAoIUWFUKhhV4AnQztVOBws38hRDShndqUF1roF0M3gwEJ46Ti14gQJHBDgwNCC70BmvyCb0J0bWGkm0oMiBgEElroZdCt2JaEeNrYtOb9TZhPaKG3QN+E5VI45zeKWXomPT+KCEIL/VLoJPpRQZ0OKEmQnER9UhyP1wgt9DLoVKimpoEuZHrf1OxQsWJcs9BCL4C+EeimoT6BUKOdHMmQiMKg0EK/FJo0IeTrNkRDQ7hNgKAK2ggt9Auhp+HgNhxLBUMq2mORIAXrhBZ6ATQuAh/2H6WRxd40GZPgMAkbQgu9FTothpj2NOSWCiS5nhoEaOAQWuiXQZOHkQbjGFqDgl676ZOBgJIIQgv9Uugm/DKBpQZkMtna8836hRZ6EzQJxRCjbiogRFwkgn9qlKa1CS30JmhqkhGAqYilpoUYeBRwbE6EFvrF0Ddmd1NwyGBBF5/CPFNjIrTQm6AbI6xpCqgw3w4xbehPaKG3Qaei0hp71Bgk4dckQqTCd6WGCi30F0M3wj4xwVsDjnwmwTs04Agt9GLoJAiQAvMbJj3ZSFJYhRZ6CzQVBZNIQMR8WujaMB02JYQWegk0HRhu4aiZnjY0BWrjgCO00IugaaFqBX5ypOG/aWqQKS+00Iuhb4T81EwkM+F0jpoSx2cLLbTQP6kxIM0Dua4R/6+Lq9BCL4JumgBqpFNTvQ3cTQVvFDmFFnoJ9I1RRxuP6bomwHdjRFyroUIL/cXQmw6hhRZaaKGF/pLjDwjZN8KoorYaAAAAAElFTkSuQmCC" alt="QRCode">
     </li>
     
 
@@ -510,9 +369,8 @@ window.oldVersion = [
                 <div class="card-body">
                     
                         
-                            <div id="post-toc">
-                                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#地图坐标系"><span class="post-toc-number">1.</span> <span class="post-toc-text">地图坐标系</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#转换到百度"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">转换到百度</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#转换到高德"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">转换到高德</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#转换到腾讯"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">转换到腾讯</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#调起导航"><span class="post-toc-number">2.</span> <span class="post-toc-text">调起导航</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#百度"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">百度</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#高德"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">高德</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#腾讯"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">腾讯</span></a></li></ol></li></ol>
-                            </div>
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#地图坐标系"><span class="post-toc-number">1.</span> <span class="post-toc-text">地图坐标系</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#转换到百度"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">转换到百度</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#转换到高德"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">转换到高德</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#转换到腾讯"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">转换到腾讯</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#调起导航"><span class="post-toc-number">2.</span> <span class="post-toc-text">调起导航</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#百度"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">百度</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#高德"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">高德</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#腾讯"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">腾讯</span></a></li></ol></li></ol></div>
                         
                     
                     <article id="post-content">
@@ -544,8 +402,11 @@ window.oldVersion = [
 <h3 id="腾讯"><a href="#腾讯" class="headerlink" title="腾讯"></a>腾讯</h3><p><a href="http://lbs.qq.com/uri_v1/guide-route.html" target="_blank" rel="noopener">链接</a>:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String intentUri =</span><br><span class="line">                &quot;qqmap://map/routeplan?type=drive&amp;from=起点&amp;fromcoord=&quot; + 30.575861 + &quot;,&quot; + 104.069819+ &quot;&amp;to=目的地&amp;tocoord=&quot; + 30.654021 + &quot;,&quot; +104.134411</span><br></pre></td></tr></table></figure>
 
+
 <p>附上网上的偏方：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br></pre></td><td class="code"><pre><span class="line">public class GPSUtil &#123;</span><br><span class="line">    public static double pi = 3.1415926535897932384626;</span><br><span class="line">    public static double x_pi = 3.14159265358979324 * 3000.0 / 180.0;</span><br><span class="line">    public static double a = 6378245.0;</span><br><span class="line">    public static double ee = 0.00669342162296594323;</span><br><span class="line"></span><br><span class="line">    public static double transformLat(double x, double y) &#123;</span><br><span class="line">        double ret = -100.0 + 2.0 * x + 3.0 * y + 0.2 * y * y + 0.1 * x * y</span><br><span class="line">                + 0.2 * Math.sqrt(Math.abs(x));</span><br><span class="line">        ret += (20.0 * Math.sin(6.0 * x * pi) + 20.0 * Math.sin(2.0 * x * pi)) * 2.0 / 3.0;</span><br><span class="line">        ret += (20.0 * Math.sin(y * pi) + 40.0 * Math.sin(y / 3.0 * pi)) * 2.0 / 3.0;</span><br><span class="line">        ret += (160.0 * Math.sin(y / 12.0 * pi) + 320 * Math.sin(y * pi / 30.0)) * 2.0 / 3.0;</span><br><span class="line">        return ret;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static double transformLon(double x, double y) &#123;</span><br><span class="line">        double ret = 300.0 + x + 2.0 * y + 0.1 * x * x + 0.1 * x * y + 0.1</span><br><span class="line">                * Math.sqrt(Math.abs(x));</span><br><span class="line">        ret += (20.0 * Math.sin(6.0 * x * pi) + 20.0 * Math.sin(2.0 * x * pi)) * 2.0 / 3.0;</span><br><span class="line">        ret += (20.0 * Math.sin(x * pi) + 40.0 * Math.sin(x / 3.0 * pi)) * 2.0 / 3.0;</span><br><span class="line">        ret += (150.0 * Math.sin(x / 12.0 * pi) + 300.0 * Math.sin(x / 30.0</span><br><span class="line">                * pi)) * 2.0 / 3.0;</span><br><span class="line">        return ret;</span><br><span class="line">    &#125;</span><br><span class="line">    public static double[] transform(double lat, double lon) &#123;</span><br><span class="line">        if (outOfChina(lat, lon)) &#123;</span><br><span class="line">            return new double[]&#123;lat,lon&#125;;</span><br><span class="line">        &#125;</span><br><span class="line">        double dLat = transformLat(lon - 105.0, lat - 35.0);</span><br><span class="line">        double dLon = transformLon(lon - 105.0, lat - 35.0);</span><br><span class="line">        double radLat = lat / 180.0 * pi;</span><br><span class="line">        double magic = Math.sin(radLat);</span><br><span class="line">        magic = 1 - ee * magic * magic;</span><br><span class="line">        double sqrtMagic = Math.sqrt(magic);</span><br><span class="line">        dLat = (dLat * 180.0) / ((a * (1 - ee)) / (magic * sqrtMagic) * pi);</span><br><span class="line">        dLon = (dLon * 180.0) / (a / sqrtMagic * Math.cos(radLat) * pi);</span><br><span class="line">        double mgLat = lat + dLat;</span><br><span class="line">        double mgLon = lon + dLon;</span><br><span class="line">        return new double[]&#123;mgLat,mgLon&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    public static boolean outOfChina(double lat, double lon) &#123;</span><br><span class="line">        if (lon &lt; 72.004 || lon &gt; 137.8347)</span><br><span class="line">            return true;</span><br><span class="line">        if (lat &lt; 0.8293 || lat &gt; 55.8271)</span><br><span class="line">            return true;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    /**</span><br><span class="line">     * 84 to 火星坐标系 (GCJ-02) World Geodetic System ==&gt; Mars Geodetic System</span><br><span class="line">     *</span><br><span class="line">     * @param lat</span><br><span class="line">     * @param lon</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    public static double[] gps84_To_Gcj02(double lat, double lon) &#123;</span><br><span class="line">        if (outOfChina(lat, lon)) &#123;</span><br><span class="line">            return new double[]&#123;lat,lon&#125;;</span><br><span class="line">        &#125;</span><br><span class="line">        double dLat = transformLat(lon - 105.0, lat - 35.0);</span><br><span class="line">        double dLon = transformLon(lon - 105.0, lat - 35.0);</span><br><span class="line">        double radLat = lat / 180.0 * pi;</span><br><span class="line">        double magic = Math.sin(radLat);</span><br><span class="line">        magic = 1 - ee * magic * magic;</span><br><span class="line">        double sqrtMagic = Math.sqrt(magic);</span><br><span class="line">        dLat = (dLat * 180.0) / ((a * (1 - ee)) / (magic * sqrtMagic) * pi);</span><br><span class="line">        dLon = (dLon * 180.0) / (a / sqrtMagic * Math.cos(radLat) * pi);</span><br><span class="line">        double mgLat = lat + dLat;</span><br><span class="line">        double mgLon = lon + dLon;</span><br><span class="line">        return new double[]&#123;mgLat, mgLon&#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * * 火星坐标系 (GCJ-02) to 84 * * @param lon * @param lat * @return</span><br><span class="line">     * */</span><br><span class="line">    public static double[] gcj02_To_Gps84(double lat, double lon) &#123;</span><br><span class="line">        double[] gps = transform(lat, lon);</span><br><span class="line">        double lontitude = lon * 2 - gps[1];</span><br><span class="line">        double latitude = lat * 2 - gps[0];</span><br><span class="line">        return new double[]&#123;latitude, lontitude&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    /**</span><br><span class="line">     * 火星坐标系 (GCJ-02) 与百度坐标系 (BD-09) 的转换算法 将 GCJ-02 坐标转换成 BD-09 坐标</span><br><span class="line">     *</span><br><span class="line">     * @param lat</span><br><span class="line">     * @param lon</span><br><span class="line">     */</span><br><span class="line">    public static double[] gcj02_To_Bd09(double lat, double lon) &#123;</span><br><span class="line">        double x = lon, y = lat;</span><br><span class="line">        double z = Math.sqrt(x * x + y * y) + 0.00002 * Math.sin(y * x_pi);</span><br><span class="line">        double theta = Math.atan2(y, x) + 0.000003 * Math.cos(x * x_pi);</span><br><span class="line">        double tempLon = z * Math.cos(theta) + 0.0065;</span><br><span class="line">        double tempLat = z * Math.sin(theta) + 0.006;</span><br><span class="line">        double[] gps = &#123;tempLat,tempLon&#125;;</span><br><span class="line">        return gps;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * * 火星坐标系 (GCJ-02) 与百度坐标系 (BD-09) 的转换算法 * * 将 BD-09 坐标转换成GCJ-02 坐标 * * @param</span><br><span class="line">     * bd_lat * @param bd_lon * @return</span><br><span class="line">     */</span><br><span class="line">    public static double[] bd09_To_Gcj02(double lat, double lon) &#123;</span><br><span class="line">        double x = lon - 0.0065, y = lat - 0.006;</span><br><span class="line">        double z = Math.sqrt(x * x + y * y) - 0.00002 * Math.sin(y * x_pi);</span><br><span class="line">        double theta = Math.atan2(y, x) - 0.000003 * Math.cos(x * x_pi);</span><br><span class="line">        double tempLon = z * Math.cos(theta);</span><br><span class="line">        double tempLat = z * Math.sin(theta);</span><br><span class="line">        double[] gps = &#123;tempLat,tempLon&#125;;</span><br><span class="line">        return gps;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**将gps84转为bd09</span><br><span class="line">     * @param lat</span><br><span class="line">     * @param lon</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    public static double[] gps84_To_bd09(double lat,double lon)&#123;</span><br><span class="line">        double[] gcj02 = gps84_To_Gcj02(lat,lon);</span><br><span class="line">        double[] bd09 = gcj02_To_Bd09(gcj02[0],gcj02[1]);</span><br><span class="line">        return bd09;</span><br><span class="line">    &#125;</span><br><span class="line">    public static double[] bd09_To_gps84(double lat,double lon)&#123;</span><br><span class="line">        double[] gcj02 = bd09_To_Gcj02(lat, lon);</span><br><span class="line">        double[] gps84 = gcj02_To_Gps84(gcj02[0], gcj02[1]);</span><br><span class="line">        //保留小数点后六位</span><br><span class="line">        gps84[0] = retain6(gps84[0]);</span><br><span class="line">        gps84[1] = retain6(gps84[1]);</span><br><span class="line">        return gps84;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**保留小数点后六位</span><br><span class="line">     * @param num</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    private static double retain6(double num)&#123;</span><br><span class="line">        String result = String .format(&quot;%.6f&quot;, num);</span><br><span class="line">        return Double.valueOf(result);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
 
 
                     </article>
@@ -554,6 +415,7 @@ window.oldVersion = [
 
     <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
     <script>
+    (function() {
         var dateUpdate = Date.parse("2018-08-05");
         var nowDate = new Date();
         var a = nowDate.getTime();
@@ -564,6 +426,7 @@ window.oldVersion = [
         } else {
             document.getElementById('date-expire-notification').style.display = 'none';
         }
+    })();
     </script>
 
 
@@ -576,7 +439,6 @@ window.oldVersion = [
 
 <span class="post-categories-list mt-2">
 
-
 <a class="post-categories-list-item" href='/categories/Android/'>Android</a>
 
 </span>
@@ -585,10 +447,9 @@ window.oldVersion = [
 
 <span class="post-tags-list mt-2">
 
+<a class="post-tags-list-item" href="/tags/Android%E5%9C%B0%E5%9B%BE/" rel="tag">#&nbsp;Android地图</a>
 
-<a class="post-tags-list-item" href="/tags/Android地图/" rel="tag">#&nbsp;Android地图</a>
-
-<a class="post-tags-list-item" href="/tags/地图坐标系/" rel="tag">#&nbsp;地图坐标系</a>
+<a class="post-tags-list-item" href="/tags/%E5%9C%B0%E5%9B%BE%E5%9D%90%E6%A0%87%E7%B3%BB/" rel="tag">#&nbsp;地图坐标系</a>
 
 </span>
 
@@ -596,13 +457,12 @@ window.oldVersion = [
 </p>
 
                 </div>
-                
-<div class="post-nav px-2 bg-gray">
+                <div class="post-nav px-2 bg-gray">
 <ul class="pagination">
     <!-- Prev Nav -->
     
         <li class="page-item page-prev">
-            <a href="/2017/04/10/java-网络/" rel="prev">
+            <a href="/2017/04/10/java-%E7%BD%91%E7%BB%9C/" rel="prev">
                 <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
                 <div class="page-item-subtitle">Java-网络</div>
             </a>
@@ -633,9 +493,11 @@ window.oldVersion = [
             <!-- ### Footer ### -->
             <footer class="text-center">
     <!-- footer copyright -->
-    <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span data-year></span>
-        <a class="footer-copyright-a" href="http://lysmbetter.top">Better</a>
-    </p>
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="http://lysmbetter.top">Better</a>
+        </p>
+
     <!-- footer custom text -->
     <p class="footer-text mb-0">
     
@@ -643,7 +505,6 @@ window.oldVersion = [
     <!-- footer develop info -->
     <p class="footer-develop mb-0">
         
-            
     <!-- Busuanzi User Views -->
     <span id="busuanzi_container_site_uv" hidden>
         <span></span>
@@ -656,7 +517,7 @@ window.oldVersion = [
 
 
 
-        
+
         
         Powered by&nbsp;<!--
          --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
@@ -664,40 +525,23 @@ window.oldVersion = [
     </p>
 </footer>
 
-        
 
         <!-- ### Import File ### -->
         <!-- ### Footer JS Import ### -->
 
 <script>
+
+    
 window.lazyLoadOptions = {
     elements_selector: ".lazyload",
     threshold: 50
 };
-
-
-
-    /* Copyright */
-    var copyrightNow = new Date().getFullYear();
-    var copyrightContent = document.querySelector('span[data-year]')
-    
-        copyrightContent.textContent = copyrightNow
-    
-
-
-
-/* Cnosole Log */
+document.getElementById('copyright-year').textContent = new Date().getFullYear();
 console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
 </script>
 
-<!-- vanilla-lazyload -->
-
-    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
-
-
-
-    <!-- Busuanzi -->
-    
+<script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
     <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
 
 
@@ -706,17 +550,10 @@ console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c 
 
 
 
-
-
-
-<!-- gallery.js -->
-
-
 <!-- Comment -->
 
 
 <!-- ### Custom Footer ### -->
-
 
     </body>
 

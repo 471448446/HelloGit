@@ -1,26 +1,18 @@
 <!DOCTYPE html>
 
 <html lang="zh-Hans">
-    <head><meta name="generator" content="Hexo 3.9.0">
+    <head>
     <meta charset="utf-8">
     <!--
-        © SukkaW
+        hexo-theme-suka © SukkaW
         GitHub: https://github.com/SukkaW/hexo-theme-suka
-        Version: 1.3.3
     -->
-    <script>
-window.lsVersion = "1.3.3",
-window.oldVersion = [
-    
-        
-            "0.2.0","0.0.1","0.1.0","1.0.0","1.0.1","1.1.0","1.1.1","1.2.0","1.3.0","1.3.2"
-        
-    
-]
-</script>
 
-    <!-- ### DNS Prefetch ### -->
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
     <meta http-equiv="x-dns-prefetch-control" content="on">
+
 <!-- busuanzi -->
 
     <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
@@ -42,8 +34,7 @@ window.oldVersion = [
 
 
 
-
-    <!-- ### Preload ### -->
+    <!-- ## Preload ## -->
     
     <!-- Busuanzi -->
     
@@ -56,53 +47,18 @@ window.oldVersion = [
 
 
     <!-- ### Meta & Title & Info ### -->
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
-<meta name="renderer" content="webkit">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
 
-<!-- Title -->
-<title>Java反射2-类 | Better</title>
+    <!-- Title -->
+    <title>Java反射2-类 | Better</title>
 
-<!-- favicon -->
-<!-- Favicons -->
-
-    <link rel="icon" type="image/ico" href="/img/suka-favicon.ico">
-
-
-
-
-
-
-<!-- Android Chrome Color -->
-
-
-
-<meta name="format-detection" content="telephone=no">
-
-<!-- Description -->
-<meta name="description" content="
-The Class Object
-Class Name
-Modifiers
-Package Info
-Superclass
-I...">
-
-<!-- Keywords -->
-<meta name="keywords" content=", Java反射, Class">
-
-<!-- Disable Fucking Bloody Baidu Tranformation -->
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/suka-favicon.ico">
 
     <!-- ### Import File ### -->
-    
-        <!-- spectre.css -->
-
-    <link rel="stylesheet" href="/lib/spectre/spectre.min.css">
-
-
-<style>
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css"><style>
     body {
         background-color: #f8f9fa;
     }
@@ -123,6 +79,8 @@ I...">
         color: #005eb9;
         opacity: 1;
     }
+
+    
 
     .post-entry .card-body a {
         color: #0070ff;
@@ -165,12 +123,7 @@ I...">
         background: #f8f9fa;
         opacity: .85;
     }
-</style>
-
-<!-- style.css -->
-
-    <link rel="stylesheet" href="/css/style.min.css">
-
+</style><link rel="stylesheet" href="/css/style.min.css">
 
 
 
@@ -181,64 +134,32 @@ I...">
 
     <!-- Prettify Theme -->
     
-    
-        <link rel="stylesheet" href="/css/highlight/github.min.css">
-    
+    <link rel="preload" href="/css/highlight/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/css/highlight/github.min.css"></noscript>
 
 
 
-    
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
 
     <!-- ### Site Verification ### -->
     
 
 
-    <!-- ### RSS ### -->
-    
-
-    <!-- ### WebApp ### -->
-    <meta name="mobile-web-app-capable" content="yes">
-<meta name="application-name" content="Better">
-<meta name="msapplication-starturl" content="http://lysmbetter.top">
-
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Better">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-<!-- Manifest Import -->
-
-<!-- Open Search -->
-
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="Better"><meta name="msapplication-starturl" content="http://lysmbetter.top"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Better"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- ### The Open Graph & Twitter Card Protocol ### -->
-    <meta property="og:title" content="Java反射2-类 | Better">
-<meta property="og:site_name" content="Better">
+    <meta property="og:title" content="Java反射2-类 | Better"><meta property="og:site_name" content="Better"><meta property="og:type" content="article"><meta property="og:url" content="http:&#x2F;&#x2F;lysmbetter.top&#x2F;2017&#x2F;02&#x2F;22&#x2F;Java%E5%8F%8D%E5%B0%842-%E7%B1%BB&#x2F;"><meta property="og:locale" content="zh-Hans"><meta name="description" content="The Class Object Class Name Modifiers Package Info Superclass Implemented Interfaces Constructors Methods Fields Annotations  Java反射使得你能在运行时检查类信息。一般来说反射常用的方式是检查类的信息。你能获取到的类信息有：  Class Name（类名） Class M - Better - Better"><meta name="keywords" content="Java反射, Class"><meta property="article:published_time" content="2017-02-22T14:00:21.000Z"><meta property="article:modified_time" content="2018-08-05T06:58:40.408Z"><meta property="og:updated_time" content="2018-08-05T06:58:40.408Z"><meta property="article:author" content="Better"><meta property="article:tag" content="Java反射, Class"><meta name="twitter:card" content="summary">
 
-<meta property="og:locale" content="zh-Hans">
+    
 
-<meta property="og:url" content="http://lysmbetter.top/2017/02/22/Java反射2-类/">
-<meta property="og:image" content="http://lysmbetter.top/img/suka-favicon.ico">
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://lysmbetter.top/2017/02/22/Java%E5%8F%8D%E5%B0%842-%E7%B1%BB/">
 
-<meta property="og:description" content="
-The Class Object
-Class Name
-Modifiers
-Package Info
-Superclass
-I...">
-
-<meta name="twitter:card" content="summary">
-
-
-    <meta property="og:type" content="article">
-    <meta property="article:published_time" content="2017-02-22T14:00:21.000Z">
-    <meta property="article:modified_time" content="2017-02-22T14:00:21.000Z">
-    <meta property="article:author" content="Better">
-    <meta property="og:article:tag" content=", Java反射, Class"> 
-
-
-
-
+    <meta name="generator" content="Hexo 4.0.0">
 
     <!-- ### Analytics ### -->
     
@@ -249,10 +170,6 @@ I...">
 
 
 
-
-    <!-- ### Canonical link ### -->
-    <link rel="canonical" href="http://lysmbetter.top/2017/02/22/Java反射2-类/">
-
     <!-- ### Structured Data ### -->
     
 
@@ -261,12 +178,12 @@ I...">
 <script type="application/ld+json">
 {
     "@context": "http://schema.org",
-    "url": "http://lysmbetter.top/2017/02/22/Java反射2-类/",
+    "url": "http://lysmbetter.top/2017/02/22/Java%E5%8F%8D%E5%B0%842-%E7%B1%BB/",
     "@type": "BlogPosting",
     "logo": "http://lysmbetter.top/img/suka-favicon.ico",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://lysmbetter.top/2017/02/22/Java反射2-类/"
+        "@id": "http://lysmbetter.top/2017/02/22/Java%E5%8F%8D%E5%B0%842-%E7%B1%BB/"
     },
     "headline": "Java反射2-类 | Better",
     
@@ -284,7 +201,7 @@ I...">
             "@type": "ImageObject",
             "url": "http://lysmbetter.top/img/default_avatar.png"
         },
-        "description": "Hi, nice to meet you."
+        "description": "业精于勤荒于嬉"
     },
     "publisher": {
         "@type": "Organization",
@@ -301,14 +218,8 @@ I...">
         "query-input": "required name=search_term_string"
     },
     
-    "keywords": ", Java反射, Class",
-    "description": "
-The Class Object
-Class Name
-Modifiers
-Package Info
-Superclass
-I..."
+    "keywords": "Java反射, Class",
+    "description": "The Class Object Class Name Modifiers Package Info Superclass Implemented Interfaces Constructors Methods Fields Annotations  Java反射使得你能在运行时检查类信息。一般来说反射常用的方式是检查类的信息。你能获取到的类信息有：  Class Name（类名） Class M - Better - Better"
 }
 </script>
 
@@ -316,13 +227,9 @@ I..."
 
     <!-- ### Custom Head ### -->
     
-
-
 </head>
 
     <body>
-        
-
             
 
             <!-- ### Main content ### -->
@@ -333,7 +240,7 @@ I..."
     <p class="text-center header-slogan">
         
             
-                Hi, nice to meet you.
+                业精于勤荒于嬉
             
         
     </p>
@@ -349,69 +256,10 @@ I..."
         <a href="/search" class="navbar-link">Search</a>
     
     
+        <a href="/tags/" class="navbar-link">Tags</a>
     
-        <div class="dropdown dropdown-right">
-    <a class="navbar-link dropdown-toggle" tabindex="0">Share</a>
-    <ul class="menu share-menu">
-
-        <!-- Share Weibo -->
-        
-        <li class="menu-item">
-            <a href="http://service.weibo.com/share/share.php?appkey=&title=Better&url=http://lysmbetter.top&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
-        </li>
-        
-
-        <!-- Share Twitter -->
-        
-        <li class="menu-item">
-            <a href="https://twitter.com/intent/tweet?text=Better&url=http://lysmbetter.top&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
-        </li>
-        
-
-        <!-- Share Facebook -->
-        
-        <li class="menu-item">
-            <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
-        </li>
-        
-
-        <!-- Share Google+ -->
-        
-        <li class="menu-item">
-            <a href="https://plus.google.com/share?url=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
-        </li>
-        
-
-        <!-- Share LinkedIn -->
-        
-        <li class="menu-item">
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top&title=Java反射2-类" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
-        </li>
-        
-
-        <!-- Share QQ -->
-        
-        <li class="menu-item">
-            <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Java反射2-类&summary=描述文字&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
-        </li>
-        
-
-        <!-- Share Telegram -->
-        
-        <li class="menu-item">
-            <a href="https://t.me/share/url?url=http://lysmbetter.top&text=Java反射2-类" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
-        </li>
-        
-
-        <!-- QRCode -->
-        
-        <li class="menu-item">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB3klEQVR42u3aSRLDIAxEUd//0sk2cUF3i2QB8vcmc3iuskESul4bHhcoUKBADVCXOL5+MHn//rl7rcYB1Qc1G8Sh1PPR7904oHqh7oPOHt0g6qTUOKCehZpOdpPn6qRAgRr+2EDv/wnqmajZ5Kcw6qJ2k+9PUQKo7VEqoP/n49+yGVBbo2zRIVxoZxOjCwaXqi6gtkYlwZybONMbRP0/qD6oeLEUF/BKkgGqN0oVycoJZfjd4c0Eqh0qCfaTIoibVOMgD9SxKLXI/vKd9GRA9UK5CVAGZWbBTU8MVC+UK5a54od6z22I2wUZVAtUdbM72TxyjRWgeqEqxftqw45LYqMdB1DHolyykG7+pBuP8c4oqONQs4tRLbYqGagWS2QlD9SRKBegrS7SyeRrN7ZBHYlSF6YK/pPGwXTxBtULVW0EdEnmarMFqF6o5OJUBVi3qLsJFFRPVBrIVZshkkQCVE+UCtLcZ64BZ2lBBnUsyjbvhRNnmnTKwBFUC1TUaFxcnNMmnlLiAOoolNuMXC32u5siThxAHYkqNfQFyWuaiNjIE1RLVLI57YohUaIL6jGoZHKsJBXTgBJUK5RLGJImmqQIK5u8QLVBpRdwNaBTyerwpgDVArXTAQoUKFAfxxv21dDgt0tbwAAAAABJRU5ErkJggg==" alr="QRCode">
-        </li>
-        
-
-    </ul>
-</div>
+        <a href="/about/" class="navbar-link">About</a>
+    
     
     
 </nav>
@@ -419,11 +267,7 @@ I..."
 
             
     <!-- ## Post ## -->
-    
-    
-
-
-<div class="post-container">
+    <div class="post-container">
     <div id="post-card" class="card">
         
         <div class="card-item-container">
@@ -442,7 +286,7 @@ I..."
         <span>2017-02-22</span>
         
             <span class="suka-devide-dot"></span>
-            <a class="category-link" href="/categories/Java译文/">Java译文</a>
+            <a class="category-link" href="/categories/Java%E8%AF%91%E6%96%87/">Java译文</a>
         
         
             <!-- Busuanzi Post Views -->
@@ -463,56 +307,56 @@ I..."
     <!-- Share Weibo -->
     
     <li class="menu-item">
-        <a href="http://service.weibo.com/share/share.php?appkey=&title=Java反射2-类&url=http://lysmbetter.top/2017/02/22/Java反射2-类/&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=Java反射2-类&url=http://lysmbetter.top/2017/02/22/Java%E5%8F%8D%E5%B0%842-%E7%B1%BB/&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
     </li>
     
 
     <!-- Share Twitter -->
     
     <li class="menu-item">
-        <a href="https://twitter.com/intent/tweet?text=Java反射2-类&url=http://lysmbetter.top/2017/02/22/Java反射2-类/&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+        <a href="https://twitter.com/intent/tweet?text=Java反射2-类&url=http://lysmbetter.top/2017/02/22/Java%E5%8F%8D%E5%B0%842-%E7%B1%BB/&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
     </li>
     
 
     <!-- Share Facebook -->
     
     <li class="menu-item">
-        <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top/2017/02/22/Java反射2-类/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top/2017/02/22/Java%E5%8F%8D%E5%B0%842-%E7%B1%BB/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
     </li>
     
 
     <!-- Share Google+ -->
     
     <li class="menu-item">
-        <a href="https://plus.google.com/share?url=http://lysmbetter.top/2017/02/22/Java反射2-类/" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
+        <a href="https://plus.google.com/share?url=http://lysmbetter.top/2017/02/22/Java%E5%8F%8D%E5%B0%842-%E7%B1%BB/" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
     </li>
     
 
     <!-- Share LinkedIn -->
     
     <li class="menu-item">
-        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top/2017/02/22/Java反射2-类/&title=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top/2017/02/22/Java%E5%8F%8D%E5%B0%842-%E7%B1%BB/&title=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
     </li>
     
 
     <!-- Share QQ -->
     
     <li class="menu-item">
-        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Better&summary=描述文字&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top/2017/02/22/Java反射2-类/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Better&summary=业精于勤荒于嬉&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top/2017/02/22/Java%E5%8F%8D%E5%B0%842-%E7%B1%BB/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
     </li>
     
 
     <!-- Share Telegram -->
     
     <li class="menu-item">
-        <a href="https://t.me/share/url?url=http://lysmbetter.top/2017/02/22/Java反射2-类/&text=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+        <a href="https://t.me/share/url?url=http://lysmbetter.top/2017/02/22/Java%E5%8F%8D%E5%B0%842-%E7%B1%BB/&text=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
     </li>
     
 
     <!-- QRCode -->
     
     <li class="menu-item">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB3klEQVR42u3aSRLDIAxEUd//0sk2cUF3i2QB8vcmc3iuskESul4bHhcoUKBADVCXOL5+MHn//rl7rcYB1Qc1G8Sh1PPR7904oHqh7oPOHt0g6qTUOKCehZpOdpPn6qRAgRr+2EDv/wnqmajZ5Kcw6qJ2k+9PUQKo7VEqoP/n49+yGVBbo2zRIVxoZxOjCwaXqi6gtkYlwZybONMbRP0/qD6oeLEUF/BKkgGqN0oVycoJZfjd4c0Eqh0qCfaTIoibVOMgD9SxKLXI/vKd9GRA9UK5CVAGZWbBTU8MVC+UK5a54od6z22I2wUZVAtUdbM72TxyjRWgeqEqxftqw45LYqMdB1DHolyykG7+pBuP8c4oqONQs4tRLbYqGagWS2QlD9SRKBegrS7SyeRrN7ZBHYlSF6YK/pPGwXTxBtULVW0EdEnmarMFqF6o5OJUBVi3qLsJFFRPVBrIVZshkkQCVE+UCtLcZ64BZ2lBBnUsyjbvhRNnmnTKwBFUC1TUaFxcnNMmnlLiAOoolNuMXC32u5siThxAHYkqNfQFyWuaiNjIE1RLVLI57YohUaIL6jGoZHKsJBXTgBJUK5RLGJImmqQIK5u8QLVBpRdwNaBTyerwpgDVArXTAQoUKFAfxxv21dDgt0tbwAAAAABJRU5ErkJggg==" alt="QRCode">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKQAAACkCAAAAAA83tqdAAACN0lEQVR42u2aQW7DMAwE/f9Pt6cCRSFxh46DxubokqBxpREgysslj68bjENIIYUU8gMgj2L8/L76XH3//Uw1J35GyLGQy0O7gFsttALczbXb7PZZIUdDdgImLX5mg8vAFFLIEABVUO0u6BQ4Qgr5auAkoHRpCykkheyKgmqRdLFfroKEfBzkmUTsis+3Z4tC3hLytJkEBMjf4En/d7mrJuQtIYmJ1BUiydQiLwUhhawW7gROMgTSJsrAEXIEZEr8d8b97jciXHbJ2Vb0CjkKsnOYq+LS2QBbbUjI2ZBVIJBDXwVXeVGDDQs5EzIlSUmokuAixXmkgoQcAUlM0pToV8nYWbNVSCF3lzASpyAoyMUfBYaQoyCrBXeLkcs5zVe+GIQcC7lblBjyXYDqokfVByEfD5kKkykguoWm3aZwN4uQYyBTg0inuZgWruL6Qo6FJEkXDSBaGCAmmJBzISsRS4uZRCx3ClhCzoaswMh3KmSJOMYVMSEfDUkLobTxPRXeUwIn5GxImjSlJIoIlXYiJ+RISBo43eI6McLaolfIMZCdJjdqdKUgREUCIcdCkoNPhEYyBzoNJEIKSSZKFzMtRJHCqJBzIdPoiIauIInFKSFHQpLD3BXAZB5itAo5F7JqnksChJhYxOwSUkhaeE/iIL0AzohdIYWkYpb+rVPIKjclpJBFkZyYoKlp5OUOKyFHQSaTiiRPyUSoBC82UYUcAdlJxJJAII0iSZwIORvyk4eQQgop5D+Ob6c61nXaZ/hCAAAAAElFTkSuQmCC" alt="QRCode">
     </li>
     
 
@@ -525,9 +369,8 @@ I..."
                 <div class="card-body">
                     
                         
-                            <div id="post-toc">
-                                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Class类"><span class="post-toc-number">1.</span> <span class="post-toc-text">Class类</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#类名"><span class="post-toc-number">2.</span> <span class="post-toc-text">类名</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#修饰符"><span class="post-toc-number">3.</span> <span class="post-toc-text">修饰符</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#包信息"><span class="post-toc-number">4.</span> <span class="post-toc-text">包信息</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#父类"><span class="post-toc-number">5.</span> <span class="post-toc-text">父类</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实现的接口"><span class="post-toc-number">6.</span> <span class="post-toc-text">实现的接口</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#构造器"><span class="post-toc-number">7.</span> <span class="post-toc-text">构造器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#成员变量"><span class="post-toc-number">8.</span> <span class="post-toc-text">成员变量</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#注解"><span class="post-toc-number">9.</span> <span class="post-toc-text">注解</span></a></li></ol>
-                            </div>
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Class类"><span class="post-toc-number">1.</span> <span class="post-toc-text">Class类</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#类名"><span class="post-toc-number">2.</span> <span class="post-toc-text">类名</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#修饰符"><span class="post-toc-number">3.</span> <span class="post-toc-text">修饰符</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#包信息"><span class="post-toc-number">4.</span> <span class="post-toc-text">包信息</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#父类"><span class="post-toc-number">5.</span> <span class="post-toc-text">父类</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实现的接口"><span class="post-toc-number">6.</span> <span class="post-toc-text">实现的接口</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#构造器"><span class="post-toc-number">7.</span> <span class="post-toc-text">构造器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#成员变量"><span class="post-toc-number">8.</span> <span class="post-toc-text">成员变量</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#注解"><span class="post-toc-number">9.</span> <span class="post-toc-text">注解</span></a></li></ol></div>
                         
                     
                     <article id="post-content">
@@ -558,36 +401,28 @@ I..."
 <p>加上等多的Java类相关信息。更多的信息请看<a href="http://java.sun.com/javase/6/docs/api/java/lang/Class.html" target="_blank" rel="noopener">JavaDoc for java.lang.Class</a>。本文会简明的阐释上面提到的信息，更加详细的阐述上面的一些主。例如在本文将教你如何获取所有类的方法或者指定的方法，但是在其他章节将教你如何使用获取到的方法，怎样去发现你指定参数与之匹配的方法，以及如果存在多个具有相同方法名称的方法，怎样去找到你指定参数的方法，执行反射出来的放回会抛出什么异常，如何发现getter和setter方法。本文旨在介绍CLass类以及你通过Class类你能获取到上面信息。</p>
 <h2 id="Class类"><a href="#Class类" class="headerlink" title="Class类"></a>Class类</h2><p>在你获取类信息之前你先要获取到Class类对象。在Java语言里面所有的类包括基本的变量（int，long，float等）以及数组都包含Class类对象（ have an associated Class object）。在编译期间，如果你知道一个类的名称你就能获取一个Class对象，像这样：<br><code>Class myObjectClass = MyObject.class</code><br>如果在编译期间你不知道类名，你知道类的全路径名称你可以像这样获取Class对象：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String className = ... //程序运行时获取Class对象 </span><br><span class="line">Class class = Class.forName(className);</span><br></pre></td></tr></table></figure>
-
 <p>当我们使用<code>Class.forName()</code>方法的时候你必须知道类的权路径名称。就是类的包名信息。比如，<code>MyObject</code>类是在包<code>com.jenkov.myapp</code>中那么全路径就是<code>com.jenkov.myapp.MyObject</code>。<br>如果一个类没有被找到，程序运行时<code>Class.forName()</code>方法会抛出<code>ClassNotFoundException</code>异常。</p>
 <h2 id="类名"><a href="#类名" class="headerlink" title="类名"></a>类名</h2><p>从一个类（Class）对象你又两种方式获取类名。<br>全路径名称（包含包名信息）是通过<code>getName()</code>方法：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Class aClass =...//获取类对象</span><br><span class="line">String className = aClass.getName();</span><br></pre></td></tr></table></figure>
-
 <p>如果不想获取全路径名称只想获取类名可以通过<code>getSimpleName()</code>方法获取：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Class  aClass          = ... //obtain Class object. See prev. section</span><br><span class="line">   String simpleClassName = aClass.getSimpleName();</span><br></pre></td></tr></table></figure>
-
 <h2 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h2><p>通过Class对象你能获取到类的修饰符。类的修饰符包括“public”，“private”，“static”等待。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Class  aClass = ... //obtain Class object. See prev. section</span><br><span class="line">int modifiers = aClass.getModifiers();</span><br></pre></td></tr></table></figure>
-
 <p>修饰符已整形的方式返回，其值是被Java预想定义好的。你可以通过<code>java.lang.reflect.Modifier</code>的方法来判断到达时那种修饰符：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Modifier.isAbstract(int modifiers)</span><br><span class="line">Modifier.isFinal(int modifiers)</span><br><span class="line">Modifier.isInterface(int modifiers)</span><br><span class="line">Modifier.isNative(int modifiers)</span><br><span class="line">Modifier.isPrivate(int modifiers)</span><br><span class="line">Modifier.isProtected(int modifiers)</span><br><span class="line">Modifier.isPublic(int modifiers)</span><br><span class="line">Modifier.isStatic(int modifiers)</span><br><span class="line">Modifier.isStrict(int modifiers)</span><br><span class="line">Modifier.isSynchronized(int modifiers)</span><br><span class="line">Modifier.isTransient(int modifiers)</span><br><span class="line">Modifier.isVolatile(int modifiers)</span><br></pre></td></tr></table></figure>
-
 <h2 id="包信息"><a href="#包信息" class="headerlink" title="包信息"></a>包信息</h2><p>你可以通过一下方式Class对象获取包信息：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Class  aClass = ... //obtain Class object. See prev. section</span><br><span class="line">Package package = aClass.getPackage();</span><br></pre></td></tr></table></figure>
-
 <p>通过Package对象你能获取到他的路径。也能获取到在Manifest中指定JAR包指定的信息。你可以通过<a href="http://java.sun.com/javase/6/docs/api/java/lang/Package.html" target="_blank" rel="noopener">java.lang.Package</a>了解具体的信息。</p>
 <h2 id="父类"><a href="#父类" class="headerlink" title="父类"></a>父类</h2><p>比如：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class superclass = aClass.getSuperclass();</span><br></pre></td></tr></table></figure>
-
 <p>获取到的父类的Class对象就其他的Class一样，你可以继续获反射出类的其他信息。</p>
 <h2 id="实现的接口"><a href="#实现的接口" class="headerlink" title="实现的接口"></a>实现的接口</h2><p>我们可以回去到类实现的接口：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Class  aClass = ... //obtain Class object. See prev. section</span><br><span class="line">Class[] interfaces = aClass.getInterfaces();</span><br></pre></td></tr></table></figure>
-
 <p>类能实现很多的接口方法。因此以数组的形式返回类实现的接口方法。接口也是可以通过Java反射找到的。<br>注意：反射只能找到被当前类实现了的接口。如果父类实现的接口方法，子类如果没有重载改方法，是不会再数组中返回。即使这个类拥有这个方法，因为他的父类实现了它。<br>所以为了得到一个类的所有接口方法，你必须的递归类和他的父类以及父类的父类。</p>
 <h2 id="构造器"><a href="#构造器" class="headerlink" title="构造器"></a>构造器</h2><p>获取构造器的方式大概是这样：</p>
-<p><code>Constructor[] constructors = aClass.getConstructors();</code><br>更多关于构造器的描述请见：<a href>Constructors</a>。</p>
-<h2 id="成员变量"><a href="#成员变量" class="headerlink" title="成员变量"></a>成员变量</h2><p>获取变量域的方式大概是这:<br><code>Field[] method = aClass.getFields();</code><br>更多信息:<a href>Fields</a>。</p>
-<h2 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h2><p><code>Annotation[] annotations = aClass.getAnnotations();</code><br>更多信息：<a href>Annotations</a></p>
+<p><code>Constructor[] constructors = aClass.getConstructors();</code><br>更多关于构造器的描述请见：<a href="">Constructors</a>。</p>
+<h2 id="成员变量"><a href="#成员变量" class="headerlink" title="成员变量"></a>成员变量</h2><p>获取变量域的方式大概是这:<br><code>Field[] method = aClass.getFields();</code><br>更多信息:<a href="">Fields</a>。</p>
+<h2 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h2><p><code>Annotation[] annotations = aClass.getAnnotations();</code><br>更多信息：<a href="">Annotations</a></p>
 <p><a href="http://tutorials.jenkov.com/java-reflection/classes.html" target="_blank" rel="noopener">原文</a></p>
 
                     </article>
@@ -596,6 +431,7 @@ I..."
 
     <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
     <script>
+    (function() {
         var dateUpdate = Date.parse("2018-08-05");
         var nowDate = new Date();
         var a = nowDate.getTime();
@@ -606,6 +442,7 @@ I..."
         } else {
             document.getElementById('date-expire-notification').style.display = 'none';
         }
+    })();
     </script>
 
 
@@ -618,8 +455,7 @@ I..."
 
 <span class="post-categories-list mt-2">
 
-
-<a class="post-categories-list-item" href='/categories/Java译文/'>Java译文</a>
+<a class="post-categories-list-item" href='/categories/Java%E8%AF%91%E6%96%87/'>Java译文</a>
 
 </span>
 
@@ -627,8 +463,7 @@ I..."
 
 <span class="post-tags-list mt-2">
 
-
-<a class="post-tags-list-item" href="/tags/Java反射/" rel="tag">#&nbsp;Java反射</a>
+<a class="post-tags-list-item" href="/tags/Java%E5%8F%8D%E5%B0%84/" rel="tag">#&nbsp;Java反射</a>
 
 <a class="post-tags-list-item" href="/tags/Class/" rel="tag">#&nbsp;Class</a>
 
@@ -638,13 +473,12 @@ I..."
 </p>
 
                 </div>
-                
-<div class="post-nav px-2 bg-gray">
+                <div class="post-nav px-2 bg-gray">
 <ul class="pagination">
     <!-- Prev Nav -->
     
         <li class="page-item page-prev">
-            <a href="/2017/02/23/Java反射3-构造器/" rel="prev">
+            <a href="/2017/02/23/Java%E5%8F%8D%E5%B0%843-%E6%9E%84%E9%80%A0%E5%99%A8/" rel="prev">
                 <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
                 <div class="page-item-subtitle">Java反射3-构造器</div>
             </a>
@@ -654,7 +488,7 @@ I..."
     <!-- Next Nav -->
     
         <li class="page-item page-next">
-            <a href="/2017/02/21/Java反射1-教程/" rel="next">
+            <a href="/2017/02/21/Java%E5%8F%8D%E5%B0%841-%E6%95%99%E7%A8%8B/" rel="next">
                 <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
                 <div class="page-item-subtitle">Java反射1-教程</div>
             </a>
@@ -675,9 +509,11 @@ I..."
             <!-- ### Footer ### -->
             <footer class="text-center">
     <!-- footer copyright -->
-    <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span data-year></span>
-        <a class="footer-copyright-a" href="http://lysmbetter.top">Better</a>
-    </p>
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="http://lysmbetter.top">Better</a>
+        </p>
+
     <!-- footer custom text -->
     <p class="footer-text mb-0">
     
@@ -685,7 +521,6 @@ I..."
     <!-- footer develop info -->
     <p class="footer-develop mb-0">
         
-            
     <!-- Busuanzi User Views -->
     <span id="busuanzi_container_site_uv" hidden>
         <span></span>
@@ -698,7 +533,7 @@ I..."
 
 
 
-        
+
         
         Powered by&nbsp;<!--
          --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
@@ -706,40 +541,23 @@ I..."
     </p>
 </footer>
 
-        
 
         <!-- ### Import File ### -->
         <!-- ### Footer JS Import ### -->
 
 <script>
+
+    
 window.lazyLoadOptions = {
     elements_selector: ".lazyload",
     threshold: 50
 };
-
-
-
-    /* Copyright */
-    var copyrightNow = new Date().getFullYear();
-    var copyrightContent = document.querySelector('span[data-year]')
-    
-        copyrightContent.textContent = copyrightNow
-    
-
-
-
-/* Cnosole Log */
+document.getElementById('copyright-year').textContent = new Date().getFullYear();
 console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
 </script>
 
-<!-- vanilla-lazyload -->
-
-    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
-
-
-
-    <!-- Busuanzi -->
-    
+<script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
     <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
 
 
@@ -748,17 +566,10 @@ console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c 
 
 
 
-
-
-
-<!-- gallery.js -->
-
-
 <!-- Comment -->
 
 
 <!-- ### Custom Footer ### -->
-
 
     </body>
 

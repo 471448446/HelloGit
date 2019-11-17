@@ -1,26 +1,18 @@
 <!DOCTYPE html>
 
 <html lang="zh-Hans">
-    <head><meta name="generator" content="Hexo 3.9.0">
+    <head>
     <meta charset="utf-8">
     <!--
-        © SukkaW
+        hexo-theme-suka © SukkaW
         GitHub: https://github.com/SukkaW/hexo-theme-suka
-        Version: 1.3.3
     -->
-    <script>
-window.lsVersion = "1.3.3",
-window.oldVersion = [
-    
-        
-            "0.2.0","0.0.1","0.1.0","1.0.0","1.0.1","1.1.0","1.1.1","1.2.0","1.3.0","1.3.2"
-        
-    
-]
-</script>
 
-    <!-- ### DNS Prefetch ### -->
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
     <meta http-equiv="x-dns-prefetch-control" content="on">
+
 <!-- busuanzi -->
 
     <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
@@ -42,8 +34,7 @@ window.oldVersion = [
 
 
 
-
-    <!-- ### Preload ### -->
+    <!-- ## Preload ## -->
     
     <!-- Busuanzi -->
     
@@ -56,50 +47,18 @@ window.oldVersion = [
 
 
     <!-- ### Meta & Title & Info ### -->
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
-<meta name="renderer" content="webkit">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
 
-<!-- Title -->
-<title>Java反射9-泛型 | Better</title>
+    <!-- Title -->
+    <title>Java反射9-泛型 | Better</title>
 
-<!-- favicon -->
-<!-- Favicons -->
-
-    <link rel="icon" type="image/ico" href="/img/suka-favicon.ico">
-
-
-
-
-
-
-<!-- Android Chrome Color -->
-
-
-
-<meta name="format-detection" content="telephone=no">
-
-<!-- Description -->
-<meta name="description" content="
-The Generics Reflection Rule of Thumb
-Generic Method Return Types
-Generic Method Parameter...">
-
-<!-- Keywords -->
-<meta name="keywords" content=", Java反射, Generic">
-
-<!-- Disable Fucking Bloody Baidu Tranformation -->
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/suka-favicon.ico">
 
     <!-- ### Import File ### -->
-    
-        <!-- spectre.css -->
-
-    <link rel="stylesheet" href="/lib/spectre/spectre.min.css">
-
-
-<style>
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css"><style>
     body {
         background-color: #f8f9fa;
     }
@@ -120,6 +79,8 @@ Generic Method Parameter...">
         color: #005eb9;
         opacity: 1;
     }
+
+    
 
     .post-entry .card-body a {
         color: #0070ff;
@@ -162,12 +123,7 @@ Generic Method Parameter...">
         background: #f8f9fa;
         opacity: .85;
     }
-</style>
-
-<!-- style.css -->
-
-    <link rel="stylesheet" href="/css/style.min.css">
-
+</style><link rel="stylesheet" href="/css/style.min.css">
 
 
 
@@ -178,61 +134,32 @@ Generic Method Parameter...">
 
     <!-- Prettify Theme -->
     
-    
-        <link rel="stylesheet" href="/css/highlight/github.min.css">
-    
+    <link rel="preload" href="/css/highlight/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/css/highlight/github.min.css"></noscript>
 
 
 
-    
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
 
     <!-- ### Site Verification ### -->
     
 
 
-    <!-- ### RSS ### -->
-    
-
-    <!-- ### WebApp ### -->
-    <meta name="mobile-web-app-capable" content="yes">
-<meta name="application-name" content="Better">
-<meta name="msapplication-starturl" content="http://lysmbetter.top">
-
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Better">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-<!-- Manifest Import -->
-
-<!-- Open Search -->
-
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="Better"><meta name="msapplication-starturl" content="http://lysmbetter.top"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Better"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- ### The Open Graph & Twitter Card Protocol ### -->
-    <meta property="og:title" content="Java反射9-泛型 | Better">
-<meta property="og:site_name" content="Better">
+    <meta property="og:title" content="Java反射9-泛型 | Better"><meta property="og:site_name" content="Better"><meta property="og:type" content="article"><meta property="og:url" content="http:&#x2F;&#x2F;lysmbetter.top&#x2F;2017&#x2F;02&#x2F;26&#x2F;Java%E5%8F%8D%E5%B0%849-%E6%B3%9B%E5%9E%8B&#x2F;"><meta property="og:locale" content="zh-Hans"><meta name="description" content="The Generics Reflection Rule of Thumb Generic Method Return Types Generic Method Parameter Types Generic Field Types  我经常在一些文章或者论坛里面读到Java泛型在编译的时候已经被抹掉了，所以在运行时你不能获取到Java泛型。这完全是不对的。在少数情况下，可以在运行时访问泛型信息。 - Better - Better"><meta name="keywords" content="Java反射, Generic"><meta property="article:published_time" content="2017-02-26T06:53:28.000Z"><meta property="article:modified_time" content="2018-08-05T06:55:37.237Z"><meta property="og:updated_time" content="2018-08-05T06:55:37.237Z"><meta property="article:author" content="Better"><meta property="article:tag" content="Java反射, Generic"><meta name="twitter:card" content="summary">
 
-<meta property="og:locale" content="zh-Hans">
+    
 
-<meta property="og:url" content="http://lysmbetter.top/2017/02/26/Java反射9-泛型/">
-<meta property="og:image" content="http://lysmbetter.top/img/suka-favicon.ico">
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://lysmbetter.top/2017/02/26/Java%E5%8F%8D%E5%B0%849-%E6%B3%9B%E5%9E%8B/">
 
-<meta property="og:description" content="
-The Generics Reflection Rule of Thumb
-Generic Method Return Types
-Generic Method Parameter...">
-
-<meta name="twitter:card" content="summary">
-
-
-    <meta property="og:type" content="article">
-    <meta property="article:published_time" content="2017-02-26T06:53:28.000Z">
-    <meta property="article:modified_time" content="2017-02-26T06:53:28.000Z">
-    <meta property="article:author" content="Better">
-    <meta property="og:article:tag" content=", Java反射, Generic"> 
-
-
-
-
+    <meta name="generator" content="Hexo 4.0.0">
 
     <!-- ### Analytics ### -->
     
@@ -243,10 +170,6 @@ Generic Method Parameter...">
 
 
 
-
-    <!-- ### Canonical link ### -->
-    <link rel="canonical" href="http://lysmbetter.top/2017/02/26/Java反射9-泛型/">
-
     <!-- ### Structured Data ### -->
     
 
@@ -255,12 +178,12 @@ Generic Method Parameter...">
 <script type="application/ld+json">
 {
     "@context": "http://schema.org",
-    "url": "http://lysmbetter.top/2017/02/26/Java反射9-泛型/",
+    "url": "http://lysmbetter.top/2017/02/26/Java%E5%8F%8D%E5%B0%849-%E6%B3%9B%E5%9E%8B/",
     "@type": "BlogPosting",
     "logo": "http://lysmbetter.top/img/suka-favicon.ico",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://lysmbetter.top/2017/02/26/Java反射9-泛型/"
+        "@id": "http://lysmbetter.top/2017/02/26/Java%E5%8F%8D%E5%B0%849-%E6%B3%9B%E5%9E%8B/"
     },
     "headline": "Java反射9-泛型 | Better",
     
@@ -278,7 +201,7 @@ Generic Method Parameter...">
             "@type": "ImageObject",
             "url": "http://lysmbetter.top/img/default_avatar.png"
         },
-        "description": "Hi, nice to meet you."
+        "description": "业精于勤荒于嬉"
     },
     "publisher": {
         "@type": "Organization",
@@ -295,11 +218,8 @@ Generic Method Parameter...">
         "query-input": "required name=search_term_string"
     },
     
-    "keywords": ", Java反射, Generic",
-    "description": "
-The Generics Reflection Rule of Thumb
-Generic Method Return Types
-Generic Method Parameter..."
+    "keywords": "Java反射, Generic",
+    "description": "The Generics Reflection Rule of Thumb Generic Method Return Types Generic Method Parameter Types Generic Field Types  我经常在一些文章或者论坛里面读到Java泛型在编译的时候已经被抹掉了，所以在运行时你不能获取到Java泛型。这完全是不对的。在少数情况下，可以在运行时访问泛型信息。 - Better - Better"
 }
 </script>
 
@@ -307,13 +227,9 @@ Generic Method Parameter..."
 
     <!-- ### Custom Head ### -->
     
-
-
 </head>
 
     <body>
-        
-
             
 
             <!-- ### Main content ### -->
@@ -324,7 +240,7 @@ Generic Method Parameter..."
     <p class="text-center header-slogan">
         
             
-                Hi, nice to meet you.
+                业精于勤荒于嬉
             
         
     </p>
@@ -340,69 +256,10 @@ Generic Method Parameter..."
         <a href="/search" class="navbar-link">Search</a>
     
     
+        <a href="/tags/" class="navbar-link">Tags</a>
     
-        <div class="dropdown dropdown-right">
-    <a class="navbar-link dropdown-toggle" tabindex="0">Share</a>
-    <ul class="menu share-menu">
-
-        <!-- Share Weibo -->
-        
-        <li class="menu-item">
-            <a href="http://service.weibo.com/share/share.php?appkey=&title=Better&url=http://lysmbetter.top&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
-        </li>
-        
-
-        <!-- Share Twitter -->
-        
-        <li class="menu-item">
-            <a href="https://twitter.com/intent/tweet?text=Better&url=http://lysmbetter.top&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
-        </li>
-        
-
-        <!-- Share Facebook -->
-        
-        <li class="menu-item">
-            <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
-        </li>
-        
-
-        <!-- Share Google+ -->
-        
-        <li class="menu-item">
-            <a href="https://plus.google.com/share?url=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
-        </li>
-        
-
-        <!-- Share LinkedIn -->
-        
-        <li class="menu-item">
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top&title=Java反射9-泛型" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
-        </li>
-        
-
-        <!-- Share QQ -->
-        
-        <li class="menu-item">
-            <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Java反射9-泛型&summary=描述文字&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
-        </li>
-        
-
-        <!-- Share Telegram -->
-        
-        <li class="menu-item">
-            <a href="https://t.me/share/url?url=http://lysmbetter.top&text=Java反射9-泛型" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
-        </li>
-        
-
-        <!-- QRCode -->
-        
-        <li class="menu-item">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB20lEQVR42u3a0W7EIAxE0fz/T7evqxWeuU5TCZzJy27VDZxIDmDD9bPhdQUVVFBBLVCXuMqbv/63uqf6W/UT1ByU6/jz5lWDFVI9yLKfoEahqo5Wjd1BuH6CehdKfXcBXLUX1LtRq8G0gqsHCupdKBKo1aRcLeb+bZUQ1PYotaB/8vOxbCaorVG26GACmiSlj1ddgtoaRQZENSGrF4QOuEHNQqnAdUmleymqgA/qHSiVCLgE4k7yuewjqHEoWox1E7KazP+8yAtqe5Qq0HeKrWSTyRZGghqBsoUssGhziz/6sgQ1C9VJQFXjBF/2G9QYFAncToHfFTXa2UxQx6FIsVQVPshAiib1oMag1MRMgpcmnq7doOahSKGCFlVJ0oB3HII6DuUK+moAJIfByO+DmoXqBGbnICHdNA9qFspNui7pJL+jDxXUHBQplpJBkx6kLwfroMahyEYQLaiRA6j2BEdQY1A06Elg356QgzoW1dncJsV6twiUG05BjUB1C65kwu0s9mTiENSxqG7xrJNYuMNhNnEI6lhUp/hFkgEyIdtAD2o0im4qkntbBwWDGo2Si/7mxvdjgR7UtqhOwkBwJNCDmotyRQhadKWHKexBwaCORu10BRVUUEF9XL+DTRCvNlUXDwAAAABJRU5ErkJggg==" alr="QRCode">
-        </li>
-        
-
-    </ul>
-</div>
+        <a href="/about/" class="navbar-link">About</a>
+    
     
     
 </nav>
@@ -410,11 +267,7 @@ Generic Method Parameter..."
 
             
     <!-- ## Post ## -->
-    
-    
-
-
-<div class="post-container">
+    <div class="post-container">
     <div id="post-card" class="card">
         
         <div class="card-item-container">
@@ -433,7 +286,7 @@ Generic Method Parameter..."
         <span>2017-02-26</span>
         
             <span class="suka-devide-dot"></span>
-            <a class="category-link" href="/categories/Java译文/">Java译文</a>
+            <a class="category-link" href="/categories/Java%E8%AF%91%E6%96%87/">Java译文</a>
         
         
             <!-- Busuanzi Post Views -->
@@ -454,56 +307,56 @@ Generic Method Parameter..."
     <!-- Share Weibo -->
     
     <li class="menu-item">
-        <a href="http://service.weibo.com/share/share.php?appkey=&title=Java反射9-泛型&url=http://lysmbetter.top/2017/02/26/Java反射9-泛型/&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=Java反射9-泛型&url=http://lysmbetter.top/2017/02/26/Java%E5%8F%8D%E5%B0%849-%E6%B3%9B%E5%9E%8B/&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
     </li>
     
 
     <!-- Share Twitter -->
     
     <li class="menu-item">
-        <a href="https://twitter.com/intent/tweet?text=Java反射9-泛型&url=http://lysmbetter.top/2017/02/26/Java反射9-泛型/&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+        <a href="https://twitter.com/intent/tweet?text=Java反射9-泛型&url=http://lysmbetter.top/2017/02/26/Java%E5%8F%8D%E5%B0%849-%E6%B3%9B%E5%9E%8B/&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
     </li>
     
 
     <!-- Share Facebook -->
     
     <li class="menu-item">
-        <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top/2017/02/26/Java反射9-泛型/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top/2017/02/26/Java%E5%8F%8D%E5%B0%849-%E6%B3%9B%E5%9E%8B/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
     </li>
     
 
     <!-- Share Google+ -->
     
     <li class="menu-item">
-        <a href="https://plus.google.com/share?url=http://lysmbetter.top/2017/02/26/Java反射9-泛型/" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
+        <a href="https://plus.google.com/share?url=http://lysmbetter.top/2017/02/26/Java%E5%8F%8D%E5%B0%849-%E6%B3%9B%E5%9E%8B/" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
     </li>
     
 
     <!-- Share LinkedIn -->
     
     <li class="menu-item">
-        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top/2017/02/26/Java反射9-泛型/&title=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top/2017/02/26/Java%E5%8F%8D%E5%B0%849-%E6%B3%9B%E5%9E%8B/&title=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
     </li>
     
 
     <!-- Share QQ -->
     
     <li class="menu-item">
-        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Better&summary=描述文字&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top/2017/02/26/Java反射9-泛型/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Better&summary=业精于勤荒于嬉&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top/2017/02/26/Java%E5%8F%8D%E5%B0%849-%E6%B3%9B%E5%9E%8B/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
     </li>
     
 
     <!-- Share Telegram -->
     
     <li class="menu-item">
-        <a href="https://t.me/share/url?url=http://lysmbetter.top/2017/02/26/Java反射9-泛型/&text=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+        <a href="https://t.me/share/url?url=http://lysmbetter.top/2017/02/26/Java%E5%8F%8D%E5%B0%849-%E6%B3%9B%E5%9E%8B/&text=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
     </li>
     
 
     <!-- QRCode -->
     
     <li class="menu-item">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB20lEQVR42u3a0W7EIAxE0fz/T7evqxWeuU5TCZzJy27VDZxIDmDD9bPhdQUVVFBBLVCXuMqbv/63uqf6W/UT1ByU6/jz5lWDFVI9yLKfoEahqo5Wjd1BuH6CehdKfXcBXLUX1LtRq8G0gqsHCupdKBKo1aRcLeb+bZUQ1PYotaB/8vOxbCaorVG26GACmiSlj1ddgtoaRQZENSGrF4QOuEHNQqnAdUmleymqgA/qHSiVCLgE4k7yuewjqHEoWox1E7KazP+8yAtqe5Qq0HeKrWSTyRZGghqBsoUssGhziz/6sgQ1C9VJQFXjBF/2G9QYFAncToHfFTXa2UxQx6FIsVQVPshAiib1oMag1MRMgpcmnq7doOahSKGCFlVJ0oB3HII6DuUK+moAJIfByO+DmoXqBGbnICHdNA9qFspNui7pJL+jDxXUHBQplpJBkx6kLwfroMahyEYQLaiRA6j2BEdQY1A06Elg356QgzoW1dncJsV6twiUG05BjUB1C65kwu0s9mTiENSxqG7xrJNYuMNhNnEI6lhUp/hFkgEyIdtAD2o0im4qkntbBwWDGo2Si/7mxvdjgR7UtqhOwkBwJNCDmotyRQhadKWHKexBwaCORu10BRVUUEF9XL+DTRCvNlUXDwAAAABJRU5ErkJggg==" alt="QRCode">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKQAAACkCAAAAAA83tqdAAACKklEQVR42u2aQXLCQAwE+f+nk6sr7GpaxlTAal84YKR2lbWMRnr8fMH1EFJIIYX8AMhHcR2/P95//FzFeEr2Jx7JK+RsyOVLuwCrEu8Ad7HQvUKOhlwVzOrHVcKq6KoC3OUVUsjq0F0d3LtCon8SQgp5FnInEirwJFaEFPKswIjCdJdgU3gtYSPkWEh66F79eWm3KORtIKNpVIiJJD52BXa5qybkrSCrhosaTUn8JoNrZ0QIORvylaTksCZC+immkCMhd0ZnFTw1ZhV4x4AVcjZkFbRjSNEmCwkZIUdC7l7irlkaiyDEXcYWciQkMZ2oGCHilhpeQs6FJM1/asK6ApgMBoQUMkF3zX8qYCpRIuRcyCR40UseDChSnHGhTsgRkGlRji4hpQfsLIAKORuSNE3pXhqHGFhCClkVxpkBETnAqakg5FzIVweXXUhclEKOhEwLHFRQ0AEobfKEnAtZHcjd4VOC7xSSkHMhiQAlAqR6mA4kdjCEvC0kHSaRgRQxv5LoFVLIZMYTE4AOmKp7kAoScgQkSdIxAcjwNAkUIYVMTVJHGJwxtrb5hRwJmZLQYVFnAQo/hJAjIdOVXnayNNJddBJyNmQnKG3MSIw0/BRyNiQpmDSQIkVCDnchhawapSRAyKFMl5DxkqeQ4yGJiG01V50/DCGFPAlJhvJx2PnuwhHy6yArIZCMgs5hT4S2kELSwVC3iKjp0BqACnl7yE++hBRSSCH/8foFnxQWRHlR1CgAAAAASUVORK5CYII=" alt="QRCode">
     </li>
     
 
@@ -516,9 +369,8 @@ Generic Method Parameter..."
                 <div class="card-body">
                     
                         
-                            <div id="post-toc">
-                                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#泛型的大体规则"><span class="post-toc-number">1.</span> <span class="post-toc-text">泛型的大体规则</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#泛型方法的返回类型"><span class="post-toc-number">2.</span> <span class="post-toc-text">泛型方法的返回类型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#泛型方法参数的类型"><span class="post-toc-number">3.</span> <span class="post-toc-text">泛型方法参数的类型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#泛型成员变量的泛型"><span class="post-toc-number">4.</span> <span class="post-toc-text">泛型成员变量的泛型</span></a></li></ol>
-                            </div>
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#泛型的大体规则"><span class="post-toc-number">1.</span> <span class="post-toc-text">泛型的大体规则</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#泛型方法的返回类型"><span class="post-toc-number">2.</span> <span class="post-toc-text">泛型方法的返回类型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#泛型方法参数的类型"><span class="post-toc-number">3.</span> <span class="post-toc-text">泛型方法参数的类型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#泛型成员变量的泛型"><span class="post-toc-number">4.</span> <span class="post-toc-text">泛型成员变量的泛型</span></a></li></ol></div>
                         
                     
                     <article id="post-content">
@@ -537,23 +389,18 @@ Generic Method Parameter..."
 <p>当你创建一个类或者接口的时候，你看申明它可以参数化。<code>java.util.List</code>就是这种情况。比如用<code>java.util.List</code>你可以创建一个String的列表，而不是只能创建Object类型的列表。<br>像<code>java.util.List</code>这种使用泛型的的情形在程序运行的时候是没有办法去获取泛型到底被参数成了什么类型。这是合理的，因为泛型能被参数化为当前程序的所有类型。但是在程序运行时候，当你检查使用了泛型的方法或者作用域时，你是能够获取到泛型到底被那种数据参数化了。简而言之：<br>在运行时你是不能直接获取到泛型到底被那种数据参数化了，但是却可以通过使用泛型的方法和作用域来获取泛型的参数类型。或者说它有具体的参数化类型。接下来的几节将了解这些情况。</p>
 <h2 id="泛型方法的返回类型"><a href="#泛型方法的返回类型" class="headerlink" title="泛型方法的返回类型"></a>泛型方法的返回类型</h2><p>若果你获取到了<code>java.lang.reflect.Method</code>对象，是能够去获取到方法的返回类型的（注：泛型的类型的参数类型）。这种方式是不能获取到所有方法的泛型参数类型，但是却可以获取到类中定义的使用了泛型的成员变量类型。你可以阅读’Java反射-方法’来了解怎么获取Method对象。下面这个例子讲述了类中的一个方法的返回类型包含泛型：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public class MyClass &#123;</span><br><span class="line"></span><br><span class="line">  protected List&lt;String&gt; stringList = ...;</span><br><span class="line"></span><br><span class="line">  public List&lt;String&gt; getStringList()&#123;</span><br><span class="line">    return this.stringList;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>在MyClass类中是能够获取到<code>getStringList()</code>方法返回的泛型数据类型的。或者说，是能够获取到<code>getStringList()</code>方法返回了一个String类型的List而不是只能知道返回了一个List。代码如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Method method = MyClass.class.getMethod(&quot;getStringList&quot;, null);</span><br><span class="line"></span><br><span class="line">Type returnType = method.getGenericReturnType();</span><br><span class="line"></span><br><span class="line">if(returnType instanceof ParameterizedType)&#123;</span><br><span class="line">    ParameterizedType type = (ParameterizedType) returnType;</span><br><span class="line">    Type[] typeArguments = type.getActualTypeArguments();</span><br><span class="line">    for(Type typeArgument : typeArguments)&#123;</span><br><span class="line">        Class typeArgClass = (Class) typeArgument;</span><br><span class="line">        System.out.println(&quot;typeArgClass = &quot; + typeArgClass);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>上面的代码片段将输出<code>typeArgClass = java.lang.String</code>。Type[]数组typeArguments将包含一个元素–一个代表实现了Type接口的<code>java.lang.String</code>类的对象。类实现类型接口。</p>
 <h2 id="泛型方法参数的类型"><a href="#泛型方法参数的类型" class="headerlink" title="泛型方法参数的类型"></a>泛型方法参数的类型</h2><p>你要可以放过Java反射获取带有泛型的参数的泛型类型。下面的例子中类中有个方法的参数是一个可参数化的List：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class MyClass &#123;</span><br><span class="line">  protected List&lt;String&gt; stringList = ...;</span><br><span class="line"></span><br><span class="line">  public void setStringList(List&lt;String&gt; list)&#123;</span><br><span class="line">    this.stringList = list;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>你可以获取到泛型参数的泛型类型：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">method = Myclass.class.getMethod(&quot;setStringList&quot;, List.class);</span><br><span class="line"></span><br><span class="line">Type[] genericParameterTypes = method.getGenericParameterTypes();</span><br><span class="line"></span><br><span class="line">for(Type genericParameterType : genericParameterTypes)&#123;</span><br><span class="line">    if(genericParameterType instanceof ParameterizedType)&#123;</span><br><span class="line">        ParameterizedType aType = (ParameterizedType) genericParameterType;</span><br><span class="line">        Type[] parameterArgTypes = aType.getActualTypeArguments();</span><br><span class="line">        for(Type parameterArgType : parameterArgTypes)&#123;</span><br><span class="line">            Class parameterArgClass = (Class) parameterArgType;</span><br><span class="line">            System.out.println(&quot;parameterArgClass = &quot; + parameterArgClass);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>代码将输出<code>parameterArgType = java.lang.String</code>。这Type[]数组parameterArgTypes将包含一个元素–一个代表实现了Type接口的<code>java.lang.String</code>类的对象。类实现类型接口。</p>
 <h2 id="泛型成员变量的泛型"><a href="#泛型成员变量的泛型" class="headerlink" title="泛型成员变量的泛型"></a>泛型成员变量的泛型</h2><p>获取public的成员变量的泛型也是可以的。成员变量对象是类的成员-静态的或者实例变量。你可以阅读‘Java反射-成员变量’来了解怎样获取成员变量的对象。下面的例子是前面的例子，类中有一个叫做stringList的对象：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public class MyClass &#123;</span><br><span class="line">  public List&lt;String&gt; stringList = ...;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Field field = MyClass.class.getField(&quot;stringList&quot;);</span><br><span class="line"></span><br><span class="line">Type genericFieldType = field.getGenericType();</span><br><span class="line"></span><br><span class="line">if(genericFieldType instanceof ParameterizedType)&#123;</span><br><span class="line">    ParameterizedType aType = (ParameterizedType) genericFieldType;</span><br><span class="line">    Type[] fieldArgTypes = aType.getActualTypeArguments();</span><br><span class="line">    for(Type fieldArgType : fieldArgTypes)&#123;</span><br><span class="line">        Class fieldArgClass = (Class) fieldArgType;</span><br><span class="line">        System.out.println(&quot;fieldArgClass = &quot; + fieldArgClass);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>这段代码将输出<code>fieldArgClass = java.lang.String</code>。Type[]数组fieldArgTypes包含一个元素-一个代表实现了Type接口的<code>java.lang.String</code>类的对象。类实现类型接口。</p>
 <p><a href="http://tutorials.jenkov.com/java-reflection/generics.html" target="_blank" rel="noopener">原文</a></p>
 
@@ -563,6 +410,7 @@ Generic Method Parameter..."
 
     <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
     <script>
+    (function() {
         var dateUpdate = Date.parse("2018-08-05");
         var nowDate = new Date();
         var a = nowDate.getTime();
@@ -573,6 +421,7 @@ Generic Method Parameter..."
         } else {
             document.getElementById('date-expire-notification').style.display = 'none';
         }
+    })();
     </script>
 
 
@@ -585,8 +434,7 @@ Generic Method Parameter..."
 
 <span class="post-categories-list mt-2">
 
-
-<a class="post-categories-list-item" href='/categories/Java译文/'>Java译文</a>
+<a class="post-categories-list-item" href='/categories/Java%E8%AF%91%E6%96%87/'>Java译文</a>
 
 </span>
 
@@ -594,8 +442,7 @@ Generic Method Parameter..."
 
 <span class="post-tags-list mt-2">
 
-
-<a class="post-tags-list-item" href="/tags/Java反射/" rel="tag">#&nbsp;Java反射</a>
+<a class="post-tags-list-item" href="/tags/Java%E5%8F%8D%E5%B0%84/" rel="tag">#&nbsp;Java反射</a>
 
 <a class="post-tags-list-item" href="/tags/Generic/" rel="tag">#&nbsp;Generic</a>
 
@@ -605,13 +452,12 @@ Generic Method Parameter..."
 </p>
 
                 </div>
-                
-<div class="post-nav px-2 bg-gray">
+                <div class="post-nav px-2 bg-gray">
 <ul class="pagination">
     <!-- Prev Nav -->
     
         <li class="page-item page-prev">
-            <a href="/2017/02/26/Java反射10-数组/" rel="prev">
+            <a href="/2017/02/26/Java%E5%8F%8D%E5%B0%8410-%E6%95%B0%E7%BB%84/" rel="prev">
                 <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
                 <div class="page-item-subtitle">Java反射10-数组</div>
             </a>
@@ -621,7 +467,7 @@ Generic Method Parameter..."
     <!-- Next Nav -->
     
         <li class="page-item page-next">
-            <a href="/2017/02/26/Java反射8-注解/" rel="next">
+            <a href="/2017/02/26/Java%E5%8F%8D%E5%B0%848-%E6%B3%A8%E8%A7%A3/" rel="next">
                 <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
                 <div class="page-item-subtitle">Java反射8-注解</div>
             </a>
@@ -642,9 +488,11 @@ Generic Method Parameter..."
             <!-- ### Footer ### -->
             <footer class="text-center">
     <!-- footer copyright -->
-    <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span data-year></span>
-        <a class="footer-copyright-a" href="http://lysmbetter.top">Better</a>
-    </p>
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="http://lysmbetter.top">Better</a>
+        </p>
+
     <!-- footer custom text -->
     <p class="footer-text mb-0">
     
@@ -652,7 +500,6 @@ Generic Method Parameter..."
     <!-- footer develop info -->
     <p class="footer-develop mb-0">
         
-            
     <!-- Busuanzi User Views -->
     <span id="busuanzi_container_site_uv" hidden>
         <span></span>
@@ -665,7 +512,7 @@ Generic Method Parameter..."
 
 
 
-        
+
         
         Powered by&nbsp;<!--
          --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
@@ -673,40 +520,23 @@ Generic Method Parameter..."
     </p>
 </footer>
 
-        
 
         <!-- ### Import File ### -->
         <!-- ### Footer JS Import ### -->
 
 <script>
+
+    
 window.lazyLoadOptions = {
     elements_selector: ".lazyload",
     threshold: 50
 };
-
-
-
-    /* Copyright */
-    var copyrightNow = new Date().getFullYear();
-    var copyrightContent = document.querySelector('span[data-year]')
-    
-        copyrightContent.textContent = copyrightNow
-    
-
-
-
-/* Cnosole Log */
+document.getElementById('copyright-year').textContent = new Date().getFullYear();
 console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
 </script>
 
-<!-- vanilla-lazyload -->
-
-    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
-
-
-
-    <!-- Busuanzi -->
-    
+<script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
     <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
 
 
@@ -715,17 +545,10 @@ console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c 
 
 
 
-
-
-
-<!-- gallery.js -->
-
-
 <!-- Comment -->
 
 
 <!-- ### Custom Footer ### -->
-
 
     </body>
 

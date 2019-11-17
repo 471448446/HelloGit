@@ -1,26 +1,18 @@
 <!DOCTYPE html>
 
 <html lang="zh-Hans">
-    <head><meta name="generator" content="Hexo 3.9.0">
+    <head>
     <meta charset="utf-8">
     <!--
-        © SukkaW
+        hexo-theme-suka © SukkaW
         GitHub: https://github.com/SukkaW/hexo-theme-suka
-        Version: 1.3.3
     -->
-    <script>
-window.lsVersion = "1.3.3",
-window.oldVersion = [
-    
-        
-            "0.2.0","0.0.1","0.1.0","1.0.0","1.0.1","1.1.0","1.1.1","1.2.0","1.3.0","1.3.2"
-        
-    
-]
-</script>
 
-    <!-- ### DNS Prefetch ### -->
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
     <meta http-equiv="x-dns-prefetch-control" content="on">
+
 <!-- busuanzi -->
 
     <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
@@ -42,8 +34,7 @@ window.oldVersion = [
 
 
 
-
-    <!-- ### Preload ### -->
+    <!-- ## Preload ## -->
     
     <!-- Busuanzi -->
     
@@ -56,51 +47,18 @@ window.oldVersion = [
 
 
     <!-- ### Meta & Title & Info ### -->
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
-<meta name="renderer" content="webkit">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
 
-<!-- Title -->
-<title>Java反射11-动态代理 | Better</title>
+    <!-- Title -->
+    <title>Java反射11-动态代理 | Better</title>
 
-<!-- favicon -->
-<!-- Favicons -->
-
-    <link rel="icon" type="image/ico" href="/img/suka-favicon.ico">
-
-
-
-
-
-
-<!-- Android Chrome Color -->
-
-
-
-<meta name="format-detection" content="telephone=no">
-
-<!-- Description -->
-<meta name="description" content="
-Creating Proxies
-InvocationHandler’s
-Known Use Cases
-Database Connection and Tran...">
-
-<!-- Keywords -->
-<meta name="keywords" content=", Java反射, 动态代理">
-
-<!-- Disable Fucking Bloody Baidu Tranformation -->
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/suka-favicon.ico">
 
     <!-- ### Import File ### -->
-    
-        <!-- spectre.css -->
-
-    <link rel="stylesheet" href="/lib/spectre/spectre.min.css">
-
-
-<style>
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css"><style>
     body {
         background-color: #f8f9fa;
     }
@@ -121,6 +79,8 @@ Database Connection and Tran...">
         color: #005eb9;
         opacity: 1;
     }
+
+    
 
     .post-entry .card-body a {
         color: #0070ff;
@@ -163,12 +123,7 @@ Database Connection and Tran...">
         background: #f8f9fa;
         opacity: .85;
     }
-</style>
-
-<!-- style.css -->
-
-    <link rel="stylesheet" href="/css/style.min.css">
-
+</style><link rel="stylesheet" href="/css/style.min.css">
 
 
 
@@ -179,62 +134,32 @@ Database Connection and Tran...">
 
     <!-- Prettify Theme -->
     
-    
-        <link rel="stylesheet" href="/css/highlight/github.min.css">
-    
+    <link rel="preload" href="/css/highlight/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/css/highlight/github.min.css"></noscript>
 
 
 
-    
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
 
     <!-- ### Site Verification ### -->
     
 
 
-    <!-- ### RSS ### -->
-    
-
-    <!-- ### WebApp ### -->
-    <meta name="mobile-web-app-capable" content="yes">
-<meta name="application-name" content="Better">
-<meta name="msapplication-starturl" content="http://lysmbetter.top">
-
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Better">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-<!-- Manifest Import -->
-
-<!-- Open Search -->
-
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="Better"><meta name="msapplication-starturl" content="http://lysmbetter.top"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Better"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- ### The Open Graph & Twitter Card Protocol ### -->
-    <meta property="og:title" content="Java反射11-动态代理 | Better">
-<meta property="og:site_name" content="Better">
+    <meta property="og:title" content="Java反射11-动态代理 | Better"><meta property="og:site_name" content="Better"><meta property="og:type" content="article"><meta property="og:url" content="http:&#x2F;&#x2F;lysmbetter.top&#x2F;2017&#x2F;02&#x2F;26&#x2F;Java%E5%8F%8D%E5%B0%8411-%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86&#x2F;"><meta property="og:locale" content="zh-Hans"><meta name="description" content="Creating Proxies InvocationHandler’s Known Use Cases Database Connection and Transaction Management Dynamic Mock Objects for Unit Testing Adaptation of DI Container to Custom Factory Interfaces AOP-li - Better - Better"><meta name="keywords" content="Java反射, 动态代理"><meta property="article:published_time" content="2017-02-26T13:31:23.000Z"><meta property="article:modified_time" content="2018-08-05T06:56:34.139Z"><meta property="og:updated_time" content="2018-08-05T06:56:34.139Z"><meta property="article:author" content="Better"><meta property="article:tag" content="Java反射, 动态代理"><meta name="twitter:card" content="summary">
 
-<meta property="og:locale" content="zh-Hans">
+    
 
-<meta property="og:url" content="http://lysmbetter.top/2017/02/26/Java反射11-动态代理/">
-<meta property="og:image" content="http://lysmbetter.top/img/suka-favicon.ico">
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://lysmbetter.top/2017/02/26/Java%E5%8F%8D%E5%B0%8411-%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/">
 
-<meta property="og:description" content="
-Creating Proxies
-InvocationHandler’s
-Known Use Cases
-Database Connection and Tran...">
-
-<meta name="twitter:card" content="summary">
-
-
-    <meta property="og:type" content="article">
-    <meta property="article:published_time" content="2017-02-26T13:31:23.000Z">
-    <meta property="article:modified_time" content="2017-02-26T13:31:23.000Z">
-    <meta property="article:author" content="Better">
-    <meta property="og:article:tag" content=", Java反射, 动态代理"> 
-
-
-
-
+    <meta name="generator" content="Hexo 4.0.0">
 
     <!-- ### Analytics ### -->
     
@@ -245,10 +170,6 @@ Database Connection and Tran...">
 
 
 
-
-    <!-- ### Canonical link ### -->
-    <link rel="canonical" href="http://lysmbetter.top/2017/02/26/Java反射11-动态代理/">
-
     <!-- ### Structured Data ### -->
     
 
@@ -257,12 +178,12 @@ Database Connection and Tran...">
 <script type="application/ld+json">
 {
     "@context": "http://schema.org",
-    "url": "http://lysmbetter.top/2017/02/26/Java反射11-动态代理/",
+    "url": "http://lysmbetter.top/2017/02/26/Java%E5%8F%8D%E5%B0%8411-%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/",
     "@type": "BlogPosting",
     "logo": "http://lysmbetter.top/img/suka-favicon.ico",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://lysmbetter.top/2017/02/26/Java反射11-动态代理/"
+        "@id": "http://lysmbetter.top/2017/02/26/Java%E5%8F%8D%E5%B0%8411-%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/"
     },
     "headline": "Java反射11-动态代理 | Better",
     
@@ -280,7 +201,7 @@ Database Connection and Tran...">
             "@type": "ImageObject",
             "url": "http://lysmbetter.top/img/default_avatar.png"
         },
-        "description": "Hi, nice to meet you."
+        "description": "业精于勤荒于嬉"
     },
     "publisher": {
         "@type": "Organization",
@@ -297,12 +218,8 @@ Database Connection and Tran...">
         "query-input": "required name=search_term_string"
     },
     
-    "keywords": ", Java反射, 动态代理",
-    "description": "
-Creating Proxies
-InvocationHandler’s
-Known Use Cases
-Database Connection and Tran..."
+    "keywords": "Java反射, 动态代理",
+    "description": "Creating Proxies InvocationHandler’s Known Use Cases Database Connection and Transaction Management Dynamic Mock Objects for Unit Testing Adaptation of DI Container to Custom Factory Interfaces AOP-li - Better - Better"
 }
 </script>
 
@@ -310,13 +227,9 @@ Database Connection and Tran..."
 
     <!-- ### Custom Head ### -->
     
-
-
 </head>
 
     <body>
-        
-
             
 
             <!-- ### Main content ### -->
@@ -327,7 +240,7 @@ Database Connection and Tran..."
     <p class="text-center header-slogan">
         
             
-                Hi, nice to meet you.
+                业精于勤荒于嬉
             
         
     </p>
@@ -343,69 +256,10 @@ Database Connection and Tran..."
         <a href="/search" class="navbar-link">Search</a>
     
     
+        <a href="/tags/" class="navbar-link">Tags</a>
     
-        <div class="dropdown dropdown-right">
-    <a class="navbar-link dropdown-toggle" tabindex="0">Share</a>
-    <ul class="menu share-menu">
-
-        <!-- Share Weibo -->
-        
-        <li class="menu-item">
-            <a href="http://service.weibo.com/share/share.php?appkey=&title=Better&url=http://lysmbetter.top&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
-        </li>
-        
-
-        <!-- Share Twitter -->
-        
-        <li class="menu-item">
-            <a href="https://twitter.com/intent/tweet?text=Better&url=http://lysmbetter.top&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
-        </li>
-        
-
-        <!-- Share Facebook -->
-        
-        <li class="menu-item">
-            <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
-        </li>
-        
-
-        <!-- Share Google+ -->
-        
-        <li class="menu-item">
-            <a href="https://plus.google.com/share?url=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
-        </li>
-        
-
-        <!-- Share LinkedIn -->
-        
-        <li class="menu-item">
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top&title=Java反射11-动态代理" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
-        </li>
-        
-
-        <!-- Share QQ -->
-        
-        <li class="menu-item">
-            <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Java反射11-动态代理&summary=描述文字&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
-        </li>
-        
-
-        <!-- Share Telegram -->
-        
-        <li class="menu-item">
-            <a href="https://t.me/share/url?url=http://lysmbetter.top&text=Java反射11-动态代理" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
-        </li>
-        
-
-        <!-- QRCode -->
-        
-        <li class="menu-item">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB1UlEQVR42u3ay3KDMAxAUf7/p9ttSi3pirDA4rLpJCH4pGNsPTh+HngcokSJErVAHcnx5wun1/8u+PGd1TXIOKLmoKJBVgMS6NVzRc1CnSfe+f0OOrtRonFEvQ8VLYgZXJQoOtEjaPRa1DtR1cRcgbIfRoNEUTNRWUB/59/bshlRj0aVRQc4aBYA3l51EfVoFA3myGfdiS5qJopcOAvSos07OidNcEWNQEUndwI5kjyghETUGFQ2Ia8skDRhLSNPUVuiqs3zmwZRdv7yHyJqJCpbTKP3qhuENgFEzUF1F0takK1umnBDFrU9KhuUNL27RQ2czYjaEkUCtGqhJI3squEtahaKNq6z4ittjqebuqgRqGpDpo1tGsylTQFRI1BZ8HVlQewutrjbLmobVLv5DB6EoNfDiYOorVBVc4gEfbTYUTXGRc1D0cGjH9JJPFAXS9QIFClokOYkfQAVZ8iitkWRZKEK+sim3Kq6iNoKRR4UJA/P0KQzbVyKGoEiyUIFvoIsCxyitkaRAlqWZNBGdjtxELU1qvMAamdR7dxEot6FopP4q4BP1KtQ5WYKJ3q6wYsahaJFDbQIwokuai6q09SpNlsaMJYNI1Hbop50iBIlStTH8QtlEDCPviN4zAAAAABJRU5ErkJggg==" alr="QRCode">
-        </li>
-        
-
-    </ul>
-</div>
+        <a href="/about/" class="navbar-link">About</a>
+    
     
     
 </nav>
@@ -413,11 +267,7 @@ Database Connection and Tran..."
 
             
     <!-- ## Post ## -->
-    
-    
-
-
-<div class="post-container">
+    <div class="post-container">
     <div id="post-card" class="card">
         
         <div class="card-item-container">
@@ -436,7 +286,7 @@ Database Connection and Tran..."
         <span>2017-02-26</span>
         
             <span class="suka-devide-dot"></span>
-            <a class="category-link" href="/categories/Java译文/">Java译文</a>
+            <a class="category-link" href="/categories/Java%E8%AF%91%E6%96%87/">Java译文</a>
         
         
             <!-- Busuanzi Post Views -->
@@ -457,56 +307,56 @@ Database Connection and Tran..."
     <!-- Share Weibo -->
     
     <li class="menu-item">
-        <a href="http://service.weibo.com/share/share.php?appkey=&title=Java反射11-动态代理&url=http://lysmbetter.top/2017/02/26/Java反射11-动态代理/&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=Java反射11-动态代理&url=http://lysmbetter.top/2017/02/26/Java%E5%8F%8D%E5%B0%8411-%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
     </li>
     
 
     <!-- Share Twitter -->
     
     <li class="menu-item">
-        <a href="https://twitter.com/intent/tweet?text=Java反射11-动态代理&url=http://lysmbetter.top/2017/02/26/Java反射11-动态代理/&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+        <a href="https://twitter.com/intent/tweet?text=Java反射11-动态代理&url=http://lysmbetter.top/2017/02/26/Java%E5%8F%8D%E5%B0%8411-%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
     </li>
     
 
     <!-- Share Facebook -->
     
     <li class="menu-item">
-        <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top/2017/02/26/Java反射11-动态代理/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top/2017/02/26/Java%E5%8F%8D%E5%B0%8411-%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
     </li>
     
 
     <!-- Share Google+ -->
     
     <li class="menu-item">
-        <a href="https://plus.google.com/share?url=http://lysmbetter.top/2017/02/26/Java反射11-动态代理/" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
+        <a href="https://plus.google.com/share?url=http://lysmbetter.top/2017/02/26/Java%E5%8F%8D%E5%B0%8411-%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
     </li>
     
 
     <!-- Share LinkedIn -->
     
     <li class="menu-item">
-        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top/2017/02/26/Java反射11-动态代理/&title=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top/2017/02/26/Java%E5%8F%8D%E5%B0%8411-%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/&title=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
     </li>
     
 
     <!-- Share QQ -->
     
     <li class="menu-item">
-        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Better&summary=描述文字&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top/2017/02/26/Java反射11-动态代理/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Better&summary=业精于勤荒于嬉&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top/2017/02/26/Java%E5%8F%8D%E5%B0%8411-%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
     </li>
     
 
     <!-- Share Telegram -->
     
     <li class="menu-item">
-        <a href="https://t.me/share/url?url=http://lysmbetter.top/2017/02/26/Java反射11-动态代理/&text=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+        <a href="https://t.me/share/url?url=http://lysmbetter.top/2017/02/26/Java%E5%8F%8D%E5%B0%8411-%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/&text=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
     </li>
     
 
     <!-- QRCode -->
     
     <li class="menu-item">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB1UlEQVR42u3ay3KDMAxAUf7/p9ttSi3pirDA4rLpJCH4pGNsPTh+HngcokSJErVAHcnx5wun1/8u+PGd1TXIOKLmoKJBVgMS6NVzRc1CnSfe+f0OOrtRonFEvQ8VLYgZXJQoOtEjaPRa1DtR1cRcgbIfRoNEUTNRWUB/59/bshlRj0aVRQc4aBYA3l51EfVoFA3myGfdiS5qJopcOAvSos07OidNcEWNQEUndwI5kjyghETUGFQ2Ia8skDRhLSNPUVuiqs3zmwZRdv7yHyJqJCpbTKP3qhuENgFEzUF1F0takK1umnBDFrU9KhuUNL27RQ2czYjaEkUCtGqhJI3squEtahaKNq6z4ittjqebuqgRqGpDpo1tGsylTQFRI1BZ8HVlQewutrjbLmobVLv5DB6EoNfDiYOorVBVc4gEfbTYUTXGRc1D0cGjH9JJPFAXS9QIFClokOYkfQAVZ8iitkWRZKEK+sim3Kq6iNoKRR4UJA/P0KQzbVyKGoEiyUIFvoIsCxyitkaRAlqWZNBGdjtxELU1qvMAamdR7dxEot6FopP4q4BP1KtQ5WYKJ3q6wYsahaJFDbQIwokuai6q09SpNlsaMJYNI1Hbop50iBIlStTH8QtlEDCPviN4zAAAAABJRU5ErkJggg==" alt="QRCode">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAAAAAAYplnuAAACnElEQVR42u3a0W7CQAxEUf7/p9tXRLOeO5ukEsrlhQJJOEFyvWv79fOFj5do0aJFPxD9Gh5/Tlp8/v6aXOf9vMYhWjRFkwt+Ph/9Pb2efgjsEC26QH9eeIJO8NV1VrDV9xyeL1r0xegj/BQ8qwAkP45o0Xei0xeT46ebEi36DvTuP/3mOHL+Jas80Y9HTxvK/3y+bDcu+tHoWPQbEssUcFNB5vaqqehHo0nhcPVeWtTTa9PCpWjRBL1ThCSAVMRsA1q0aIpOyYNsClJxMhXXaSFItGiCrhct4AtT0JHm0+HiS7ToEp0aPjuNIXIsLnqKFr2BpsFHmvRkIGUVhGMBUrRogJ6SBoHSRn/TWIqBKFo0QNPGEW3o04EsMtQiWjRBp0YNadKTQJpumga9aNEEPS1YErRZWE3vkyQkWjRFt4NVpBi+c/wUvKJFt+imsd8MytIEVG9sRYsG6LRIj0ECklLTNK2mekWLhgVIMrCSboQUduiCTbRoik5DUm1TnhTip0BdbjJEiwZoWtyeoOTYtLFASUu06BNoMnQyBdAUvKRAX63yRIteoM8u9M8MeZMEI1o0QU/B0iQDOojVNEjRKk+06LAJIAVxGnzNQAtqTokWDdDtECwdNCEb25R4RIs+g44nhGRAGvJ0iABtbEWLBs3PJqlMQDqYQhpVsaEvWnRo6JMCO0lAaXNAE4po0VehaYM/LfpTAiLD36JFN+hm4IoOhe+cQ4qcokUTdFtk2RlypTdadQJEiy7np6eNbPsebahubWxFiy4a+qn5Tm+gKW6OBXzRom9ENxtikmjI8Ipo0Veh44ZzKMqTAQG8WBMtukCvFkypeUSKM9NGNiUh0aKv3tiSQvp08yRxkZsSLbqZy/uWh2jRokU/CP0LeBpaqJIExoIAAAAASUVORK5CYII=" alt="QRCode">
     </li>
     
 
@@ -519,9 +369,8 @@ Database Connection and Tran..."
                 <div class="card-body">
                     
                         
-                            <div id="post-toc">
-                                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#创建代理"><span class="post-toc-number">1.</span> <span class="post-toc-text">创建代理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#InvoicationHanlder‘s"><span class="post-toc-number">2.</span> <span class="post-toc-text">InvoicationHanlder‘s</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#已知用例"><span class="post-toc-number">3.</span> <span class="post-toc-text">已知用例</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数据库连接和事务管理"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">数据库连接和事务管理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#单元测试中动态模拟对象"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">单元测试中动态模拟对象</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Adaptation-of-DI-Container-to-Custom-Factory-Interfaces"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">Adaptation of DI Container to Custom Factory Interfaces</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#AOP-like-Method-Interception"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">AOP-like Method Interception</span></a></li></ol></li></ol>
-                            </div>
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#创建代理"><span class="post-toc-number">1.</span> <span class="post-toc-text">创建代理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#InvoicationHanlder‘s"><span class="post-toc-number">2.</span> <span class="post-toc-text">InvoicationHanlder‘s</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#已知用例"><span class="post-toc-number">3.</span> <span class="post-toc-text">已知用例</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数据库连接和事务管理"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">数据库连接和事务管理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#单元测试中动态模拟对象"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">单元测试中动态模拟对象</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Adaptation-of-DI-Container-to-Custom-Factory-Interfaces"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">Adaptation of DI Container to Custom Factory Interfaces</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#AOP-like-Method-Interception"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">AOP-like Method Interception</span></a></li></ol></li></ol></div>
                         
                     
                     <article id="post-content">
@@ -543,14 +392,11 @@ Database Connection and Tran..."
 </ol>
 <p><code>InvocationHandler</code>。<br>例子如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">InvocationHandler handler = new MyInvocationHandler();</span><br><span class="line">MyInterface proxy = (MyInterface) Proxy.newProxyInstance(</span><br><span class="line">                            MyInterface.class.getClassLoader(),</span><br><span class="line">                            new Class[] &#123; MyInterface.class &#125;,</span><br><span class="line">                            handler);</span><br></pre></td></tr></table></figure>
-
 <p>在运行了这段代码过后，proxy对象就动态的实现了<code>MyInterface</code>接口。所有调用proxy的方法都传递到实现了<code>InvoicationHanler</code>接口的<code>handler</code>对象。接下来就讲解<code>InvoicationHandler</code>。</p>
 <h2 id="InvoicationHanlder‘s"><a href="#InvoicationHanlder‘s" class="headerlink" title="InvoicationHanlder‘s"></a>InvoicationHanlder‘s</h2><p>正如前文<code>Proxy.newInstance()</code>方法必须提供一个<code>InvoicationHanler</code>。对动态代理的所有方法调用都将转发到此InvocationHandler实现。<code>InvoicationHanler</code>是这样定义的：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public interface InvocationHandler&#123;</span><br><span class="line">  Object invoke(Object proxy, Method method, Object[] args)</span><br><span class="line">         throws Throwable;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>一个实现的接口的列子：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class MyInvocationHandler implements InvocationHandler&#123;</span><br><span class="line"></span><br><span class="line">  public Object invoke(Object proxy, Method method, Object[] args)</span><br><span class="line">  throws Throwable &#123;</span><br><span class="line">    //do something &quot;dynamic&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>传递给<code>invoke()</code>方法的参数proxy是实现了接口的动态代理对象。通常你不需要这个对象。<br>传递给<code>invoke()</code>方法的参数Method对象表示的是调用代理实现方法的方法。对于这个<code>Method</code>对象你可以获取到方法的名称，参数类型，返回类型等。参见前面的‘Method’文章。<br>这个<code>Object[]</code>数组包含了方法调用的时候传递给proxy对象对应的参数。<br>注意：在实现的接口里面，基本的数据类型（int，long）被包裹成对应的对象（Intger,Long等）。</p>
 <h2 id="已知用例"><a href="#已知用例" class="headerlink" title="已知用例"></a>已知用例</h2><p>动态代理被用于至少在以下的情形：</p>
 <ul>
@@ -561,13 +407,11 @@ Database Connection and Tran..."
 </ul>
 <h3 id="数据库连接和事务管理"><a href="#数据库连接和事务管理" class="headerlink" title="数据库连接和事务管理"></a>数据库连接和事务管理</h3><p>Spring框架为你提供了一个可以提交，回滚一个事物的事物代理。至于具体是怎样工作的在文章<a href="http://tutorials.jenkov.com/java-persistence/advanced-connection-and-transaction-demarcation-and-propagation.html" target="_blank" rel="noopener"> Advanced Connection and Transaction Demarcation and Propagation</a>有具体的描述，所以我只是简单的阐述一下。调用顺序如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">web controller --&gt; proxy.execute(...);</span><br><span class="line">proxy --&gt; connection.setAutoCommit(false);</span><br><span class="line">proxy --&gt; realAction.execute();</span><br><span class="line">  realAction does database work</span><br><span class="line">proxy --&gt; connection.commit();</span><br></pre></td></tr></table></figure>
-
 <h3 id="单元测试中动态模拟对象"><a href="#单元测试中动态模拟对象" class="headerlink" title="单元测试中动态模拟对象"></a>单元测试中动态模拟对象</h3><p><a href="http://butterfly.jenkov.com/" target="_blank" rel="noopener"> Butterfly Testing Tools</a>使用动态代理实现动态存根，模拟和代理单元测试。当测试类A用到了另外的类B（接口），你可以传递一个B的模拟实现到A而不是传递一个真的B。所有调用B的方法都被记录了，你可以设置返回的B的值。</p>
 <h3 id="Adaptation-of-DI-Container-to-Custom-Factory-Interfaces"><a href="#Adaptation-of-DI-Container-to-Custom-Factory-Interfaces" class="headerlink" title="Adaptation of DI Container to Custom Factory Interfaces"></a>Adaptation of DI Container to Custom Factory Interfaces</h3><p>依赖注入容器Butterfly Container具有一个强大的功能，允许您将整个容器注入由其生成的bean中。但是如果您不希望依赖容器接口，容器能够适应您的设计的自定义工厂接口。你仅仅需要的是这些接口。没有被实现的。因此工厂的接口和你的类大概是这个样子：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public interface IMyFactory &#123;</span><br><span class="line">  Bean   bean1();</span><br><span class="line">  Person person();</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public class MyAction&#123;</span><br><span class="line"></span><br><span class="line">  protected IMyFactory myFactory= null;</span><br><span class="line"></span><br><span class="line">  public MyAction(IMyFactory factory)&#123;</span><br><span class="line">    this.myFactory = factory;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  public void execute()&#123;</span><br><span class="line">    Bean bean = this.myFactory.bean();</span><br><span class="line">    Person person = this.myFactory.person();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>当MyAction类调用通过MyAction类构造方法传递进来的IMyFactory对象的方法时，方法调用转换为对IContainer.instance（）方法的调用，IContainer.instance（）方法是用于从容器获取实例的方法。这就是为什么一个对象能够在运行时把Butterfly Container当做一个工厂，而不仅仅是在创建时将依赖注入自身。并且这在Butterfly Container没有任何的的依赖。</p>
 <h3 id="AOP-like-Method-Interception"><a href="#AOP-like-Method-Interception" class="headerlink" title="AOP-like Method Interception"></a>AOP-like Method Interception</h3><p>在Spring框架中是有可能在指定的Bean调用方法之前拦截该方法的，理由是bean实现了某些接口方法。Spring框架将bean包装在动态代理中。所有对bean的bean调用都被拦截了。动态代理也能在对其他对象调用的时候进行检查，而不是在将方法调用委托给bean包装之后。</p>
 <p><a href="http://tutorials.jenkov.com/java-reflection/dynamic-proxies.html" target="_blank" rel="noopener">原文</a></p>
@@ -578,6 +422,7 @@ Database Connection and Tran..."
 
     <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
     <script>
+    (function() {
         var dateUpdate = Date.parse("2018-08-05");
         var nowDate = new Date();
         var a = nowDate.getTime();
@@ -588,6 +433,7 @@ Database Connection and Tran..."
         } else {
             document.getElementById('date-expire-notification').style.display = 'none';
         }
+    })();
     </script>
 
 
@@ -600,8 +446,7 @@ Database Connection and Tran..."
 
 <span class="post-categories-list mt-2">
 
-
-<a class="post-categories-list-item" href='/categories/Java译文/'>Java译文</a>
+<a class="post-categories-list-item" href='/categories/Java%E8%AF%91%E6%96%87/'>Java译文</a>
 
 </span>
 
@@ -609,10 +454,9 @@ Database Connection and Tran..."
 
 <span class="post-tags-list mt-2">
 
+<a class="post-tags-list-item" href="/tags/Java%E5%8F%8D%E5%B0%84/" rel="tag">#&nbsp;Java反射</a>
 
-<a class="post-tags-list-item" href="/tags/Java反射/" rel="tag">#&nbsp;Java反射</a>
-
-<a class="post-tags-list-item" href="/tags/动态代理/" rel="tag">#&nbsp;动态代理</a>
+<a class="post-tags-list-item" href="/tags/%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/" rel="tag">#&nbsp;动态代理</a>
 
 </span>
 
@@ -620,13 +464,12 @@ Database Connection and Tran..."
 </p>
 
                 </div>
-                
-<div class="post-nav px-2 bg-gray">
+                <div class="post-nav px-2 bg-gray">
 <ul class="pagination">
     <!-- Prev Nav -->
     
         <li class="page-item page-prev">
-            <a href="/2017/02/28/Java反射12-动态加载和重加载类/" rel="prev">
+            <a href="/2017/02/28/Java%E5%8F%8D%E5%B0%8412-%E5%8A%A8%E6%80%81%E5%8A%A0%E8%BD%BD%E5%92%8C%E9%87%8D%E5%8A%A0%E8%BD%BD%E7%B1%BB/" rel="prev">
                 <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
                 <div class="page-item-subtitle">Java反射12-动态加载和重加载类</div>
             </a>
@@ -636,7 +479,7 @@ Database Connection and Tran..."
     <!-- Next Nav -->
     
         <li class="page-item page-next">
-            <a href="/2017/02/26/Java反射10-数组/" rel="next">
+            <a href="/2017/02/26/Java%E5%8F%8D%E5%B0%8410-%E6%95%B0%E7%BB%84/" rel="next">
                 <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
                 <div class="page-item-subtitle">Java反射10-数组</div>
             </a>
@@ -657,9 +500,11 @@ Database Connection and Tran..."
             <!-- ### Footer ### -->
             <footer class="text-center">
     <!-- footer copyright -->
-    <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span data-year></span>
-        <a class="footer-copyright-a" href="http://lysmbetter.top">Better</a>
-    </p>
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="http://lysmbetter.top">Better</a>
+        </p>
+
     <!-- footer custom text -->
     <p class="footer-text mb-0">
     
@@ -667,7 +512,6 @@ Database Connection and Tran..."
     <!-- footer develop info -->
     <p class="footer-develop mb-0">
         
-            
     <!-- Busuanzi User Views -->
     <span id="busuanzi_container_site_uv" hidden>
         <span></span>
@@ -680,7 +524,7 @@ Database Connection and Tran..."
 
 
 
-        
+
         
         Powered by&nbsp;<!--
          --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
@@ -688,40 +532,23 @@ Database Connection and Tran..."
     </p>
 </footer>
 
-        
 
         <!-- ### Import File ### -->
         <!-- ### Footer JS Import ### -->
 
 <script>
+
+    
 window.lazyLoadOptions = {
     elements_selector: ".lazyload",
     threshold: 50
 };
-
-
-
-    /* Copyright */
-    var copyrightNow = new Date().getFullYear();
-    var copyrightContent = document.querySelector('span[data-year]')
-    
-        copyrightContent.textContent = copyrightNow
-    
-
-
-
-/* Cnosole Log */
+document.getElementById('copyright-year').textContent = new Date().getFullYear();
 console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
 </script>
 
-<!-- vanilla-lazyload -->
-
-    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
-
-
-
-    <!-- Busuanzi -->
-    
+<script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
     <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
 
 
@@ -730,17 +557,10 @@ console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c 
 
 
 
-
-
-
-<!-- gallery.js -->
-
-
 <!-- Comment -->
 
 
 <!-- ### Custom Footer ### -->
-
 
     </body>
 

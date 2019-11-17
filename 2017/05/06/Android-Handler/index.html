@@ -1,26 +1,18 @@
 <!DOCTYPE html>
 
 <html lang="zh-Hans">
-    <head><meta name="generator" content="Hexo 3.9.0">
+    <head>
     <meta charset="utf-8">
     <!--
-        © SukkaW
+        hexo-theme-suka © SukkaW
         GitHub: https://github.com/SukkaW/hexo-theme-suka
-        Version: 1.3.3
     -->
-    <script>
-window.lsVersion = "1.3.3",
-window.oldVersion = [
-    
-        
-            "0.2.0","0.0.1","0.1.0","1.0.0","1.0.1","1.1.0","1.1.1","1.2.0","1.3.0","1.3.2"
-        
-    
-]
-</script>
 
-    <!-- ### DNS Prefetch ### -->
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
     <meta http-equiv="x-dns-prefetch-control" content="on">
+
 <!-- busuanzi -->
 
     <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
@@ -42,8 +34,7 @@ window.oldVersion = [
 
 
 
-
-    <!-- ### Preload ### -->
+    <!-- ## Preload ## -->
     
     <!-- Busuanzi -->
     
@@ -56,47 +47,18 @@ window.oldVersion = [
 
 
     <!-- ### Meta & Title & Info ### -->
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
-<meta name="renderer" content="webkit">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
 
-<!-- Title -->
-<title>Android-Handler | Better</title>
+    <!-- Title -->
+    <title>Android-Handler | Better</title>
 
-<!-- favicon -->
-<!-- Favicons -->
-
-    <link rel="icon" type="image/ico" href="/img/suka-favicon.ico">
-
-
-
-
-
-
-<!-- Android Chrome Color -->
-
-
-
-<meta name="format-detection" content="telephone=no">
-
-<!-- Description -->
-<meta name="description" content="关于Android中的Handler，其实并不陌生。初入Android时写网络模块的时候，经常会用到，因为Android中3.0版本之后是不应许在主线程中直接调起网络请求，所以只有在子线程中开启网络请求。而Android中不应许...">
-
-<!-- Keywords -->
-<meta name="keywords" content=", Android, Handler">
-
-<!-- Disable Fucking Bloody Baidu Tranformation -->
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/suka-favicon.ico">
 
     <!-- ### Import File ### -->
-    
-        <!-- spectre.css -->
-
-    <link rel="stylesheet" href="/lib/spectre/spectre.min.css">
-
-
-<style>
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css"><style>
     body {
         background-color: #f8f9fa;
     }
@@ -117,6 +79,8 @@ window.oldVersion = [
         color: #005eb9;
         opacity: 1;
     }
+
+    
 
     .post-entry .card-body a {
         color: #0070ff;
@@ -159,12 +123,7 @@ window.oldVersion = [
         background: #f8f9fa;
         opacity: .85;
     }
-</style>
-
-<!-- style.css -->
-
-    <link rel="stylesheet" href="/css/style.min.css">
-
+</style><link rel="stylesheet" href="/css/style.min.css">
 
 
 
@@ -175,58 +134,32 @@ window.oldVersion = [
 
     <!-- Prettify Theme -->
     
-    
-        <link rel="stylesheet" href="/css/highlight/github.min.css">
-    
+    <link rel="preload" href="/css/highlight/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/css/highlight/github.min.css"></noscript>
 
 
 
-    
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
 
     <!-- ### Site Verification ### -->
     
 
 
-    <!-- ### RSS ### -->
-    
-
-    <!-- ### WebApp ### -->
-    <meta name="mobile-web-app-capable" content="yes">
-<meta name="application-name" content="Better">
-<meta name="msapplication-starturl" content="http://lysmbetter.top">
-
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Better">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-<!-- Manifest Import -->
-
-<!-- Open Search -->
-
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="Better"><meta name="msapplication-starturl" content="http://lysmbetter.top"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Better"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- ### The Open Graph & Twitter Card Protocol ### -->
-    <meta property="og:title" content="Android-Handler | Better">
-<meta property="og:site_name" content="Better">
+    <meta property="og:title" content="Android-Handler | Better"><meta property="og:site_name" content="Better"><meta property="og:type" content="article"><meta property="og:url" content="http:&#x2F;&#x2F;lysmbetter.top&#x2F;2017&#x2F;05&#x2F;06&#x2F;Android-Handler&#x2F;"><meta property="og:locale" content="zh-Hans"><meta name="description" content="关于Android中的Handler，其实并不陌生。初入Android时写网络模块的时候，经常会用到，因为Android中3.0版本之后是不应许在主线程中直接调起网络请求，所以只有在子线程中开启网络请求。而Android中不应许在子线程中操作UI，所以要界面响应网络请求的结果，就需要通过Handler来刷新UI。后来网络请求框架如雨后春笋般崛起，自己再去通过Handler来刷新界面就用的少了。再后 - Better - Better"><meta name="keywords" content="Android, Handler"><meta property="og:image" content="https:&#x2F;&#x2F;lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com&#x2F;lysmbetter&#x2F;handler_principle.jpg"><meta property="article:published_time" content="2017-05-06T06:15:02.000Z"><meta property="article:modified_time" content="2018-11-10T01:47:09.948Z"><meta property="og:updated_time" content="2018-11-10T01:47:09.948Z"><meta property="article:author" content="Better"><meta property="article:tag" content="Android, Handler"><meta name="twitter:card" content="summary">
 
-<meta property="og:locale" content="zh-Hans">
+    
 
-<meta property="og:url" content="http://lysmbetter.top/2017/05/06/Android-Handler/">
-<meta property="og:image" content="http://lysmbetter.top/img/suka-favicon.ico">
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://lysmbetter.top/2017/05/06/Android-Handler/">
 
-<meta property="og:description" content="关于Android中的Handler，其实并不陌生。初入Android时写网络模块的时候，经常会用到，因为Android中3.0版本之后是不应许在主线程中直接调起网络请求，所以只有在子线程中开启网络请求。而Android中不应许...">
-
-<meta name="twitter:card" content="summary">
-
-
-    <meta property="og:type" content="article">
-    <meta property="article:published_time" content="2017-05-06T06:15:02.000Z">
-    <meta property="article:modified_time" content="2017-05-06T06:15:02.000Z">
-    <meta property="article:author" content="Better">
-    <meta property="og:article:tag" content=", Android, Handler"> 
-
-
-
-
+    <meta name="generator" content="Hexo 4.0.0">
 
     <!-- ### Analytics ### -->
     
@@ -236,10 +169,6 @@ window.oldVersion = [
 
 
 
-
-
-    <!-- ### Canonical link ### -->
-    <link rel="canonical" href="http://lysmbetter.top/2017/05/06/Android-Handler/">
 
     <!-- ### Structured Data ### -->
     
@@ -272,7 +201,7 @@ window.oldVersion = [
             "@type": "ImageObject",
             "url": "http://lysmbetter.top/img/default_avatar.png"
         },
-        "description": "Hi, nice to meet you."
+        "description": "业精于勤荒于嬉"
     },
     "publisher": {
         "@type": "Organization",
@@ -289,8 +218,8 @@ window.oldVersion = [
         "query-input": "required name=search_term_string"
     },
     
-    "keywords": ", Android, Handler",
-    "description": "关于Android中的Handler，其实并不陌生。初入Android时写网络模块的时候，经常会用到，因为Android中3.0版本之后是不应许在主线程中直接调起网络请求，所以只有在子线程中开启网络请求。而Android中不应许..."
+    "keywords": "Android, Handler",
+    "description": "关于Android中的Handler，其实并不陌生。初入Android时写网络模块的时候，经常会用到，因为Android中3.0版本之后是不应许在主线程中直接调起网络请求，所以只有在子线程中开启网络请求。而Android中不应许在子线程中操作UI，所以要界面响应网络请求的结果，就需要通过Handler来刷新UI。后来网络请求框架如雨后春笋般崛起，自己再去通过Handler来刷新界面就用的少了。再后 - Better - Better"
 }
 </script>
 
@@ -298,13 +227,9 @@ window.oldVersion = [
 
     <!-- ### Custom Head ### -->
     
-
-
 </head>
 
     <body>
-        
-
             
 
             <!-- ### Main content ### -->
@@ -315,7 +240,7 @@ window.oldVersion = [
     <p class="text-center header-slogan">
         
             
-                Hi, nice to meet you.
+                业精于勤荒于嬉
             
         
     </p>
@@ -331,69 +256,10 @@ window.oldVersion = [
         <a href="/search" class="navbar-link">Search</a>
     
     
+        <a href="/tags/" class="navbar-link">Tags</a>
     
-        <div class="dropdown dropdown-right">
-    <a class="navbar-link dropdown-toggle" tabindex="0">Share</a>
-    <ul class="menu share-menu">
-
-        <!-- Share Weibo -->
-        
-        <li class="menu-item">
-            <a href="http://service.weibo.com/share/share.php?appkey=&title=Better&url=http://lysmbetter.top&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
-        </li>
-        
-
-        <!-- Share Twitter -->
-        
-        <li class="menu-item">
-            <a href="https://twitter.com/intent/tweet?text=Better&url=http://lysmbetter.top&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
-        </li>
-        
-
-        <!-- Share Facebook -->
-        
-        <li class="menu-item">
-            <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
-        </li>
-        
-
-        <!-- Share Google+ -->
-        
-        <li class="menu-item">
-            <a href="https://plus.google.com/share?url=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
-        </li>
-        
-
-        <!-- Share LinkedIn -->
-        
-        <li class="menu-item">
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top&title=Android-Handler" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
-        </li>
-        
-
-        <!-- Share QQ -->
-        
-        <li class="menu-item">
-            <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Android-Handler&summary=描述文字&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
-        </li>
-        
-
-        <!-- Share Telegram -->
-        
-        <li class="menu-item">
-            <a href="https://t.me/share/url?url=http://lysmbetter.top&text=Android-Handler" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
-        </li>
-        
-
-        <!-- QRCode -->
-        
-        <li class="menu-item">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB3UlEQVR42u3bwY6DMAyEYd7/pXevFUpmxi2H2PxcKm1b+FYKTjyk19+BxwUKFChQC9Qljvv78oTmO+46oGahdhe5v94vkvz9fp7ddUDNQ7mTrAby7v3dP+WuA+odKFU0VwhQoKIPq0k0LI6g3odSg1gV08oi8LFVAqjjUa5xeOr10W4G1LEoGzqICToZ7O4G+Cp1AXU0atUMVAviCqoWgdtGFtQolAu/XCDmGtYdXA50UC1Ru8GpcEmRVCGIHeigWqNc4Oom1zSgVcUW1CxUgkvC++oNY+8+UG1RCcKeLAhkXRMCag4qnTyTYN8VTBvaghqBqoSp6vOVgR91M6DaopIm1DWnDp2GJ6BmoVRhrOCSB+XxyhNUS1R1o2AauiYhbFzRQbVDqaL2zQYK1XjKDT2gRqHURV1zkWzkco0KqHmoanCaDPBqYwFqBso1na6RSBdwSdEFNQflJtbSw+kr/9FPlOSBaoeqPNhJJu/KxkBQM1FJEa3AXOAqAzdQI1C/bmh2N4b7HqiZqMoAT4tkpRkBNROVBK4qrK9MytuBD+oVqOpiL3qAXU1dQI1DJUFs5UH3z8UTVAuUCyrSDRJpkBsNdFBtUelCLdl8mjxwLO80A9UKddIBChQoUB/HPzR0z+/SeVAfAAAAAElFTkSuQmCC" alr="QRCode">
-        </li>
-        
-
-    </ul>
-</div>
+        <a href="/about/" class="navbar-link">About</a>
+    
     
     
 </nav>
@@ -401,11 +267,7 @@ window.oldVersion = [
 
             
     <!-- ## Post ## -->
-    
-    
-
-
-<div class="post-container">
+    <div class="post-container">
     <div id="post-card" class="card">
         
         <div class="card-item-container">
@@ -480,7 +342,7 @@ window.oldVersion = [
     <!-- Share QQ -->
     
     <li class="menu-item">
-        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Better&summary=描述文字&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top/2017/05/06/Android-Handler/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Better&summary=业精于勤荒于嬉&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top/2017/05/06/Android-Handler/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
     </li>
     
 
@@ -507,9 +369,8 @@ window.oldVersion = [
                 <div class="card-body">
                     
                         
-                            <div id="post-toc">
-                                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#用途"><span class="post-toc-number">1.</span> <span class="post-toc-text">用途</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#理由"><span class="post-toc-number">2.</span> <span class="post-toc-text">理由</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Handler引起的内存泄漏"><span class="post-toc-number">3.</span> <span class="post-toc-text">Handler引起的内存泄漏</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考"><span class="post-toc-number">4.</span> <span class="post-toc-text">参考</span></a></li></ol>
-                            </div>
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#用途"><span class="post-toc-number">1.</span> <span class="post-toc-text">用途</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#理由"><span class="post-toc-number">2.</span> <span class="post-toc-text">理由</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Handler引起的内存泄漏"><span class="post-toc-number">3.</span> <span class="post-toc-text">Handler引起的内存泄漏</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考"><span class="post-toc-number">4.</span> <span class="post-toc-text">参考</span></a></li></ol></div>
                         
                     
                     <article id="post-content">
@@ -524,7 +385,7 @@ window.oldVersion = [
 <li>MessageQueue</li>
 <li>Thread+Looper</li>
 <li>Message</li>
-<li>Hander的post与sendMessage函数<br>Handler发送一个消息到MessageQueue处。Looper相当于线程的消息管家，不断的在MessageQueue中读取消息，将消息分发给Handler处理，从而就实现的线程间的通信。<br>盗一张别人的原理图：<br><img src="https://lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com/lysmbetter/handler_principle.jpg" alt><br>所以实现线程间通信，光有Handler是不够的，你得有配套的机制。而线程默认是没有Looper的，你得使用<code>Looper.perpare()</code>创建Looper，然后创建Handler，让管家管理消息即<code>Looper.loop()</code>。大致思路是这样：</li>
+<li>Hander的post与sendMessage函数<br>Handler发送一个消息到MessageQueue处。Looper相当于线程的消息管家，不断的在MessageQueue中读取消息，将消息分发给Handler处理，从而就实现的线程间的通信。<br>盗一张别人的原理图：<br><img src="https://lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com/lysmbetter/handler_principle.jpg" alt=""><br>所以实现线程间通信，光有Handler是不够的，你得有配套的机制。而线程默认是没有Looper的，你得使用<code>Looper.perpare()</code>创建Looper，然后创建Handler，让管家管理消息即<code>Looper.loop()</code>。大致思路是这样：</li>
 </ul>
 <ol>
 <li>判定是否已有Looper并Looper.prepare()</li>
@@ -532,7 +393,6 @@ window.oldVersion = [
 <li>调用Looper.loop()，线程进入阻塞态<br>比如这样：</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class LooperThread extends Thread &#123;</span><br><span class="line">      public Handler mHandler;</span><br><span class="line"></span><br><span class="line">      public void run() &#123;</span><br><span class="line">          Looper.prepare();</span><br><span class="line"></span><br><span class="line">          mHandler = new Handler() &#123;</span><br><span class="line">              public void handleMessage(Message msg) &#123;</span><br><span class="line">                  // process incoming messages here</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;;</span><br><span class="line"></span><br><span class="line">          Looper.loop();</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-
 <p>那么如果有人问你，Thread，Looper，MessageQueue，Handler数量关系是怎么样的。你可以这样告诉他。一个Thread最多只拥有一个Looper，一个Thread却是可以有多个Handler。<br>那么怎么理解Handler的异步或者说异步通信呢？我在主线程里面要网络数据，但是我是莫法在主线程里面直接访问网络的，所以我叫子线程去访问网络，子线程要把网络请求的结果告诉主线程，这个告诉就是回调，就是响应，通过Handler来完成。从而体现了异步。<a href="https://www.zhihu.com/question/19732473" target="_blank" rel="noopener">参考</a></p>
 <h2 id="Handler引起的内存泄漏"><a href="#Handler引起的内存泄漏" class="headerlink" title="Handler引起的内存泄漏"></a>Handler引起的内存泄漏</h2><p>这里主要明白非静态内部类会持有外部类的引用。<br>所以在申明Handler的时候不要申明成static的，如果非要申明为static的就要一层如引用包裹Handler。<br>在onDestroy的时候移除所以的消息和回调<code>removeCallbacksAndMessages(null)</code></p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://developer.android.com/reference/android/os/Handler.html" target="_blank" rel="noopener">官网</a><br><a href="http://blog.csdn.net/l664675249/article/details/49585121" target="_blank" rel="noopener"> Android异步消息机制Handler详解，源码剖析</a><br><a href="https://hit-alibaba.github.io/interview/Android/basic/Android-handler-thread-looper.html" target="_blank" rel="noopener">Android Handler机制</a></p>
@@ -543,6 +403,7 @@ window.oldVersion = [
 
     <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
     <script>
+    (function() {
         var dateUpdate = Date.parse("2018-11-10");
         var nowDate = new Date();
         var a = nowDate.getTime();
@@ -553,6 +414,7 @@ window.oldVersion = [
         } else {
             document.getElementById('date-expire-notification').style.display = 'none';
         }
+    })();
     </script>
 
 
@@ -565,7 +427,6 @@ window.oldVersion = [
 
 <span class="post-categories-list mt-2">
 
-
 <a class="post-categories-list-item" href='/categories/Android/'>Android</a>
 
 </span>
@@ -573,7 +434,6 @@ window.oldVersion = [
 
 
 <span class="post-tags-list mt-2">
-
 
 <a class="post-tags-list-item" href="/tags/Android/" rel="tag">#&nbsp;Android</a>
 
@@ -585,8 +445,7 @@ window.oldVersion = [
 </p>
 
                 </div>
-                
-<div class="post-nav px-2 bg-gray">
+                <div class="post-nav px-2 bg-gray">
 <ul class="pagination">
     <!-- Prev Nav -->
     
@@ -601,7 +460,7 @@ window.oldVersion = [
     <!-- Next Nav -->
     
         <li class="page-item page-next">
-            <a href="/2017/04/10/java-网络/" rel="next">
+            <a href="/2017/04/10/java-%E7%BD%91%E7%BB%9C/" rel="next">
                 <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
                 <div class="page-item-subtitle">Java-网络</div>
             </a>
@@ -622,9 +481,11 @@ window.oldVersion = [
             <!-- ### Footer ### -->
             <footer class="text-center">
     <!-- footer copyright -->
-    <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span data-year></span>
-        <a class="footer-copyright-a" href="http://lysmbetter.top">Better</a>
-    </p>
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="http://lysmbetter.top">Better</a>
+        </p>
+
     <!-- footer custom text -->
     <p class="footer-text mb-0">
     
@@ -632,7 +493,6 @@ window.oldVersion = [
     <!-- footer develop info -->
     <p class="footer-develop mb-0">
         
-            
     <!-- Busuanzi User Views -->
     <span id="busuanzi_container_site_uv" hidden>
         <span></span>
@@ -645,7 +505,7 @@ window.oldVersion = [
 
 
 
-        
+
         
         Powered by&nbsp;<!--
          --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
@@ -653,40 +513,23 @@ window.oldVersion = [
     </p>
 </footer>
 
-        
 
         <!-- ### Import File ### -->
         <!-- ### Footer JS Import ### -->
 
 <script>
+
+    
 window.lazyLoadOptions = {
     elements_selector: ".lazyload",
     threshold: 50
 };
-
-
-
-    /* Copyright */
-    var copyrightNow = new Date().getFullYear();
-    var copyrightContent = document.querySelector('span[data-year]')
-    
-        copyrightContent.textContent = copyrightNow
-    
-
-
-
-/* Cnosole Log */
+document.getElementById('copyright-year').textContent = new Date().getFullYear();
 console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
 </script>
 
-<!-- vanilla-lazyload -->
-
-    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
-
-
-
-    <!-- Busuanzi -->
-    
+<script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
     <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
 
 
@@ -695,17 +538,10 @@ console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c 
 
 
 
-
-
-
-<!-- gallery.js -->
-
-
 <!-- Comment -->
 
 
 <!-- ### Custom Footer ### -->
-
 
     </body>
 

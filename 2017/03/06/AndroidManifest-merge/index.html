@@ -1,26 +1,18 @@
 <!DOCTYPE html>
 
 <html lang="zh-Hans">
-    <head><meta name="generator" content="Hexo 3.9.0">
+    <head>
     <meta charset="utf-8">
     <!--
-        © SukkaW
+        hexo-theme-suka © SukkaW
         GitHub: https://github.com/SukkaW/hexo-theme-suka
-        Version: 1.3.3
     -->
-    <script>
-window.lsVersion = "1.3.3",
-window.oldVersion = [
-    
-        
-            "0.2.0","0.0.1","0.1.0","1.0.0","1.0.1","1.1.0","1.1.1","1.2.0","1.3.0","1.3.2"
-        
-    
-]
-</script>
 
-    <!-- ### DNS Prefetch ### -->
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
     <meta http-equiv="x-dns-prefetch-control" content="on">
+
 <!-- busuanzi -->
 
     <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
@@ -42,8 +34,7 @@ window.oldVersion = [
 
 
 
-
-    <!-- ### Preload ### -->
+    <!-- ## Preload ## -->
     
     <!-- Busuanzi -->
     
@@ -56,47 +47,18 @@ window.oldVersion = [
 
 
     <!-- ### Meta & Title & Info ### -->
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
-<meta name="renderer" content="webkit">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
 
-<!-- Title -->
-<title>AndroidManifest-Merge | Better</title>
+    <!-- Title -->
+    <title>AndroidManifest-Merge | Better</title>
 
-<!-- favicon -->
-<!-- Favicons -->
-
-    <link rel="icon" type="image/ico" href="/img/suka-favicon.ico">
-
-
-
-
-
-
-<!-- Android Chrome Color -->
-
-
-
-<meta name="format-detection" content="telephone=no">
-
-<!-- Description -->
-<meta name="description" content="一个apk只会包含一个清单（AndroidManifest）文件，但是在androidStudio下你的工程会有多个清单文件来自于-主modle下，build variants，依赖的库（依赖的Modle，aar）。所以在运行工...">
-
-<!-- Keywords -->
-<meta name="keywords" content=", 合并清单, Merge Manifest">
-
-<!-- Disable Fucking Bloody Baidu Tranformation -->
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/suka-favicon.ico">
 
     <!-- ### Import File ### -->
-    
-        <!-- spectre.css -->
-
-    <link rel="stylesheet" href="/lib/spectre/spectre.min.css">
-
-
-<style>
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css"><style>
     body {
         background-color: #f8f9fa;
     }
@@ -117,6 +79,8 @@ window.oldVersion = [
         color: #005eb9;
         opacity: 1;
     }
+
+    
 
     .post-entry .card-body a {
         color: #0070ff;
@@ -159,12 +123,7 @@ window.oldVersion = [
         background: #f8f9fa;
         opacity: .85;
     }
-</style>
-
-<!-- style.css -->
-
-    <link rel="stylesheet" href="/css/style.min.css">
-
+</style><link rel="stylesheet" href="/css/style.min.css">
 
 
 
@@ -175,58 +134,32 @@ window.oldVersion = [
 
     <!-- Prettify Theme -->
     
-    
-        <link rel="stylesheet" href="/css/highlight/github.min.css">
-    
+    <link rel="preload" href="/css/highlight/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/css/highlight/github.min.css"></noscript>
 
 
 
-    
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
 
     <!-- ### Site Verification ### -->
     
 
 
-    <!-- ### RSS ### -->
-    
-
-    <!-- ### WebApp ### -->
-    <meta name="mobile-web-app-capable" content="yes">
-<meta name="application-name" content="Better">
-<meta name="msapplication-starturl" content="http://lysmbetter.top">
-
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Better">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-<!-- Manifest Import -->
-
-<!-- Open Search -->
-
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="Better"><meta name="msapplication-starturl" content="http://lysmbetter.top"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Better"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- ### The Open Graph & Twitter Card Protocol ### -->
-    <meta property="og:title" content="AndroidManifest-Merge | Better">
-<meta property="og:site_name" content="Better">
+    <meta property="og:title" content="AndroidManifest-Merge | Better"><meta property="og:site_name" content="Better"><meta property="og:type" content="article"><meta property="og:url" content="http:&#x2F;&#x2F;lysmbetter.top&#x2F;2017&#x2F;03&#x2F;06&#x2F;AndroidManifest-merge&#x2F;"><meta property="og:locale" content="zh-Hans"><meta name="description" content="一个apk只会包含一个清单（AndroidManifest）文件，但是在androidStudio下你的工程会有多个清单文件来自于-主modle下，build variants，依赖的库（依赖的Modle，aar）。所以在运行工程的时候，gradle会合并这些清单成一个清单。清单合并工具合并所有的XML元素（elements）是遵循合并启发和一些你在特定XML的属性（attributes）所指定的 - Better - Better"><meta name="keywords" content="合并清单, Merge Manifest"><meta property="og:image" content="https:&#x2F;&#x2F;lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com&#x2F;lysmbetter&#x2F;manifest-merger_2x.png"><meta property="og:image" content="https:&#x2F;&#x2F;lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com&#x2F;lysmbetter&#x2F;manifest-merger_02.png"><meta property="og:image" content="https:&#x2F;&#x2F;lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com&#x2F;lysmbetter&#x2F;QQ20170309-224443@2x.png"><meta property="og:image" content="https:&#x2F;&#x2F;lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com&#x2F;lysmbetter&#x2F;manifest-merged-view_2x.png"><meta property="og:image" content="https:&#x2F;&#x2F;lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com&#x2F;lysmbetter&#x2F;QQ20170311-095057@2x.png"><meta property="og:image" content="https:&#x2F;&#x2F;lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com&#x2F;lysmbetter&#x2F;QQ20170311-095114@2x.png"><meta property="article:published_time" content="2017-03-06T14:05:53.000Z"><meta property="article:modified_time" content="2018-11-10T01:47:58.203Z"><meta property="og:updated_time" content="2018-11-10T01:47:58.203Z"><meta property="article:author" content="Better"><meta property="article:tag" content="合并清单, Merge Manifest"><meta name="twitter:card" content="summary">
 
-<meta property="og:locale" content="zh-Hans">
+    
 
-<meta property="og:url" content="http://lysmbetter.top/2017/03/06/AndroidManifest-merge/">
-<meta property="og:image" content="http://lysmbetter.top/img/suka-favicon.ico">
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://lysmbetter.top/2017/03/06/AndroidManifest-merge/">
 
-<meta property="og:description" content="一个apk只会包含一个清单（AndroidManifest）文件，但是在androidStudio下你的工程会有多个清单文件来自于-主modle下，build variants，依赖的库（依赖的Modle，aar）。所以在运行工...">
-
-<meta name="twitter:card" content="summary">
-
-
-    <meta property="og:type" content="article">
-    <meta property="article:published_time" content="2017-03-06T14:05:53.000Z">
-    <meta property="article:modified_time" content="2017-03-06T14:05:53.000Z">
-    <meta property="article:author" content="Better">
-    <meta property="og:article:tag" content=", 合并清单, Merge Manifest"> 
-
-
-
-
+    <meta name="generator" content="Hexo 4.0.0">
 
     <!-- ### Analytics ### -->
     
@@ -236,10 +169,6 @@ window.oldVersion = [
 
 
 
-
-
-    <!-- ### Canonical link ### -->
-    <link rel="canonical" href="http://lysmbetter.top/2017/03/06/AndroidManifest-merge/">
 
     <!-- ### Structured Data ### -->
     
@@ -272,7 +201,7 @@ window.oldVersion = [
             "@type": "ImageObject",
             "url": "http://lysmbetter.top/img/default_avatar.png"
         },
-        "description": "Hi, nice to meet you."
+        "description": "业精于勤荒于嬉"
     },
     "publisher": {
         "@type": "Organization",
@@ -289,8 +218,8 @@ window.oldVersion = [
         "query-input": "required name=search_term_string"
     },
     
-    "keywords": ", 合并清单, Merge Manifest",
-    "description": "一个apk只会包含一个清单（AndroidManifest）文件，但是在androidStudio下你的工程会有多个清单文件来自于-主modle下，build variants，依赖的库（依赖的Modle，aar）。所以在运行工..."
+    "keywords": "合并清单, Merge Manifest",
+    "description": "一个apk只会包含一个清单（AndroidManifest）文件，但是在androidStudio下你的工程会有多个清单文件来自于-主modle下，build variants，依赖的库（依赖的Modle，aar）。所以在运行工程的时候，gradle会合并这些清单成一个清单。清单合并工具合并所有的XML元素（elements）是遵循合并启发和一些你在特定XML的属性（attributes）所指定的 - Better - Better"
 }
 </script>
 
@@ -298,13 +227,9 @@ window.oldVersion = [
 
     <!-- ### Custom Head ### -->
     
-
-
 </head>
 
     <body>
-        
-
             
 
             <!-- ### Main content ### -->
@@ -315,7 +240,7 @@ window.oldVersion = [
     <p class="text-center header-slogan">
         
             
-                Hi, nice to meet you.
+                业精于勤荒于嬉
             
         
     </p>
@@ -331,69 +256,10 @@ window.oldVersion = [
         <a href="/search" class="navbar-link">Search</a>
     
     
+        <a href="/tags/" class="navbar-link">Tags</a>
     
-        <div class="dropdown dropdown-right">
-    <a class="navbar-link dropdown-toggle" tabindex="0">Share</a>
-    <ul class="menu share-menu">
-
-        <!-- Share Weibo -->
-        
-        <li class="menu-item">
-            <a href="http://service.weibo.com/share/share.php?appkey=&title=Better&url=http://lysmbetter.top&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
-        </li>
-        
-
-        <!-- Share Twitter -->
-        
-        <li class="menu-item">
-            <a href="https://twitter.com/intent/tweet?text=Better&url=http://lysmbetter.top&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
-        </li>
-        
-
-        <!-- Share Facebook -->
-        
-        <li class="menu-item">
-            <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
-        </li>
-        
-
-        <!-- Share Google+ -->
-        
-        <li class="menu-item">
-            <a href="https://plus.google.com/share?url=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
-        </li>
-        
-
-        <!-- Share LinkedIn -->
-        
-        <li class="menu-item">
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top&title=AndroidManifest-Merge" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
-        </li>
-        
-
-        <!-- Share QQ -->
-        
-        <li class="menu-item">
-            <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=AndroidManifest-Merge&summary=描述文字&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
-        </li>
-        
-
-        <!-- Share Telegram -->
-        
-        <li class="menu-item">
-            <a href="https://t.me/share/url?url=http://lysmbetter.top&text=AndroidManifest-Merge" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
-        </li>
-        
-
-        <!-- QRCode -->
-        
-        <li class="menu-item">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB6klEQVR42u3aS4rDQAxFUe9/08mooXFKeld2AiX5eRKIf8dQP6l0vDY8DqOMMsqoBepIjr/z5+uWDzzdc75WvceoWajoJauHrc5n15/PR+8xah6KPER1iCraqGeiKi+OOopRRn1cLM5lA7FRz0WlE6VY9GULwJ+sEozaHkUDh7u/P4lmjNoOJZMOQQMljT2791bWxaitUdliLhpAL022weIQrRKMaoWKGm7W2LPJlzT68H6jRqCyh5DGeeU/1PuMaouqBgc0kRF1kHRQNWoEiiTKskZKN5ou9T6jWqIihGqY3/jvoyMYNQalFmsqAZZN1urDjZqHUhvYNPmRDbwkODFqDioLFEjwoIIDkjwxahZKQWhwSRNoeOVp1CiUKs4iQSoZZEsN3ag2KBJw0s0ikiBLN6CMGoHCyQcwoKpgs5TcN6o1qlrQpRJipKC+VIBjVCsULX4gxTl0Q7NUgGNUSxTZqFaLfjWBqwHXqDkoNdGqItRKUKomeaNmoEiyVQ2iNOkmE25GjUCRDWoSVFAA7n1GtUZli3uy6a0+SBXhGDUTRQLSKIlxJWm7fI9Rj0DRohr1vHLWxajRKLIxSTa6ZWLXqFEo1Rirm96q4KKc4DCqFYpOqpUBlBYN3o5mjNoOtdNhlFFGGfXveAOxGVBvyiLO0wAAAABJRU5ErkJggg==" alr="QRCode">
-        </li>
-        
-
-    </ul>
-</div>
+        <a href="/about/" class="navbar-link">About</a>
+    
     
     
 </nav>
@@ -401,11 +267,7 @@ window.oldVersion = [
 
             
     <!-- ## Post ## -->
-    
-    
-
-
-<div class="post-container">
+    <div class="post-container">
     <div id="post-card" class="card">
         
         <div class="card-item-container">
@@ -424,7 +286,7 @@ window.oldVersion = [
         <span>2017-03-06</span>
         
             <span class="suka-devide-dot"></span>
-            <a class="category-link" href="/categories/Android译文/">Android译文</a>
+            <a class="category-link" href="/categories/Android%E8%AF%91%E6%96%87/">Android译文</a>
         
         
             <!-- Busuanzi Post Views -->
@@ -480,7 +342,7 @@ window.oldVersion = [
     <!-- Share QQ -->
     
     <li class="menu-item">
-        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Better&summary=描述文字&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top/2017/03/06/AndroidManifest-merge/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Better&summary=业精于勤荒于嬉&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top/2017/03/06/AndroidManifest-merge/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
     </li>
     
 
@@ -507,14 +369,13 @@ window.oldVersion = [
                 <div class="card-body">
                     
                         
-                            <div id="post-toc">
-                                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#合并优先级"><span class="post-toc-number">1.</span> <span class="post-toc-text">合并优先级</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#合并冲突启发式heuristics"><span class="post-toc-number">2.</span> <span class="post-toc-text">合并冲突启发式heuristics</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#合并规则标记"><span class="post-toc-number">3.</span> <span class="post-toc-text">合并规则标记</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#节点标记"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">节点标记</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#tools-node-quot-merge-quot"><span class="post-toc-number">3.1.1.</span> <span class="post-toc-text">tools:node=&quot;merge&quot;</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#tools-node-quot-merge-only-attributes-quot"><span class="post-toc-number">3.1.2.</span> <span class="post-toc-text">tools:node=&quot;merge-only-attributes&quot;</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#tools-node-quot-remove-quot"><span class="post-toc-number">3.1.3.</span> <span class="post-toc-text">tools:node=&quot;remove&quot;</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#tools-node-quot-removeAll-quot"><span class="post-toc-number">3.1.4.</span> <span class="post-toc-text">tools:node=&quot;removeAll&quot;</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#tools-node-quot-replace-quot"><span class="post-toc-number">3.1.5.</span> <span class="post-toc-text">tools:node=&quot;replace&quot;</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#tools-node-quot-strict-quot"><span class="post-toc-number">3.1.6.</span> <span class="post-toc-text">tools:node=&quot;strict&quot;</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#属性标记"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">属性标记</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#tools-remove-quot-attr-quot"><span class="post-toc-number">3.2.1.</span> <span class="post-toc-text">tools:remove=&quot;attr, ...&quot;</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#tools-replace-quot-attr-quot"><span class="post-toc-number">3.2.2.</span> <span class="post-toc-text">tools:replace=&quot;attr, ...&quot;</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#tools-strict-quot-attr-quot"><span class="post-toc-number">3.2.3.</span> <span class="post-toc-text">tools:strict=&quot;attr, ...&quot;</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#标记选择器"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">标记选择器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#覆盖依赖库的-lt-use-sdk-gt"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">覆盖依赖库的&lt;use-sdk&gt;</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#隐式系统权限（implicit）"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">隐式系统权限（implicit）</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#检查合并清单以及查找冲突"><span class="post-toc-number">4.</span> <span class="post-toc-text">检查合并清单以及查找冲突</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#附录：合并原理"><span class="post-toc-number">5.</span> <span class="post-toc-text">附录：合并原理</span></a></li></ol>
-                            </div>
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#合并优先级"><span class="post-toc-number">1.</span> <span class="post-toc-text">合并优先级</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#合并冲突启发式heuristics"><span class="post-toc-number">2.</span> <span class="post-toc-text">合并冲突启发式heuristics</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#合并规则标记"><span class="post-toc-number">3.</span> <span class="post-toc-text">合并规则标记</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#节点标记"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">节点标记</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#tools-node-quot-merge-quot"><span class="post-toc-number">3.1.1.</span> <span class="post-toc-text">tools:node=&quot;merge&quot;</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#tools-node-quot-merge-only-attributes-quot"><span class="post-toc-number">3.1.2.</span> <span class="post-toc-text">tools:node=&quot;merge-only-attributes&quot;</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#tools-node-quot-remove-quot"><span class="post-toc-number">3.1.3.</span> <span class="post-toc-text">tools:node=&quot;remove&quot;</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#tools-node-quot-removeAll-quot"><span class="post-toc-number">3.1.4.</span> <span class="post-toc-text">tools:node=&quot;removeAll&quot;</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#tools-node-quot-replace-quot"><span class="post-toc-number">3.1.5.</span> <span class="post-toc-text">tools:node=&quot;replace&quot;</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#tools-node-quot-strict-quot"><span class="post-toc-number">3.1.6.</span> <span class="post-toc-text">tools:node=&quot;strict&quot;</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#属性标记"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">属性标记</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#tools-remove-quot-attr-quot"><span class="post-toc-number">3.2.1.</span> <span class="post-toc-text">tools:remove=&quot;attr, ...&quot;</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#tools-replace-quot-attr-quot"><span class="post-toc-number">3.2.2.</span> <span class="post-toc-text">tools:replace=&quot;attr, ...&quot;</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#tools-strict-quot-attr-quot"><span class="post-toc-number">3.2.3.</span> <span class="post-toc-text">tools:strict=&quot;attr, ...&quot;</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#标记选择器"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">标记选择器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#覆盖依赖库的-lt-use-sdk-gt"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">覆盖依赖库的&lt;use-sdk&gt;</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#隐式系统权限（implicit）"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">隐式系统权限（implicit）</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#检查合并清单以及查找冲突"><span class="post-toc-number">4.</span> <span class="post-toc-text">检查合并清单以及查找冲突</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#附录：合并原理"><span class="post-toc-number">5.</span> <span class="post-toc-text">附录：合并原理</span></a></li></ol></div>
                         
                     
                     <article id="post-content">
                         <p>一个apk只会包含一个清单（AndroidManifest）文件，但是在androidStudio下你的工程会有多个清单文件来自于-主modle下，build variants，依赖的库（依赖的Modle，aar）。所以在运行工程的时候，gradle会合并这些清单成一个清单。<br>清单合并工具合并所有的XML元素（elements）是遵循合并启发和一些你在特定XML的属性（attributes）所指定的偏好。本文将展示清单是怎样合并的以及怎样解决合并带来的冲突。<br>提示：使用<a href="https://developer.android.com/studio/build/manifest-merge.html#inspect_the_merged_manifest_and_find_conflicts" target="_blank" rel="noopener"> Merged Manifest view </a>来查看合并的结果和查找冲突。</p>
-<h2 id="合并优先级"><a href="#合并优先级" class="headerlink" title="合并优先级"></a>合并优先级</h2><p>合并工具合并所有的清单文件到一个里面是基于清单文件的优先级（priority）。比如，你又三个清单文件，优先级最低的清单合并到高一点的优先级清单中，然后高一点优先级的清单合并到最高优先级清单文件里面。as illustrated in figure ：<br><img src="https://lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com/lysmbetter/manifest-merger_2x.png" alt><br>合并三个清单文件的过程，最低优先级（左）到最高优先级（右）<br>这里有三个基本类型的清单文件可以被合并到彼此中，合并优先级如下（从高到低）：</p>
+<h2 id="合并优先级"><a href="#合并优先级" class="headerlink" title="合并优先级"></a>合并优先级</h2><p>合并工具合并所有的清单文件到一个里面是基于清单文件的优先级（priority）。比如，你又三个清单文件，优先级最低的清单合并到高一点的优先级清单中，然后高一点优先级的清单合并到最高优先级清单文件里面。as illustrated in figure ：<br><img src="https://lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com/lysmbetter/manifest-merger_2x.png" alt=""><br>合并三个清单文件的过程，最低优先级（左）到最高优先级（右）<br>这里有三个基本类型的清单文件可以被合并到彼此中，合并优先级如下（从高到低）：</p>
 <ol>
 <li><p><a href="https://developer.android.com/studio/build/build-variants.html" target="_blank" rel="noopener">build variant</a>清单文件。<br>如果你又多个build variant，他们的清单优先级如下：</p>
 <ol>
@@ -530,7 +391,7 @@ window.oldVersion = [
 </li>
 </ol>
 <p>比如说依赖项目的清单文件合并到主Modle的清单，然后主Modle的清单在合并到build variant的清单中。<br>注意：在<a href="https://developer.android.com/studio/build/build-variants.html#sourceset-build" target="_blank" rel="noopener"> Build with source sets.</a>中列出的是相同的优先级。<br>重要：<code>build.gradle</code>文件中构建配置信息会覆盖其他的合并清单的相应属性。比如，<code>buidl.gradle</code>的<code>minSdkVersion</code>配置会覆盖掉其他清单的<a href="uses-sdk"> &lt;uses-sdk &gt; </a>元素。为了避免冲突，你应该忽略其他清单的&lt;<code>uses-sdk</code>&gt;并且只在<code>build.gradle</code>文件中定义这些配置。更多细节参考<a href="https://developer.android.com/studio/build/index.html" target="_blank" rel="noopener"> Configure Your Build</a>。</p>
-<h2 id="合并冲突启发式heuristics"><a href="#合并冲突启发式heuristics" class="headerlink" title="合并冲突启发式heuristics"></a>合并冲突启发式heuristics</h2><p>合并工具理论上来说可以上将来自一个清单的每个XML元素与另一个清单中的相应元素进行匹配（更多参考<a href="https://developer.android.com/studio/build/manifest-merge.html#appendix_merge_policies" target="_blank" rel="noopener"> merge policies </a>）。<br>如果一个低优先级清单的某个元素在高优先级中没有匹配，那么元素将添加到高优先级清单中。然而如果某个元素匹配到了，合并工具将尝试将元素的所有属性合并到高优先级清单中。如果合并工具发现，两个清单中相同的属性有不同的值，就会发生冲突（译：匹配到的元素的属性）。<br>下表展示了合并工具合并所有属性到一个元素的结果。<br>表一：<br><img src="https://lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com/lysmbetter/manifest-merger_02.png" alt><br>然而，一下这些情形是合并工具尝试避免冲突的行为：</p>
+<h2 id="合并冲突启发式heuristics"><a href="#合并冲突启发式heuristics" class="headerlink" title="合并冲突启发式heuristics"></a>合并冲突启发式heuristics</h2><p>合并工具理论上来说可以上将来自一个清单的每个XML元素与另一个清单中的相应元素进行匹配（更多参考<a href="https://developer.android.com/studio/build/manifest-merge.html#appendix_merge_policies" target="_blank" rel="noopener"> merge policies </a>）。<br>如果一个低优先级清单的某个元素在高优先级中没有匹配，那么元素将添加到高优先级清单中。然而如果某个元素匹配到了，合并工具将尝试将元素的所有属性合并到高优先级清单中。如果合并工具发现，两个清单中相同的属性有不同的值，就会发生冲突（译：匹配到的元素的属性）。<br>下表展示了合并工具合并所有属性到一个元素的结果。<br>表一：<br><img src="https://lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com/lysmbetter/manifest-merger_02.png" alt=""><br>然而，一下这些情形是合并工具尝试避免冲突的行为：</p>
 <ul>
 <li>&lt;<code>manifest</code>&gt;元素的属性是不会合并的-即只使用高优先级清单的属性。</li>
 <li>在&lt;<code>uses-feature</code>&gt; 和 &lt;<code>uses-library</code>&gt;元素所使用的<code>android:required</code>属性使用 OR规则来合并。必然要如果存在一个冲突，<code>true</code>将应用并且将始终包括一个清单所需的功能或库。</li>
@@ -542,59 +403,41 @@ window.oldVersion = [
 <li>&lt; <code>intent-filter</code> &gt;元素时不会去匹配的。在每个清单中都被独立对待，并且是直接的添加合并后的清单中。<br>对于其他的属性冲突，你将会看到错误，并且你必须指定合并工具怎样去添加这些冲突的属性到高优先级的清单中（请看下面的一张）。<br>注意：不要依赖属性（attribute）的默认值。因为所有的属性值都要合并到元素（element）中去，这也许会出现一些不期望出现的值-高优先级清单没有申明的属性确实依赖它的默认值。比如，一个高优先级的清单没有申明 <code>android:launchMode</code>属性，他使用默认的值<code>standard</code>。但是如果低优先级的清单申明了这个属性用其他的值，然后低清单申明的值将被应用到合并后的清单中（覆盖默认值）。所以你应该明显的指定每一个属性的值。（每一个属性的默认值参见<a href="https://developer.android.com/guide/topics/manifest/manifest-intro.html" target="_blank" rel="noopener"> Manifest reference</a>。）<h2 id="合并规则标记"><a href="#合并规则标记" class="headerlink" title="合并规则标记"></a>合并规则标记</h2>合并规则标记是一个你可以指定的偏好去解决合并冲突和不想要的元素或属性的XML属性 。合并规则标记可以使用在一个元素的所有属性或某个你指定的属性上。<br>所有的规则标记归属在<code>Android tools namespace</code>命名空间 ,所以你必须现在<code>manifest</code>元素里面申明如下：</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">    package=&quot;com.example.myapp&quot;</span><br><span class="line">    xmlns:tools=&quot;http://schemas.android.com/tools&quot;&gt;</span><br></pre></td></tr></table></figure>
-
 <h3 id="节点标记"><a href="#节点标记" class="headerlink" title="节点标记"></a>节点标记</h3><p>为了在一个元素的所有属性上（<code>manifest</code>中所指定的元素的所有属性和他的字节点），使用下面的属性：</p>
 <h4 id="tools-node-quot-merge-quot"><a href="#tools-node-quot-merge-quot" class="headerlink" title="tools:node=&quot;merge&quot;"></a><code>tools:node=&quot;merge&quot;</code></h4><p>合并当前标签的所有属性和所有嵌套的元素，如果没有冲突的时候使用前面的合并冲突启示。<strong>这是元素的默认的行为。</strong><br>低优先级的清单：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;activity android:name=”com.example.ActivityOne”</span><br><span class="line">    android:windowSoftInputMode=”stateUnchanged”&gt;</span><br><span class="line">    &lt;intent-filter&gt;</span><br><span class="line">        &lt;action android:name=&quot;android.intent.action.SEND&quot; /&gt;</span><br><span class="line">        &lt;category android:name=&quot;android.intent.category.DEFAULT&quot; /&gt;</span><br><span class="line">    &lt;/intent-filter&gt;</span><br><span class="line">&lt;/activity&gt;</span><br></pre></td></tr></table></figure>
-
 <p>高优先级的清单：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;activity android:name=”com.example.ActivityOne”</span><br><span class="line">    android:screenOrientation=”portrait”</span><br><span class="line">    tools:node=&quot;merge”&gt;</span><br><span class="line">&lt;/activity&gt;</span><br></pre></td></tr></table></figure>
-
 <p>合并结果：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;activity android:name=”com.example.ActivityOne”</span><br><span class="line">    android:screenOrientation=”portrait”</span><br><span class="line">    android:windowSoftInputMode=”stateUnchanged”&gt;</span><br><span class="line">    &lt;intent-filter&gt;</span><br><span class="line">        &lt;action android:name=&quot;android.intent.action.SEND&quot; /&gt;</span><br><span class="line">        &lt;category android:name=&quot;android.intent.category.DEFAULT&quot; /&gt;</span><br><span class="line">    &lt;/intent-filter&gt;</span><br><span class="line">&lt;/activity&gt;</span><br></pre></td></tr></table></figure>
-
 <h4 id="tools-node-quot-merge-only-attributes-quot"><a href="#tools-node-quot-merge-only-attributes-quot" class="headerlink" title="tools:node=&quot;merge-only-attributes&quot;"></a><code>tools:node=&quot;merge-only-attributes&quot;</code></h4><p>只合并当前的标签，不合并嵌套的元素：<br>低优先的清单：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;activity android:name=”com.example.ActivityOne”</span><br><span class="line">    android:windowSoftInputMode=”stateUnchanged”&gt;</span><br><span class="line">    &lt;intent-filter&gt;</span><br><span class="line">        &lt;action android:name=&quot;android.intent.action.SEND&quot; /&gt;</span><br><span class="line">        &lt;data android:type=&quot;image/*&quot; /&gt;</span><br><span class="line">        &lt;category android:name=&quot;android.intent.category.DEFAULT&quot; /&gt;</span><br><span class="line">    &lt;/intent-filter&gt;</span><br><span class="line">&lt;/activity&gt;</span><br></pre></td></tr></table></figure>
-
 <p>高优先的清单：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;activity android:name=”com.example.ActivityOne”</span><br><span class="line">    android:screenOrientation=”portrait”</span><br><span class="line">    tools:node=&quot;merge-only-attributes”&gt;</span><br><span class="line">&lt;/activity&gt;</span><br></pre></td></tr></table></figure>
-
 <p>合并结果：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;activity android:name=”com.example.ActivityOne”</span><br><span class="line">    android:screenOrientation=”portrait”</span><br><span class="line">    android:windowSoftInputMode=”stateUnchanged”&gt;</span><br><span class="line">&lt;/activity&gt;</span><br></pre></td></tr></table></figure>
-
 <h4 id="tools-node-quot-remove-quot"><a href="#tools-node-quot-remove-quot" class="headerlink" title="tools:node=&quot;remove&quot;"></a><code>tools:node=&quot;remove&quot;</code></h4><p>从合并结果清单中移除当前的元素。虽然他看起来像是你直接删除了这元素，有时候这是很必要的当你在结果清单中发现某个元素是被低优先级清单提供并且你不需要，或者已经超出你的控制范围了（比如一个导入的库）。<br>低优先级清单：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;activity-alias android:name=”com.example.alias”&gt;</span><br><span class="line">  &lt;meta-data android:name=”cow”</span><br><span class="line">      android:value=”@string/moo”/&gt;</span><br><span class="line">  &lt;meta-data android:name=”duck”</span><br><span class="line">      android:value=”@string/quack”/&gt;</span><br><span class="line">&lt;/activity-alias&gt;</span><br></pre></td></tr></table></figure>
-
 <p>高优先级：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;activity-alias android:name=”com.example.alias”&gt;</span><br><span class="line">  &lt;meta-data android:name=”cow”</span><br><span class="line">      tools:node=”remove”/&gt;</span><br><span class="line">&lt;/activity-alias&gt;</span><br></pre></td></tr></table></figure>
-
 <p>结果清单：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;activity-alias android:name=”com.example.alias”&gt;</span><br><span class="line">  &lt;meta-data android:name=”duck”</span><br><span class="line">      android:value=”@string/quack”/&gt;</span><br><span class="line">&lt;/activity-alias&gt;</span><br></pre></td></tr></table></figure>
-
 <h4 id="tools-node-quot-removeAll-quot"><a href="#tools-node-quot-removeAll-quot" class="headerlink" title="tools:node=&quot;removeAll&quot;"></a><code>tools:node=&quot;removeAll&quot;</code></h4><p>像<code>tools:node=&quot;remove&quot;</code>一样，但是是移除的所匹配到的元素的所有同名元素（在相同的父元素下）。<br>低优先级：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;activity-alias android:name=”com.example.alias”&gt;</span><br><span class="line">  &lt;meta-data android:name=”cow”</span><br><span class="line">      android:value=”@string/moo”/&gt;</span><br><span class="line">  &lt;meta-data android:name=”duck”</span><br><span class="line">      android:value=”@string/quack”/&gt;</span><br><span class="line">&lt;/activity-alias&gt;</span><br></pre></td></tr></table></figure>
-
 <p>高优先级：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;activity-alias android:name=”com.example.alias”&gt;</span><br><span class="line">  &lt;meta-data tools:node=”removeAll”/&gt;</span><br><span class="line">&lt;/activity-alias&gt;</span><br></pre></td></tr></table></figure>
-
 <p>结果：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;activity-alias android:name=”com.example.alias”&gt;</span><br><span class="line">&lt;/activity-alias&gt;</span><br></pre></td></tr></table></figure>
-
 <h4 id="tools-node-quot-replace-quot"><a href="#tools-node-quot-replace-quot" class="headerlink" title="tools:node=&quot;replace&quot;"></a><code>tools:node=&quot;replace&quot;</code></h4><p>完全的替换低优先级的元素。也就是说（This is），如果优先级较低的清单中有匹配的元素，忽略它，并使用此元素在高优先级清单中显示的元素显示。<br>低优先级清单：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;activity-alias android:name=”com.example.alias”&gt;</span><br><span class="line">  &lt;meta-data android:name=”cow”</span><br><span class="line">      android:value=”@string/moo”/&gt;</span><br><span class="line">  &lt;meta-data android:name=”duck”</span><br><span class="line">      android:value=”@string/quack”/&gt;</span><br><span class="line">&lt;/activity-alias&gt;</span><br></pre></td></tr></table></figure>
-
 <p>高优先级的清单：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;activity-alias android:name=”com.example.alias”</span><br><span class="line">    tools:node=”replace”&gt;</span><br><span class="line">  &lt;meta-data android:name=”fox”</span><br><span class="line">      android:value=”@string/dingeringeding”/&gt;</span><br><span class="line">&lt;/activity-alias&gt;</span><br></pre></td></tr></table></figure>
-
 <p>合并结果：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;activity-alias android:name=”com.example.alias”&gt;</span><br><span class="line">  &lt;meta-data android:name=”fox”</span><br><span class="line">      android:value=”@string/dingeringeding”/&gt;</span><br><span class="line">&lt;/activity-alias&gt;</span><br></pre></td></tr></table></figure>
-
 <h4 id="tools-node-quot-strict-quot"><a href="#tools-node-quot-strict-quot" class="headerlink" title="tools:node=&quot;strict&quot;"></a><code>tools:node=&quot;strict&quot;</code></h4><p>当低优先级中的某个元素在高优先级中没有完全的匹配的时候生产构建错误（除非被其他的合并规则标记解决）。这种情形覆盖了合并规则启发式。比如，如果低优先级清单中简单的指定了一个属性，将报错（而属性的默认值想额外的天骄到合并清单中）。<br>低优先级清单：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;activity android:name=”com.example.ActivityOne”</span><br><span class="line">    android:windowSoftInputMode=”stateUnchanged”&gt;</span><br><span class="line">    &lt;intent-filter&gt;</span><br><span class="line">        &lt;action android:name=&quot;android.intent.action.SEND&quot; /&gt;</span><br><span class="line">        &lt;category android:name=&quot;android.intent.category.DEFAULT&quot; /&gt;</span><br><span class="line">    &lt;/intent-filter&gt;</span><br><span class="line">&lt;/activity&gt;</span><br></pre></td></tr></table></figure>
-
 <p>高优先清单：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;activity android:name=”com.example.ActivityOne”</span><br><span class="line">    android:screenOrientation=”portrait”</span><br><span class="line">    tools:node=&quot;strict”&gt;</span><br><span class="line">&lt;/activity&gt;</span><br></pre></td></tr></table></figure>
-
 <p>这将发生清单合并错误。连个清单中的这个元素在<code>strict</code>模式下根本不能区分。所以你必须指定合并标记来解决这些不同的地方。（原则上来，在<code>tools:node=&quot;merge&quot;</code>例子中这连个元素将会很好的合并。）</p>
 <h3 id="属性标记"><a href="#属性标记" class="headerlink" title="属性标记"></a>属性标记</h3><p>为了避免只在清单节点中指定的元素属性中运用合并标记，你可以使用以下的属性。每个属性接受一个或多个属性名称（包括属性命名空间），用逗号（commas）隔开。</p>
 <h4 id="tools-remove-quot-attr-quot"><a href="#tools-remove-quot-attr-quot" class="headerlink" title="tools:remove=&quot;attr, ...&quot;"></a><code>tools:remove=&quot;attr, ...&quot;</code></h4><p>从结果清单中移除指定的属性名称。虽然他看起来像是你直接删除了这些属性，这是必要的当低优先级的清单中包含了一些你在结果清单中不想要的属性。<br>低优先级清单：</p>
@@ -602,44 +445,31 @@ window.oldVersion = [
 
 <p>高优先级清单：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;activity android:name=”com.example.ActivityOne”</span><br><span class="line">    android:screenOrientation=”portrait”</span><br><span class="line">    tools:remove=”android:windowSoftInputMode”&gt;</span><br></pre></td></tr></table></figure>
-
 <p>合并结果：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;activity android:name=”com.example.ActivityOne”</span><br><span class="line">    android:screenOrientation=”portrait”&gt;</span><br></pre></td></tr></table></figure>
-
 <h4 id="tools-replace-quot-attr-quot"><a href="#tools-replace-quot-attr-quot" class="headerlink" title="tools:replace=&quot;attr, ...&quot;"></a><code>tools:replace=&quot;attr, ...&quot;</code></h4><p>用当前清单的指定属性替换低优先级清单的属性。换句话说，总是使用高优先级清单的值。<br>低优先级清单：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;activity android:name=”com.example.ActivityOne”</span><br><span class="line">    android:theme=”@oldtheme”</span><br><span class="line">    android:exported=”false”</span><br><span class="line">    android:windowSoftInputMode=”stateUnchanged”&gt;</span><br></pre></td></tr></table></figure>
-
 <p>高优先清单：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;activity android:name=”com.example.ActivityOne”</span><br><span class="line">    android:theme=”@newtheme”</span><br><span class="line">    android:exported=”true”</span><br><span class="line">    android:screenOrientation=”portrait”</span><br><span class="line">    tools:replace=”android:theme,android:exported”&gt;</span><br></pre></td></tr></table></figure>
-
 <p>合并结果：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;activity android:name=”com.example.ActivityOne”</span><br><span class="line">    android:theme=”@newtheme”</span><br><span class="line">    android:exported=”true”</span><br><span class="line">    android:screenOrientation=”portrait”</span><br><span class="line">    android:windowSoftInputMode=”stateUnchanged”&gt;</span><br></pre></td></tr></table></figure>
-
 <h4 id="tools-strict-quot-attr-quot"><a href="#tools-strict-quot-attr-quot" class="headerlink" title="tools:strict=&quot;attr, ...&quot;"></a><code>tools:strict=&quot;attr, ...&quot;</code></h4><p>当低优先级清单的这些属性的值与高优先级的不匹配的时候生产错误。<strong>这是所有属性的默认行为</strong>。出了模板冲突启发式中描述的那些特定的行为。<br>低优先级清单：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;activity android:name=”com.example.ActivityOne”</span><br><span class="line">    android:screenOrientation=”landscape”&gt;</span><br><span class="line">&lt;/activity&gt;</span><br></pre></td></tr></table></figure>
-
 <p>高优先级清单：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;activity android:name=”com.example.ActivityOne”</span><br><span class="line">    android:screenOrientation=”portrait”</span><br><span class="line">    tools:strict=&quot;android:screenOrientation”&gt;</span><br><span class="line">&lt;/activity&gt;</span><br></pre></td></tr></table></figure>
-
 <p>这将发错清单合并错误。你必须指定其他的合并标记去解决这个冲突。（记住：这是默认的行为，所以上面的所有例子都会报错如果你加上<code>tools:strict=&quot;screenOrientation”</code>。）<br>你同样可以在一个元素中添加多个标记，如下：<br>低优先级清单：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;activity android:name=”com.example.ActivityOne”</span><br><span class="line">    android:theme=”@oldtheme”</span><br><span class="line">    android:exported=”false”</span><br><span class="line">    android:allowTaskReparenting=&quot;true&quot;</span><br><span class="line">    android:windowSoftInputMode=”stateUnchanged”&gt;</span><br></pre></td></tr></table></figure>
-
 <p>高优先级清单：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;activity android:name=”com.example.ActivityOne”</span><br><span class="line">    android:theme=”@newtheme”</span><br><span class="line">    android:exported=”true”</span><br><span class="line">    android:screenOrientation=”portrait”</span><br><span class="line">    tools:replace=”android:theme,android:exported”</span><br><span class="line">    tools:remove=”android:windowSoftInputMode”&gt;</span><br></pre></td></tr></table></figure>
-
 <p>合并结果：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;activity android:name=”com.example.ActivityOne”</span><br><span class="line">    android:theme=”@newtheme”</span><br><span class="line">    android:exported=”true”</span><br><span class="line">    android:allowTaskReparenting=&quot;true&quot;</span><br><span class="line">    android:screenOrientation=”portrait”&gt;</span><br></pre></td></tr></table></figure>
-
 <h3 id="标记选择器"><a href="#标记选择器" class="headerlink" title="标记选择器"></a>标记选择器</h3><p>如果你执行对指定的导入库添加合并规则，添加<code>tools:selector</code>属性和用依赖库的包名。<br>比如，下面的清单，<code>remove</code>标记仅仅只会在低优先级的依赖库清单神效。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;permission android:name=&quot;permissionOne&quot;</span><br><span class="line">    tools:node=&quot;remove&quot;</span><br><span class="line">    tools:selector=&quot;com.example.lib1&quot;&gt;</span><br></pre></td></tr></table></figure>
-
 <p>如果是来自其他地方的低优先级清单，<code>remove</code>标记将失效。<br>注意：<strong>如果你对属性标记的某一个属性使用了标记，他将应用到所有的属性。</strong></p>
 <h3 id="覆盖依赖库的-lt-use-sdk-gt"><a href="#覆盖依赖库的-lt-use-sdk-gt" class="headerlink" title="覆盖依赖库的&lt;use-sdk&gt;"></a>覆盖依赖库的&lt;<code>use-sdk</code>&gt;</h3><p>默认情况下，当导入的库的<code>minSdkServison</code>值比主工程的清单中的值更高时，是会报错的，所有依赖库是不会被导入的。为了让合并工具忽略错误并且保持主工程的较低的<code>minSdkVersion</code>值，添加<code>overrideLibrary</code>标记。属性值可以是一个或多个库包名称（逗号分隔），指示可以覆盖主清单的minSdkVersion的库。<br>比如你的主清单是这样使用<code>overideLabrary</code>：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">          package=&quot;com.example.app&quot;</span><br><span class="line">          xmlns:tools=&quot;http://schemas.android.com/tools&quot;&gt;</span><br><span class="line">  &lt;uses-sdk android:targetSdkVersion=&quot;22&quot; android:minSdkVersion=&quot;2&quot;</span><br><span class="line">            tools:overrideLibrary=&quot;com.example.lib1, com.example.lib2&quot;/&gt;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
 <p>然后下面的清单在编译&lt;<code>use-sdk</code>&gt;的时候就不会报错,并且合并清单保持主工程的<code>minSdkVersion=&quot;2&quot;</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">          package=&quot;com.example.lib1&quot;&gt;</span><br><span class="line">   &lt;uses-sdk android:minSdkVersion=&quot;4&quot; /&gt;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
 <h3 id="隐式系统权限（implicit）"><a href="#隐式系统权限（implicit）" class="headerlink" title="隐式系统权限（implicit）"></a>隐式系统权限（implicit）</h3><p>一些android版本的APIs曾经是开放给app使用的，但是在最近的后续的<a href="https://developer.android.com/guide/topics/security/permissions.html" target="_blank" rel="noopener"> system permissions </a>版本已经变得受限制了。为了避使访问这些API的应用程序变得不可访问，最近的Android版本允许应用程序在没有权限的情况下继续访问这些API，如果他们将targetSdkVersion设置为低于添加限制的版本的值。这有效的隐式的授予权限去访问这些APIs。因此，这可以影响具有不同的<code>targetSdkVersion</code>值的合并清单，如下所示。<br>如果低优先级的清单有一个更低的<code>targetSdkVersion</code>，这说明需要提供隐式权限，但是高优先级的清单并不会用于相同的权限（因为他的<code>targetSdkVersion</code>是等于或者高于需要受限制访问权限的版本），也就是说合并工具会自动在结果清单中添加相应的系统权限。<br>比如如果你的app<code>targetSdkVersion</code>是4或者更高一点，然而导入库的是3或者更低一点，然后合并工具将添加<a href="https://developer.android.com/reference/android/Manifest.permission.html#WRITE_EXTERNAL_STORAGE" target="_blank" rel="noopener"> WRITE_EXTERNAL_STORAGE</a>权限到合并结果中。下面的列表列出了所有有可能被添加的权限。<br>注意：如果的<code>targetSdkVersion</code>是23或者更高，你必须动态申请任何危险的权限当你的app将去访问这些被权限保护的APIs时候。更多，<a href="https://developer.android.com/training/permissions/index.html" target="_blank" rel="noopener"> Working with System Permissions.</a>。<br><img src="https://lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com/lysmbetter/QQ20170309-224443@2x.png" alt="隐式权限"></p>
 <h2 id="检查合并清单以及查找冲突"><a href="#检查合并清单以及查找冲突" class="headerlink" title="检查合并清单以及查找冲突"></a>检查合并清单以及查找冲突</h2><p>及时在你构建APK之前，你也可以通过打开Android Studio的<code>AndroidManifest.xml</code>来查看你的合并清单，然后点击底部的<code>Merged Manifest</code>选项。<br>合并清单结果在左侧展示了合并的结果，在右侧展示合并清单的具体的信息，如下图所示。从低优先级清单合并而来的元素时高亮的用其他颜色显示在左侧。每种颜色所指定的是右边的清单来源。<br><img src="https://lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com/lysmbetter/manifest-merged-view_2x.png" alt="清单"><br>清单文件是构建过程的一部分，但是不是右边的其他的清单文件贡献的。<br>点击左侧的元素右侧将出现更多的信息关于这个元素合并日志。<br>如果发生了合并冲突，右侧将提示怎样使用合并冲突标记去解决冲突。错误将在<code>Event Log</code>打印出来（select View &gt; Tool Windows &gt; Event Log）。<br>你可以在你的Modle下面的<code>build/outputs/logs/</code> 路径的取名为<code>manifest-merger-buildVariant-report.txt</code>的文件，查看完全的合并信息。</p>
 <h2 id="附录：合并原理"><a href="#附录：合并原理" class="headerlink" title="附录：合并原理"></a>附录：合并原理</h2><p>清单合并工具原则上是将一个清单的元素与另一个清单响应的元素一一匹配。合并工具通过“match key”来匹配每一个元素：是否是唯一的属性名称（比如：<code>android:name</code>），他本身是否唯一（比如，一个清单中&lt;<code>supports-screen</code>&gt;只能有个）。如果两个清单有相同的元素，合并工具将使用下面的三个原则来合并：</p>
@@ -648,7 +478,7 @@ window.oldVersion = [
 <li>只合并子类<br>不结合或者合并这些属性（值保留高优先级清单的属性）并且根据子元素各自的合并原则合并子元素。</li>
 <li>保持<br>将元素“保留原有”并且添加到公共的合并文件父类中。这仅仅会发生在当可以接受几个元素的申明的时候。<br>表一，列出了每个元素的类型，所使用的合并原则，以及合并两个清单的某个元素的<code>key</code>。<br>表三，清单元素合并原则以及匹配的key。</li>
 </ol>
-<p><img src="https://lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com/lysmbetter/QQ20170311-095057@2x.png" alt><br><img src="https://lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com/lysmbetter/QQ20170311-095114@2x.png" alt></p>
+<p><img src="https://lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com/lysmbetter/QQ20170311-095057@2x.png" alt=""><br><img src="https://lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com/lysmbetter/QQ20170311-095114@2x.png" alt=""></p>
 <p><a href="https://developer.android.com/studio/build/manifest-merge.html" target="_blank" rel="noopener">原文</a></p>
 <p>thinks:<br><a href="http://mouxuejie.com/blog/2016-02-05/androidmanifest-merge/" target="_blank" rel="noopener">AndroidManifest合并原理</a><br><a href="https://my.oschina.net/wolfcs/blog/550127" target="_blank" rel="noopener">Manifest合并</a></p>
 
@@ -658,6 +488,7 @@ window.oldVersion = [
 
     <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
     <script>
+    (function() {
         var dateUpdate = Date.parse("2018-11-10");
         var nowDate = new Date();
         var a = nowDate.getTime();
@@ -668,6 +499,7 @@ window.oldVersion = [
         } else {
             document.getElementById('date-expire-notification').style.display = 'none';
         }
+    })();
     </script>
 
 
@@ -680,8 +512,7 @@ window.oldVersion = [
 
 <span class="post-categories-list mt-2">
 
-
-<a class="post-categories-list-item" href='/categories/Android译文/'>Android译文</a>
+<a class="post-categories-list-item" href='/categories/Android%E8%AF%91%E6%96%87/'>Android译文</a>
 
 </span>
 
@@ -689,8 +520,7 @@ window.oldVersion = [
 
 <span class="post-tags-list mt-2">
 
-
-<a class="post-tags-list-item" href="/tags/合并清单/" rel="tag">#&nbsp;合并清单</a>
+<a class="post-tags-list-item" href="/tags/%E5%90%88%E5%B9%B6%E6%B8%85%E5%8D%95/" rel="tag">#&nbsp;合并清单</a>
 
 <a class="post-tags-list-item" href="/tags/Merge-Manifest/" rel="tag">#&nbsp;Merge Manifest</a>
 
@@ -700,13 +530,12 @@ window.oldVersion = [
 </p>
 
                 </div>
-                
-<div class="post-nav px-2 bg-gray">
+                <div class="post-nav px-2 bg-gray">
 <ul class="pagination">
     <!-- Prev Nav -->
     
         <li class="page-item page-prev">
-            <a href="/2017/04/08/Android开发中地图坐标系以及调用地图导航/" rel="prev">
+            <a href="/2017/04/08/Android%E5%BC%80%E5%8F%91%E4%B8%AD%E5%9C%B0%E5%9B%BE%E5%9D%90%E6%A0%87%E7%B3%BB%E4%BB%A5%E5%8F%8A%E8%B0%83%E7%94%A8%E5%9C%B0%E5%9B%BE%E5%AF%BC%E8%88%AA/" rel="prev">
                 <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
                 <div class="page-item-subtitle">Android开发中地图坐标系以及调用地图导航</div>
             </a>
@@ -737,9 +566,11 @@ window.oldVersion = [
             <!-- ### Footer ### -->
             <footer class="text-center">
     <!-- footer copyright -->
-    <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span data-year></span>
-        <a class="footer-copyright-a" href="http://lysmbetter.top">Better</a>
-    </p>
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="http://lysmbetter.top">Better</a>
+        </p>
+
     <!-- footer custom text -->
     <p class="footer-text mb-0">
     
@@ -747,7 +578,6 @@ window.oldVersion = [
     <!-- footer develop info -->
     <p class="footer-develop mb-0">
         
-            
     <!-- Busuanzi User Views -->
     <span id="busuanzi_container_site_uv" hidden>
         <span></span>
@@ -760,7 +590,7 @@ window.oldVersion = [
 
 
 
-        
+
         
         Powered by&nbsp;<!--
          --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
@@ -768,40 +598,23 @@ window.oldVersion = [
     </p>
 </footer>
 
-        
 
         <!-- ### Import File ### -->
         <!-- ### Footer JS Import ### -->
 
 <script>
+
+    
 window.lazyLoadOptions = {
     elements_selector: ".lazyload",
     threshold: 50
 };
-
-
-
-    /* Copyright */
-    var copyrightNow = new Date().getFullYear();
-    var copyrightContent = document.querySelector('span[data-year]')
-    
-        copyrightContent.textContent = copyrightNow
-    
-
-
-
-/* Cnosole Log */
+document.getElementById('copyright-year').textContent = new Date().getFullYear();
 console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
 </script>
 
-<!-- vanilla-lazyload -->
-
-    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
-
-
-
-    <!-- Busuanzi -->
-    
+<script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
     <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
 
 
@@ -810,17 +623,10 @@ console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c 
 
 
 
-
-
-
-<!-- gallery.js -->
-
-
 <!-- Comment -->
 
 
 <!-- ### Custom Footer ### -->
-
 
     </body>
 

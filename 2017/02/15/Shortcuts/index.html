@@ -1,26 +1,18 @@
 <!DOCTYPE html>
 
 <html lang="zh-Hans">
-    <head><meta name="generator" content="Hexo 3.9.0">
+    <head>
     <meta charset="utf-8">
     <!--
-        © SukkaW
+        hexo-theme-suka © SukkaW
         GitHub: https://github.com/SukkaW/hexo-theme-suka
-        Version: 1.3.3
     -->
-    <script>
-window.lsVersion = "1.3.3",
-window.oldVersion = [
-    
-        
-            "0.2.0","0.0.1","0.1.0","1.0.0","1.0.1","1.1.0","1.1.1","1.2.0","1.3.0","1.3.2"
-        
-    
-]
-</script>
 
-    <!-- ### DNS Prefetch ### -->
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
     <meta http-equiv="x-dns-prefetch-control" content="on">
+
 <!-- busuanzi -->
 
     <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
@@ -42,8 +34,7 @@ window.oldVersion = [
 
 
 
-
-    <!-- ### Preload ### -->
+    <!-- ## Preload ## -->
     
     <!-- Busuanzi -->
     
@@ -56,48 +47,18 @@ window.oldVersion = [
 
 
     <!-- ### Meta & Title & Info ### -->
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
-<meta name="renderer" content="webkit">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
 
-<!-- Title -->
-<title>ShortCuts | Better</title>
+    <!-- Title -->
+    <title>ShortCuts | Better</title>
 
-<!-- favicon -->
-<!-- Favicons -->
-
-    <link rel="icon" type="image/ico" href="/img/suka-favicon.ico">
-
-
-
-
-
-
-<!-- Android Chrome Color -->
-
-
-
-<meta name="format-detection" content="telephone=no">
-
-<!-- Description -->
-<meta name="description" content="ShortCut是Android7.1推出的一个新功能，一般点击app的图标会打开一个app，这个新功能是你长按app图标的时候，弹出一个快捷的操作的选择框，以快速使用app的功能(不是其他的app)。
-">
-
-<!-- Keywords -->
-<meta name="keywords" content=", ShortCuts, 快捷键">
-
-<!-- Disable Fucking Bloody Baidu Tranformation -->
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/suka-favicon.ico">
 
     <!-- ### Import File ### -->
-    
-        <!-- spectre.css -->
-
-    <link rel="stylesheet" href="/lib/spectre/spectre.min.css">
-
-
-<style>
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css"><style>
     body {
         background-color: #f8f9fa;
     }
@@ -118,6 +79,8 @@ window.oldVersion = [
         color: #005eb9;
         opacity: 1;
     }
+
+    
 
     .post-entry .card-body a {
         color: #0070ff;
@@ -160,12 +123,7 @@ window.oldVersion = [
         background: #f8f9fa;
         opacity: .85;
     }
-</style>
-
-<!-- style.css -->
-
-    <link rel="stylesheet" href="/css/style.min.css">
-
+</style><link rel="stylesheet" href="/css/style.min.css">
 
 
 
@@ -176,59 +134,32 @@ window.oldVersion = [
 
     <!-- Prettify Theme -->
     
-    
-        <link rel="stylesheet" href="/css/highlight/github.min.css">
-    
+    <link rel="preload" href="/css/highlight/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/css/highlight/github.min.css"></noscript>
 
 
 
-    
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
 
     <!-- ### Site Verification ### -->
     
 
 
-    <!-- ### RSS ### -->
-    
-
-    <!-- ### WebApp ### -->
-    <meta name="mobile-web-app-capable" content="yes">
-<meta name="application-name" content="Better">
-<meta name="msapplication-starturl" content="http://lysmbetter.top">
-
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Better">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-<!-- Manifest Import -->
-
-<!-- Open Search -->
-
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="Better"><meta name="msapplication-starturl" content="http://lysmbetter.top"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Better"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- ### The Open Graph & Twitter Card Protocol ### -->
-    <meta property="og:title" content="ShortCuts | Better">
-<meta property="og:site_name" content="Better">
+    <meta property="og:title" content="ShortCuts | Better"><meta property="og:site_name" content="Better"><meta property="og:type" content="article"><meta property="og:url" content="http:&#x2F;&#x2F;lysmbetter.top&#x2F;2017&#x2F;02&#x2F;15&#x2F;Shortcuts&#x2F;"><meta property="og:locale" content="zh-Hans"><meta name="description" content="ShortCut是Android7.1推出的一个新功能，一般点击app的图标会打开一个app，这个新功能是你长按app图标的时候，弹出一个快捷的操作的选择框，以快速使用app的功能(不是其他的app)。 1.Static Shortcut像在xml里面注册广播一样，在manfiest中注册Shortcuts。 1.1在xml目录下新建一个Shortcuts文件1234567891011121314 - Better - Better"><meta name="keywords" content="ShortCuts, 快捷键"><meta property="article:published_time" content="2017-02-15T14:11:23.000Z"><meta property="article:modified_time" content="2018-08-05T07:13:35.533Z"><meta property="og:updated_time" content="2018-08-05T07:13:35.533Z"><meta property="article:author" content="Better"><meta property="article:tag" content="ShortCuts, 快捷键"><meta name="twitter:card" content="summary">
 
-<meta property="og:locale" content="zh-Hans">
+    
 
-<meta property="og:url" content="http://lysmbetter.top/2017/02/15/Shortcuts/">
-<meta property="og:image" content="http://lysmbetter.top/img/suka-favicon.ico">
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://lysmbetter.top/2017/02/15/Shortcuts/">
 
-<meta property="og:description" content="ShortCut是Android7.1推出的一个新功能，一般点击app的图标会打开一个app，这个新功能是你长按app图标的时候，弹出一个快捷的操作的选择框，以快速使用app的功能(不是其他的app)。
-">
-
-<meta name="twitter:card" content="summary">
-
-
-    <meta property="og:type" content="article">
-    <meta property="article:published_time" content="2017-02-15T14:11:23.000Z">
-    <meta property="article:modified_time" content="2017-02-15T14:11:23.000Z">
-    <meta property="article:author" content="Better">
-    <meta property="og:article:tag" content=", ShortCuts, 快捷键"> 
-
-
-
-
+    <meta name="generator" content="Hexo 4.0.0">
 
     <!-- ### Analytics ### -->
     
@@ -238,10 +169,6 @@ window.oldVersion = [
 
 
 
-
-
-    <!-- ### Canonical link ### -->
-    <link rel="canonical" href="http://lysmbetter.top/2017/02/15/Shortcuts/">
 
     <!-- ### Structured Data ### -->
     
@@ -274,7 +201,7 @@ window.oldVersion = [
             "@type": "ImageObject",
             "url": "http://lysmbetter.top/img/default_avatar.png"
         },
-        "description": "Hi, nice to meet you."
+        "description": "业精于勤荒于嬉"
     },
     "publisher": {
         "@type": "Organization",
@@ -291,9 +218,8 @@ window.oldVersion = [
         "query-input": "required name=search_term_string"
     },
     
-    "keywords": ", ShortCuts, 快捷键",
-    "description": "ShortCut是Android7.1推出的一个新功能，一般点击app的图标会打开一个app，这个新功能是你长按app图标的时候，弹出一个快捷的操作的选择框，以快速使用app的功能(不是其他的app)。
-"
+    "keywords": "ShortCuts, 快捷键",
+    "description": "ShortCut是Android7.1推出的一个新功能，一般点击app的图标会打开一个app，这个新功能是你长按app图标的时候，弹出一个快捷的操作的选择框，以快速使用app的功能(不是其他的app)。 1.Static Shortcut像在xml里面注册广播一样，在manfiest中注册Shortcuts。 1.1在xml目录下新建一个Shortcuts文件1234567891011121314 - Better - Better"
 }
 </script>
 
@@ -301,13 +227,9 @@ window.oldVersion = [
 
     <!-- ### Custom Head ### -->
     
-
-
 </head>
 
     <body>
-        
-
             
 
             <!-- ### Main content ### -->
@@ -318,7 +240,7 @@ window.oldVersion = [
     <p class="text-center header-slogan">
         
             
-                Hi, nice to meet you.
+                业精于勤荒于嬉
             
         
     </p>
@@ -334,69 +256,10 @@ window.oldVersion = [
         <a href="/search" class="navbar-link">Search</a>
     
     
+        <a href="/tags/" class="navbar-link">Tags</a>
     
-        <div class="dropdown dropdown-right">
-    <a class="navbar-link dropdown-toggle" tabindex="0">Share</a>
-    <ul class="menu share-menu">
-
-        <!-- Share Weibo -->
-        
-        <li class="menu-item">
-            <a href="http://service.weibo.com/share/share.php?appkey=&title=Better&url=http://lysmbetter.top&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
-        </li>
-        
-
-        <!-- Share Twitter -->
-        
-        <li class="menu-item">
-            <a href="https://twitter.com/intent/tweet?text=Better&url=http://lysmbetter.top&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
-        </li>
-        
-
-        <!-- Share Facebook -->
-        
-        <li class="menu-item">
-            <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
-        </li>
-        
-
-        <!-- Share Google+ -->
-        
-        <li class="menu-item">
-            <a href="https://plus.google.com/share?url=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
-        </li>
-        
-
-        <!-- Share LinkedIn -->
-        
-        <li class="menu-item">
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top&title=ShortCuts" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
-        </li>
-        
-
-        <!-- Share QQ -->
-        
-        <li class="menu-item">
-            <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=ShortCuts&summary=描述文字&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
-        </li>
-        
-
-        <!-- Share Telegram -->
-        
-        <li class="menu-item">
-            <a href="https://t.me/share/url?url=http://lysmbetter.top&text=ShortCuts" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
-        </li>
-        
-
-        <!-- QRCode -->
-        
-        <li class="menu-item">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB5klEQVR42u3awbKCMAyFYd7/pXXjQpkm5wRZNOFn45Wr8DkT2ibN8drwOECBAgVqgTqS4+cLn/fn8+frnK9ZuQ+oOajoJivQ6nz2d+k+oEahzoG3Or/6vwp69z6gnoeqBHf0kIACtZpos+CPJmNQz0RFE+XqIlHwR+jbVwmgtkdlC/o7X2/LZkBtjZJFh2igC865C8G/qi6gtka5k6wDyQZZVUABNQflBHa0kMsKICrhWC4EQY1AZUGbIdxBVSUQoGaiogCNCqpOopAlEKWVJ6i2KLXp4xQyMoR1TVCjUM7AqRZ7pcn3SoYMqg3qSjLgJgyqyCuzGVDtUNlC7N9AdxorQM1DOZOlG/DR4JgmC9VdLFBtUFHAV5q7nIaLtLgLagyq0iShBlZnMA5/FKgRKPXhrHiWPRxOIiGrw6BaopxGGVWYVc2qzsMBah4q2xx0GnPc5otSVxCoUairiUL2IMjPgBqFqk6ezmDrJBJW9yKo9qhqo0MFUC5wgGqHchoFVYKRFS6cRSSoWSh3UeYUaN0CWqnqAqol6kqCoDYsnUKuvcgD1RLlBGalKaeSdIB6HsptiIgmbft7oB6JUpuJ7gb3rYEOakuUShiqk7Q7AIOaiaoEc6Wo5jYMgpqF2ukABQoUqK/jDWgIcjH9rHMlAAAAAElFTkSuQmCC" alr="QRCode">
-        </li>
-        
-
-    </ul>
-</div>
+        <a href="/about/" class="navbar-link">About</a>
+    
     
     
 </nav>
@@ -404,11 +267,7 @@ window.oldVersion = [
 
             
     <!-- ## Post ## -->
-    
-    
-
-
-<div class="post-container">
+    <div class="post-container">
     <div id="post-card" class="card">
         
         <div class="card-item-container">
@@ -483,7 +342,7 @@ window.oldVersion = [
     <!-- Share QQ -->
     
     <li class="menu-item">
-        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Better&summary=描述文字&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top/2017/02/15/Shortcuts/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Better&summary=业精于勤荒于嬉&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top/2017/02/15/Shortcuts/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
     </li>
     
 
@@ -510,20 +369,17 @@ window.oldVersion = [
                 <div class="card-body">
                     
                         
-                            <div id="post-toc">
-                                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-Static-Shortcut"><span class="post-toc-number">1.</span> <span class="post-toc-text">1.Static Shortcut</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-1在xml目录下新建一个Shortcuts文件"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1.1在xml目录下新建一个Shortcuts文件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-2找启动页面"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">1.2找启动页面</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-3添加Shortcut"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">1.3添加Shortcut</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-Dynamic-Shortcut"><span class="post-toc-number">2.</span> <span class="post-toc-text">2.Dynamic Shortcut</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3-Pinned-Shortcut"><span class="post-toc-number">3.</span> <span class="post-toc-text">3.Pinned Shortcut</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Thanks"><span class="post-toc-number">4.</span> <span class="post-toc-text">Thanks</span></a></li></ol>
-                            </div>
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-Static-Shortcut"><span class="post-toc-number">1.</span> <span class="post-toc-text">1.Static Shortcut</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-1在xml目录下新建一个Shortcuts文件"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1.1在xml目录下新建一个Shortcuts文件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-2找启动页面"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">1.2找启动页面</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-3添加Shortcut"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">1.3添加Shortcut</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-Dynamic-Shortcut"><span class="post-toc-number">2.</span> <span class="post-toc-text">2.Dynamic Shortcut</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3-Pinned-Shortcut"><span class="post-toc-number">3.</span> <span class="post-toc-text">3.Pinned Shortcut</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Thanks"><span class="post-toc-number">4.</span> <span class="post-toc-text">Thanks</span></a></li></ol></div>
                         
                     
                     <article id="post-content">
                         <p>ShortCut是Android7.1推出的一个新功能，一般点击app的图标会打开一个app，这个新功能是你长按app图标的时候，弹出一个快捷的操作的选择框，以快速使用app的功能(不是其他的app)。</p>
 <h1 id="1-Static-Shortcut"><a href="#1-Static-Shortcut" class="headerlink" title="1.Static Shortcut"></a>1.Static Shortcut</h1><p>像在xml里面注册广播一样，在manfiest中注册Shortcuts。</p>
 <h2 id="1-1在xml目录下新建一个Shortcuts文件"><a href="#1-1在xml目录下新建一个Shortcuts文件" class="headerlink" title="1.1在xml目录下新建一个Shortcuts文件"></a>1.1在xml目录下新建一个Shortcuts文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;shortcuts xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;</span><br><span class="line">    &lt;shortcut</span><br><span class="line">        android:enabled=&quot;true&quot;</span><br><span class="line">        android:shortcutDisabledMessage=&quot;@string/short_setting_label_disabled&quot;</span><br><span class="line">        android:shortcutId=&quot;com.main&quot;</span><br><span class="line">        android:shortcutLongLabel=&quot;@string/short_setting_label_long&quot;</span><br><span class="line">        android:shortcutShortLabel=&quot;@string/short_setting_label&quot;&gt;</span><br><span class="line">        android:icon=&quot;@drawable/compose_icon&quot;</span><br><span class="line">        &lt;intent</span><br><span class="line">            android:action=&quot;android.intent.action.VIEW&quot;</span><br><span class="line">            android:targetClass=&quot;better.shortcut.SettingActivity&quot;</span><br><span class="line">            android:targetPackage=&quot;better.shortcut&quot;&gt;</span><br><span class="line">        &lt;/intent&gt;</span><br><span class="line">        &lt;categories</span><br><span class="line">            android:name=&quot;android.shortcut.conversation&quot;&gt;</span><br><span class="line">        &lt;/categories&gt;</span><br><span class="line">    &lt;/shortcut&gt;</span><br><span class="line">    &lt;!--在label直接输入文字是编译不过的--&gt;</span><br><span class="line">&lt;/shortcuts&gt;</span><br></pre></td></tr></table></figure>
-
 <p><code>shortcutId</code>:唯一的id<br><code>shortcutLongLabel</code>:长描述，优先显示<br><code>shortcutShortLabel</code>:短描述<br><code>shortcutDisabledMessage</code>:shortcut不可用时展示的文字<br><code>icon</code>:图标<br><code>enabled</code>:设置是否可用</p>
 <h2 id="1-2找启动页面"><a href="#1-2找启动页面" class="headerlink" title="1.2找启动页面"></a>1.2找启动页面</h2><p>找到在被android.intent.action.MAIN和android.intent.category.LAUNCHER所标记Activity,也就是启动页面。 </p>
 <h2 id="1-3添加Shortcut"><a href="#1-3添加Shortcut" class="headerlink" title="1.3添加Shortcut"></a>1.3添加Shortcut</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;manifest xmlns:android=<span class="string">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">          <span class="keyword">package</span>=<span class="string">"com.example.myapplication"</span>&gt;</span><br><span class="line">  &lt;application&gt;</span><br><span class="line">    &lt;activity android:name=<span class="string">"Main"</span>&gt;</span><br><span class="line">      &lt;intent-filter&gt;</span><br><span class="line">        &lt;action android:name=<span class="string">"android.intent.action.MAIN"</span> /&gt;</span><br><span class="line">        &lt;category android:name=<span class="string">"android.intent.category.LAUNCHER"</span> /&gt;</span><br><span class="line">      &lt;/intent-filter&gt;</span><br><span class="line">      &lt;meta-data android:name=<span class="string">"android.app.shortcuts"</span></span><br><span class="line">                 android:resource=<span class="string">"@xml/shortcuts"</span> /&gt;</span><br><span class="line">    &lt;/activity&gt;</span><br><span class="line">  &lt;/application&gt;</span><br><span class="line">&lt;/manifest&gt;</span><br></pre></td></tr></table></figure>
-
 <h1 id="2-Dynamic-Shortcut"><a href="#2-Dynamic-Shortcut" class="headerlink" title="2.Dynamic Shortcut"></a>2.Dynamic Shortcut</h1><p>在代码中动态注册Shortcuts。主要是通过<a href="https://developer.android.com/reference/android/content/pm/ShortcutManager.html" target="_blank" rel="noopener">ShortManager</a>来实现。</p>
 <ol>
 <li>新增。<a href="https://developer.android.com/reference/android/content/pm/ShortcutManager.html#setDynamicShortcuts(java.util.List<android.content.pm.ShortcutInfo>)" target="_blank" rel="noopener">setDynamicShortcuts</a>和addDynamicShortcuts()</li>
@@ -531,11 +387,9 @@ window.oldVersion = [
 <li>删除。<a href="https://developer.android.com/reference/android/content/pm/ShortcutManager.html#removeDynamicShortcuts(java.util.List<java.lang.String>)" target="_blank" rel="noopener"> removeDynamicShortcuts()</a>和removeAllDynamicShortcuts()。 </li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = new Intent(this, MainActivity.class);</span><br><span class="line">        intent.setAction(Intent.ACTION_VIEW);</span><br><span class="line">        intent.putExtra(EXTRA_01, &quot;test01的数据&quot;);</span><br><span class="line"></span><br><span class="line">        ShortcutInfo info = new ShortcutInfo.Builder(this, &quot;com.test.01&quot;)</span><br><span class="line">                .setShortLabel(&quot;test01&quot;)</span><br><span class="line">                .setLongLabel(&quot;test01点击&quot;)</span><br><span class="line">                .setDisabledMessage(&quot;test01不能用&quot;)</span><br><span class="line">                .setIntent(intent)</span><br><span class="line">                .build();</span><br><span class="line">        list.add(info);</span><br><span class="line">        manager.addDynamicShortcuts(list);</span><br></pre></td></tr></table></figure>
-
 <p>通常在添加之前要判断一下当前应用支持几个Shortcut。<br><a href="https://developer.android.com/reference/android/content/pm/ShortcutManager.html#getMaxShortcutCountPerActivity()" target="_blank" rel="noopener">getMaxShortcutCountPerActivity()</a>然后在添加。<br>注意targetSdkVersion 不能小于25。 </p>
 <h1 id="3-Pinned-Shortcut"><a href="#3-Pinned-Shortcut" class="headerlink" title="3.Pinned Shortcut"></a>3.Pinned Shortcut</h1><p>在API 26 之前加上权限<code>com.android.launcher.permission.INSTALL_SHORTCUT</code>后可以这样创建</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">private void createShortcutBeforeO(String iconText, Object icon, boolean duplicate,Intent iExtraIntent) &#123;</span><br><span class="line">    Intent shortcut = new Intent(&quot;com.android.launcher.action.INSTALL_SHORTCUT&quot;);</span><br><span class="line">    shortcut.putExtra(Intent.EXTRA_SHORTCUT_NAME, iconText);</span><br><span class="line">    if (icon instanceof Integer) &#123;</span><br><span class="line">        shortcut.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE, Intent.ShortcutIconResource.fromContext(mContext, (int) icon));</span><br><span class="line">    &#125; else if (icon instanceof Bitmap) &#123;</span><br><span class="line">        shortcut.putExtra(Intent.EXTRA_SHORTCUT_ICON, (Bitmap) icon);</span><br><span class="line">    &#125;</span><br><span class="line">    shortcut.putExtra(&quot;duplicate&quot;, duplicate);</span><br><span class="line">    if (iExtraIntent != null) &#123;</span><br><span class="line">        shortcut.putExtra(Intent.EXTRA_SHORTCUT_INTENT,iExtraIntent);</span><br><span class="line">    &#125;</span><br><span class="line">    mContext.sendBroadcast(shortcut);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p><a href="https://developer.android.com/reference/android/Manifest.permission" target="_blank" rel="noopener">INSTALL_SHORTCUT</a>和<a href="https://developer.android.com/reference/android/Manifest.permission.html#UNINSTALL_SHORTCUT" target="_blank" rel="noopener">UNINSTALL_SHORTCUT</a>从26起就不支持了</p>
 <blockquote>
 <p>In Android O (API level 26) and higher, the INSTALL_SHORTCUT broadcast no longer has any effect on your app because it’s a private, implicit broadcast.Instead, you should create an app shortcut by using the requestPinShortcut() method from the ShortcutManager class</p>
@@ -564,6 +418,7 @@ window.oldVersion = [
 
     <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
     <script>
+    (function() {
         var dateUpdate = Date.parse("2018-08-05");
         var nowDate = new Date();
         var a = nowDate.getTime();
@@ -574,6 +429,7 @@ window.oldVersion = [
         } else {
             document.getElementById('date-expire-notification').style.display = 'none';
         }
+    })();
     </script>
 
 
@@ -586,7 +442,6 @@ window.oldVersion = [
 
 <span class="post-categories-list mt-2">
 
-
 <a class="post-categories-list-item" href='/categories/Android/'>Android</a>
 
 </span>
@@ -595,10 +450,9 @@ window.oldVersion = [
 
 <span class="post-tags-list mt-2">
 
-
 <a class="post-tags-list-item" href="/tags/ShortCuts/" rel="tag">#&nbsp;ShortCuts</a>
 
-<a class="post-tags-list-item" href="/tags/快捷键/" rel="tag">#&nbsp;快捷键</a>
+<a class="post-tags-list-item" href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" rel="tag">#&nbsp;快捷键</a>
 
 </span>
 
@@ -606,13 +460,12 @@ window.oldVersion = [
 </p>
 
                 </div>
-                
-<div class="post-nav px-2 bg-gray">
+                <div class="post-nav px-2 bg-gray">
 <ul class="pagination">
     <!-- Prev Nav -->
     
         <li class="page-item page-prev">
-            <a href="/2017/02/21/Java反射1-教程/" rel="prev">
+            <a href="/2017/02/21/Java%E5%8F%8D%E5%B0%841-%E6%95%99%E7%A8%8B/" rel="prev">
                 <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
                 <div class="page-item-subtitle">Java反射1-教程</div>
             </a>
@@ -622,7 +475,7 @@ window.oldVersion = [
     <!-- Next Nav -->
     
         <li class="page-item page-next">
-            <a href="/2017/01/14/发布开源项目到jCenter/" rel="next">
+            <a href="/2017/01/14/%E5%8F%91%E5%B8%83%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E5%88%B0jCenter/" rel="next">
                 <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
                 <div class="page-item-subtitle">发布开源项目到JCenter</div>
             </a>
@@ -643,9 +496,11 @@ window.oldVersion = [
             <!-- ### Footer ### -->
             <footer class="text-center">
     <!-- footer copyright -->
-    <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span data-year></span>
-        <a class="footer-copyright-a" href="http://lysmbetter.top">Better</a>
-    </p>
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="http://lysmbetter.top">Better</a>
+        </p>
+
     <!-- footer custom text -->
     <p class="footer-text mb-0">
     
@@ -653,7 +508,6 @@ window.oldVersion = [
     <!-- footer develop info -->
     <p class="footer-develop mb-0">
         
-            
     <!-- Busuanzi User Views -->
     <span id="busuanzi_container_site_uv" hidden>
         <span></span>
@@ -666,7 +520,7 @@ window.oldVersion = [
 
 
 
-        
+
         
         Powered by&nbsp;<!--
          --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
@@ -674,40 +528,23 @@ window.oldVersion = [
     </p>
 </footer>
 
-        
 
         <!-- ### Import File ### -->
         <!-- ### Footer JS Import ### -->
 
 <script>
+
+    
 window.lazyLoadOptions = {
     elements_selector: ".lazyload",
     threshold: 50
 };
-
-
-
-    /* Copyright */
-    var copyrightNow = new Date().getFullYear();
-    var copyrightContent = document.querySelector('span[data-year]')
-    
-        copyrightContent.textContent = copyrightNow
-    
-
-
-
-/* Cnosole Log */
+document.getElementById('copyright-year').textContent = new Date().getFullYear();
 console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
 </script>
 
-<!-- vanilla-lazyload -->
-
-    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
-
-
-
-    <!-- Busuanzi -->
-    
+<script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
     <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
 
 
@@ -716,17 +553,10 @@ console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c 
 
 
 
-
-
-
-<!-- gallery.js -->
-
-
 <!-- Comment -->
 
 
 <!-- ### Custom Footer ### -->
-
 
     </body>
 

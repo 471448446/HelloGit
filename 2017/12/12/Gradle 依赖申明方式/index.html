@@ -1,26 +1,18 @@
 <!DOCTYPE html>
 
 <html lang="zh-Hans">
-    <head><meta name="generator" content="Hexo 3.9.0">
+    <head>
     <meta charset="utf-8">
     <!--
-        © SukkaW
+        hexo-theme-suka © SukkaW
         GitHub: https://github.com/SukkaW/hexo-theme-suka
-        Version: 1.3.3
     -->
-    <script>
-window.lsVersion = "1.3.3",
-window.oldVersion = [
-    
-        
-            "0.2.0","0.0.1","0.1.0","1.0.0","1.0.1","1.1.0","1.1.1","1.2.0","1.3.0","1.3.2"
-        
-    
-]
-</script>
 
-    <!-- ### DNS Prefetch ### -->
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
     <meta http-equiv="x-dns-prefetch-control" content="on">
+
 <!-- busuanzi -->
 
     <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
@@ -42,8 +34,7 @@ window.oldVersion = [
 
 
 
-
-    <!-- ### Preload ### -->
+    <!-- ## Preload ## -->
     
     <!-- Busuanzi -->
     
@@ -56,52 +47,18 @@ window.oldVersion = [
 
 
     <!-- ### Meta & Title & Info ### -->
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
-<meta name="renderer" content="webkit">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
 
-<!-- Title -->
-<title>Gradle 依赖申明方式 | Better</title>
+    <!-- Title -->
+    <title>Gradle 依赖申明方式 | Better</title>
 
-<!-- favicon -->
-<!-- Favicons -->
-
-    <link rel="icon" type="image/ico" href="/img/suka-favicon.ico">
-
-
-
-
-
-
-<!-- Android Chrome Color -->
-
-
-
-<meta name="format-detection" content="telephone=no">
-
-<!-- Description -->
-<meta name="description" content="在《Gradle For Android》中写到Gradle的依赖就是一系列的文件集合，一些标准的概念：
-
-compile
-apk
-provided
-...">
-
-<!-- Keywords -->
-<meta name="keywords" content=", Android, 依赖申明">
-
-<!-- Disable Fucking Bloody Baidu Tranformation -->
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/suka-favicon.ico">
 
     <!-- ### Import File ### -->
-    
-        <!-- spectre.css -->
-
-    <link rel="stylesheet" href="/lib/spectre/spectre.min.css">
-
-
-<style>
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css"><style>
     body {
         background-color: #f8f9fa;
     }
@@ -122,6 +79,8 @@ provided
         color: #005eb9;
         opacity: 1;
     }
+
+    
 
     .post-entry .card-body a {
         color: #0070ff;
@@ -164,12 +123,7 @@ provided
         background: #f8f9fa;
         opacity: .85;
     }
-</style>
-
-<!-- style.css -->
-
-    <link rel="stylesheet" href="/css/style.min.css">
-
+</style><link rel="stylesheet" href="/css/style.min.css">
 
 
 
@@ -180,63 +134,32 @@ provided
 
     <!-- Prettify Theme -->
     
-    
-        <link rel="stylesheet" href="/css/highlight/github.min.css">
-    
+    <link rel="preload" href="/css/highlight/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/css/highlight/github.min.css"></noscript>
 
 
 
-    
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
 
     <!-- ### Site Verification ### -->
     
 
 
-    <!-- ### RSS ### -->
-    
-
-    <!-- ### WebApp ### -->
-    <meta name="mobile-web-app-capable" content="yes">
-<meta name="application-name" content="Better">
-<meta name="msapplication-starturl" content="http://lysmbetter.top">
-
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Better">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-<!-- Manifest Import -->
-
-<!-- Open Search -->
-
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="Better"><meta name="msapplication-starturl" content="http://lysmbetter.top"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Better"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- ### The Open Graph & Twitter Card Protocol ### -->
-    <meta property="og:title" content="Gradle 依赖申明方式 | Better">
-<meta property="og:site_name" content="Better">
+    <meta property="og:title" content="Gradle 依赖申明方式 | Better"><meta property="og:site_name" content="Better"><meta property="og:type" content="article"><meta property="og:url" content="http:&#x2F;&#x2F;lysmbetter.top&#x2F;2017&#x2F;12&#x2F;12&#x2F;Gradle%20%E4%BE%9D%E8%B5%96%E7%94%B3%E6%98%8E%E6%96%B9%E5%BC%8F&#x2F;"><meta property="og:locale" content="zh-Hans"><meta name="description" content="在《Gradle For Android》中写到Gradle的依赖就是一系列的文件集合，一些标准的概念：  compile apk provided testCompile androidTestCompile  compile默认的配置，将所依赖的buildeType或Flavor都编译。将添加到cliassPath和生产的apk文件中。apk中的依赖只会要添加到最终的apk中，不参与编译。pr - Better - Better"><meta name="keywords" content="Android, 依赖申明"><meta property="article:published_time" content="2017-12-12T07:09:45.000Z"><meta property="article:modified_time" content="2018-08-05T07:12:21.841Z"><meta property="og:updated_time" content="2018-08-05T07:12:21.841Z"><meta property="article:author" content="Better"><meta property="article:tag" content="Android, 依赖申明"><meta name="twitter:card" content="summary">
 
-<meta property="og:locale" content="zh-Hans">
+    
 
-<meta property="og:url" content="http://lysmbetter.top/2017/12/12/Gradle 依赖申明方式/">
-<meta property="og:image" content="http://lysmbetter.top/img/suka-favicon.ico">
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://lysmbetter.top/2017/12/12/Gradle%20%E4%BE%9D%E8%B5%96%E7%94%B3%E6%98%8E%E6%96%B9%E5%BC%8F/">
 
-<meta property="og:description" content="在《Gradle For Android》中写到Gradle的依赖就是一系列的文件集合，一些标准的概念：
-
-compile
-apk
-provided
-...">
-
-<meta name="twitter:card" content="summary">
-
-
-    <meta property="og:type" content="article">
-    <meta property="article:published_time" content="2017-12-12T07:09:45.000Z">
-    <meta property="article:modified_time" content="2017-12-12T07:09:45.000Z">
-    <meta property="article:author" content="Better">
-    <meta property="og:article:tag" content=", Android, 依赖申明"> 
-
-
-
-
+    <meta name="generator" content="Hexo 4.0.0">
 
     <!-- ### Analytics ### -->
     
@@ -247,10 +170,6 @@ provided
 
 
 
-
-    <!-- ### Canonical link ### -->
-    <link rel="canonical" href="http://lysmbetter.top/2017/12/12/Gradle 依赖申明方式/">
-
     <!-- ### Structured Data ### -->
     
 
@@ -259,12 +178,12 @@ provided
 <script type="application/ld+json">
 {
     "@context": "http://schema.org",
-    "url": "http://lysmbetter.top/2017/12/12/Gradle 依赖申明方式/",
+    "url": "http://lysmbetter.top/2017/12/12/Gradle%20%E4%BE%9D%E8%B5%96%E7%94%B3%E6%98%8E%E6%96%B9%E5%BC%8F/",
     "@type": "BlogPosting",
     "logo": "http://lysmbetter.top/img/suka-favicon.ico",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://lysmbetter.top/2017/12/12/Gradle 依赖申明方式/"
+        "@id": "http://lysmbetter.top/2017/12/12/Gradle%20%E4%BE%9D%E8%B5%96%E7%94%B3%E6%98%8E%E6%96%B9%E5%BC%8F/"
     },
     "headline": "Gradle 依赖申明方式 | Better",
     
@@ -282,7 +201,7 @@ provided
             "@type": "ImageObject",
             "url": "http://lysmbetter.top/img/default_avatar.png"
         },
-        "description": "Hi, nice to meet you."
+        "description": "业精于勤荒于嬉"
     },
     "publisher": {
         "@type": "Organization",
@@ -299,13 +218,8 @@ provided
         "query-input": "required name=search_term_string"
     },
     
-    "keywords": ", Android, 依赖申明",
-    "description": "在《Gradle For Android》中写到Gradle的依赖就是一系列的文件集合，一些标准的概念：
-
-compile
-apk
-provided
-..."
+    "keywords": "Android, 依赖申明",
+    "description": "在《Gradle For Android》中写到Gradle的依赖就是一系列的文件集合，一些标准的概念：  compile apk provided testCompile androidTestCompile  compile默认的配置，将所依赖的buildeType或Flavor都编译。将添加到cliassPath和生产的apk文件中。apk中的依赖只会要添加到最终的apk中，不参与编译。pr - Better - Better"
 }
 </script>
 
@@ -313,13 +227,9 @@ provided
 
     <!-- ### Custom Head ### -->
     
-
-
 </head>
 
     <body>
-        
-
             
 
             <!-- ### Main content ### -->
@@ -330,7 +240,7 @@ provided
     <p class="text-center header-slogan">
         
             
-                Hi, nice to meet you.
+                业精于勤荒于嬉
             
         
     </p>
@@ -346,69 +256,10 @@ provided
         <a href="/search" class="navbar-link">Search</a>
     
     
+        <a href="/tags/" class="navbar-link">Tags</a>
     
-        <div class="dropdown dropdown-right">
-    <a class="navbar-link dropdown-toggle" tabindex="0">Share</a>
-    <ul class="menu share-menu">
-
-        <!-- Share Weibo -->
-        
-        <li class="menu-item">
-            <a href="http://service.weibo.com/share/share.php?appkey=&title=Better&url=http://lysmbetter.top&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
-        </li>
-        
-
-        <!-- Share Twitter -->
-        
-        <li class="menu-item">
-            <a href="https://twitter.com/intent/tweet?text=Better&url=http://lysmbetter.top&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
-        </li>
-        
-
-        <!-- Share Facebook -->
-        
-        <li class="menu-item">
-            <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
-        </li>
-        
-
-        <!-- Share Google+ -->
-        
-        <li class="menu-item">
-            <a href="https://plus.google.com/share?url=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
-        </li>
-        
-
-        <!-- Share LinkedIn -->
-        
-        <li class="menu-item">
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top&title=Gradle 依赖申明方式" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
-        </li>
-        
-
-        <!-- Share QQ -->
-        
-        <li class="menu-item">
-            <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Gradle 依赖申明方式&summary=描述文字&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
-        </li>
-        
-
-        <!-- Share Telegram -->
-        
-        <li class="menu-item">
-            <a href="https://t.me/share/url?url=http://lysmbetter.top&text=Gradle 依赖申明方式" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
-        </li>
-        
-
-        <!-- QRCode -->
-        
-        <li class="menu-item">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB4ElEQVR42u3b0W7DIAxG4bz/S3dXk6oK+I/TTQLn5GYXTck3iRjb0Ou14XWJEiVK1AB1La7fz1f3vY8zup8+R1Qv1HDSDQb8HHwE+sSVniOqFWo2waeBDtyXXhhRz0TNJvxs0o8CpShRq4V4NZlnMFHPRKXgSBK7O8FYVE8ULRy+/fsv1Yyo7VCx6RAeRh/4p10XUVujZkXjLFiuJi5BzgKwqF6o1YNTI6xaiK4SR1F9UASXitCU8JHmiKgeqEoDdZQAppckFQ3TJE/Usahq02IGXxWhq38EJXmijkKlgLhK3uLEhQu7qH4oOnFTsUkL1RlMVA9UTOYLyRx9IXCDQ9SRqMoiSoIpPciDCwdRx6LoZlHa/KaHbm5FdFFHoNJkTAtspdiMWFEtUGkAeg85sIM3tkW1QdHCkWxMkuZJ3NgWdSQKNbNggK0kdaViVNRRqGpiVzl0sypQRT0DRZqsKZjSBgmO6KKOQ6WNQ9JMI02OdPhGVB9UbI6Gje70PXpQQlQfFDnQnDZ8UoDEyaSoNqjYeIAFKmnSoua+qBYoMig5JEEPN5caHKJaoVJCR5u2qGAV9WhU+oxsjIvqjUoL8p1iNC3AovqiKoUD+V4psbtu/rpW1LaonS5RokSJert+AIm2oB9fci4/AAAAAElFTkSuQmCC" alr="QRCode">
-        </li>
-        
-
-    </ul>
-</div>
+        <a href="/about/" class="navbar-link">About</a>
+    
     
     
 </nav>
@@ -416,11 +267,7 @@ provided
 
             
     <!-- ## Post ## -->
-    
-    
-
-
-<div class="post-container">
+    <div class="post-container">
     <div id="post-card" class="card">
         
         <div class="card-item-container">
@@ -460,56 +307,56 @@ provided
     <!-- Share Weibo -->
     
     <li class="menu-item">
-        <a href="http://service.weibo.com/share/share.php?appkey=&title=Gradle 依赖申明方式&url=http://lysmbetter.top/2017/12/12/Gradle 依赖申明方式/&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=Gradle 依赖申明方式&url=http://lysmbetter.top/2017/12/12/Gradle%20%E4%BE%9D%E8%B5%96%E7%94%B3%E6%98%8E%E6%96%B9%E5%BC%8F/&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
     </li>
     
 
     <!-- Share Twitter -->
     
     <li class="menu-item">
-        <a href="https://twitter.com/intent/tweet?text=Gradle 依赖申明方式&url=http://lysmbetter.top/2017/12/12/Gradle 依赖申明方式/&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+        <a href="https://twitter.com/intent/tweet?text=Gradle 依赖申明方式&url=http://lysmbetter.top/2017/12/12/Gradle%20%E4%BE%9D%E8%B5%96%E7%94%B3%E6%98%8E%E6%96%B9%E5%BC%8F/&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
     </li>
     
 
     <!-- Share Facebook -->
     
     <li class="menu-item">
-        <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top/2017/12/12/Gradle 依赖申明方式/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top/2017/12/12/Gradle%20%E4%BE%9D%E8%B5%96%E7%94%B3%E6%98%8E%E6%96%B9%E5%BC%8F/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
     </li>
     
 
     <!-- Share Google+ -->
     
     <li class="menu-item">
-        <a href="https://plus.google.com/share?url=http://lysmbetter.top/2017/12/12/Gradle 依赖申明方式/" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
+        <a href="https://plus.google.com/share?url=http://lysmbetter.top/2017/12/12/Gradle%20%E4%BE%9D%E8%B5%96%E7%94%B3%E6%98%8E%E6%96%B9%E5%BC%8F/" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
     </li>
     
 
     <!-- Share LinkedIn -->
     
     <li class="menu-item">
-        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top/2017/12/12/Gradle 依赖申明方式/&title=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top/2017/12/12/Gradle%20%E4%BE%9D%E8%B5%96%E7%94%B3%E6%98%8E%E6%96%B9%E5%BC%8F/&title=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
     </li>
     
 
     <!-- Share QQ -->
     
     <li class="menu-item">
-        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Better&summary=描述文字&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top/2017/12/12/Gradle 依赖申明方式/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Better&summary=业精于勤荒于嬉&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top/2017/12/12/Gradle%20%E4%BE%9D%E8%B5%96%E7%94%B3%E6%98%8E%E6%96%B9%E5%BC%8F/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
     </li>
     
 
     <!-- Share Telegram -->
     
     <li class="menu-item">
-        <a href="https://t.me/share/url?url=http://lysmbetter.top/2017/12/12/Gradle 依赖申明方式/&text=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+        <a href="https://t.me/share/url?url=http://lysmbetter.top/2017/12/12/Gradle%20%E4%BE%9D%E8%B5%96%E7%94%B3%E6%98%8E%E6%96%B9%E5%BC%8F/&text=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
     </li>
     
 
     <!-- QRCode -->
     
     <li class="menu-item">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB4ElEQVR42u3b0W7DIAxG4bz/S3dXk6oK+I/TTQLn5GYXTck3iRjb0Ou14XWJEiVK1AB1La7fz1f3vY8zup8+R1Qv1HDSDQb8HHwE+sSVniOqFWo2waeBDtyXXhhRz0TNJvxs0o8CpShRq4V4NZlnMFHPRKXgSBK7O8FYVE8ULRy+/fsv1Yyo7VCx6RAeRh/4p10XUVujZkXjLFiuJi5BzgKwqF6o1YNTI6xaiK4SR1F9UASXitCU8JHmiKgeqEoDdZQAppckFQ3TJE/Usahq02IGXxWhq38EJXmijkKlgLhK3uLEhQu7qH4oOnFTsUkL1RlMVA9UTOYLyRx9IXCDQ9SRqMoiSoIpPciDCwdRx6LoZlHa/KaHbm5FdFFHoNJkTAtspdiMWFEtUGkAeg85sIM3tkW1QdHCkWxMkuZJ3NgWdSQKNbNggK0kdaViVNRRqGpiVzl0sypQRT0DRZqsKZjSBgmO6KKOQ6WNQ9JMI02OdPhGVB9UbI6Gje70PXpQQlQfFDnQnDZ8UoDEyaSoNqjYeIAFKmnSoua+qBYoMig5JEEPN5caHKJaoVJCR5u2qGAV9WhU+oxsjIvqjUoL8p1iNC3AovqiKoUD+V4psbtu/rpW1LaonS5RokSJert+AIm2oB9fci4/AAAAAElFTkSuQmCC" alt="QRCode">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAAAAAAYplnuAAACrUlEQVR42u3c0U7jQBBEUf//T4dXQJ6uW2MnAvnmhQUl8THaYbqrB47XP3wcokWLFv1A9DE8frzg2+e/n0P+vfq8cYgWTdGn/+kXb766SHptei5yiBZdoM8WV1os0wIjXzu7zsohWvQ70NPF043SxSta9CfQ00YzLaTlxRfFlWjRd6KnRZUWVnPz0wK/rcoT/Xj01FB+8uNt3bjoR6Nj6FeELWRRkeddTk1FPxqdCp2dxUPCxeb6okXvotPCI8XU9F6p6U2BpWjRFE1CxjYIJ0OkdvMRLbpBk8EQCRdTgL47VBUtmqJpkEiG8LSISoFNLJhEiy6aANqQktB8ChhJaI+qPNGiQwCZNpN0o2khpm/AGLyLFl2gaZNLBjypiZieW3cuokXDJoAWRlPDmoKYulgTLRqgmw0mHZyiQXoa9C8LKNGiATo1pnTomZrWJnSsqjzRoouFmBpRWkClAPLWnx6iH49uBphkaEQ2n3Tjy9BdtOgCTQ9l00NaNNSkzYVo0S16KoTaw93TDdBQ8vRGRYuG6FQcNRvOeBgQhkLL9xYtukCTQRE9WJICntQ4LIsu0aIBugm5acG0GzxudeOiRQ8LkRb07aKiAWR1QFa06OHn9PQm7VCHBjFHeIwFk2jRAU0a16lYosF78zGe6hUtugxrmkEP3aTIRjK+XrRoiE6LgQxFyYVJMDR+g0SLvoBOgTs9wE0G/bR5Fi16F51CcQpLh7qaX2IQLZqi2yE9DdZJYNkUWKJFvzZ/H7EZXqbGgG5GtLkVLZqi09AnDnDgYJ58rWpsRYu+8AeGSZGUGok2XMeHVESL3vhD8M3Qnw6IaPMsWvQ70FcPtNADK2j4KVo0QJOwnBQ9JOghBRo6WSNa9EZjSw9qk6KIFFa4YBItejOf/ksP0aJFi34Q+gvlANk36G586QAAAABJRU5ErkJggg==" alt="QRCode">
     </li>
     
 
@@ -522,9 +369,8 @@ provided
                 <div class="card-body">
                     
                         
-                            <div id="post-toc">
-                                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#implementation"><span class="post-toc-number">1.</span> <span class="post-toc-text">implementation</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#api"><span class="post-toc-number">2.</span> <span class="post-toc-text">api</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#用处"><span class="post-toc-number"></span> <span class="post-toc-text">用处</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考"><span class="post-toc-number"></span> <span class="post-toc-text">参考</span></a>
-                            </div>
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#implementation"><span class="post-toc-number">1.</span> <span class="post-toc-text">implementation</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#api"><span class="post-toc-number">2.</span> <span class="post-toc-text">api</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#用处"><span class="post-toc-number"></span> <span class="post-toc-text">用处</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考"><span class="post-toc-number"></span> <span class="post-toc-text">参考</span></a></div>
                         
                     
                     <article id="post-content">
@@ -566,6 +412,7 @@ provided
 
     <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
     <script>
+    (function() {
         var dateUpdate = Date.parse("2018-08-05");
         var nowDate = new Date();
         var a = nowDate.getTime();
@@ -576,6 +423,7 @@ provided
         } else {
             document.getElementById('date-expire-notification').style.display = 'none';
         }
+    })();
     </script>
 
 
@@ -588,7 +436,6 @@ provided
 
 <span class="post-categories-list mt-2">
 
-
 <a class="post-categories-list-item" href='/categories/Android/'>Android</a>
 
 </span>
@@ -597,10 +444,9 @@ provided
 
 <span class="post-tags-list mt-2">
 
-
 <a class="post-tags-list-item" href="/tags/Android/" rel="tag">#&nbsp;Android</a>
 
-<a class="post-tags-list-item" href="/tags/依赖申明/" rel="tag">#&nbsp;依赖申明</a>
+<a class="post-tags-list-item" href="/tags/%E4%BE%9D%E8%B5%96%E7%94%B3%E6%98%8E/" rel="tag">#&nbsp;依赖申明</a>
 
 </span>
 
@@ -608,8 +454,7 @@ provided
 </p>
 
                 </div>
-                
-<div class="post-nav px-2 bg-gray">
+                <div class="post-nav px-2 bg-gray">
 <ul class="pagination">
     <!-- Prev Nav -->
     
@@ -624,7 +469,7 @@ provided
     <!-- Next Nav -->
     
         <li class="page-item page-next">
-            <a href="/2017/11/19/Android 状态栏高度-屏幕划分-正确获取标题栏高度/" rel="next">
+            <a href="/2017/11/19/Android%20%E7%8A%B6%E6%80%81%E6%A0%8F%E9%AB%98%E5%BA%A6-%E5%B1%8F%E5%B9%95%E5%88%92%E5%88%86-%E6%AD%A3%E7%A1%AE%E8%8E%B7%E5%8F%96%E6%A0%87%E9%A2%98%E6%A0%8F%E9%AB%98%E5%BA%A6/" rel="next">
                 <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
                 <div class="page-item-subtitle">Android 状态栏高度-屏幕划分-正确获取标题栏高度</div>
             </a>
@@ -645,9 +490,11 @@ provided
             <!-- ### Footer ### -->
             <footer class="text-center">
     <!-- footer copyright -->
-    <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span data-year></span>
-        <a class="footer-copyright-a" href="http://lysmbetter.top">Better</a>
-    </p>
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="http://lysmbetter.top">Better</a>
+        </p>
+
     <!-- footer custom text -->
     <p class="footer-text mb-0">
     
@@ -655,7 +502,6 @@ provided
     <!-- footer develop info -->
     <p class="footer-develop mb-0">
         
-            
     <!-- Busuanzi User Views -->
     <span id="busuanzi_container_site_uv" hidden>
         <span></span>
@@ -668,7 +514,7 @@ provided
 
 
 
-        
+
         
         Powered by&nbsp;<!--
          --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
@@ -676,40 +522,23 @@ provided
     </p>
 </footer>
 
-        
 
         <!-- ### Import File ### -->
         <!-- ### Footer JS Import ### -->
 
 <script>
+
+    
 window.lazyLoadOptions = {
     elements_selector: ".lazyload",
     threshold: 50
 };
-
-
-
-    /* Copyright */
-    var copyrightNow = new Date().getFullYear();
-    var copyrightContent = document.querySelector('span[data-year]')
-    
-        copyrightContent.textContent = copyrightNow
-    
-
-
-
-/* Cnosole Log */
+document.getElementById('copyright-year').textContent = new Date().getFullYear();
 console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
 </script>
 
-<!-- vanilla-lazyload -->
-
-    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
-
-
-
-    <!-- Busuanzi -->
-    
+<script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
     <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
 
 
@@ -718,17 +547,10 @@ console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c 
 
 
 
-
-
-
-<!-- gallery.js -->
-
-
 <!-- Comment -->
 
 
 <!-- ### Custom Footer ### -->
-
 
     </body>
 

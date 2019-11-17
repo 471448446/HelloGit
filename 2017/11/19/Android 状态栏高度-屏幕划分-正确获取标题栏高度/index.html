@@ -1,26 +1,18 @@
 <!DOCTYPE html>
 
 <html lang="zh-Hans">
-    <head><meta name="generator" content="Hexo 3.9.0">
+    <head>
     <meta charset="utf-8">
     <!--
-        © SukkaW
+        hexo-theme-suka © SukkaW
         GitHub: https://github.com/SukkaW/hexo-theme-suka
-        Version: 1.3.3
     -->
-    <script>
-window.lsVersion = "1.3.3",
-window.oldVersion = [
-    
-        
-            "0.2.0","0.0.1","0.1.0","1.0.0","1.0.1","1.1.0","1.1.1","1.2.0","1.3.0","1.3.2"
-        
-    
-]
-</script>
 
-    <!-- ### DNS Prefetch ### -->
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
     <meta http-equiv="x-dns-prefetch-control" content="on">
+
 <!-- busuanzi -->
 
     <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
@@ -42,8 +34,7 @@ window.oldVersion = [
 
 
 
-
-    <!-- ### Preload ### -->
+    <!-- ## Preload ## -->
     
     <!-- Busuanzi -->
     
@@ -56,47 +47,18 @@ window.oldVersion = [
 
 
     <!-- ### Meta & Title & Info ### -->
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
-<meta name="renderer" content="webkit">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
 
-<!-- Title -->
-<title>Android 状态栏高度-屏幕划分-正确获取标题栏高度 | Better</title>
+    <!-- Title -->
+    <title>Android 状态栏高度-屏幕划分-正确获取标题栏高度 | Better</title>
 
-<!-- favicon -->
-<!-- Favicons -->
-
-    <link rel="icon" type="image/ico" href="/img/suka-favicon.ico">
-
-
-
-
-
-
-<!-- Android Chrome Color -->
-
-
-
-<meta name="format-detection" content="telephone=no">
-
-<!-- Description -->
-<meta name="description" content="需求今天的需求是要获取到状态栏的高度没因为UI是全屏填充到顶部。通过margin来控制是否显示到状...">
-
-<!-- Keywords -->
-<meta name="keywords" content=", 状态栏高度, 导航栏高度">
-
-<!-- Disable Fucking Bloody Baidu Tranformation -->
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/suka-favicon.ico">
 
     <!-- ### Import File ### -->
-    
-        <!-- spectre.css -->
-
-    <link rel="stylesheet" href="/lib/spectre/spectre.min.css">
-
-
-<style>
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css"><style>
     body {
         background-color: #f8f9fa;
     }
@@ -117,6 +79,8 @@ window.oldVersion = [
         color: #005eb9;
         opacity: 1;
     }
+
+    
 
     .post-entry .card-body a {
         color: #0070ff;
@@ -159,12 +123,7 @@ window.oldVersion = [
         background: #f8f9fa;
         opacity: .85;
     }
-</style>
-
-<!-- style.css -->
-
-    <link rel="stylesheet" href="/css/style.min.css">
-
+</style><link rel="stylesheet" href="/css/style.min.css">
 
 
 
@@ -175,58 +134,32 @@ window.oldVersion = [
 
     <!-- Prettify Theme -->
     
-    
-        <link rel="stylesheet" href="/css/highlight/github.min.css">
-    
+    <link rel="preload" href="/css/highlight/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/css/highlight/github.min.css"></noscript>
 
 
 
-    
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
 
     <!-- ### Site Verification ### -->
     
 
 
-    <!-- ### RSS ### -->
-    
-
-    <!-- ### WebApp ### -->
-    <meta name="mobile-web-app-capable" content="yes">
-<meta name="application-name" content="Better">
-<meta name="msapplication-starturl" content="http://lysmbetter.top">
-
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Better">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-<!-- Manifest Import -->
-
-<!-- Open Search -->
-
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="Better"><meta name="msapplication-starturl" content="http://lysmbetter.top"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Better"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- ### The Open Graph & Twitter Card Protocol ### -->
-    <meta property="og:title" content="Android 状态栏高度-屏幕划分-正确获取标题栏高度 | Better">
-<meta property="og:site_name" content="Better">
+    <meta property="og:title" content="Android 状态栏高度-屏幕划分-正确获取标题栏高度 | Better"><meta property="og:site_name" content="Better"><meta property="og:type" content="article"><meta property="og:url" content="http:&#x2F;&#x2F;lysmbetter.top&#x2F;2017&#x2F;11&#x2F;19&#x2F;Android%20%E7%8A%B6%E6%80%81%E6%A0%8F%E9%AB%98%E5%BA%A6-%E5%B1%8F%E5%B9%95%E5%88%92%E5%88%86-%E6%AD%A3%E7%A1%AE%E8%8E%B7%E5%8F%96%E6%A0%87%E9%A2%98%E6%A0%8F%E9%AB%98%E5%BA%A6&#x2F;"><meta property="og:locale" content="zh-Hans"><meta name="description" content="需求今天的需求是要获取到状态栏的高度没因为UI是全屏填充到顶部。通过margin来控制是否显示到状态栏下面。在网上看到一个见解：不同的Android设备状态栏的高度不一样。240x320高度是20px,320x480高度是25px，480x800是38px。记得以前有人说是25px，所以是不对的。获取方式是根据Window来获取： 1234567Rect rectangle = new Rect( - Better - Better"><meta name="keywords" content="状态栏高度, 导航栏高度"><meta property="og:image" content="https:&#x2F;&#x2F;lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com&#x2F;lysmbetter&#x2F;EFA6EFAE97E8D2C1FE89A14E6310A710.jpg"><meta property="og:image" content="https:&#x2F;&#x2F;lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com&#x2F;lysmbetter&#x2F;FCC43206BCA6C80611699AD0E9407D3D.jpg"><meta property="og:image" content="https:&#x2F;&#x2F;lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com&#x2F;lysmbetter&#x2F;0C847D7DB8261326D1FA7FC07CAF0317.jpg"><meta property="og:image" content="https:&#x2F;&#x2F;lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com&#x2F;lysmbetter&#x2F;EA4724A343DDAA44398F2D9C23FCB065.jpg"><meta property="og:image" content="https:&#x2F;&#x2F;lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com&#x2F;lysmbetter&#x2F;2A35B844FA80680D5A3FFA73F6536BF6.jpg"><meta property="og:image" content="https:&#x2F;&#x2F;lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com&#x2F;lysmbetter&#x2F;43AA05F0C1515C3F7228A17486537715.jpg"><meta property="og:image" content="https:&#x2F;&#x2F;lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com&#x2F;lysmbetter&#x2F;BCA5DFEC15790A7219899E7592F3447A.jpg"><meta property="og:image" content="https:&#x2F;&#x2F;lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com&#x2F;lysmbetter&#x2F;09EC57718E059F2ACBED7D0A55A29DE5.jpg"><meta property="article:published_time" content="2017-11-19T05:13:45.000Z"><meta property="article:modified_time" content="2018-11-10T01:52:37.123Z"><meta property="og:updated_time" content="2018-11-10T01:52:37.123Z"><meta property="article:author" content="Better"><meta property="article:tag" content="状态栏高度, 导航栏高度"><meta name="twitter:card" content="summary">
 
-<meta property="og:locale" content="zh-Hans">
+    
 
-<meta property="og:url" content="http://lysmbetter.top/2017/11/19/Android 状态栏高度-屏幕划分-正确获取标题栏高度/">
-<meta property="og:image" content="http://lysmbetter.top/img/suka-favicon.ico">
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://lysmbetter.top/2017/11/19/Android%20%E7%8A%B6%E6%80%81%E6%A0%8F%E9%AB%98%E5%BA%A6-%E5%B1%8F%E5%B9%95%E5%88%92%E5%88%86-%E6%AD%A3%E7%A1%AE%E8%8E%B7%E5%8F%96%E6%A0%87%E9%A2%98%E6%A0%8F%E9%AB%98%E5%BA%A6/">
 
-<meta property="og:description" content="需求今天的需求是要获取到状态栏的高度没因为UI是全屏填充到顶部。通过margin来控制是否显示到状...">
-
-<meta name="twitter:card" content="summary">
-
-
-    <meta property="og:type" content="article">
-    <meta property="article:published_time" content="2017-11-19T05:13:45.000Z">
-    <meta property="article:modified_time" content="2017-11-19T05:13:45.000Z">
-    <meta property="article:author" content="Better">
-    <meta property="og:article:tag" content=", 状态栏高度, 导航栏高度"> 
-
-
-
-
+    <meta name="generator" content="Hexo 4.0.0">
 
     <!-- ### Analytics ### -->
     
@@ -237,10 +170,6 @@ window.oldVersion = [
 
 
 
-
-    <!-- ### Canonical link ### -->
-    <link rel="canonical" href="http://lysmbetter.top/2017/11/19/Android 状态栏高度-屏幕划分-正确获取标题栏高度/">
-
     <!-- ### Structured Data ### -->
     
 
@@ -249,12 +178,12 @@ window.oldVersion = [
 <script type="application/ld+json">
 {
     "@context": "http://schema.org",
-    "url": "http://lysmbetter.top/2017/11/19/Android 状态栏高度-屏幕划分-正确获取标题栏高度/",
+    "url": "http://lysmbetter.top/2017/11/19/Android%20%E7%8A%B6%E6%80%81%E6%A0%8F%E9%AB%98%E5%BA%A6-%E5%B1%8F%E5%B9%95%E5%88%92%E5%88%86-%E6%AD%A3%E7%A1%AE%E8%8E%B7%E5%8F%96%E6%A0%87%E9%A2%98%E6%A0%8F%E9%AB%98%E5%BA%A6/",
     "@type": "BlogPosting",
     "logo": "http://lysmbetter.top/img/suka-favicon.ico",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://lysmbetter.top/2017/11/19/Android 状态栏高度-屏幕划分-正确获取标题栏高度/"
+        "@id": "http://lysmbetter.top/2017/11/19/Android%20%E7%8A%B6%E6%80%81%E6%A0%8F%E9%AB%98%E5%BA%A6-%E5%B1%8F%E5%B9%95%E5%88%92%E5%88%86-%E6%AD%A3%E7%A1%AE%E8%8E%B7%E5%8F%96%E6%A0%87%E9%A2%98%E6%A0%8F%E9%AB%98%E5%BA%A6/"
     },
     "headline": "Android 状态栏高度-屏幕划分-正确获取标题栏高度 | Better",
     
@@ -272,7 +201,7 @@ window.oldVersion = [
             "@type": "ImageObject",
             "url": "http://lysmbetter.top/img/default_avatar.png"
         },
-        "description": "Hi, nice to meet you."
+        "description": "业精于勤荒于嬉"
     },
     "publisher": {
         "@type": "Organization",
@@ -289,8 +218,8 @@ window.oldVersion = [
         "query-input": "required name=search_term_string"
     },
     
-    "keywords": ", 状态栏高度, 导航栏高度",
-    "description": "需求今天的需求是要获取到状态栏的高度没因为UI是全屏填充到顶部。通过margin来控制是否显示到状..."
+    "keywords": "状态栏高度, 导航栏高度",
+    "description": "需求今天的需求是要获取到状态栏的高度没因为UI是全屏填充到顶部。通过margin来控制是否显示到状态栏下面。在网上看到一个见解：不同的Android设备状态栏的高度不一样。240x320高度是20px,320x480高度是25px，480x800是38px。记得以前有人说是25px，所以是不对的。获取方式是根据Window来获取： 1234567Rect rectangle = new Rect( - Better - Better"
 }
 </script>
 
@@ -298,13 +227,9 @@ window.oldVersion = [
 
     <!-- ### Custom Head ### -->
     
-
-
 </head>
 
     <body>
-        
-
             
 
             <!-- ### Main content ### -->
@@ -315,7 +240,7 @@ window.oldVersion = [
     <p class="text-center header-slogan">
         
             
-                Hi, nice to meet you.
+                业精于勤荒于嬉
             
         
     </p>
@@ -331,69 +256,10 @@ window.oldVersion = [
         <a href="/search" class="navbar-link">Search</a>
     
     
+        <a href="/tags/" class="navbar-link">Tags</a>
     
-        <div class="dropdown dropdown-right">
-    <a class="navbar-link dropdown-toggle" tabindex="0">Share</a>
-    <ul class="menu share-menu">
-
-        <!-- Share Weibo -->
-        
-        <li class="menu-item">
-            <a href="http://service.weibo.com/share/share.php?appkey=&title=Better&url=http://lysmbetter.top&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
-        </li>
-        
-
-        <!-- Share Twitter -->
-        
-        <li class="menu-item">
-            <a href="https://twitter.com/intent/tweet?text=Better&url=http://lysmbetter.top&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
-        </li>
-        
-
-        <!-- Share Facebook -->
-        
-        <li class="menu-item">
-            <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
-        </li>
-        
-
-        <!-- Share Google+ -->
-        
-        <li class="menu-item">
-            <a href="https://plus.google.com/share?url=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
-        </li>
-        
-
-        <!-- Share LinkedIn -->
-        
-        <li class="menu-item">
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top&title=Android 状态栏高度-屏幕划分-正确获取标题栏高度" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
-        </li>
-        
-
-        <!-- Share QQ -->
-        
-        <li class="menu-item">
-            <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Android 状态栏高度-屏幕划分-正确获取标题栏高度&summary=描述文字&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
-        </li>
-        
-
-        <!-- Share Telegram -->
-        
-        <li class="menu-item">
-            <a href="https://t.me/share/url?url=http://lysmbetter.top&text=Android 状态栏高度-屏幕划分-正确获取标题栏高度" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
-        </li>
-        
-
-        <!-- QRCode -->
-        
-        <li class="menu-item">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAAAAAAYplnuAAACsUlEQVR42u3awU7DQAxF0f7/T5cNiwJjv+tJilTN7aYg0vQkYjT2ix/PD3w9RIsWLfpA9KN5/fjA9++vf+s+t3pfHZPO9eoQLZqil//0ixOn41eA1TEVunOIFj1Fp4VUnqj4su4GkIW++n7Rou9C/0Z2G0V1LPm8aNH/gV4dVy3UClltRKJFvxPdbSDdwkzFULoJE4do0RQ9bVDf9X5bNy76aDQt4LuGdbqxrJrhW1NT0UejSVhDmoS20AGNA7k5okXvoEmzWgU2VbhIirAUaooWTdFVuE1CQxJKTjaTakGKFr2D7hZGdaJpwzAp/kWLvgOdFkQCk8IphUK4cxEtGja2qSBPxVG6AXRTiwtRtOgQQNLwJeGn4Q9pfEWL3qk90gBJG3YPBwm7DadtqkWLhuidh5cE0y3yyWCMaNETNAkX00aShrTSuUiIL1r0BE0Ck2nRT4YRycIULXqKpk0mCXe6C0t/u1QwiRa9MfQ9fQja3Qzy86WpXtFHo+NgSGhgJ+ENfRC63bmIFv1kw93kAT0JcFDI2DXSokUD9PTLd4emJkF7ecNEiwboLlicFk7kwedOGC9a9ARNNo/UrKZBbzK0hRa3aNEDNNlgphc2DXK2pnpFi24WIimK6ODKJHgkQb5o0RRNCyEKSsOBOwNXokVP0TTw7h4W0WFbEhKVxZxo0RBNmlcykEUa2ys3RbRoiiaFz+SLu0FCOmTVNraiRQ/QBJ4Gt8kGQ4um7SkE0ceip0VPupCdISy6iEWLJug0IEvCcDrAMt3Q/nxOtGiIJg/ZJ0V8dzx5YBpDddGiAXrSsKaCJx1fLeAuCBUt+k40vagU1lCgaNHvRpPBklT0dIVYGngRLXoHTQsmWuynC6TBzy1Vnujj0HRBkLCdFPvkIi+FNaKPRn/SS7Ro0aIPQn8BE/7bGeRFOMkAAAAASUVORK5CYII=" alr="QRCode">
-        </li>
-        
-
-    </ul>
-</div>
+        <a href="/about/" class="navbar-link">About</a>
+    
     
     
 </nav>
@@ -401,11 +267,7 @@ window.oldVersion = [
 
             
     <!-- ## Post ## -->
-    
-    
-
-
-<div class="post-container">
+    <div class="post-container">
     <div id="post-card" class="card">
         
         <div class="card-item-container">
@@ -445,56 +307,56 @@ window.oldVersion = [
     <!-- Share Weibo -->
     
     <li class="menu-item">
-        <a href="http://service.weibo.com/share/share.php?appkey=&title=Android 状态栏高度-屏幕划分-正确获取标题栏高度&url=http://lysmbetter.top/2017/11/19/Android 状态栏高度-屏幕划分-正确获取标题栏高度/&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=Android 状态栏高度-屏幕划分-正确获取标题栏高度&url=http://lysmbetter.top/2017/11/19/Android%20%E7%8A%B6%E6%80%81%E6%A0%8F%E9%AB%98%E5%BA%A6-%E5%B1%8F%E5%B9%95%E5%88%92%E5%88%86-%E6%AD%A3%E7%A1%AE%E8%8E%B7%E5%8F%96%E6%A0%87%E9%A2%98%E6%A0%8F%E9%AB%98%E5%BA%A6/&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
     </li>
     
 
     <!-- Share Twitter -->
     
     <li class="menu-item">
-        <a href="https://twitter.com/intent/tweet?text=Android 状态栏高度-屏幕划分-正确获取标题栏高度&url=http://lysmbetter.top/2017/11/19/Android 状态栏高度-屏幕划分-正确获取标题栏高度/&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+        <a href="https://twitter.com/intent/tweet?text=Android 状态栏高度-屏幕划分-正确获取标题栏高度&url=http://lysmbetter.top/2017/11/19/Android%20%E7%8A%B6%E6%80%81%E6%A0%8F%E9%AB%98%E5%BA%A6-%E5%B1%8F%E5%B9%95%E5%88%92%E5%88%86-%E6%AD%A3%E7%A1%AE%E8%8E%B7%E5%8F%96%E6%A0%87%E9%A2%98%E6%A0%8F%E9%AB%98%E5%BA%A6/&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
     </li>
     
 
     <!-- Share Facebook -->
     
     <li class="menu-item">
-        <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top/2017/11/19/Android 状态栏高度-屏幕划分-正确获取标题栏高度/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top/2017/11/19/Android%20%E7%8A%B6%E6%80%81%E6%A0%8F%E9%AB%98%E5%BA%A6-%E5%B1%8F%E5%B9%95%E5%88%92%E5%88%86-%E6%AD%A3%E7%A1%AE%E8%8E%B7%E5%8F%96%E6%A0%87%E9%A2%98%E6%A0%8F%E9%AB%98%E5%BA%A6/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
     </li>
     
 
     <!-- Share Google+ -->
     
     <li class="menu-item">
-        <a href="https://plus.google.com/share?url=http://lysmbetter.top/2017/11/19/Android 状态栏高度-屏幕划分-正确获取标题栏高度/" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
+        <a href="https://plus.google.com/share?url=http://lysmbetter.top/2017/11/19/Android%20%E7%8A%B6%E6%80%81%E6%A0%8F%E9%AB%98%E5%BA%A6-%E5%B1%8F%E5%B9%95%E5%88%92%E5%88%86-%E6%AD%A3%E7%A1%AE%E8%8E%B7%E5%8F%96%E6%A0%87%E9%A2%98%E6%A0%8F%E9%AB%98%E5%BA%A6/" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
     </li>
     
 
     <!-- Share LinkedIn -->
     
     <li class="menu-item">
-        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top/2017/11/19/Android 状态栏高度-屏幕划分-正确获取标题栏高度/&title=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top/2017/11/19/Android%20%E7%8A%B6%E6%80%81%E6%A0%8F%E9%AB%98%E5%BA%A6-%E5%B1%8F%E5%B9%95%E5%88%92%E5%88%86-%E6%AD%A3%E7%A1%AE%E8%8E%B7%E5%8F%96%E6%A0%87%E9%A2%98%E6%A0%8F%E9%AB%98%E5%BA%A6/&title=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
     </li>
     
 
     <!-- Share QQ -->
     
     <li class="menu-item">
-        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Better&summary=描述文字&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top/2017/11/19/Android 状态栏高度-屏幕划分-正确获取标题栏高度/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Better&summary=业精于勤荒于嬉&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top/2017/11/19/Android%20%E7%8A%B6%E6%80%81%E6%A0%8F%E9%AB%98%E5%BA%A6-%E5%B1%8F%E5%B9%95%E5%88%92%E5%88%86-%E6%AD%A3%E7%A1%AE%E8%8E%B7%E5%8F%96%E6%A0%87%E9%A2%98%E6%A0%8F%E9%AB%98%E5%BA%A6/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
     </li>
     
 
     <!-- Share Telegram -->
     
     <li class="menu-item">
-        <a href="https://t.me/share/url?url=http://lysmbetter.top/2017/11/19/Android 状态栏高度-屏幕划分-正确获取标题栏高度/&text=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+        <a href="https://t.me/share/url?url=http://lysmbetter.top/2017/11/19/Android%20%E7%8A%B6%E6%80%81%E6%A0%8F%E9%AB%98%E5%BA%A6-%E5%B1%8F%E5%B9%95%E5%88%92%E5%88%86-%E6%AD%A3%E7%A1%AE%E8%8E%B7%E5%8F%96%E6%A0%87%E9%A2%98%E6%A0%8F%E9%AB%98%E5%BA%A6/&text=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
     </li>
     
 
     <!-- QRCode -->
     
     <li class="menu-item">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAAAAAAYplnuAAACsUlEQVR42u3awU7DQAxF0f7/T5cNiwJjv+tJilTN7aYg0vQkYjT2ix/PD3w9RIsWLfpA9KN5/fjA9++vf+s+t3pfHZPO9eoQLZqil//0ixOn41eA1TEVunOIFj1Fp4VUnqj4su4GkIW++n7Rou9C/0Z2G0V1LPm8aNH/gV4dVy3UClltRKJFvxPdbSDdwkzFULoJE4do0RQ9bVDf9X5bNy76aDQt4LuGdbqxrJrhW1NT0UejSVhDmoS20AGNA7k5okXvoEmzWgU2VbhIirAUaooWTdFVuE1CQxJKTjaTakGKFr2D7hZGdaJpwzAp/kWLvgOdFkQCk8IphUK4cxEtGja2qSBPxVG6AXRTiwtRtOgQQNLwJeGn4Q9pfEWL3qk90gBJG3YPBwm7DadtqkWLhuidh5cE0y3yyWCMaNETNAkX00aShrTSuUiIL1r0BE0Ck2nRT4YRycIULXqKpk0mCXe6C0t/u1QwiRa9MfQ9fQja3Qzy86WpXtFHo+NgSGhgJ+ENfRC63bmIFv1kw93kAT0JcFDI2DXSokUD9PTLd4emJkF7ecNEiwboLlicFk7kwedOGC9a9ARNNo/UrKZBbzK0hRa3aNEDNNlgphc2DXK2pnpFi24WIimK6ODKJHgkQb5o0RRNCyEKSsOBOwNXokVP0TTw7h4W0WFbEhKVxZxo0RBNmlcykEUa2ys3RbRoiiaFz+SLu0FCOmTVNraiRQ/QBJ4Gt8kGQ4um7SkE0ceip0VPupCdISy6iEWLJug0IEvCcDrAMt3Q/nxOtGiIJg/ZJ0V8dzx5YBpDddGiAXrSsKaCJx1fLeAuCBUt+k40vagU1lCgaNHvRpPBklT0dIVYGngRLXoHTQsmWuynC6TBzy1Vnujj0HRBkLCdFPvkIi+FNaKPRn/SS7Ro0aIPQn8BE/7bGeRFOMkAAAAASUVORK5CYII=" alt="QRCode">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPQAAAD0CAAAAACJRFQiAAAEpUlEQVR42u2bS3YbQQwDdf9LJ6ssomiIQjsbNWs2tuT5dLWfKRKAX78WHi+hhRZaaKGF/jLo13C8//zP679uBN5/v8fTdU9reFpHuvafc4QWegn0xz/6Dwt8f8DTNU8Le38vLvLD/egaP54jtNCLoKeC9VTgpo0gG5AK36dzyAY9cggttNC/SKPydM1U7J42tmlohBZa6HPoqRCla8hAM31PiqnQQgvNGvV2cVMzkcQHKjSk4ePHU5bQQn85dCo03/L1v6qhQgv9pdDR9AINQ1ugJnGBnEuFiWPXUmihvxj65AHT92nzWoF/EgSnIlZ1ZEILfRk0NcaIAEhF/8ncoxtOBUyhhd4GnYoNFeqSENGGc44akKmYCi30EmhaHJpi0y6yNRkm015ooTdDT8UsDSI0uEqHjyQuNOJDFAaFFvpi6Mn0TkWNBOjwQFCKC2ndjwOH0EJfDJ0+5NuA21TQUpGkz0k/E1ro7dDUQKMFJTU+xCCkAZ4kZgot9EboVLAaWBJ4awR/KmykQIHQQm+BToZca6ydiALTRiXR8XjKElroS6FJQKUJxqXmghj7BKotakILvQ26aezpEEHNd1IYaeAGd2RCC30xdCO2UaOdnEuMwpMQ0GPRFVroBdCp8WiEeyL8pcalMfDacI/QQm+Dph/+r+Ggwh9pjMjAQQwHoYXeBI2G78LUa5uSqQFqi2K8XmihF0FPA0hrntMgDQnUpmeTcJDQQm+DJuGYtMBTg64N7KQ1VAae0EJfDD2Z69RoJw0JDcZOECQMgF1LoYW+DJoWEBLEIWb8NLBQsa/ZOKGFFrobNEhjcBKwTZua7vdxHUILvQSaFIYk/ieRvhksmgGGmPFCC70RmhhzVKgjQmAr9CWDoB44hBb6UuhGrEtDRGoOWqGf3h+HCYQWejF0EteJwECaHRKi+UlhFVrobdBJoCchGSL0kYYkbSAtqo9rFFroBdBJ2KNB2KnhT4E4Yiy0pkOs3kILfTF0MtLpYDINB8RcJ0Y/bW6wiCC00BdDEwNvAk8CYWpY0tBDB45o4Akt9AJoKvw1gbt2I5PQP60HCZlCC70IevrgJ+G6aaggRYcMJtOwgp4ttNCLoMlCaSEhAl5rJiSDkGy60EJvg6ZGWGO+p4JHCyMO0wybJrTQG6CnJoEId1M4h5j1TRi+ESRRyF1ooS+Ebkw3GnhvTEHSGE3CAjEZhBZ6G3RroP1EzGuC69QUxEKE0EIvgCbGWgqykUJGxMdG/J/WHUPuQgt9MXQKsxFxjjT/NMBzYjTQQiq00JugT4OvTbiGGnipcNFfEu7IhBb6Mmj0wQ6DL21w7jQQS4trTPYLLfRl0ESQiyI6GBzoP7u0Bh4N7gkt9HZoIixMBY4E05uhhha9scgKLfQCaDJQpIZleihZcArrnIQGhBZ6MzRt7JviksQFIkwQA4GKjkILvQ26LTgpFHcqMjbgaRiJBp7QQi+EpmEcMmTQ4B19PwVwkIEntNALoWMjD4oeDcy0xkFlFAgt9CLoZHanoZ0GYEgghwwVJCgktNBbockQkF6ThoYWv0bcSAYgTiIILfQl0JsOoYUWWmihhf6S4zdpLzXgWsUR/gAAAABJRU5ErkJggg==" alt="QRCode">
     </li>
     
 
@@ -507,9 +369,8 @@ window.oldVersion = [
                 <div class="card-body">
                     
                         
-                            <div id="post-toc">
-                                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#需求"><span class="post-toc-number">1.</span> <span class="post-toc-text">需求</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#联系之屏幕的划分"><span class="post-toc-number">2.</span> <span class="post-toc-text">联系之屏幕的划分</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#获取屏幕的宽、高"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">获取屏幕的宽、高</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#状态栏"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">状态栏</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#View布局绘制区域即Content"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">View布局绘制区域即Content</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#标题栏"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">标题栏</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#应用内容区域-gt-标题栏-View布局绘制区域"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">应用内容区域=&gt;标题栏+View布局绘制区域</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#导航栏"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">导航栏</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#结果"><span class="post-toc-number">2.7.</span> <span class="post-toc-text">结果</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考"><span class="post-toc-number">3.</span> <span class="post-toc-text">参考</span></a></li></ol>
-                            </div>
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#需求"><span class="post-toc-number">1.</span> <span class="post-toc-text">需求</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#联系之屏幕的划分"><span class="post-toc-number">2.</span> <span class="post-toc-text">联系之屏幕的划分</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#获取屏幕的宽、高"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">获取屏幕的宽、高</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#状态栏"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">状态栏</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#View布局绘制区域即Content"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">View布局绘制区域即Content</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#标题栏"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">标题栏</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#应用内容区域-gt-标题栏-View布局绘制区域"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">应用内容区域=&gt;标题栏+View布局绘制区域</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#导航栏"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">导航栏</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#结果"><span class="post-toc-number">2.7.</span> <span class="post-toc-text">结果</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考"><span class="post-toc-number">3.</span> <span class="post-toc-text">参考</span></a></li></ol></div>
                         
                     
                     <article id="post-content">
@@ -557,7 +418,6 @@ window.oldVersion = [
 <p>发现window的高度是2392，content的<code>bottom-top</code>等于2112，获取到的高度也是2112。所以content的高度是对的。哪问题就出在title的高度了，两个的差值是196。<br>刚刚求标题栏高度是<code>contentViewTop-statusBarHeight</code>。所以问题就出在这，因为：<br><img src="https://lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com/lysmbetter/43AA05F0C1515C3F7228A17486537715.jpg" alt="IMAGE"></p>
 <p><code>contentViewTop</code>就是content在父容器DecorView的坐标位置，就是标题栏的高度。<br>所以标题栏高度：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int contentViewTop = </span><br><span class="line">    window.findViewById(Window.ID_ANDROID_CONTENT).getTop();</span><br><span class="line">int titleBarHeight=contentViewTop;</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com/lysmbetter/BCA5DFEC15790A7219899E7592F3447A.jpg" alt="IMAGE"><br>noActionBar:<br><img src="https://lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com/lysmbetter/09EC57718E059F2ACBED7D0A55A29DE5.jpg" alt="IMAGE"></p>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://blog.csdn.net/ccpat/article/details/55224475" target="_blank" rel="noopener">Android获取窗口可视区域大小: getWindowVisibleDisplayFrame()</a><br><a href="http://www.cnblogs.com/x-bing/p/6444522.html" target="_blank" rel="noopener">android 屏幕划分</a><br><a href="http://www.jb51.net/article/77546.htm" target="_blank" rel="noopener">深入浅析Android坐标系统</a></p>
 
@@ -567,6 +427,7 @@ window.oldVersion = [
 
     <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
     <script>
+    (function() {
         var dateUpdate = Date.parse("2018-11-10");
         var nowDate = new Date();
         var a = nowDate.getTime();
@@ -577,6 +438,7 @@ window.oldVersion = [
         } else {
             document.getElementById('date-expire-notification').style.display = 'none';
         }
+    })();
     </script>
 
 
@@ -589,7 +451,6 @@ window.oldVersion = [
 
 <span class="post-categories-list mt-2">
 
-
 <a class="post-categories-list-item" href='/categories/Android/'>Android</a>
 
 </span>
@@ -598,10 +459,9 @@ window.oldVersion = [
 
 <span class="post-tags-list mt-2">
 
+<a class="post-tags-list-item" href="/tags/%E7%8A%B6%E6%80%81%E6%A0%8F%E9%AB%98%E5%BA%A6/" rel="tag">#&nbsp;状态栏高度</a>
 
-<a class="post-tags-list-item" href="/tags/状态栏高度/" rel="tag">#&nbsp;状态栏高度</a>
-
-<a class="post-tags-list-item" href="/tags/导航栏高度/" rel="tag">#&nbsp;导航栏高度</a>
+<a class="post-tags-list-item" href="/tags/%E5%AF%BC%E8%88%AA%E6%A0%8F%E9%AB%98%E5%BA%A6/" rel="tag">#&nbsp;导航栏高度</a>
 
 </span>
 
@@ -609,13 +469,12 @@ window.oldVersion = [
 </p>
 
                 </div>
-                
-<div class="post-nav px-2 bg-gray">
+                <div class="post-nav px-2 bg-gray">
 <ul class="pagination">
     <!-- Prev Nav -->
     
         <li class="page-item page-prev">
-            <a href="/2017/12/12/Gradle 依赖申明方式/" rel="prev">
+            <a href="/2017/12/12/Gradle%20%E4%BE%9D%E8%B5%96%E7%94%B3%E6%98%8E%E6%96%B9%E5%BC%8F/" rel="prev">
                 <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
                 <div class="page-item-subtitle">Gradle 依赖申明方式</div>
             </a>
@@ -625,7 +484,7 @@ window.oldVersion = [
     <!-- Next Nav -->
     
         <li class="page-item page-next">
-            <a href="/2017/11/12/Android-O安装未知应用/" rel="next">
+            <a href="/2017/11/12/Android-O%E5%AE%89%E8%A3%85%E6%9C%AA%E7%9F%A5%E5%BA%94%E7%94%A8/" rel="next">
                 <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
                 <div class="page-item-subtitle">Android-O安装未知应用</div>
             </a>
@@ -646,9 +505,11 @@ window.oldVersion = [
             <!-- ### Footer ### -->
             <footer class="text-center">
     <!-- footer copyright -->
-    <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span data-year></span>
-        <a class="footer-copyright-a" href="http://lysmbetter.top">Better</a>
-    </p>
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="http://lysmbetter.top">Better</a>
+        </p>
+
     <!-- footer custom text -->
     <p class="footer-text mb-0">
     
@@ -656,7 +517,6 @@ window.oldVersion = [
     <!-- footer develop info -->
     <p class="footer-develop mb-0">
         
-            
     <!-- Busuanzi User Views -->
     <span id="busuanzi_container_site_uv" hidden>
         <span></span>
@@ -669,7 +529,7 @@ window.oldVersion = [
 
 
 
-        
+
         
         Powered by&nbsp;<!--
          --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
@@ -677,40 +537,23 @@ window.oldVersion = [
     </p>
 </footer>
 
-        
 
         <!-- ### Import File ### -->
         <!-- ### Footer JS Import ### -->
 
 <script>
+
+    
 window.lazyLoadOptions = {
     elements_selector: ".lazyload",
     threshold: 50
 };
-
-
-
-    /* Copyright */
-    var copyrightNow = new Date().getFullYear();
-    var copyrightContent = document.querySelector('span[data-year]')
-    
-        copyrightContent.textContent = copyrightNow
-    
-
-
-
-/* Cnosole Log */
+document.getElementById('copyright-year').textContent = new Date().getFullYear();
 console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
 </script>
 
-<!-- vanilla-lazyload -->
-
-    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
-
-
-
-    <!-- Busuanzi -->
-    
+<script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
     <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
 
 
@@ -719,17 +562,10 @@ console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c 
 
 
 
-
-
-
-<!-- gallery.js -->
-
-
 <!-- Comment -->
 
 
 <!-- ### Custom Footer ### -->
-
 
     </body>
 

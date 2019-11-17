@@ -1,26 +1,18 @@
 <!DOCTYPE html>
 
 <html lang="zh-Hans">
-    <head><meta name="generator" content="Hexo 3.9.0">
+    <head>
     <meta charset="utf-8">
     <!--
-        © SukkaW
+        hexo-theme-suka © SukkaW
         GitHub: https://github.com/SukkaW/hexo-theme-suka
-        Version: 1.3.3
     -->
-    <script>
-window.lsVersion = "1.3.3",
-window.oldVersion = [
-    
-        
-            "0.2.0","0.0.1","0.1.0","1.0.0","1.0.1","1.1.0","1.1.1","1.2.0","1.3.0","1.3.2"
-        
-    
-]
-</script>
 
-    <!-- ### DNS Prefetch ### -->
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
     <meta http-equiv="x-dns-prefetch-control" content="on">
+
 <!-- busuanzi -->
 
     <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
@@ -42,8 +34,7 @@ window.oldVersion = [
 
 
 
-
-    <!-- ### Preload ### -->
+    <!-- ## Preload ## -->
     
     <!-- Busuanzi -->
     
@@ -56,51 +47,18 @@ window.oldVersion = [
 
 
     <!-- ### Meta & Title & Info ### -->
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
-<meta name="renderer" content="webkit">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
 
-<!-- Title -->
-<title>Java反射7-私有成员变量域和方法 | Better</title>
+    <!-- Title -->
+    <title>Java反射7-私有成员变量域和方法 | Better</title>
 
-<!-- favicon -->
-<!-- Favicons -->
-
-    <link rel="icon" type="image/ico" href="/img/suka-favicon.ico">
-
-
-
-
-
-
-<!-- Android Chrome Color -->
-
-
-
-<meta name="format-detection" content="telephone=no">
-
-<!-- Description -->
-<meta name="description" content="
-Accessing Private Fields
-Accessing Private Methods
-
-获取私有的成员变量域和方法也是可能的。这甚至不是那么的困难。在单元测...">
-
-<!-- Keywords -->
-<meta name="keywords" content=", Java反射, 私有域和方法">
-
-<!-- Disable Fucking Bloody Baidu Tranformation -->
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/suka-favicon.ico">
 
     <!-- ### Import File ### -->
-    
-        <!-- spectre.css -->
-
-    <link rel="stylesheet" href="/lib/spectre/spectre.min.css">
-
-
-<style>
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css"><style>
     body {
         background-color: #f8f9fa;
     }
@@ -121,6 +79,8 @@ Accessing Private Methods
         color: #005eb9;
         opacity: 1;
     }
+
+    
 
     .post-entry .card-body a {
         color: #0070ff;
@@ -163,12 +123,7 @@ Accessing Private Methods
         background: #f8f9fa;
         opacity: .85;
     }
-</style>
-
-<!-- style.css -->
-
-    <link rel="stylesheet" href="/css/style.min.css">
-
+</style><link rel="stylesheet" href="/css/style.min.css">
 
 
 
@@ -179,62 +134,32 @@ Accessing Private Methods
 
     <!-- Prettify Theme -->
     
-    
-        <link rel="stylesheet" href="/css/highlight/github.min.css">
-    
+    <link rel="preload" href="/css/highlight/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/css/highlight/github.min.css"></noscript>
 
 
 
-    
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
 
     <!-- ### Site Verification ### -->
     
 
 
-    <!-- ### RSS ### -->
-    
-
-    <!-- ### WebApp ### -->
-    <meta name="mobile-web-app-capable" content="yes">
-<meta name="application-name" content="Better">
-<meta name="msapplication-starturl" content="http://lysmbetter.top">
-
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Better">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-<!-- Manifest Import -->
-
-<!-- Open Search -->
-
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="Better"><meta name="msapplication-starturl" content="http://lysmbetter.top"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Better"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- ### The Open Graph & Twitter Card Protocol ### -->
-    <meta property="og:title" content="Java反射7-私有成员变量域和方法 | Better">
-<meta property="og:site_name" content="Better">
+    <meta property="og:title" content="Java反射7-私有成员变量域和方法 | Better"><meta property="og:site_name" content="Better"><meta property="og:type" content="article"><meta property="og:url" content="http:&#x2F;&#x2F;lysmbetter.top&#x2F;2017&#x2F;02&#x2F;26&#x2F;Java%E5%8F%8D%E5%B0%847-%E7%A7%81%E6%9C%89%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E5%9F%9F%E5%92%8C%E6%96%B9%E6%B3%95&#x2F;"><meta property="og:locale" content="zh-Hans"><meta name="description" content="Accessing Private Fields Accessing Private Methods  获取私有的成员变量域和方法也是可能的。这甚至不是那么的困难。在单元测试的时候是非常便利的。本文将讲述怎么去获取。注意：只有当你运行程序作为独立的Java应用的时候比如单元测试才能去获取私有的变量域和方法。如果你在程序运行的时候来做这件事，就需要SecurityManager来处理。 获取私有成员 - Better - Better"><meta name="keywords" content="Java反射, 私有域和方法"><meta property="article:published_time" content="2017-02-26T05:59:58.000Z"><meta property="article:modified_time" content="2018-08-05T06:57:11.625Z"><meta property="og:updated_time" content="2018-08-05T06:57:11.625Z"><meta property="article:author" content="Better"><meta property="article:tag" content="Java反射, 私有域和方法"><meta name="twitter:card" content="summary">
 
-<meta property="og:locale" content="zh-Hans">
+    
 
-<meta property="og:url" content="http://lysmbetter.top/2017/02/26/Java反射7-私有成员变量域和方法/">
-<meta property="og:image" content="http://lysmbetter.top/img/suka-favicon.ico">
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://lysmbetter.top/2017/02/26/Java%E5%8F%8D%E5%B0%847-%E7%A7%81%E6%9C%89%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E5%9F%9F%E5%92%8C%E6%96%B9%E6%B3%95/">
 
-<meta property="og:description" content="
-Accessing Private Fields
-Accessing Private Methods
-
-获取私有的成员变量域和方法也是可能的。这甚至不是那么的困难。在单元测...">
-
-<meta name="twitter:card" content="summary">
-
-
-    <meta property="og:type" content="article">
-    <meta property="article:published_time" content="2017-02-26T05:59:58.000Z">
-    <meta property="article:modified_time" content="2017-02-26T05:59:58.000Z">
-    <meta property="article:author" content="Better">
-    <meta property="og:article:tag" content=", Java反射, 私有域和方法"> 
-
-
-
-
+    <meta name="generator" content="Hexo 4.0.0">
 
     <!-- ### Analytics ### -->
     
@@ -245,10 +170,6 @@ Accessing Private Methods
 
 
 
-
-    <!-- ### Canonical link ### -->
-    <link rel="canonical" href="http://lysmbetter.top/2017/02/26/Java反射7-私有成员变量域和方法/">
-
     <!-- ### Structured Data ### -->
     
 
@@ -257,12 +178,12 @@ Accessing Private Methods
 <script type="application/ld+json">
 {
     "@context": "http://schema.org",
-    "url": "http://lysmbetter.top/2017/02/26/Java反射7-私有成员变量域和方法/",
+    "url": "http://lysmbetter.top/2017/02/26/Java%E5%8F%8D%E5%B0%847-%E7%A7%81%E6%9C%89%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E5%9F%9F%E5%92%8C%E6%96%B9%E6%B3%95/",
     "@type": "BlogPosting",
     "logo": "http://lysmbetter.top/img/suka-favicon.ico",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://lysmbetter.top/2017/02/26/Java反射7-私有成员变量域和方法/"
+        "@id": "http://lysmbetter.top/2017/02/26/Java%E5%8F%8D%E5%B0%847-%E7%A7%81%E6%9C%89%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E5%9F%9F%E5%92%8C%E6%96%B9%E6%B3%95/"
     },
     "headline": "Java反射7-私有成员变量域和方法 | Better",
     
@@ -280,7 +201,7 @@ Accessing Private Methods
             "@type": "ImageObject",
             "url": "http://lysmbetter.top/img/default_avatar.png"
         },
-        "description": "Hi, nice to meet you."
+        "description": "业精于勤荒于嬉"
     },
     "publisher": {
         "@type": "Organization",
@@ -297,12 +218,8 @@ Accessing Private Methods
         "query-input": "required name=search_term_string"
     },
     
-    "keywords": ", Java反射, 私有域和方法",
-    "description": "
-Accessing Private Fields
-Accessing Private Methods
-
-获取私有的成员变量域和方法也是可能的。这甚至不是那么的困难。在单元测..."
+    "keywords": "Java反射, 私有域和方法",
+    "description": "Accessing Private Fields Accessing Private Methods  获取私有的成员变量域和方法也是可能的。这甚至不是那么的困难。在单元测试的时候是非常便利的。本文将讲述怎么去获取。注意：只有当你运行程序作为独立的Java应用的时候比如单元测试才能去获取私有的变量域和方法。如果你在程序运行的时候来做这件事，就需要SecurityManager来处理。 获取私有成员 - Better - Better"
 }
 </script>
 
@@ -310,13 +227,9 @@ Accessing Private Methods
 
     <!-- ### Custom Head ### -->
     
-
-
 </head>
 
     <body>
-        
-
             
 
             <!-- ### Main content ### -->
@@ -327,7 +240,7 @@ Accessing Private Methods
     <p class="text-center header-slogan">
         
             
-                Hi, nice to meet you.
+                业精于勤荒于嬉
             
         
     </p>
@@ -343,69 +256,10 @@ Accessing Private Methods
         <a href="/search" class="navbar-link">Search</a>
     
     
+        <a href="/tags/" class="navbar-link">Tags</a>
     
-        <div class="dropdown dropdown-right">
-    <a class="navbar-link dropdown-toggle" tabindex="0">Share</a>
-    <ul class="menu share-menu">
-
-        <!-- Share Weibo -->
-        
-        <li class="menu-item">
-            <a href="http://service.weibo.com/share/share.php?appkey=&title=Better&url=http://lysmbetter.top&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
-        </li>
-        
-
-        <!-- Share Twitter -->
-        
-        <li class="menu-item">
-            <a href="https://twitter.com/intent/tweet?text=Better&url=http://lysmbetter.top&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
-        </li>
-        
-
-        <!-- Share Facebook -->
-        
-        <li class="menu-item">
-            <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
-        </li>
-        
-
-        <!-- Share Google+ -->
-        
-        <li class="menu-item">
-            <a href="https://plus.google.com/share?url=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
-        </li>
-        
-
-        <!-- Share LinkedIn -->
-        
-        <li class="menu-item">
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top&title=Java反射7-私有成员变量域和方法" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
-        </li>
-        
-
-        <!-- Share QQ -->
-        
-        <li class="menu-item">
-            <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Java反射7-私有成员变量域和方法&summary=描述文字&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
-        </li>
-        
-
-        <!-- Share Telegram -->
-        
-        <li class="menu-item">
-            <a href="https://t.me/share/url?url=http://lysmbetter.top&text=Java反射7-私有成员变量域和方法" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
-        </li>
-        
-
-        <!-- QRCode -->
-        
-        <li class="menu-item">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKQAAACkCAAAAAA83tqdAAACMUlEQVR42u2by5LCMAwE8/8/zZ6o2kPkaRm2FqzOJTycuEP5MRqJ6/EFxyWkkEIK+QGQ1+J4fv+7XfU6Xfd8T/sVcjbk7aAtblq1rUBWD5r6FXI2ZDXwq84qmDTBWv0KKWSxGFdtq892NgkhhdyBTIKjgrzbEIQUcldgrCbDquOugHlJBQl5HCRddN99/pNoUcivh4ymUbhpFaylxf6trpqQR0F2g6qqfTIVkiBu7ThCHg+ZBAIZ8NRUuLtX+QMIORoyiQwSVBHzlUwYIYVMIiAF9cQsrSbO8gGFHA1JN38idImxgISIkGMhacBEhAdN3qPEqpBCQjOJBmM0sb+tzIU8ErJjENCHogFZDAKFHA+ZJseq8GglfNOGgIx9IcdA7pr1qdPOwl62EXIkJBWryTRtBVgw6SSkkKS4mIhcYlghMS2kkNDY755X/SBjX8hRkLQomIpVGsS1jX0hR0GuArJ0o+XAXwhgVAwl5EjIFCx1jH0CRJKoQs6GpAO7YwTsGGE4SyvkCMhUwEnFLDUNUgAm5GxIsnB3gLBBGgCFFJIWd5LCJWoAbBv7Qh4NSRZyKnY7hcjoIYQcCRkTPkBckGKQraSAkCMhSfEcKRKhBlgSI0IK2S0yWgkNkthPi3s0rIQcA0mTRqSQMxkB7SJPIYVsCAESpJGk6u2EFVJIYOLvTASU7Lw2/vAr5NGQRMh2hC81VtuFIkKOgKTFSJ3FOl2DCpSFHAn5yYeQQgop5D8eP0PMlrXYBWr/AAAAAElFTkSuQmCC" alr="QRCode">
-        </li>
-        
-
-    </ul>
-</div>
+        <a href="/about/" class="navbar-link">About</a>
+    
     
     
 </nav>
@@ -413,11 +267,7 @@ Accessing Private Methods
 
             
     <!-- ## Post ## -->
-    
-    
-
-
-<div class="post-container">
+    <div class="post-container">
     <div id="post-card" class="card">
         
         <div class="card-item-container">
@@ -436,7 +286,7 @@ Accessing Private Methods
         <span>2017-02-26</span>
         
             <span class="suka-devide-dot"></span>
-            <a class="category-link" href="/categories/Java译文/">Java译文</a>
+            <a class="category-link" href="/categories/Java%E8%AF%91%E6%96%87/">Java译文</a>
         
         
             <!-- Busuanzi Post Views -->
@@ -457,56 +307,56 @@ Accessing Private Methods
     <!-- Share Weibo -->
     
     <li class="menu-item">
-        <a href="http://service.weibo.com/share/share.php?appkey=&title=Java反射7-私有成员变量域和方法&url=http://lysmbetter.top/2017/02/26/Java反射7-私有成员变量域和方法/&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=Java反射7-私有成员变量域和方法&url=http://lysmbetter.top/2017/02/26/Java%E5%8F%8D%E5%B0%847-%E7%A7%81%E6%9C%89%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E5%9F%9F%E5%92%8C%E6%96%B9%E6%B3%95/&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
     </li>
     
 
     <!-- Share Twitter -->
     
     <li class="menu-item">
-        <a href="https://twitter.com/intent/tweet?text=Java反射7-私有成员变量域和方法&url=http://lysmbetter.top/2017/02/26/Java反射7-私有成员变量域和方法/&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+        <a href="https://twitter.com/intent/tweet?text=Java反射7-私有成员变量域和方法&url=http://lysmbetter.top/2017/02/26/Java%E5%8F%8D%E5%B0%847-%E7%A7%81%E6%9C%89%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E5%9F%9F%E5%92%8C%E6%96%B9%E6%B3%95/&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
     </li>
     
 
     <!-- Share Facebook -->
     
     <li class="menu-item">
-        <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top/2017/02/26/Java反射7-私有成员变量域和方法/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top/2017/02/26/Java%E5%8F%8D%E5%B0%847-%E7%A7%81%E6%9C%89%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E5%9F%9F%E5%92%8C%E6%96%B9%E6%B3%95/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
     </li>
     
 
     <!-- Share Google+ -->
     
     <li class="menu-item">
-        <a href="https://plus.google.com/share?url=http://lysmbetter.top/2017/02/26/Java反射7-私有成员变量域和方法/" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
+        <a href="https://plus.google.com/share?url=http://lysmbetter.top/2017/02/26/Java%E5%8F%8D%E5%B0%847-%E7%A7%81%E6%9C%89%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E5%9F%9F%E5%92%8C%E6%96%B9%E6%B3%95/" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
     </li>
     
 
     <!-- Share LinkedIn -->
     
     <li class="menu-item">
-        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top/2017/02/26/Java反射7-私有成员变量域和方法/&title=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top/2017/02/26/Java%E5%8F%8D%E5%B0%847-%E7%A7%81%E6%9C%89%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E5%9F%9F%E5%92%8C%E6%96%B9%E6%B3%95/&title=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
     </li>
     
 
     <!-- Share QQ -->
     
     <li class="menu-item">
-        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Better&summary=描述文字&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top/2017/02/26/Java反射7-私有成员变量域和方法/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Better&summary=业精于勤荒于嬉&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top/2017/02/26/Java%E5%8F%8D%E5%B0%847-%E7%A7%81%E6%9C%89%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E5%9F%9F%E5%92%8C%E6%96%B9%E6%B3%95/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
     </li>
     
 
     <!-- Share Telegram -->
     
     <li class="menu-item">
-        <a href="https://t.me/share/url?url=http://lysmbetter.top/2017/02/26/Java反射7-私有成员变量域和方法/&text=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+        <a href="https://t.me/share/url?url=http://lysmbetter.top/2017/02/26/Java%E5%8F%8D%E5%B0%847-%E7%A7%81%E6%9C%89%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E5%9F%9F%E5%92%8C%E6%96%B9%E6%B3%95/&text=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
     </li>
     
 
     <!-- QRCode -->
     
     <li class="menu-item">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKQAAACkCAAAAAA83tqdAAACMUlEQVR42u2by5LCMAwE8/8/zZ6o2kPkaRm2FqzOJTycuEP5MRqJ6/EFxyWkkEIK+QGQ1+J4fv+7XfU6Xfd8T/sVcjbk7aAtblq1rUBWD5r6FXI2ZDXwq84qmDTBWv0KKWSxGFdtq892NgkhhdyBTIKjgrzbEIQUcldgrCbDquOugHlJBQl5HCRddN99/pNoUcivh4ymUbhpFaylxf6trpqQR0F2g6qqfTIVkiBu7ThCHg+ZBAIZ8NRUuLtX+QMIORoyiQwSVBHzlUwYIYVMIiAF9cQsrSbO8gGFHA1JN38idImxgISIkGMhacBEhAdN3qPEqpBCQjOJBmM0sb+tzIU8ErJjENCHogFZDAKFHA+ZJseq8GglfNOGgIx9IcdA7pr1qdPOwl62EXIkJBWryTRtBVgw6SSkkKS4mIhcYlghMS2kkNDY755X/SBjX8hRkLQomIpVGsS1jX0hR0GuArJ0o+XAXwhgVAwl5EjIFCx1jH0CRJKoQs6GpAO7YwTsGGE4SyvkCMhUwEnFLDUNUgAm5GxIsnB3gLBBGgCFFJIWd5LCJWoAbBv7Qh4NSRZyKnY7hcjoIYQcCRkTPkBckGKQraSAkCMhSfEcKRKhBlgSI0IK2S0yWgkNkthPi3s0rIQcA0mTRqSQMxkB7SJPIYVsCAESpJGk6u2EFVJIYOLvTASU7Lw2/vAr5NGQRMh2hC81VtuFIkKOgKTFSJ3FOl2DCpSFHAn5yYeQQgop5D8eP0PMlrXYBWr/AAAAAElFTkSuQmCC" alt="QRCode">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANQAAADUCAAAAADBtVLEAAADoUlEQVR42u3bwXLiQAxFUf7/p5PVLIZK97vPBltQl81MAth9XGVZLSmPny98PUSJEiVK1NehHpvXf194+vn5+7vP/vXz6nvPv//3f7JOUaKmoFaLXd6Q5YnTMcj3yTpFiZqEWh0kLWq3+FXAeD5nCihknaJEfSpqdRNTWBOEUjASJepTUWfhu+SVJLqiRH0ianeQ5iYmG8fdsXcX6mVZuihRb0aRzdmEf19WTRIl6o2oWHSHQYAWNB/hRTaop7seokS9EbU7WXp47pLRpjC5esA36xMlaiqKFBObjd3qYqQNKU2CRYmahjrTWKMnXCagm88cKYyKEjUBlZpezXAISUibgRASYESJmoYigWBXyCQNaPLgbJvpqPAiStSNqLaAstsYngkMqBGwuvCiRA1CNcklTWpTUTQ1vylOlKhJqHSzN024VAhthyTbB78oUVNQqyR0915KVtNnSMGHDhCLEjUJRRpnq2SVFirpgtPA8KEGgShRF6NIIZ8ObNCkuBmmT8kwqtCKEnUharcACiMDJfTBukuqq52vKFE3oY4kn+kkuwBAjocKl2TaWZSom1H0BORhGQc54LFIkBIlaioq/YFIKtTsHuZpqL75w5VDD19Roi5C0aErEjzIDZ2aak2yK0rUVBRFkGSTBoOjzYVt4BAlagCKFFuaRPbooBb53qnuvChRF6FIYb9NeJvPpQBFk2NRoqagUgGTJJepKdYukASZaucrStTFqDQokpJSWpSkG9A0GIkChShRN6Ho4AdpSJP3yYLJgEkcYhQl6iZUGnpKw4ik2ZwuThOU6ugnStQNKIJITbfdgklAIcnAbnMpStQUFBnCIA3n5rMkQaXNAVGiJqLS5m3XOGiLI2QQ8nCiLUrUAFS6Sc9g6SBIPQTSZhSiRF2Ios3p5iFLElZ6IVNyLUrUNBQtOr6qMEke1m3RRpSoSaimGUDfS8WVpjHeBBJRoqagaGE/NbGPDg3v1pCS4qrwIkrUhagjN25TtKQNg/Q7NHAlStSNqBbUBBDSpE6bTjroKErUFBQtdDSbRtJ0IIPATaNblKgpqHRTk4cofWjSxDgVZGJCK0rUzSg64EQLIm1j4GxTT5SoiSiyiaOJLk1o07F3BZg/L4AoUR+EIoP4tAC53OSFBHaXFIgS9Umopum2CwrtBasHR0SJGoRKNzIJGKngSIdJSHP81CZRlKg3o0ghngw6Ngtpg089RSZK1E2ob3qJEiVKlKivef0CVUIQfAnHPu0AAAAASUVORK5CYII=" alt="QRCode">
     </li>
     
 
@@ -519,9 +369,8 @@ Accessing Private Methods
                 <div class="card-body">
                     
                         
-                            <div id="post-toc">
-                                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#获取私有成员变量域"><span class="post-toc-number">1.</span> <span class="post-toc-text">获取私有成员变量域</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#获取私有的方法"><span class="post-toc-number">2.</span> <span class="post-toc-text">获取私有的方法</span></a></li></ol>
-                            </div>
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#获取私有成员变量域"><span class="post-toc-number">1.</span> <span class="post-toc-text">获取私有成员变量域</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#获取私有的方法"><span class="post-toc-number">2.</span> <span class="post-toc-text">获取私有的方法</span></a></li></ol></div>
                         
                     
                     <article id="post-content">
@@ -534,13 +383,11 @@ Accessing Private Methods
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public class PrivateObject &#123;</span><br><span class="line"></span><br><span class="line">  private String privateString = null;</span><br><span class="line"></span><br><span class="line">  public PrivateObject(String privateString) &#123;</span><br><span class="line">    this.privateString = privateString;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">PrivateObject privateObject = new PrivateObject(&quot;The Private Value&quot;);</span><br><span class="line"></span><br><span class="line">Field privateStringField = PrivateObject.class.</span><br><span class="line">            getDeclaredField(&quot;privateString&quot;);</span><br><span class="line"></span><br><span class="line">privateStringField.setAccessible(true);</span><br><span class="line"></span><br><span class="line">String fieldValue = (String) privateStringField.get(privateObject);</span><br><span class="line">System.out.println(&quot;fieldValue = &quot; + fieldValue);</span><br></pre></td></tr></table></figure>
-
 <p>上述代码将会输出<code>fieldValue = The Private Value</code>，其值是orivateObject对象在创建的时候指定的私有值。<br>注意到<code>PrivateObject.class.getDeclaredField(&quot;privateString&quot;)</code>方法，返回的值是当前类私有的成员变量域的对象，而不是是父类的值。<br>注意到<code>Field.setAcessible(true)</code>这句代码，你设置了它可以通过反射来访问。所以你能访问到私有的（private）,受保护的（protected）属性，甚至是包范围类的即使它不是这个类的。当你使用常规的方法去访问它，编译器是不接受的。</p>
 <h2 id="获取私有的方法"><a href="#获取私有的方法" class="headerlink" title="获取私有的方法"></a>获取私有的方法</h2><p>获取的方法你需要使用<code>Class.getDeclaredMethod(String name, Class[] parameterTypes)</code>和<code>Class.getDeclaredMethods()</code>方法。 <code>Class.getMethod(String name, Class[] parameterTypes)</code> 和 <code>Class.getMethods()</code>方法只会返回public的方法。例子如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class PrivateObject &#123;</span><br><span class="line"></span><br><span class="line">  private String privateString = null;</span><br><span class="line"></span><br><span class="line">  public PrivateObject(String privateString) &#123;</span><br><span class="line">    this.privateString = privateString;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  private String getPrivateString()&#123;</span><br><span class="line">    return this.privateString;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">PrivateObject privateObject = new PrivateObject(&quot;The Private Value&quot;);</span><br><span class="line"></span><br><span class="line">Method privateStringMethod = PrivateObject.class.</span><br><span class="line">        getDeclaredMethod(&quot;getPrivateString&quot;, null);</span><br><span class="line"></span><br><span class="line">privateStringMethod.setAccessible(true);</span><br><span class="line"></span><br><span class="line">String returnValue = (String)</span><br><span class="line">        privateStringMethod.invoke(privateObject, null);</span><br><span class="line"></span><br><span class="line">System.out.println(&quot;returnValue = &quot; + returnValue);</span><br></pre></td></tr></table></figure>
-
 <p>上述代码将打印<code>returnValue = The Private Value</code>，其值是PrivateObject在创建的时候指定的值通过getPrivateString()获取到的。<br>注意到<code>PrivateObject.class.getDeclaredMethod(&quot;privateString&quot;)</code>,将返回当前类定义的私的方法而不是父类的私有方法。<br>注意到<code>Method.setAcessible(true)</code>你是在了直达Method对象的访问属性。所以捏那个访问私有的，受保护的甚至是相同包的方法。常规的方法编译器是不接受的。<br><a href="http://tutorials.jenkov.com/java-reflection/private-fields-and-methods.html" target="_blank" rel="noopener">原文</a></p>
 
                     </article>
@@ -549,6 +396,7 @@ Accessing Private Methods
 
     <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
     <script>
+    (function() {
         var dateUpdate = Date.parse("2018-08-05");
         var nowDate = new Date();
         var a = nowDate.getTime();
@@ -559,6 +407,7 @@ Accessing Private Methods
         } else {
             document.getElementById('date-expire-notification').style.display = 'none';
         }
+    })();
     </script>
 
 
@@ -571,8 +420,7 @@ Accessing Private Methods
 
 <span class="post-categories-list mt-2">
 
-
-<a class="post-categories-list-item" href='/categories/Java译文/'>Java译文</a>
+<a class="post-categories-list-item" href='/categories/Java%E8%AF%91%E6%96%87/'>Java译文</a>
 
 </span>
 
@@ -580,10 +428,9 @@ Accessing Private Methods
 
 <span class="post-tags-list mt-2">
 
+<a class="post-tags-list-item" href="/tags/Java%E5%8F%8D%E5%B0%84/" rel="tag">#&nbsp;Java反射</a>
 
-<a class="post-tags-list-item" href="/tags/Java反射/" rel="tag">#&nbsp;Java反射</a>
-
-<a class="post-tags-list-item" href="/tags/私有域和方法/" rel="tag">#&nbsp;私有域和方法</a>
+<a class="post-tags-list-item" href="/tags/%E7%A7%81%E6%9C%89%E5%9F%9F%E5%92%8C%E6%96%B9%E6%B3%95/" rel="tag">#&nbsp;私有域和方法</a>
 
 </span>
 
@@ -591,13 +438,12 @@ Accessing Private Methods
 </p>
 
                 </div>
-                
-<div class="post-nav px-2 bg-gray">
+                <div class="post-nav px-2 bg-gray">
 <ul class="pagination">
     <!-- Prev Nav -->
     
         <li class="page-item page-prev">
-            <a href="/2017/02/26/Java反射8-注解/" rel="prev">
+            <a href="/2017/02/26/Java%E5%8F%8D%E5%B0%848-%E6%B3%A8%E8%A7%A3/" rel="prev">
                 <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
                 <div class="page-item-subtitle">Java反射8-注解</div>
             </a>
@@ -607,7 +453,7 @@ Accessing Private Methods
     <!-- Next Nav -->
     
         <li class="page-item page-next">
-            <a href="/2017/02/26/Java反射6-setter和getter/" rel="next">
+            <a href="/2017/02/26/Java%E5%8F%8D%E5%B0%846-setter%E5%92%8Cgetter/" rel="next">
                 <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
                 <div class="page-item-subtitle">Java反射6-setter和getter</div>
             </a>
@@ -628,9 +474,11 @@ Accessing Private Methods
             <!-- ### Footer ### -->
             <footer class="text-center">
     <!-- footer copyright -->
-    <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span data-year></span>
-        <a class="footer-copyright-a" href="http://lysmbetter.top">Better</a>
-    </p>
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="http://lysmbetter.top">Better</a>
+        </p>
+
     <!-- footer custom text -->
     <p class="footer-text mb-0">
     
@@ -638,7 +486,6 @@ Accessing Private Methods
     <!-- footer develop info -->
     <p class="footer-develop mb-0">
         
-            
     <!-- Busuanzi User Views -->
     <span id="busuanzi_container_site_uv" hidden>
         <span></span>
@@ -651,7 +498,7 @@ Accessing Private Methods
 
 
 
-        
+
         
         Powered by&nbsp;<!--
          --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
@@ -659,40 +506,23 @@ Accessing Private Methods
     </p>
 </footer>
 
-        
 
         <!-- ### Import File ### -->
         <!-- ### Footer JS Import ### -->
 
 <script>
+
+    
 window.lazyLoadOptions = {
     elements_selector: ".lazyload",
     threshold: 50
 };
-
-
-
-    /* Copyright */
-    var copyrightNow = new Date().getFullYear();
-    var copyrightContent = document.querySelector('span[data-year]')
-    
-        copyrightContent.textContent = copyrightNow
-    
-
-
-
-/* Cnosole Log */
+document.getElementById('copyright-year').textContent = new Date().getFullYear();
 console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
 </script>
 
-<!-- vanilla-lazyload -->
-
-    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
-
-
-
-    <!-- Busuanzi -->
-    
+<script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
     <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
 
 
@@ -701,17 +531,10 @@ console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c 
 
 
 
-
-
-
-<!-- gallery.js -->
-
-
 <!-- Comment -->
 
 
 <!-- ### Custom Footer ### -->
-
 
     </body>
 

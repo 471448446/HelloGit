@@ -1,26 +1,18 @@
 <!DOCTYPE html>
 
 <html lang="zh-Hans">
-    <head><meta name="generator" content="Hexo 3.9.0">
+    <head>
     <meta charset="utf-8">
     <!--
-        © SukkaW
+        hexo-theme-suka © SukkaW
         GitHub: https://github.com/SukkaW/hexo-theme-suka
-        Version: 1.3.3
     -->
-    <script>
-window.lsVersion = "1.3.3",
-window.oldVersion = [
-    
-        
-            "0.2.0","0.0.1","0.1.0","1.0.0","1.0.1","1.1.0","1.1.1","1.2.0","1.3.0","1.3.2"
-        
-    
-]
-</script>
 
-    <!-- ### DNS Prefetch ### -->
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
     <meta http-equiv="x-dns-prefetch-control" content="on">
+
 <!-- busuanzi -->
 
     <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
@@ -42,8 +34,7 @@ window.oldVersion = [
 
 
 
-
-    <!-- ### Preload ### -->
+    <!-- ## Preload ## -->
     
     <!-- Busuanzi -->
     
@@ -56,47 +47,18 @@ window.oldVersion = [
 
 
     <!-- ### Meta & Title & Info ### -->
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
-<meta name="renderer" content="webkit">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
 
-<!-- Title -->
-<title>Java-网络 | Better</title>
+    <!-- Title -->
+    <title>Java-网络 | Better</title>
 
-<!-- favicon -->
-<!-- Favicons -->
-
-    <link rel="icon" type="image/ico" href="/img/suka-favicon.ico">
-
-
-
-
-
-
-<!-- Android Chrome Color -->
-
-
-
-<meta name="format-detection" content="telephone=no">
-
-<!-- Description -->
-<meta name="description" content="网络编程指的是让所写的代码在几个设备之间运行，为的是将这些设备通过网络彼此相连。在J2SE下的java.net包中的API，提供了一些低级别的类和接口，帮助你专注于解决手上的问题。">
-
-<!-- Keywords -->
-<meta name="keywords" content=", Socket">
-
-<!-- Disable Fucking Bloody Baidu Tranformation -->
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/suka-favicon.ico">
 
     <!-- ### Import File ### -->
-    
-        <!-- spectre.css -->
-
-    <link rel="stylesheet" href="/lib/spectre/spectre.min.css">
-
-
-<style>
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css"><style>
     body {
         background-color: #f8f9fa;
     }
@@ -117,6 +79,8 @@ window.oldVersion = [
         color: #005eb9;
         opacity: 1;
     }
+
+    
 
     .post-entry .card-body a {
         color: #0070ff;
@@ -159,12 +123,7 @@ window.oldVersion = [
         background: #f8f9fa;
         opacity: .85;
     }
-</style>
-
-<!-- style.css -->
-
-    <link rel="stylesheet" href="/css/style.min.css">
-
+</style><link rel="stylesheet" href="/css/style.min.css">
 
 
 
@@ -175,58 +134,32 @@ window.oldVersion = [
 
     <!-- Prettify Theme -->
     
-    
-        <link rel="stylesheet" href="/css/highlight/github.min.css">
-    
+    <link rel="preload" href="/css/highlight/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/css/highlight/github.min.css"></noscript>
 
 
 
-    
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
 
     <!-- ### Site Verification ### -->
     
 
 
-    <!-- ### RSS ### -->
-    
-
-    <!-- ### WebApp ### -->
-    <meta name="mobile-web-app-capable" content="yes">
-<meta name="application-name" content="Better">
-<meta name="msapplication-starturl" content="http://lysmbetter.top">
-
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Better">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-<!-- Manifest Import -->
-
-<!-- Open Search -->
-
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="Better"><meta name="msapplication-starturl" content="http://lysmbetter.top"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Better"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- ### The Open Graph & Twitter Card Protocol ### -->
-    <meta property="og:title" content="Java-网络 | Better">
-<meta property="og:site_name" content="Better">
+    <meta property="og:title" content="Java-网络 | Better"><meta property="og:site_name" content="Better"><meta property="og:type" content="article"><meta property="og:url" content="http:&#x2F;&#x2F;lysmbetter.top&#x2F;2017&#x2F;04&#x2F;10&#x2F;java-%E7%BD%91%E7%BB%9C&#x2F;"><meta property="og:locale" content="zh-Hans"><meta name="description" content="网络编程指的是让所写的代码在几个设备之间运行，为的是将这些设备通过网络彼此相连。在J2SE下的java.net包中的API，提供了一些低级别的类和接口，帮助你专注于解决手上的问题。java,net 包提供了两种网络协议：  TCP 传输控制协议，应许你在两个设备之间建立连接。TCP协议广泛使用与网络协议中，被称为TCP&#x2F;IP. UDP 用户数据协议，一种无连接协议，允许数据包在应用程序之间传输。本 - Better - Better"><meta name="keywords" content="Socket"><meta property="article:published_time" content="2017-04-10T11:35:43.000Z"><meta property="article:modified_time" content="2018-08-05T07:12:33.554Z"><meta property="og:updated_time" content="2018-08-05T07:12:33.554Z"><meta property="article:author" content="Better"><meta property="article:tag" content="Socket"><meta name="twitter:card" content="summary">
 
-<meta property="og:locale" content="zh-Hans">
+    
 
-<meta property="og:url" content="http://lysmbetter.top/2017/04/10/java-网络/">
-<meta property="og:image" content="http://lysmbetter.top/img/suka-favicon.ico">
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://lysmbetter.top/2017/04/10/java-%E7%BD%91%E7%BB%9C/">
 
-<meta property="og:description" content="网络编程指的是让所写的代码在几个设备之间运行，为的是将这些设备通过网络彼此相连。在J2SE下的java.net包中的API，提供了一些低级别的类和接口，帮助你专注于解决手上的问题。">
-
-<meta name="twitter:card" content="summary">
-
-
-    <meta property="og:type" content="article">
-    <meta property="article:published_time" content="2017-04-10T11:35:43.000Z">
-    <meta property="article:modified_time" content="2017-04-10T11:35:43.000Z">
-    <meta property="article:author" content="Better">
-    <meta property="og:article:tag" content=", Socket"> 
-
-
-
-
+    <meta name="generator" content="Hexo 4.0.0">
 
     <!-- ### Analytics ### -->
     
@@ -237,10 +170,6 @@ window.oldVersion = [
 
 
 
-
-    <!-- ### Canonical link ### -->
-    <link rel="canonical" href="http://lysmbetter.top/2017/04/10/java-网络/">
-
     <!-- ### Structured Data ### -->
     
 
@@ -249,12 +178,12 @@ window.oldVersion = [
 <script type="application/ld+json">
 {
     "@context": "http://schema.org",
-    "url": "http://lysmbetter.top/2017/04/10/java-网络/",
+    "url": "http://lysmbetter.top/2017/04/10/java-%E7%BD%91%E7%BB%9C/",
     "@type": "BlogPosting",
     "logo": "http://lysmbetter.top/img/suka-favicon.ico",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://lysmbetter.top/2017/04/10/java-网络/"
+        "@id": "http://lysmbetter.top/2017/04/10/java-%E7%BD%91%E7%BB%9C/"
     },
     "headline": "Java-网络 | Better",
     
@@ -272,7 +201,7 @@ window.oldVersion = [
             "@type": "ImageObject",
             "url": "http://lysmbetter.top/img/default_avatar.png"
         },
-        "description": "Hi, nice to meet you."
+        "description": "业精于勤荒于嬉"
     },
     "publisher": {
         "@type": "Organization",
@@ -289,8 +218,8 @@ window.oldVersion = [
         "query-input": "required name=search_term_string"
     },
     
-    "keywords": ", Socket",
-    "description": "网络编程指的是让所写的代码在几个设备之间运行，为的是将这些设备通过网络彼此相连。在J2SE下的java.net包中的API，提供了一些低级别的类和接口，帮助你专注于解决手上的问题。"
+    "keywords": "Socket",
+    "description": "网络编程指的是让所写的代码在几个设备之间运行，为的是将这些设备通过网络彼此相连。在J2SE下的java.net包中的API，提供了一些低级别的类和接口，帮助你专注于解决手上的问题。java,net 包提供了两种网络协议：  TCP 传输控制协议，应许你在两个设备之间建立连接。TCP协议广泛使用与网络协议中，被称为TCP/IP. UDP 用户数据协议，一种无连接协议，允许数据包在应用程序之间传输。本 - Better - Better"
 }
 </script>
 
@@ -298,13 +227,9 @@ window.oldVersion = [
 
     <!-- ### Custom Head ### -->
     
-
-
 </head>
 
     <body>
-        
-
             
 
             <!-- ### Main content ### -->
@@ -315,7 +240,7 @@ window.oldVersion = [
     <p class="text-center header-slogan">
         
             
-                Hi, nice to meet you.
+                业精于勤荒于嬉
             
         
     </p>
@@ -331,69 +256,10 @@ window.oldVersion = [
         <a href="/search" class="navbar-link">Search</a>
     
     
+        <a href="/tags/" class="navbar-link">Tags</a>
     
-        <div class="dropdown dropdown-right">
-    <a class="navbar-link dropdown-toggle" tabindex="0">Share</a>
-    <ul class="menu share-menu">
-
-        <!-- Share Weibo -->
-        
-        <li class="menu-item">
-            <a href="http://service.weibo.com/share/share.php?appkey=&title=Better&url=http://lysmbetter.top&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
-        </li>
-        
-
-        <!-- Share Twitter -->
-        
-        <li class="menu-item">
-            <a href="https://twitter.com/intent/tweet?text=Better&url=http://lysmbetter.top&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
-        </li>
-        
-
-        <!-- Share Facebook -->
-        
-        <li class="menu-item">
-            <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
-        </li>
-        
-
-        <!-- Share Google+ -->
-        
-        <li class="menu-item">
-            <a href="https://plus.google.com/share?url=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
-        </li>
-        
-
-        <!-- Share LinkedIn -->
-        
-        <li class="menu-item">
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top&title=Java-网络" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
-        </li>
-        
-
-        <!-- Share QQ -->
-        
-        <li class="menu-item">
-            <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Java-网络&summary=描述文字&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
-        </li>
-        
-
-        <!-- Share Telegram -->
-        
-        <li class="menu-item">
-            <a href="https://t.me/share/url?url=http://lysmbetter.top&text=Java-网络" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
-        </li>
-        
-
-        <!-- QRCode -->
-        
-        <li class="menu-item">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB2UlEQVR42u3awbrCIAyE0b7/S+tW/cjMH+0C4nRj23uFs0AgCddjw+sKKqigglqgLnG9fWHxTv29elb9BDUHVXXyeb/qqGrHPS/bCGoU6nPgrd5XA9cNetJPUP+FUhMivQ8qqOp9tbiu4KS9oOaiqoWSIquFe9X5z7uEoLZHqQ39nZ+3RTNBbY2ySQcRnFYLtgpab8m6BLU1Sg3EqjOyOKvnMuAIagTKDeoqeeYSIC7IkJu8oI5HqQ1bO6AUGz71Pqg5KPVPnaCABK12kg5qBKqa9NxGjSIIMKiZKFXkcROlu3cbxKBmoUiwqRJebnIkE3NQs1BksJNCI97IdYLRoI5E0QREJ6HaGfC4ihXUMSh68MYVmDqFzFbWJajjUeQADU1yqCQZTsQGNQJFGnMLOA0kgpqHoht/2yCYdF3yJKh5KBJ4dgKDThEgqFkokiSjgcIvE2hQ81AqkCAFpc7BsKDmo0iDqlhNFnFcMArqaBQJHr4pBNAiVFDzUDSx2g0E6MFoHDgEdRSKLMQ0ia8K1+1DXUEdjXIDs4Nwh7hQgiOov0DRhD4JGFCCI6jRKBdA0B+G3FAGNQr1bbLefbcDDGoOiiQhVMKWJNTcQbCg5qB2uoIKKqigXq4n4psQr2M+f7UAAAAASUVORK5CYII=" alr="QRCode">
-        </li>
-        
-
-    </ul>
-</div>
+        <a href="/about/" class="navbar-link">About</a>
+    
     
     
 </nav>
@@ -401,11 +267,7 @@ window.oldVersion = [
 
             
     <!-- ## Post ## -->
-    
-    
-
-
-<div class="post-container">
+    <div class="post-container">
     <div id="post-card" class="card">
         
         <div class="card-item-container">
@@ -424,7 +286,7 @@ window.oldVersion = [
         <span>2017-04-10</span>
         
             <span class="suka-devide-dot"></span>
-            <a class="category-link" href="/categories/Java译文/">Java译文</a>
+            <a class="category-link" href="/categories/Java%E8%AF%91%E6%96%87/">Java译文</a>
         
         
             <!-- Busuanzi Post Views -->
@@ -445,56 +307,56 @@ window.oldVersion = [
     <!-- Share Weibo -->
     
     <li class="menu-item">
-        <a href="http://service.weibo.com/share/share.php?appkey=&title=Java-网络&url=http://lysmbetter.top/2017/04/10/java-网络/&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=Java-网络&url=http://lysmbetter.top/2017/04/10/java-%E7%BD%91%E7%BB%9C/&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
     </li>
     
 
     <!-- Share Twitter -->
     
     <li class="menu-item">
-        <a href="https://twitter.com/intent/tweet?text=Java-网络&url=http://lysmbetter.top/2017/04/10/java-网络/&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+        <a href="https://twitter.com/intent/tweet?text=Java-网络&url=http://lysmbetter.top/2017/04/10/java-%E7%BD%91%E7%BB%9C/&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
     </li>
     
 
     <!-- Share Facebook -->
     
     <li class="menu-item">
-        <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top/2017/04/10/java-网络/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top/2017/04/10/java-%E7%BD%91%E7%BB%9C/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
     </li>
     
 
     <!-- Share Google+ -->
     
     <li class="menu-item">
-        <a href="https://plus.google.com/share?url=http://lysmbetter.top/2017/04/10/java-网络/" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
+        <a href="https://plus.google.com/share?url=http://lysmbetter.top/2017/04/10/java-%E7%BD%91%E7%BB%9C/" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
     </li>
     
 
     <!-- Share LinkedIn -->
     
     <li class="menu-item">
-        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top/2017/04/10/java-网络/&title=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top/2017/04/10/java-%E7%BD%91%E7%BB%9C/&title=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
     </li>
     
 
     <!-- Share QQ -->
     
     <li class="menu-item">
-        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Better&summary=描述文字&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top/2017/04/10/java-网络/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Better&summary=业精于勤荒于嬉&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top/2017/04/10/java-%E7%BD%91%E7%BB%9C/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
     </li>
     
 
     <!-- Share Telegram -->
     
     <li class="menu-item">
-        <a href="https://t.me/share/url?url=http://lysmbetter.top/2017/04/10/java-网络/&text=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+        <a href="https://t.me/share/url?url=http://lysmbetter.top/2017/04/10/java-%E7%BD%91%E7%BB%9C/&text=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
     </li>
     
 
     <!-- QRCode -->
     
     <li class="menu-item">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB2UlEQVR42u3awbrCIAyE0b7/S+tW/cjMH+0C4nRj23uFs0AgCddjw+sKKqigglqgLnG9fWHxTv29elb9BDUHVXXyeb/qqGrHPS/bCGoU6nPgrd5XA9cNetJPUP+FUhMivQ8qqOp9tbiu4KS9oOaiqoWSIquFe9X5z7uEoLZHqQ39nZ+3RTNBbY2ySQcRnFYLtgpab8m6BLU1Sg3EqjOyOKvnMuAIagTKDeoqeeYSIC7IkJu8oI5HqQ1bO6AUGz71Pqg5KPVPnaCABK12kg5qBKqa9NxGjSIIMKiZKFXkcROlu3cbxKBmoUiwqRJebnIkE3NQs1BksJNCI97IdYLRoI5E0QREJ6HaGfC4ihXUMSh68MYVmDqFzFbWJajjUeQADU1yqCQZTsQGNQJFGnMLOA0kgpqHoht/2yCYdF3yJKh5KBJ4dgKDThEgqFkokiSjgcIvE2hQ81AqkCAFpc7BsKDmo0iDqlhNFnFcMArqaBQJHr4pBNAiVFDzUDSx2g0E6MFoHDgEdRSKLMQ0ia8K1+1DXUEdjXIDs4Nwh7hQgiOov0DRhD4JGFCCI6jRKBdA0B+G3FAGNQr1bbLefbcDDGoOiiQhVMKWJNTcQbCg5qB2uoIKKqigXq4n4psQr2M+f7UAAAAASUVORK5CYII=" alt="QRCode">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB2UlEQVR42u3cy66DMAyEYd7/pdttVcUzY2BBzJ8NUssJH0e5OlaPzwPLAQoUKFAL1CHK6p6ywp/vXR3lc0CNQVUPqR76f08FUPWtPgc1C/Xf8JLr6v70BZZ/B+o1KPXwCrG6BxSoatBTE6v6HNS7UKqBuslZfa9eDtRclGu4d11v282AejTKBh1CbNKob4u6gHo0yk2kakDsbjhU/aDmoNwG0i3SXOBsOfG6RR6orVHq5qriFKZwy38CqFGo7oPUhiE9KLDBfVBboqpJVVXkghzpQRKouah00a8CXsmBpQ2UgBqBcpsBFexyHaCNBDUGdcuh9GJAVJsRu0MGtTVKNWAHUQGRFAlqHkoFItT1yuG4DXCA2hrV2ZSqjYTqPMliEtQMVBJ07SRTqGBbPCGD2hqVLNQ+J0s3MRrUHJQb7NyBonsRd1AAah7qyiSaHhIkDR7ULFQ3EaeTbJEuJEHNQ3UWdMkAmxwsRckSoLZCdRq4C866Tapr7KBmoJIEh6sJEUngDdQslFu0uY7gwC7oD2om6kxQLJl0W50I1KtQNnnmZKJ8K3sR1BhUkvTQ6RjlQAxqFEpNtPIw+uj/gEg7AQfUdqjOhJoGXlX95QuBGoF6UgEFChSon/IFOdOQL+lVYnYAAAAASUVORK5CYII=" alt="QRCode">
     </li>
     
 
@@ -507,9 +369,8 @@ window.oldVersion = [
                 <div class="card-body">
                     
                         
-                            <div id="post-toc">
-                                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Socket-Programming"><span class="post-toc-number">1.</span> <span class="post-toc-text">Socket Programming</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ServerSocket-类方法"><span class="post-toc-number">2.</span> <span class="post-toc-text">ServerSocket 类方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Socket-类方法"><span class="post-toc-number">3.</span> <span class="post-toc-text">Socket 类方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Socket编程例子"><span class="post-toc-number">4.</span> <span class="post-toc-text">Socket编程例子</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Socker-服务端例子"><span class="post-toc-number">5.</span> <span class="post-toc-text">Socker 服务端例子</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#输出"><span class="post-toc-number">6.</span> <span class="post-toc-text">输出</span></a></li></ol>
-                            </div>
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Socket-Programming"><span class="post-toc-number">1.</span> <span class="post-toc-text">Socket Programming</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ServerSocket-类方法"><span class="post-toc-number">2.</span> <span class="post-toc-text">ServerSocket 类方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Socket-类方法"><span class="post-toc-number">3.</span> <span class="post-toc-text">Socket 类方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Socket编程例子"><span class="post-toc-number">4.</span> <span class="post-toc-text">Socket编程例子</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Socker-服务端例子"><span class="post-toc-number">5.</span> <span class="post-toc-text">Socker 服务端例子</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#输出"><span class="post-toc-number">6.</span> <span class="post-toc-text">输出</span></a></li></ol></div>
                         
                     
                     <article id="post-content">
@@ -701,10 +562,9 @@ window.oldVersion = [
 </tr>
 </tbody></table>
 <h2 id="Socket编程例子"><a href="#Socket编程例子" class="headerlink" title="Socket编程例子"></a>Socket编程例子</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">// File Name GreetingClient.java</span><br><span class="line">import java.net.*;</span><br><span class="line">import java.io.*;</span><br><span class="line"></span><br><span class="line">public class GreetingClient &#123;</span><br><span class="line"></span><br><span class="line">   public static void main(String [] args) &#123;</span><br><span class="line">      String serverName = args[0];</span><br><span class="line">      int port = Integer.parseInt(args[1]);</span><br><span class="line">      try &#123;</span><br><span class="line">         System.out.println(&quot;Connecting to &quot; + serverName + &quot; on port &quot; + port);</span><br><span class="line">         Socket client = new Socket(serverName, port);</span><br><span class="line">         </span><br><span class="line">         System.out.println(&quot;Just connected to &quot; + client.getRemoteSocketAddress());</span><br><span class="line">         OutputStream outToServer = client.getOutputStream();</span><br><span class="line">         DataOutputStream out = new DataOutputStream(outToServer);</span><br><span class="line">         </span><br><span class="line">         out.writeUTF(&quot;Hello from &quot; + client.getLocalSocketAddress());</span><br><span class="line">         InputStream inFromServer = client.getInputStream();</span><br><span class="line">         DataInputStream in = new DataInputStream(inFromServer);</span><br><span class="line">         </span><br><span class="line">         System.out.println(&quot;Server says &quot; + in.readUTF());</span><br><span class="line">         client.close();</span><br><span class="line">      &#125;catch(IOException e) &#123;</span><br><span class="line">         e.printStackTrace();</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h2 id="Socker-服务端例子"><a href="#Socker-服务端例子" class="headerlink" title="Socker 服务端例子"></a>Socker 服务端例子</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">import java.net.*;</span><br><span class="line">import java.io.*;</span><br><span class="line"></span><br><span class="line">public class GreetingServer extends Thread &#123;</span><br><span class="line">   private ServerSocket serverSocket;</span><br><span class="line">   </span><br><span class="line">   public GreetingServer(int port) throws IOException &#123;</span><br><span class="line">      serverSocket = new ServerSocket(port);</span><br><span class="line">      serverSocket.setSoTimeout(10000);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   public void run() &#123;</span><br><span class="line">      while(true) &#123;</span><br><span class="line">         try &#123;</span><br><span class="line">            System.out.println(&quot;Waiting for client on port &quot; + </span><br><span class="line">               serverSocket.getLocalPort() + &quot;...&quot;);</span><br><span class="line">            Socket server = serverSocket.accept();</span><br><span class="line">            </span><br><span class="line">            System.out.println(&quot;Just connected to &quot; + server.getRemoteSocketAddress());</span><br><span class="line">            DataInputStream in = new DataInputStream(server.getInputStream());</span><br><span class="line">            </span><br><span class="line">            System.out.println(in.readUTF());</span><br><span class="line">            DataOutputStream out = new DataOutputStream(server.getOutputStream());</span><br><span class="line">            out.writeUTF(&quot;Thank you for connecting to &quot; + server.getLocalSocketAddress()</span><br><span class="line">               + &quot;\nGoodbye!&quot;);</span><br><span class="line">            server.close();</span><br><span class="line">            </span><br><span class="line">         &#125;catch(SocketTimeoutException s) &#123;</span><br><span class="line">            System.out.println(&quot;Socket timed out!&quot;);</span><br><span class="line">            break;</span><br><span class="line">         &#125;catch(IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            break;</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   public static void main(String [] args) &#123;</span><br><span class="line">      int port = Integer.parseInt(args[0]);</span><br><span class="line">      try &#123;</span><br><span class="line">         Thread t = new GreetingServer(port);</span><br><span class="line">         t.start();</span><br><span class="line">      &#125;catch(IOException e) &#123;</span><br><span class="line">         e.printStackTrace();</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ java GreetingClient localhost 6066</span><br><span class="line">Connecting to localhost on port 6066</span><br><span class="line">Just connected to localhost/127.0.0.1:6066</span><br><span class="line">Server says Thank you for connecting to /127.0.0.1:6066</span><br><span class="line">Goodbye!</span><br></pre></td></tr></table></figure>
+
 
 <p><a href="https://www.tutorialspoint.com/java/java_networking.htm" target="_blank" rel="noopener">原文</a></p>
 
@@ -714,6 +574,7 @@ window.oldVersion = [
 
     <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
     <script>
+    (function() {
         var dateUpdate = Date.parse("2018-08-05");
         var nowDate = new Date();
         var a = nowDate.getTime();
@@ -724,6 +585,7 @@ window.oldVersion = [
         } else {
             document.getElementById('date-expire-notification').style.display = 'none';
         }
+    })();
     </script>
 
 
@@ -736,15 +598,13 @@ window.oldVersion = [
 
 <span class="post-categories-list mt-2">
 
-
-<a class="post-categories-list-item" href='/categories/Java译文/'>Java译文</a>
+<a class="post-categories-list-item" href='/categories/Java%E8%AF%91%E6%96%87/'>Java译文</a>
 
 </span>
 
 
 
 <span class="post-tags-list mt-2">
-
 
 <a class="post-tags-list-item" href="/tags/Socket/" rel="tag">#&nbsp;Socket</a>
 
@@ -754,8 +614,7 @@ window.oldVersion = [
 </p>
 
                 </div>
-                
-<div class="post-nav px-2 bg-gray">
+                <div class="post-nav px-2 bg-gray">
 <ul class="pagination">
     <!-- Prev Nav -->
     
@@ -770,7 +629,7 @@ window.oldVersion = [
     <!-- Next Nav -->
     
         <li class="page-item page-next">
-            <a href="/2017/04/08/Android开发中地图坐标系以及调用地图导航/" rel="next">
+            <a href="/2017/04/08/Android%E5%BC%80%E5%8F%91%E4%B8%AD%E5%9C%B0%E5%9B%BE%E5%9D%90%E6%A0%87%E7%B3%BB%E4%BB%A5%E5%8F%8A%E8%B0%83%E7%94%A8%E5%9C%B0%E5%9B%BE%E5%AF%BC%E8%88%AA/" rel="next">
                 <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
                 <div class="page-item-subtitle">Android开发中地图坐标系以及调用地图导航</div>
             </a>
@@ -791,9 +650,11 @@ window.oldVersion = [
             <!-- ### Footer ### -->
             <footer class="text-center">
     <!-- footer copyright -->
-    <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span data-year></span>
-        <a class="footer-copyright-a" href="http://lysmbetter.top">Better</a>
-    </p>
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="http://lysmbetter.top">Better</a>
+        </p>
+
     <!-- footer custom text -->
     <p class="footer-text mb-0">
     
@@ -801,7 +662,6 @@ window.oldVersion = [
     <!-- footer develop info -->
     <p class="footer-develop mb-0">
         
-            
     <!-- Busuanzi User Views -->
     <span id="busuanzi_container_site_uv" hidden>
         <span></span>
@@ -814,7 +674,7 @@ window.oldVersion = [
 
 
 
-        
+
         
         Powered by&nbsp;<!--
          --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
@@ -822,40 +682,23 @@ window.oldVersion = [
     </p>
 </footer>
 
-        
 
         <!-- ### Import File ### -->
         <!-- ### Footer JS Import ### -->
 
 <script>
+
+    
 window.lazyLoadOptions = {
     elements_selector: ".lazyload",
     threshold: 50
 };
-
-
-
-    /* Copyright */
-    var copyrightNow = new Date().getFullYear();
-    var copyrightContent = document.querySelector('span[data-year]')
-    
-        copyrightContent.textContent = copyrightNow
-    
-
-
-
-/* Cnosole Log */
+document.getElementById('copyright-year').textContent = new Date().getFullYear();
 console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
 </script>
 
-<!-- vanilla-lazyload -->
-
-    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
-
-
-
-    <!-- Busuanzi -->
-    
+<script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
     <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
 
 
@@ -864,17 +707,10 @@ console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c 
 
 
 
-
-
-
-<!-- gallery.js -->
-
-
 <!-- Comment -->
 
 
 <!-- ### Custom Footer ### -->
-
 
     </body>
 

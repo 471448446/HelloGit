@@ -1,26 +1,18 @@
 <!DOCTYPE html>
 
 <html lang="zh-Hans">
-    <head><meta name="generator" content="Hexo 3.9.0">
+    <head>
     <meta charset="utf-8">
     <!--
-        © SukkaW
+        hexo-theme-suka © SukkaW
         GitHub: https://github.com/SukkaW/hexo-theme-suka
-        Version: 1.3.3
     -->
-    <script>
-window.lsVersion = "1.3.3",
-window.oldVersion = [
-    
-        
-            "0.2.0","0.0.1","0.1.0","1.0.0","1.0.1","1.1.0","1.1.1","1.2.0","1.3.0","1.3.2"
-        
-    
-]
-</script>
 
-    <!-- ### DNS Prefetch ### -->
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
     <meta http-equiv="x-dns-prefetch-control" content="on">
+
 <!-- busuanzi -->
 
     <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
@@ -42,8 +34,7 @@ window.oldVersion = [
 
 
 
-
-    <!-- ### Preload ### -->
+    <!-- ## Preload ## -->
     
     <!-- Busuanzi -->
     
@@ -56,51 +47,18 @@ window.oldVersion = [
 
 
     <!-- ### Meta & Title & Info ### -->
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
-<meta name="renderer" content="webkit">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
 
-<!-- Title -->
-<title>Java反射12-动态加载和重加载类 | Better</title>
+    <!-- Title -->
+    <title>Java反射12-动态加载和重加载类 | Better</title>
 
-<!-- favicon -->
-<!-- Favicons -->
-
-    <link rel="icon" type="image/ico" href="/img/suka-favicon.ico">
-
-
-
-
-
-
-<!-- Android Chrome Color -->
-
-
-
-<meta name="format-detection" content="telephone=no">
-
-<!-- Description -->
-<meta name="description" content="
-The ClassLoader
-The ClassLoader Hierarchy
-Class Loading
-Dynamic Class Loading">
-
-<!-- Keywords -->
-<meta name="keywords" content=", Java反射, 类加载">
-
-<!-- Disable Fucking Bloody Baidu Tranformation -->
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/suka-favicon.ico">
 
     <!-- ### Import File ### -->
-    
-        <!-- spectre.css -->
-
-    <link rel="stylesheet" href="/lib/spectre/spectre.min.css">
-
-
-<style>
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css"><style>
     body {
         background-color: #f8f9fa;
     }
@@ -121,6 +79,8 @@ Dynamic Class Loading">
         color: #005eb9;
         opacity: 1;
     }
+
+    
 
     .post-entry .card-body a {
         color: #0070ff;
@@ -163,12 +123,7 @@ Dynamic Class Loading">
         background: #f8f9fa;
         opacity: .85;
     }
-</style>
-
-<!-- style.css -->
-
-    <link rel="stylesheet" href="/css/style.min.css">
-
+</style><link rel="stylesheet" href="/css/style.min.css">
 
 
 
@@ -179,62 +134,32 @@ Dynamic Class Loading">
 
     <!-- Prettify Theme -->
     
-    
-        <link rel="stylesheet" href="/css/highlight/github.min.css">
-    
+    <link rel="preload" href="/css/highlight/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/css/highlight/github.min.css"></noscript>
 
 
 
-    
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
 
     <!-- ### Site Verification ### -->
     
 
 
-    <!-- ### RSS ### -->
-    
-
-    <!-- ### WebApp ### -->
-    <meta name="mobile-web-app-capable" content="yes">
-<meta name="application-name" content="Better">
-<meta name="msapplication-starturl" content="http://lysmbetter.top">
-
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Better">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-<!-- Manifest Import -->
-
-<!-- Open Search -->
-
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="Better"><meta name="msapplication-starturl" content="http://lysmbetter.top"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Better"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- ### The Open Graph & Twitter Card Protocol ### -->
-    <meta property="og:title" content="Java反射12-动态加载和重加载类 | Better">
-<meta property="og:site_name" content="Better">
+    <meta property="og:title" content="Java反射12-动态加载和重加载类 | Better"><meta property="og:site_name" content="Better"><meta property="og:type" content="article"><meta property="og:url" content="http:&#x2F;&#x2F;lysmbetter.top&#x2F;2017&#x2F;02&#x2F;28&#x2F;Java%E5%8F%8D%E5%B0%8412-%E5%8A%A8%E6%80%81%E5%8A%A0%E8%BD%BD%E5%92%8C%E9%87%8D%E5%8A%A0%E8%BD%BD%E7%B1%BB&#x2F;"><meta property="og:locale" content="zh-Hans"><meta name="description" content="The ClassLoader The ClassLoader Hierarchy Class Loading Dynamic Class Loading Dynamic Class Reloading Designing your Code for Class Reloading ClassLoader Load &#x2F; Reload Example  在程序运行时去加载和重加载类是可能的，虽然它不 - Better - Better"><meta name="keywords" content="Java反射, 类加载"><meta property="article:published_time" content="2017-02-28T12:51:39.000Z"><meta property="article:modified_time" content="2018-08-05T06:56:15.556Z"><meta property="og:updated_time" content="2018-08-05T06:56:15.556Z"><meta property="article:author" content="Better"><meta property="article:tag" content="Java反射, 类加载"><meta name="twitter:card" content="summary">
 
-<meta property="og:locale" content="zh-Hans">
+    
 
-<meta property="og:url" content="http://lysmbetter.top/2017/02/28/Java反射12-动态加载和重加载类/">
-<meta property="og:image" content="http://lysmbetter.top/img/suka-favicon.ico">
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://lysmbetter.top/2017/02/28/Java%E5%8F%8D%E5%B0%8412-%E5%8A%A8%E6%80%81%E5%8A%A0%E8%BD%BD%E5%92%8C%E9%87%8D%E5%8A%A0%E8%BD%BD%E7%B1%BB/">
 
-<meta property="og:description" content="
-The ClassLoader
-The ClassLoader Hierarchy
-Class Loading
-Dynamic Class Loading">
-
-<meta name="twitter:card" content="summary">
-
-
-    <meta property="og:type" content="article">
-    <meta property="article:published_time" content="2017-02-28T12:51:39.000Z">
-    <meta property="article:modified_time" content="2017-02-28T12:51:39.000Z">
-    <meta property="article:author" content="Better">
-    <meta property="og:article:tag" content=", Java反射, 类加载"> 
-
-
-
-
+    <meta name="generator" content="Hexo 4.0.0">
 
     <!-- ### Analytics ### -->
     
@@ -245,10 +170,6 @@ Dynamic Class Loading">
 
 
 
-
-    <!-- ### Canonical link ### -->
-    <link rel="canonical" href="http://lysmbetter.top/2017/02/28/Java反射12-动态加载和重加载类/">
-
     <!-- ### Structured Data ### -->
     
 
@@ -257,12 +178,12 @@ Dynamic Class Loading">
 <script type="application/ld+json">
 {
     "@context": "http://schema.org",
-    "url": "http://lysmbetter.top/2017/02/28/Java反射12-动态加载和重加载类/",
+    "url": "http://lysmbetter.top/2017/02/28/Java%E5%8F%8D%E5%B0%8412-%E5%8A%A8%E6%80%81%E5%8A%A0%E8%BD%BD%E5%92%8C%E9%87%8D%E5%8A%A0%E8%BD%BD%E7%B1%BB/",
     "@type": "BlogPosting",
     "logo": "http://lysmbetter.top/img/suka-favicon.ico",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://lysmbetter.top/2017/02/28/Java反射12-动态加载和重加载类/"
+        "@id": "http://lysmbetter.top/2017/02/28/Java%E5%8F%8D%E5%B0%8412-%E5%8A%A8%E6%80%81%E5%8A%A0%E8%BD%BD%E5%92%8C%E9%87%8D%E5%8A%A0%E8%BD%BD%E7%B1%BB/"
     },
     "headline": "Java反射12-动态加载和重加载类 | Better",
     
@@ -280,7 +201,7 @@ Dynamic Class Loading">
             "@type": "ImageObject",
             "url": "http://lysmbetter.top/img/default_avatar.png"
         },
-        "description": "Hi, nice to meet you."
+        "description": "业精于勤荒于嬉"
     },
     "publisher": {
         "@type": "Organization",
@@ -297,12 +218,8 @@ Dynamic Class Loading">
         "query-input": "required name=search_term_string"
     },
     
-    "keywords": ", Java反射, 类加载",
-    "description": "
-The ClassLoader
-The ClassLoader Hierarchy
-Class Loading
-Dynamic Class Loading"
+    "keywords": "Java反射, 类加载",
+    "description": "The ClassLoader The ClassLoader Hierarchy Class Loading Dynamic Class Loading Dynamic Class Reloading Designing your Code for Class Reloading ClassLoader Load / Reload Example  在程序运行时去加载和重加载类是可能的，虽然它不 - Better - Better"
 }
 </script>
 
@@ -310,13 +227,9 @@ Dynamic Class Loading"
 
     <!-- ### Custom Head ### -->
     
-
-
 </head>
 
     <body>
-        
-
             
 
             <!-- ### Main content ### -->
@@ -327,7 +240,7 @@ Dynamic Class Loading"
     <p class="text-center header-slogan">
         
             
-                Hi, nice to meet you.
+                业精于勤荒于嬉
             
         
     </p>
@@ -343,69 +256,10 @@ Dynamic Class Loading"
         <a href="/search" class="navbar-link">Search</a>
     
     
+        <a href="/tags/" class="navbar-link">Tags</a>
     
-        <div class="dropdown dropdown-right">
-    <a class="navbar-link dropdown-toggle" tabindex="0">Share</a>
-    <ul class="menu share-menu">
-
-        <!-- Share Weibo -->
-        
-        <li class="menu-item">
-            <a href="http://service.weibo.com/share/share.php?appkey=&title=Better&url=http://lysmbetter.top&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
-        </li>
-        
-
-        <!-- Share Twitter -->
-        
-        <li class="menu-item">
-            <a href="https://twitter.com/intent/tweet?text=Better&url=http://lysmbetter.top&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
-        </li>
-        
-
-        <!-- Share Facebook -->
-        
-        <li class="menu-item">
-            <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
-        </li>
-        
-
-        <!-- Share Google+ -->
-        
-        <li class="menu-item">
-            <a href="https://plus.google.com/share?url=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
-        </li>
-        
-
-        <!-- Share LinkedIn -->
-        
-        <li class="menu-item">
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top&title=Java反射12-动态加载和重加载类" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
-        </li>
-        
-
-        <!-- Share QQ -->
-        
-        <li class="menu-item">
-            <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Java反射12-动态加载和重加载类&summary=描述文字&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
-        </li>
-        
-
-        <!-- Share Telegram -->
-        
-        <li class="menu-item">
-            <a href="https://t.me/share/url?url=http://lysmbetter.top&text=Java反射12-动态加载和重加载类" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
-        </li>
-        
-
-        <!-- QRCode -->
-        
-        <li class="menu-item">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKQAAACkCAAAAAA83tqdAAACKElEQVR42u3b0U7DQAxE0f7/T8MTEmqTmetSRIlvXopCSM5K2a3XNrePf3DcRIoUKfINkLdw3F/zcJODa7/Of/88+119rsi1yMOX9g55hLo/335uA3h4rsjVyAQ4XWwPBpJwk/MiRTYkmUhpMGnBFyny2YmTBjCZKCJFEmQLTlvQejZJ2n1eEgWJvBwybYh+8/Nlu0WRl0LWpFGYIO2aM8zLs2oiL4VML/LZItsCkLRZo88TuRdJISTRmh7e7n14jciVyNNNEJw8KahtXwL1WpErkTQB2lBpgk2DFZEi003oQydBSDtEiiTJo2fOp8mVBiVyN7Il5aeJKFKYxz+LXI9MG/i0KP/kiyEWBUSuRDYoTYimvyEDiwVQkeuQ02Rpg6XC5+Q6kSJbMZ0k/SeJhJYkE7kX2V5ysvii4tGgMUrkbuR0gtAGJRpI4wKoyBVIEpSSZH9L4k+aRkWKbFDSuESTp7S4L3IvsiUy2wQjyYJnGk5EimwvP21KogX61PQkcjeSJEIngyBJLlIYECkSbYxu/B/YaJEzDlzkamSaHG0hJxNmmpgVKXLSxE6aQMnmqxb2Ra5EtoM2dZLG0JY0wEV5kZdG0pe5FTDpwj4KaESuRbZggAawLUlFN3QiRaabTTb9pImEBtIiRTZkCwxI41JrRhYpkiLPXvyacIIJ09PCk8jVyMkGjBTgyT3Gi7nINcj2hd+aMdNgpw1OIkW+8yFSpEiRf3h8As5n9lWLVE2sAAAAAElFTkSuQmCC" alr="QRCode">
-        </li>
-        
-
-    </ul>
-</div>
+        <a href="/about/" class="navbar-link">About</a>
+    
     
     
 </nav>
@@ -413,11 +267,7 @@ Dynamic Class Loading"
 
             
     <!-- ## Post ## -->
-    
-    
-
-
-<div class="post-container">
+    <div class="post-container">
     <div id="post-card" class="card">
         
         <div class="card-item-container">
@@ -436,7 +286,7 @@ Dynamic Class Loading"
         <span>2017-02-28</span>
         
             <span class="suka-devide-dot"></span>
-            <a class="category-link" href="/categories/Java译文/">Java译文</a>
+            <a class="category-link" href="/categories/Java%E8%AF%91%E6%96%87/">Java译文</a>
         
         
             <!-- Busuanzi Post Views -->
@@ -457,56 +307,56 @@ Dynamic Class Loading"
     <!-- Share Weibo -->
     
     <li class="menu-item">
-        <a href="http://service.weibo.com/share/share.php?appkey=&title=Java反射12-动态加载和重加载类&url=http://lysmbetter.top/2017/02/28/Java反射12-动态加载和重加载类/&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=Java反射12-动态加载和重加载类&url=http://lysmbetter.top/2017/02/28/Java%E5%8F%8D%E5%B0%8412-%E5%8A%A8%E6%80%81%E5%8A%A0%E8%BD%BD%E5%92%8C%E9%87%8D%E5%8A%A0%E8%BD%BD%E7%B1%BB/&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
     </li>
     
 
     <!-- Share Twitter -->
     
     <li class="menu-item">
-        <a href="https://twitter.com/intent/tweet?text=Java反射12-动态加载和重加载类&url=http://lysmbetter.top/2017/02/28/Java反射12-动态加载和重加载类/&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+        <a href="https://twitter.com/intent/tweet?text=Java反射12-动态加载和重加载类&url=http://lysmbetter.top/2017/02/28/Java%E5%8F%8D%E5%B0%8412-%E5%8A%A8%E6%80%81%E5%8A%A0%E8%BD%BD%E5%92%8C%E9%87%8D%E5%8A%A0%E8%BD%BD%E7%B1%BB/&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
     </li>
     
 
     <!-- Share Facebook -->
     
     <li class="menu-item">
-        <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top/2017/02/28/Java反射12-动态加载和重加载类/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top/2017/02/28/Java%E5%8F%8D%E5%B0%8412-%E5%8A%A8%E6%80%81%E5%8A%A0%E8%BD%BD%E5%92%8C%E9%87%8D%E5%8A%A0%E8%BD%BD%E7%B1%BB/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
     </li>
     
 
     <!-- Share Google+ -->
     
     <li class="menu-item">
-        <a href="https://plus.google.com/share?url=http://lysmbetter.top/2017/02/28/Java反射12-动态加载和重加载类/" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
+        <a href="https://plus.google.com/share?url=http://lysmbetter.top/2017/02/28/Java%E5%8F%8D%E5%B0%8412-%E5%8A%A8%E6%80%81%E5%8A%A0%E8%BD%BD%E5%92%8C%E9%87%8D%E5%8A%A0%E8%BD%BD%E7%B1%BB/" target="_blank" rel="external noopener noreferrer nofollow">Share to Google+</a>
     </li>
     
 
     <!-- Share LinkedIn -->
     
     <li class="menu-item">
-        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top/2017/02/28/Java反射12-动态加载和重加载类/&title=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top/2017/02/28/Java%E5%8F%8D%E5%B0%8412-%E5%8A%A8%E6%80%81%E5%8A%A0%E8%BD%BD%E5%92%8C%E9%87%8D%E5%8A%A0%E8%BD%BD%E7%B1%BB/&title=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
     </li>
     
 
     <!-- Share QQ -->
     
     <li class="menu-item">
-        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Better&summary=描述文字&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top/2017/02/28/Java反射12-动态加载和重加载类/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Better&summary=业精于勤荒于嬉&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top/2017/02/28/Java%E5%8F%8D%E5%B0%8412-%E5%8A%A8%E6%80%81%E5%8A%A0%E8%BD%BD%E5%92%8C%E9%87%8D%E5%8A%A0%E8%BD%BD%E7%B1%BB/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
     </li>
     
 
     <!-- Share Telegram -->
     
     <li class="menu-item">
-        <a href="https://t.me/share/url?url=http://lysmbetter.top/2017/02/28/Java反射12-动态加载和重加载类/&text=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+        <a href="https://t.me/share/url?url=http://lysmbetter.top/2017/02/28/Java%E5%8F%8D%E5%B0%8412-%E5%8A%A8%E6%80%81%E5%8A%A0%E8%BD%BD%E5%92%8C%E9%87%8D%E5%8A%A0%E8%BD%BD%E7%B1%BB/&text=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
     </li>
     
 
     <!-- QRCode -->
     
     <li class="menu-item">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKQAAACkCAAAAAA83tqdAAACKElEQVR42u3b0U7DQAxE0f7/T8MTEmqTmetSRIlvXopCSM5K2a3XNrePf3DcRIoUKfINkLdw3F/zcJODa7/Of/88+119rsi1yMOX9g55hLo/335uA3h4rsjVyAQ4XWwPBpJwk/MiRTYkmUhpMGnBFyny2YmTBjCZKCJFEmQLTlvQejZJ2n1eEgWJvBwybYh+8/Nlu0WRl0LWpFGYIO2aM8zLs2oiL4VML/LZItsCkLRZo88TuRdJISTRmh7e7n14jciVyNNNEJw8KahtXwL1WpErkTQB2lBpgk2DFZEi003oQydBSDtEiiTJo2fOp8mVBiVyN7Il5aeJKFKYxz+LXI9MG/i0KP/kiyEWBUSuRDYoTYimvyEDiwVQkeuQ02Rpg6XC5+Q6kSJbMZ0k/SeJhJYkE7kX2V5ysvii4tGgMUrkbuR0gtAGJRpI4wKoyBVIEpSSZH9L4k+aRkWKbFDSuESTp7S4L3IvsiUy2wQjyYJnGk5EimwvP21KogX61PQkcjeSJEIngyBJLlIYECkSbYxu/B/YaJEzDlzkamSaHG0hJxNmmpgVKXLSxE6aQMnmqxb2Ra5EtoM2dZLG0JY0wEV5kZdG0pe5FTDpwj4KaESuRbZggAawLUlFN3QiRaabTTb9pImEBtIiRTZkCwxI41JrRhYpkiLPXvyacIIJ09PCk8jVyMkGjBTgyT3Gi7nINcj2hd+aMdNgpw1OIkW+8yFSpEiRf3h8As5n9lWLVE2sAAAAAElFTkSuQmCC" alt="QRCode">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANQAAADUCAAAAADBtVLEAAADoUlEQVR42u3aUW7rMAwF0ex/0+1vWli8Q6WpGGPy817awvYxIIoi+fi64echSpQoUaJuh3oUn/Q3v3/34wZPv7/6u6vvzz+/uk58TlGihqAuF93iwivoCrSCXF2/ujZ6TlGiBqHIRejDkYehL4cEHFGiPg1FNsnVg6ZAs1r0VbASJeoOqOqhV/iUCFcJLAlSokRNRlUXWUEqGAFXG3YKIi9l6aJEvRlFF/Tpf/+smiRK1BtRqPDeOEB2N+yUPKdD5nbXQ5SoN6E6hZPOYZEEoJ3iqChR01HVA+9szuTgR78TTLn5ihJ1AEUWegoiFEBfGi26iBI1EbVTjKfFmLTpdhp7qAEuStQAFC3qdxvTVcDpNBJSwTNGP1GiDqLoQk6DjqSQQxJquiGLEjUNVSWZKaCkF5GS1VRcIYFHlKhJqFeb0J2iCWkOdJoMMUsXJeoQqjM8RZrO3UMfbUzEAo0oUUNQaGNrDMLTphpNVHGgESVqCCo9AGkOJFhVTCEDVqg5IUrUAFQqIpLvpABZPWR6+NS4EyVqEooU+jtBhDYCdu4b/y9K1BDU6iY0ad0p2FQHyXTQXAYuUaIGoB4bH/LAnYHgzktrTZGJEnUIRYvyaYMlzbOdgSuyOYsSNQXVKYSkJja9XmcwMjUhyixdlKgDqGozS4MiZNgwDSLSwSp0D1GihqFwwxi+BJoId5NZNEUmStRBVCo2VgVIMgRJG2lpaDgVQ0WJmoLqJJUkkSUHyVcS3eXmL0rUIBRpdO3eNAWCFBjwUJgoUYNQacHvJrC0mEmS6BiARIkahEoN586ip8ksSZrpMJgoUZNQ3eYYaRKQQmf6GR3GEiVqEoo0tujm2U2SScAhgUSUqEkoUpxPizltkNULoQfLdiNblKghKDIERTZM0gBIyTNpROCuhyhR/4Qig1KdphlpVpPGQUq4L1+YKFFDUKSBXS32VEShwYEOVC5/JkrUIBRZ6KRgQg6PZEMtE9fUyBYlagAqDVWlxZ+a1KQp3XnBMaEVJeoQijasU1GTNrjTUOJOYUaUqEkoOvxEDo40OaabLz00ihI1CdVZiKRQ2TngkSSXDhCLEjUJ1S1qvlqU7CJo8i1K1CQUGbLaGY7qDEmmAkt6eaJEfQKKBAqyWXYGvHYHGUWJ+gRUHMjYLPhX9yfFl8triRI1CLW6WToMroIB3TxTIk2HwkSJmoQiA7y0EZAGo1KRkyYDMaEVJeoQ6k4fUaJEiRJ1m8832Dn0UdpuZTkAAAAASUVORK5CYII=" alt="QRCode">
     </li>
     
 
@@ -519,9 +369,8 @@ Dynamic Class Loading"
                 <div class="card-body">
                     
                         
-                            <div id="post-toc">
-                                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#类加载器"><span class="post-toc-number">1.</span> <span class="post-toc-text">类加载器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#类加载层次结构"><span class="post-toc-number">2.</span> <span class="post-toc-text">类加载层次结构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#类加载"><span class="post-toc-number">3.</span> <span class="post-toc-text">类加载</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#动态加载类"><span class="post-toc-number">4.</span> <span class="post-toc-text">动态加载类</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#动态重加载类"><span class="post-toc-number">5.</span> <span class="post-toc-text">动态重加载类</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#设计你的重加载类代码"><span class="post-toc-number">6.</span> <span class="post-toc-text">设计你的重加载类代码</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#类的加载重加载列子"><span class="post-toc-number">7.</span> <span class="post-toc-text">类的加载重加载列子</span></a></li></ol>
-                            </div>
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#类加载器"><span class="post-toc-number">1.</span> <span class="post-toc-text">类加载器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#类加载层次结构"><span class="post-toc-number">2.</span> <span class="post-toc-text">类加载层次结构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#类加载"><span class="post-toc-number">3.</span> <span class="post-toc-text">类加载</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#动态加载类"><span class="post-toc-number">4.</span> <span class="post-toc-text">动态加载类</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#动态重加载类"><span class="post-toc-number">5.</span> <span class="post-toc-text">动态重加载类</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#设计你的重加载类代码"><span class="post-toc-number">6.</span> <span class="post-toc-text">设计你的重加载类代码</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#类的加载重加载列子"><span class="post-toc-number">7.</span> <span class="post-toc-text">类的加载重加载列子</span></a></li></ol></div>
                         
                     
                     <article id="post-content">
@@ -546,11 +395,9 @@ Dynamic Class Loading"
 <p>当你实现一个能够重新加载类的类加载器时，你将需要从这个序列改变（deviate）一点点。要重新加载的类不应该由父类加载器加载。更多的稍后再谈（More on that later.）。</p>
 <h2 id="动态加载类"><a href="#动态加载类" class="headerlink" title="动态加载类"></a>动态加载类</h2><p>动态加载类是很容易的。所有你需要做的就是获取<code>ClassLoader</code>并且调用他的<code>loadClass()</code>方法。例子如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public class MainClass &#123;</span><br><span class="line"></span><br><span class="line">  public static void main(String[] args)&#123;</span><br><span class="line"></span><br><span class="line">    ClassLoader classLoader = MainClass.class.getClassLoader();</span><br><span class="line"></span><br><span class="line">    try &#123;</span><br><span class="line">        Class aClass = classLoader.loadClass(&quot;com.jenkov.MyClass&quot;);</span><br><span class="line">        System.out.println(&quot;aClass.getName() = &quot; + aClass.getName());</span><br><span class="line">    &#125; catch (ClassNotFoundException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h2 id="动态重加载类"><a href="#动态重加载类" class="headerlink" title="动态重加载类"></a>动态重加载类</h2><p>这个有一点点挑战。Java的类加载器在加载类的时候总是先会检查一个类是否已经被加载了。因此重新加载一个类通过Java预定义的ClassLoader是不可能的。所有你需要实现你自定义的ClassLoader。<br>即使是你自定义类加载器也是富有挑战的。每个被加载的类需要关联起来。这可以通过<code>ClassLoader.resolve()</code>方法实现。这个方法是<code>final</code>的，因此不能在你自定义的类加载器中重写。<code>resolve()</code>方法不会应许一个类被两次关联。因此每次你想要去重新加载一个类的时候，你必须指定一个新的你的自定义来加载器。这不是不可能的，但是在设计类重载时需要知道。</p>
 <h2 id="设计你的重加载类代码"><a href="#设计你的重加载类代码" class="headerlink" title="设计你的重加载类代码"></a>设计你的重加载类代码</h2><p>正如前面说到的你不能通过一个类加载器加载已经被加载过的类。因此你必须通过另外的类加载器对象来再次加载这个类。但是这会带来一些新的挑战。<br>Java中的每个被类加载器加载过得类都通过类的独立名称来确认，比如(包名+类名)。这就意味着一个被A加载器加载的<code>MyObject</code>类，在被B加载器加载过后是不同的两个类。比如像下面的代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MyObject object = (MyObject)</span><br><span class="line">    myClassReloadingFactory.newInstance(&quot;com.jenkov.MyObject&quot;);</span><br></pre></td></tr></table></figure>
-
 <p>注意到MyObject类的对象object在代码中是怎么被引用的。这因为MyObject类是由加载此代码所驻留的类的相同类加载器加载。<br>如果<code>myClassReloadingFactory</code>对象重新加载<code>MyObject</code>类使用的是其他的类加载器，而不是像上面代码那样使用的同一个类加载器，你就不能将加载得到的类对象转换为当前的<code>MyObject</code>对象。只要两个不同的加载器加载了<code>MyObject</code>类，他们就被任务是两个不同的对象，即使他们有相同的独立类名称。如果你尝试将一个对象转换成另外一个对象会爆出<code>ClassCastException</code>异常。<br>可以解决这个限制，但是你必须以两种方式更改代码：</p>
 <ol>
 <li>使用接口作为变量类型，只需重新加载实现类。</li>
@@ -560,14 +407,11 @@ Dynamic Class Loading"
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MyObjectInterface object = (MyObjectInterface)</span><br><span class="line">    myClassReloadingFactory.newInstance(&quot;com.jenkov.MyObject&quot;);</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MyObjectSuperclass object = (MyObjectSuperclass)</span><br><span class="line">    myClassReloadingFactory.newInstance(&quot;com.jenkov.MyObject&quot;);</span><br></pre></td></tr></table></figure>
-
 <p>如果在重新加载实现类或子类时不重新加载变量类型，即接口或超类，这两种方法都将工作。<br>为了使上面的情况工作，你当然需要实现你的类加载器的父类加载器去加载接口或超类。当你的类被询问去加载<code>MyObject</code>类的时候，它同时也会被询问去加载<code>MyOnjectInterface</code>接口，或者<code>MyObjectSuperclass</code>父类。类加载器必须将这些类的加载委托给包含接口或超类类型变量的类同一个类加载器。</p>
 <h2 id="类的加载重加载列子"><a href="#类的加载重加载列子" class="headerlink" title="类的加载重加载列子"></a>类的加载重加载列子</h2><p>上文有太多的描述。让我们看一个简单的例子。下面是一个简单的<code>ClassLoader</code>的子类。留意到他是怎么讲类加载委托给他的父类来加载，除了一个它自己想加载的类。如果一个类的加载被委托给了它的父类，那么这个类在后面就不能被加载了。记住，一个类只能被一个<code>ClassLoader</code>对象加载一次。<br>正如前文所述，这仅仅是个像你展示<code>ClassLoader</code>怎样运行的例子。它不是一个正式的模板对于你自己的类加载器。你自己的类加载器不要局限于加载一个类，应该是一系列你想要去加载的类。此外，你应该也不应该硬编码类路径（译：直接写一个类的全路径）。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">public class MyClassLoader extends ClassLoader&#123;</span><br><span class="line"></span><br><span class="line">    public MyClassLoader(ClassLoader parent) &#123;</span><br><span class="line">        super(parent);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public Class loadClass(String name) throws ClassNotFoundException &#123;</span><br><span class="line">        if(!&quot;reflection.MyObject&quot;.equals(name))</span><br><span class="line">                return super.loadClass(name);</span><br><span class="line"></span><br><span class="line">        try &#123;</span><br><span class="line">            String url = &quot;file:C:/data/projects/tutorials/web/WEB-INF/&quot; +</span><br><span class="line">                            &quot;classes/reflection/MyObject.class&quot;;</span><br><span class="line">            URL myUrl = new URL(url);</span><br><span class="line">            URLConnection connection = myUrl.openConnection();</span><br><span class="line">            InputStream input = connection.getInputStream();</span><br><span class="line">            ByteArrayOutputStream buffer = new ByteArrayOutputStream();</span><br><span class="line">            int data = input.read();</span><br><span class="line"></span><br><span class="line">            while(data != -1)&#123;</span><br><span class="line">                buffer.write(data);</span><br><span class="line">                data = input.read();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            input.close();</span><br><span class="line"></span><br><span class="line">            byte[] classData = buffer.toByteArray();</span><br><span class="line"></span><br><span class="line">            return defineClass(&quot;reflection.MyObject&quot;,</span><br><span class="line">                    classData, 0, classData.length);</span><br><span class="line"></span><br><span class="line">        &#125; catch (MalformedURLException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; catch (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        return null;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>下面是<code>MyClassLoader</code>的使用：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws</span><br><span class="line">    ClassNotFoundException,</span><br><span class="line">    IllegalAccessException,</span><br><span class="line">    InstantiationException &#123;</span><br><span class="line"></span><br><span class="line">    ClassLoader parentClassLoader = MyClassLoader.class.getClassLoader();</span><br><span class="line">    MyClassLoader classLoader = new MyClassLoader(parentClassLoader);</span><br><span class="line">    Class myObjectClass = classLoader.loadClass(&quot;reflection.MyObject&quot;);</span><br><span class="line"></span><br><span class="line">    AnInterface2       object1 =</span><br><span class="line">            (AnInterface2) myObjectClass.newInstance();</span><br><span class="line"></span><br><span class="line">    MyObjectSuperClass object2 =</span><br><span class="line">            (MyObjectSuperClass) myObjectClass.newInstance();</span><br><span class="line"></span><br><span class="line">    //create new class loader so classes can be reloaded.</span><br><span class="line">    classLoader = new MyClassLoader(parentClassLoader);</span><br><span class="line">    myObjectClass = classLoader.loadClass(&quot;reflection.MyObject&quot;);</span><br><span class="line"></span><br><span class="line">    object1 = (AnInterface2)       myObjectClass.newInstance();</span><br><span class="line">    object2 = (MyObjectSuperClass) myObjectClass.newInstance();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p><code>reflection.MyObject</code>类通过加载器加载。注意到他是怎么继承父类并实现接口的。这仅仅是一个例子。在你自己的代码中你仅仅只需要两个钟的一个-继承或者实现。</p>
 <p><a href="http://tutorials.jenkov.com/java-reflection/dynamic-class-loading-reloading.html" target="_blank" rel="noopener">原文</a></p>
 
@@ -577,6 +421,7 @@ Dynamic Class Loading"
 
     <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
     <script>
+    (function() {
         var dateUpdate = Date.parse("2018-08-05");
         var nowDate = new Date();
         var a = nowDate.getTime();
@@ -587,6 +432,7 @@ Dynamic Class Loading"
         } else {
             document.getElementById('date-expire-notification').style.display = 'none';
         }
+    })();
     </script>
 
 
@@ -599,8 +445,7 @@ Dynamic Class Loading"
 
 <span class="post-categories-list mt-2">
 
-
-<a class="post-categories-list-item" href='/categories/Java译文/'>Java译文</a>
+<a class="post-categories-list-item" href='/categories/Java%E8%AF%91%E6%96%87/'>Java译文</a>
 
 </span>
 
@@ -608,10 +453,9 @@ Dynamic Class Loading"
 
 <span class="post-tags-list mt-2">
 
+<a class="post-tags-list-item" href="/tags/Java%E5%8F%8D%E5%B0%84/" rel="tag">#&nbsp;Java反射</a>
 
-<a class="post-tags-list-item" href="/tags/Java反射/" rel="tag">#&nbsp;Java反射</a>
-
-<a class="post-tags-list-item" href="/tags/类加载/" rel="tag">#&nbsp;类加载</a>
+<a class="post-tags-list-item" href="/tags/%E7%B1%BB%E5%8A%A0%E8%BD%BD/" rel="tag">#&nbsp;类加载</a>
 
 </span>
 
@@ -619,8 +463,7 @@ Dynamic Class Loading"
 </p>
 
                 </div>
-                
-<div class="post-nav px-2 bg-gray">
+                <div class="post-nav px-2 bg-gray">
 <ul class="pagination">
     <!-- Prev Nav -->
     
@@ -635,7 +478,7 @@ Dynamic Class Loading"
     <!-- Next Nav -->
     
         <li class="page-item page-next">
-            <a href="/2017/02/26/Java反射11-动态代理/" rel="next">
+            <a href="/2017/02/26/Java%E5%8F%8D%E5%B0%8411-%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/" rel="next">
                 <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
                 <div class="page-item-subtitle">Java反射11-动态代理</div>
             </a>
@@ -656,9 +499,11 @@ Dynamic Class Loading"
             <!-- ### Footer ### -->
             <footer class="text-center">
     <!-- footer copyright -->
-    <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span data-year></span>
-        <a class="footer-copyright-a" href="http://lysmbetter.top">Better</a>
-    </p>
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="http://lysmbetter.top">Better</a>
+        </p>
+
     <!-- footer custom text -->
     <p class="footer-text mb-0">
     
@@ -666,7 +511,6 @@ Dynamic Class Loading"
     <!-- footer develop info -->
     <p class="footer-develop mb-0">
         
-            
     <!-- Busuanzi User Views -->
     <span id="busuanzi_container_site_uv" hidden>
         <span></span>
@@ -679,7 +523,7 @@ Dynamic Class Loading"
 
 
 
-        
+
         
         Powered by&nbsp;<!--
          --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
@@ -687,40 +531,23 @@ Dynamic Class Loading"
     </p>
 </footer>
 
-        
 
         <!-- ### Import File ### -->
         <!-- ### Footer JS Import ### -->
 
 <script>
+
+    
 window.lazyLoadOptions = {
     elements_selector: ".lazyload",
     threshold: 50
 };
-
-
-
-    /* Copyright */
-    var copyrightNow = new Date().getFullYear();
-    var copyrightContent = document.querySelector('span[data-year]')
-    
-        copyrightContent.textContent = copyrightNow
-    
-
-
-
-/* Cnosole Log */
+document.getElementById('copyright-year').textContent = new Date().getFullYear();
 console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
 </script>
 
-<!-- vanilla-lazyload -->
-
-    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
-
-
-
-    <!-- Busuanzi -->
-    
+<script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
     <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
 
 
@@ -729,17 +556,10 @@ console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c 
 
 
 
-
-
-
-<!-- gallery.js -->
-
-
 <!-- Comment -->
 
 
 <!-- ### Custom Footer ### -->
-
 
     </body>
 
