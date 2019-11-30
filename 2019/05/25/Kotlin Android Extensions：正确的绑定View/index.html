@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hans">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        hexo-theme-suka © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+    -->
+
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+    <!-- ## Preload ## -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
+
+    <!-- Title -->
+    <title>Extensions：正确的绑定View | Better</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/suka-favicon.ico">
+
+    <!-- ### Import File ### -->
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css"><style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: #0070ff;
+    }
+
+    a:active, a:focus, a:hover {
+        color: #0070ff;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: #005eb9;
+        opacity: 1;
+    }
+
+    
+
+    .post-entry .card-body a {
+        color: #0070ff;
+    }
+
+    .avatar {
+        background: #444;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: #0070ff;
+    }
+
+    .navbar-link:hover {
+        color: #0070ff;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: #727e96;
+        border-color: #727e96;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: #727e96;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style><link rel="stylesheet" href="/css/style.min.css">
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    <link rel="preload" href="/css/highlight/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/css/highlight/github.min.css"></noscript>
+
+
+
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="Better"><meta name="msapplication-starturl" content="http://lysmbetter.top"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Better"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="Extensions：正确的绑定View | Better"><meta property="og:site_name" content="Better"><meta property="og:type" content="article"><meta property="og:url" content="http:&#x2F;&#x2F;lysmbetter.top&#x2F;2019&#x2F;05&#x2F;25&#x2F;Kotlin%20Android%20Extensions%EF%BC%9A%E6%AD%A3%E7%A1%AE%E7%9A%84%E7%BB%91%E5%AE%9AView&#x2F;"><meta property="og:locale" content="zh-Hans"><meta name="description" content="在使用 kotlin 编写Android 应用的时候，会使用到一个插件kotlin-android-extensions既：  1apply plugin: &amp;apos;kotlin-android-extensions&amp;apos; 该插件的主要作用就是避免了手动调用findViewById()的来获取视图，绑定 View。类似ButterKnife 中BindVIew背后逻辑也是调用findVi - Better - Better"><meta name="keywords" content="Android, Kotlin"><meta property="og:image" content="https:&#x2F;&#x2F;lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com&#x2F;lysmbetter&#x2F;kotlin-extension-bummock.png"><meta property="article:published_time" content="2019-05-25T05:46:11.000Z"><meta property="article:modified_time" content="2019-11-30T05:09:25.209Z"><meta property="og:updated_time" content="2019-11-30T05:09:25.209Z"><meta property="article:author" content="Better"><meta property="article:tag" content="Android, Kotlin"><meta name="twitter:card" content="summary">
+
+    
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://lysmbetter.top/2019/05/25/Kotlin%20Android%20Extensions%EF%BC%9A%E6%AD%A3%E7%A1%AE%E7%9A%84%E7%BB%91%E5%AE%9AView/">
+
+    <meta name="generator" content="Hexo 4.0.0">
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "http://lysmbetter.top/2019/05/25/Kotlin%20Android%20Extensions%EF%BC%9A%E6%AD%A3%E7%A1%AE%E7%9A%84%E7%BB%91%E5%AE%9AView/",
+    "@type": "BlogPosting",
+    "logo": "http://lysmbetter.top/img/suka-favicon.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://lysmbetter.top/2019/05/25/Kotlin%20Android%20Extensions%EF%BC%9A%E6%AD%A3%E7%A1%AE%E7%9A%84%E7%BB%91%E5%AE%9AView/"
+    },
+    "headline": "Extensions：正确的绑定View | Better",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "http://lysmbetter.top/img/suka-favicon.ico"
+    },
+    
+    "datePublished": "2019-05-25T05:46:11.000Z",
+    "dateModified": "2019-11-30T05:09:25.209Z",
+    "author": {
+        "@type": "Person",
+        "name": "Better",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://lysmbetter.top/img/default_avatar.png"
+        },
+        "description": "业精于勤荒于嬉"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Better",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "http://lysmbetter.top/img/suka-favicon.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "http://lysmbetter.top/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "Android, Kotlin",
+    "description": "在使用 kotlin 编写Android 应用的时候，会使用到一个插件kotlin-android-extensions既：  1apply plugin: &amp;amp;apos;kotlin-android-extensions&amp;amp;apos; 该插件的主要作用就是避免了手动调用findViewById()的来获取视图，绑定 View。类似ButterKnife 中BindVIew背后逻辑也是调用findVi - Better - Better"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+</head>
+
+    <body>
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">Better</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                业精于勤荒于嬉
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">Home</a>
+    
+    
+        <a href="/archives/" class="navbar-link">Archives</a>
+    
+    
+        <a href="/search" class="navbar-link">Search</a>
+    
+    
+        <a href="/tags/" class="navbar-link">Tags</a>
+    
+        <a href="/about/" class="navbar-link">About</a>
+    
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    <div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">Extensions：正确的绑定View</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/default_avatar.png" src="/img/suka-lazyload.gif" alt="Better's Avatar">
+        <span>2019-05-25</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/Android/">Android</a>
+        
+        
+            <!-- Busuanzi Post Views -->
+<span id="busuanzi_container_page_pv" hidden>
+    <span class="suka-devide-dot"></span>
+    <span></span>
+    <span id="busuanzi_value_page_pv"></span>
+    <span>Views</span>
+</span>
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">Share the post</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=Extensions：正确的绑定View&url=http://lysmbetter.top/2019/05/25/Kotlin%20Android%20Extensions%EF%BC%9A%E6%AD%A3%E7%A1%AE%E7%9A%84%E7%BB%91%E5%AE%9AView/&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+    </li>
+    
+
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=Extensions：正确的绑定View&url=http://lysmbetter.top/2019/05/25/Kotlin%20Android%20Extensions%EF%BC%9A%E6%AD%A3%E7%A1%AE%E7%9A%84%E7%BB%91%E5%AE%9AView/&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+    </li>
+    
+
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top/2019/05/25/Kotlin%20Android%20Extensions%EF%BC%9A%E6%AD%A3%E7%A1%AE%E7%9A%84%E7%BB%91%E5%AE%9AView/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+    </li>
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+    <li class="menu-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top/2019/05/25/Kotlin%20Android%20Extensions%EF%BC%9A%E6%AD%A3%E7%A1%AE%E7%9A%84%E7%BB%91%E5%AE%9AView/&title=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+    </li>
+    
+
+    <!-- Share QQ -->
+    
+    <li class="menu-item">
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Better&summary=业精于勤荒于嬉&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top/2019/05/25/Kotlin%20Android%20Extensions%EF%BC%9A%E6%AD%A3%E7%A1%AE%E7%9A%84%E7%BB%91%E5%AE%9AView/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+    </li>
+    
+
+    <!-- Share Telegram -->
+    
+    <li class="menu-item">
+        <a href="https://t.me/share/url?url=http://lysmbetter.top/2019/05/25/Kotlin%20Android%20Extensions%EF%BC%9A%E6%AD%A3%E7%A1%AE%E7%9A%84%E7%BB%91%E5%AE%9AView/&text=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+    </li>
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMQAAADECAAAAADlzdG3AAADK0lEQVR42u3b21KDQBBFUf7/p/XVMkOf3QxNorV5SRkjYVE1TN88vv7BcYgQIUKEiHHEURwvf/Tj/dXnzs5RnX91DnpdIkRMIZaL5uTiVpjqAs7Ou/r96lzldYkQMYhYXejqM6tFnhYkuTH0hogQ8QmIsws/W3hnC/v3uVevZ++JEPGpiLR5kUAvBYciRHwCggZqJOk5W+hVQElumAgRTyHSgnzX623VDhEiGohWARck9tXCrj7zWFVchAjQn6g2uLTpkYCOBoRkExQh4ilEVcyiiUr6crqAcdFZhIghREp6riY53YJxN4ESIWISURWLSQOeYEjgVz0kcGYnQsQGggR33YIxaeqngRgSBIoQMY3oNATTgyF9nhQSqpsrQsQkgjQhaQJPFzIdiik3RhEiBhC04Es3QzK80j03Kp6JEDGAIIs7FQ5oQS0Vr0kTR4SIKUS10ZBEp7qodDM6m93LeyJEDCCqoI0uspToVDcoLXhUUBYh4kYEHR6hRYDuBtgJJFFVXISITQQt9KbBXVosTokRLTiLEDGFuDpkSJsincSffP/W00mEiIvzTjsJfqdBQ25GOQggQsQgYqeYnIZQqqHeToGgrHaIEHETggRgVYJPgjdSuKbBHxraEiHiBkSnsb7TsKyKDmR4S4SIaURnUZONKG16JLjEP4sQMYjoNlHS33abMVeKCyJETCA6iQoZUN8Z+qqaKqgZL0LETQiaIHUKbBTZfTCIEDGN6AxQkcSIBoZkI03FPREiphGdwcJOA7IM4jpNlarJIkLETQjaJKRBW7VhkkIy+VmEiEkEGUjvbkrpy7uDALHJIkLEjQiy+ZDBkhQ0pgcJaWiKEPEUgg7ipqHflPSTJk56EMQKoAgRmwiysEihLV0sGTipmp8iRDyFSEcMwg72z3+0sJAK0WjHFiFiA0EW35VknjbsrxTRRIiYRnSSo6sL+cqgYlzoIkQMItKgLhmmIg+IKsijDxkRIt6JIMMntEjW2fjQTRUh4g0IWgQjQSPdPGnxQoSISQRpopDGPAkSyUMhXYMIEZOI1ABJm1QaZrmzuS9CxDTiLx8iRIgQIWLs+AYrHF9MuRgJTwAAAABJRU5ErkJggg==" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                        
+                    
+                    <article id="post-content">
+                        <p>在使用 kotlin 编写Android 应用的时候，会使用到一个插件<code>kotlin-android-extensions</code>既： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apply plugin: &apos;kotlin-android-extensions&apos;</span><br></pre></td></tr></table></figure>
+<p>该插件的主要作用就是避免了手动调用<code>findViewById()</code>的来获取视图，绑定 View。类似ButterKnife 中<code>BindVIew</code>背后逻辑也是调用<code>findViewById()</code>来绑定 VIew。这里理一下背后的实现逻辑。<br><img src="https://lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com/lysmbetter/kotlin-extension-bummock.png" alt="bummock"></p>
+<p><code>kotlin-android-extensions</code> 提供了两个功能来获取 xml 中 View 的实例</p>
+<ul>
+<li>一 在Activity、Fragment、View中可以直接通过ID名称访问试图 </li>
+<li>二 可以直接访问一个view的内部属性 通过<code>view.xxx_id</code>访问 view 内部的<code>xxx_id</code>资源控件</li>
+</ul>
+<p>通过<code>Tools -&gt; Kotlin -&gt; Show Kotlin ByteCode</code> 点击Decompile 按钮查看生成的代码可以发现</p>
+<blockquote>
+<p>对于第一中方式，内部的实现方式是生成了<code>_$_findCachedViewById()</code>来 findView，以及<code>_$_clearFindViewByIdCache()</code>来清除 View 实例</p>
+</blockquote>
+<p>调用方式：<br>Activity:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import kotlinx.android.synthetic.main.activity_main.*</span><br><span class="line"></span><br><span class="line">class MainActivity : AppCompatActivity() &#123;</span><br><span class="line"></span><br><span class="line">    override fun onCreate(savedInstanceState: Bundle?) &#123;</span><br><span class="line">        super.onCreate(savedInstanceState)</span><br><span class="line">        setContentView(R.layout.activity_main)</span><br><span class="line">        main_title.visibility = View.VISIBLE</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Fragment:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import kotlinx.android.synthetic.main.fragment_main.*</span><br><span class="line"></span><br><span class="line">class MainFragment : Fragment() &#123;</span><br><span class="line"></span><br><span class="line">    override fun onViewCreated(view: View, savedInstanceState: Bundle?) &#123;</span><br><span class="line">        super.onViewCreated(view, savedInstanceState)</span><br><span class="line">        content_list.apply &#123;</span><br><span class="line">            layoutManager = LinearLayoutManager(context)</span><br><span class="line">            adapter = ContentListAdapterInnel()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>View:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import kotlinx.android.synthetic.main.view_title.view.*</span><br><span class="line"></span><br><span class="line">class TitleView @JvmOverloads constructor(</span><br><span class="line">    context: Context,</span><br><span class="line">    attrs: AttributeSet? = null,</span><br><span class="line">    defStyleAttr: Int = 0</span><br><span class="line">) : LinearLayout(context, attrs, defStyleAttr) &#123;</span><br><span class="line">    init &#123;</span><br><span class="line">        LayoutInflater.from(context).inflate(R.layout.view_title, this, true)</span><br><span class="line">        view_title.text = &quot;Background KTA Extension&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>背后的实现方式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">private HashMap _$_findViewCache;</span><br><span class="line"></span><br><span class="line">public View _$_findCachedViewById(int var1) &#123;</span><br><span class="line">   if (this._$_findViewCache == null) &#123;</span><br><span class="line">      this._$_findViewCache = new HashMap();</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   View var2 = (View)this._$_findViewCache.get(var1);</span><br><span class="line">   if (var2 == null) &#123;</span><br><span class="line">      View var10000 = this.getView();</span><br><span class="line">      if (var10000 == null) &#123;</span><br><span class="line">         return null;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      var2 = var10000.findViewById(var1);</span><br><span class="line">      this._$_findViewCache.put(var1, var2);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   return var2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public void _$_clearFindViewByIdCache() &#123;</span><br><span class="line">   if (this._$_findViewCache != null) &#123;</span><br><span class="line">      this._$_findViewCache.clear();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>对于第二种方式，却是直接调用的<code>findViewById()</code>来绑定 View 实列。</p>
+</blockquote>
+<p>比如在RecyclerView 的 bindViewHolder 中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import kotlinx.android.synthetic.main.item_list.view.*</span><br><span class="line"></span><br><span class="line">class ContentListAdapter : RecyclerView.Adapter&lt;ContentListAdapter.Holder&gt;() &#123;</span><br><span class="line"></span><br><span class="line">    override fun onBindViewHolder(holder: Holder, position: Int) &#123;</span><br><span class="line">        holder.itemView.item_list_position.text = list[position]</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    class Holder(v: View) : RecyclerView.ViewHolder(v)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>背后的实现方式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public void onBindViewHolder(@NotNull ContentListAdapter.Holder holder, int position) &#123;</span><br><span class="line">   Intrinsics.checkParameterIsNotNull(holder, &quot;holder&quot;);</span><br><span class="line">   View var10000 = holder.itemView;</span><br><span class="line">   Intrinsics.checkExpressionValueIsNotNull(var10000, &quot;holder.itemView&quot;);</span><br><span class="line">   TextView var3 = (TextView)var10000.findViewById(id.item_list_position);</span><br><span class="line">   Intrinsics.checkExpressionValueIsNotNull(var3, &quot;holder.itemView.item_list_position&quot;);</span><br><span class="line">   var3.setText((CharSequence)this.list.get(position));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>第一种是会缓存View，第二种是每次都<code>findViewById()</code>,所以第一种性能上要高于第二种。</p>
+</blockquote>
+<p>由于默认的 extension 只支持第一类，如果想在任意类中都提供这种缓存机制可以使用<code>LayoutContainer</code>接口。</p>
+<p><code>LayoutContainer</code>接口还是一个实验功能，需要增加配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">    androidExtensions&#123;</span><br><span class="line">        experimental = true</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>LayoutContainer</code>定于如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public interface LayoutContainer &#123;</span><br><span class="line">    /** Returns the root holder view. */</span><br><span class="line">    public val containerView: View?</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>只需要是实现<code>containerView</code>的赋值即可。<br>修改后的调用方式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">import kotlinx.android.synthetic.main.item_list.*</span><br><span class="line"></span><br><span class="line">class ContentListAdapterInnel : RecyclerView.Adapter&lt;ContentListAdapterInnel.Holder&gt;() &#123;</span><br><span class="line"></span><br><span class="line">    override fun onBindViewHolder(holder: Holder, position: Int) &#123;</span><br><span class="line">        holder.bind(list[position])</span><br><span class="line">        holder.item_list_position.text = list[position]</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    class Holder(override val containerView: View) : RecyclerView.ViewHolder(containerView),</span><br><span class="line">        LayoutContainer &#123;</span><br><span class="line"></span><br><span class="line">        fun bind(s: String) &#123;</span><br><span class="line">            item_list_position.text = s</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>调用的是<code>holder.xxx_id</code>,而不是<code>holder.itemView.xxx_id</code></strong> ，从导入语法上来看也由<code>import kotlinx.android.synthetic.main.item_list.view.*</code>变成了<code>import kotlinx.android.synthetic.main.item_list.*</code></p>
+<p>下面是几种方式的区分点<br>|xx|xx|<br>|–|–|<br>|xx|xx|</p>
+<table>
+<thead>
+<tr>
+<th>种类</th>
+<th>Auto Import</th>
+<th>调用方式</th>
+<th>背后实现方式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Activity/Fragment</td>
+<td>import kotlinx.android.synthetic.main.item_list.*</td>
+<td><code>xxx_id</code></td>
+<td><em>$</em>findCachedViewById</td>
+</tr>
+<tr>
+<td>View</td>
+<td><u> import kotlinx.android.synthetic.main.view_title.view.* </u></td>
+<td><code>xxx_id</code></td>
+<td><em>$</em>findCachedViewById</td>
+</tr>
+<tr>
+<td>view.xxx_id</td>
+<td>import kotlinx.android.synthetic.main.item_list.view.*</td>
+<td><code>view.xxx_id</code></td>
+<td>findViewById</td>
+</tr>
+<tr>
+<td>LayoutContiner</td>
+<td>import kotlinx.android.synthetic.main.item_list.*</td>
+<td><code>xxx_id</code></td>
+<td><em>$</em>findCachedViewById</td>
+</tr>
+</tbody></table>
+<p>参考：<br><a href="https://antonioleiva.com/kotlin-android-extensions/" target="_blank" rel="noopener">kotlin-android-extensions</a><br><a href="https://proandroiddev.com/kotlin-android-extensions-using-view-binding-the-right-way-707cd0c9e648#c1f2" target="_blank" rel="noopener">Kotlin Android Extensions: Using View Binding the right way</a><br><a href="https://kotlinlang.org/docs/tutorials/android-plugin.html" target="_blank" rel="noopener">tutorial-android-plugin</a></p>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
+    <script>
+    (function() {
+        var dateUpdate = Date.parse("2019-11-30");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    })();
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">Published at&nbsp;<time datetime="2019-05-25T05:46:11.000Z" itemprop="datePublished">2019-05-25</time>
+
+    , Updated at&nbsp;<time datetime="2019-11-30T05:09:25.209Z" itemprop="dateModified">2019-11-30</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+<a class="post-categories-list-item" href='/categories/Android/'>Android</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+<a class="post-tags-list-item" href="/tags/Android/" rel="tag">#&nbsp;Android</a>
+
+<a class="post-tags-list-item" href="/tags/Kotlin/" rel="tag">#&nbsp;Kotlin</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2018/02/11/SpringAnimation/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">SpringAnimation</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="http://lysmbetter.top">Better</a>
+        </p>
+
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+
+    
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+document.getElementById('copyright-year').textContent = new Date().getFullYear();
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
+</script>
+
+<script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
+    <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+<!-- Comment -->
+
+
+<!-- ### Custom Footer ### -->
+
+    </body>
+
+</html>
