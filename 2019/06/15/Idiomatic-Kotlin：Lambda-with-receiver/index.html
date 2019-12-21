@@ -55,7 +55,7 @@
     <meta name="renderer" content="webkit">
 
     <!-- Title -->
-    <title>Idiomatic kotlin: Elvis Operator | Better</title>
+    <title>Idiomatic Kotlin：Lambda with receiver | Better</title>
 
     <!-- Favicons -->
     <link rel="icon" type="image&#x2F;ico" href="/img/suka-favicon.ico">
@@ -155,12 +155,12 @@
     <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="Better"><meta name="msapplication-starturl" content="http://lysmbetter.top"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Better"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- ### The Open Graph & Twitter Card Protocol ### -->
-    <meta property="og:title" content="Idiomatic kotlin: Elvis Operator | Better"><meta property="og:site_name" content="Better"><meta property="og:type" content="article"><meta property="og:url" content="http:&#x2F;&#x2F;lysmbetter.top&#x2F;2019&#x2F;06&#x2F;15&#x2F;Idiomatic-kotlin-Elvis-Operator&#x2F;"><meta property="og:locale" content="zh-Hans"><meta name="description" content="Elvis Operator 暂时没有找到好的中文翻译，暂时就叫做 Elvis 操作符。kotlin 中 Elvis operator 是用来做 Null 检查的,空检查操作符。有点像 Java 中的三目运行?。kotlin 中变量的类型只有两种，一个是非空的比如val a:User，一个是可空的val a:User?。为了避免发生NullPointException，对于一个可空的变量，在使用的 - Better - Better"><meta name="keywords" content="Android, Kotlin"><meta property="article:published_time" content="2019-06-15T07:13:42.000Z"><meta property="article:modified_time" content="2019-12-21T07:14:22.566Z"><meta property="og:updated_time" content="2019-12-21T07:14:22.566Z"><meta property="article:author" content="Better"><meta property="article:tag" content="Android, Kotlin"><meta name="twitter:card" content="summary">
+    <meta property="og:title" content="Idiomatic Kotlin：Lambda with receiver | Better"><meta property="og:site_name" content="Better"><meta property="og:type" content="article"><meta property="og:url" content="http:&#x2F;&#x2F;lysmbetter.top&#x2F;2019&#x2F;06&#x2F;15&#x2F;Idiomatic-Kotlin%EF%BC%9ALambda-with-receiver&#x2F;"><meta property="og:locale" content="zh-Hans"><meta name="description" content="引子 function-literals-with-receiver-in-kotlin 在 kotlin  中函数也是一个变量类型，可以定义变量，定义参数。lambda 也是函数，在使用的时候发现有时候申明的方式却有点不同。比如在kotlin 中有两个预定义的方法apply() 和also()。 1234567public inline fun &amp;lt;T&amp;gt; T.also(block: ( - Better - Better"><meta name="keywords" content="Android, Kotlin"><meta property="article:published_time" content="2019-06-15T07:15:47.000Z"><meta property="article:modified_time" content="2019-12-21T11:50:29.853Z"><meta property="og:updated_time" content="2019-12-21T11:50:29.853Z"><meta property="article:author" content="Better"><meta property="article:tag" content="Android, Kotlin"><meta name="twitter:card" content="summary">
 
     
 
     <!-- ### Canonical link ### -->
-    <link rel="canonical" href="http://lysmbetter.top/2019/06/15/Idiomatic-kotlin-Elvis-Operator/">
+    <link rel="canonical" href="http://lysmbetter.top/2019/06/15/Idiomatic-Kotlin%EF%BC%9ALambda-with-receiver/">
 
     <meta name="generator" content="Hexo 4.0.0">
 
@@ -181,22 +181,22 @@
 <script type="application/ld+json">
 {
     "@context": "http://schema.org",
-    "url": "http://lysmbetter.top/2019/06/15/Idiomatic-kotlin-Elvis-Operator/",
+    "url": "http://lysmbetter.top/2019/06/15/Idiomatic-Kotlin%EF%BC%9ALambda-with-receiver/",
     "@type": "BlogPosting",
     "logo": "http://lysmbetter.top/img/suka-favicon.ico",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://lysmbetter.top/2019/06/15/Idiomatic-kotlin-Elvis-Operator/"
+        "@id": "http://lysmbetter.top/2019/06/15/Idiomatic-Kotlin%EF%BC%9ALambda-with-receiver/"
     },
-    "headline": "Idiomatic kotlin: Elvis Operator | Better",
+    "headline": "Idiomatic Kotlin：Lambda with receiver | Better",
     
     "image": {
         "@type": "ImageObject",
         "url": "http://lysmbetter.top/img/suka-favicon.ico"
     },
     
-    "datePublished": "2019-06-15T07:13:42.000Z",
-    "dateModified": "2019-12-21T07:14:22.566Z",
+    "datePublished": "2019-06-15T07:15:47.000Z",
+    "dateModified": "2019-12-21T11:50:29.853Z",
     "author": {
         "@type": "Person",
         "name": "Better",
@@ -222,7 +222,7 @@
     },
     
     "keywords": "Android, Kotlin",
-    "description": "Elvis Operator 暂时没有找到好的中文翻译，暂时就叫做 Elvis 操作符。kotlin 中 Elvis operator 是用来做 Null 检查的,空检查操作符。有点像 Java 中的三目运行?。kotlin 中变量的类型只有两种，一个是非空的比如val a:User，一个是可空的val a:User?。为了避免发生NullPointException，对于一个可空的变量，在使用的 - Better - Better"
+    "description": "引子 function-literals-with-receiver-in-kotlin 在 kotlin  中函数也是一个变量类型，可以定义变量，定义参数。lambda 也是函数，在使用的时候发现有时候申明的方式却有点不同。比如在kotlin 中有两个预定义的方法apply() 和also()。 1234567public inline fun &amp;amp;lt;T&amp;amp;gt; T.also(block: ( - Better - Better"
 }
 </script>
 
@@ -278,7 +278,7 @@
                 <!-- # Post Header Info # -->
                 <div class="card-header">
                     
-    <h1 class="card-title h3 mb-2">Idiomatic kotlin: Elvis Operator</h1>
+    <h1 class="card-title h3 mb-2">Idiomatic Kotlin：Lambda with receiver</h1>
 
 
 
@@ -310,21 +310,21 @@
     <!-- Share Weibo -->
     
     <li class="menu-item">
-        <a href="http://service.weibo.com/share/share.php?appkey=&title=Idiomatic kotlin: Elvis Operator&url=http://lysmbetter.top/2019/06/15/Idiomatic-kotlin-Elvis-Operator/&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=Idiomatic Kotlin：Lambda with receiver&url=http://lysmbetter.top/2019/06/15/Idiomatic-Kotlin%EF%BC%9ALambda-with-receiver/&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
     </li>
     
 
     <!-- Share Twitter -->
     
     <li class="menu-item">
-        <a href="https://twitter.com/intent/tweet?text=Idiomatic kotlin: Elvis Operator&url=http://lysmbetter.top/2019/06/15/Idiomatic-kotlin-Elvis-Operator/&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+        <a href="https://twitter.com/intent/tweet?text=Idiomatic Kotlin：Lambda with receiver&url=http://lysmbetter.top/2019/06/15/Idiomatic-Kotlin%EF%BC%9ALambda-with-receiver/&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
     </li>
     
 
     <!-- Share Facebook -->
     
     <li class="menu-item">
-        <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top/2019/06/15/Idiomatic-kotlin-Elvis-Operator/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top/2019/06/15/Idiomatic-Kotlin%EF%BC%9ALambda-with-receiver/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
     </li>
     
 
@@ -334,28 +334,28 @@
     <!-- Share LinkedIn -->
     
     <li class="menu-item">
-        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top/2019/06/15/Idiomatic-kotlin-Elvis-Operator/&title=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top/2019/06/15/Idiomatic-Kotlin%EF%BC%9ALambda-with-receiver/&title=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
     </li>
     
 
     <!-- Share QQ -->
     
     <li class="menu-item">
-        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Better&summary=业精于勤荒于嬉&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top/2019/06/15/Idiomatic-kotlin-Elvis-Operator/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Better&summary=业精于勤荒于嬉&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top/2019/06/15/Idiomatic-Kotlin%EF%BC%9ALambda-with-receiver/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
     </li>
     
 
     <!-- Share Telegram -->
     
     <li class="menu-item">
-        <a href="https://t.me/share/url?url=http://lysmbetter.top/2019/06/15/Idiomatic-kotlin-Elvis-Operator/&text=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+        <a href="https://t.me/share/url?url=http://lysmbetter.top/2019/06/15/Idiomatic-Kotlin%EF%BC%9ALambda-with-receiver/&text=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
     </li>
     
 
     <!-- QRCode -->
     
     <li class="menu-item">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKQAAACkCAAAAAA83tqdAAACJElEQVR42u2a0W4DIQwE7/9/un1tq7N3QNc0xcNLlIQcEwnMeu3r4x+MS0ghhRTyDSCvZnyd83Pu3e+r998WvplXrivkWMjbTdtAdotWz6z+eLuukKMhqw1fberqUKTn0HWFFJJCVgulwyCkkK86OBVo9zwhhSSQ1UXfCd40nwTzR1SQkMdBdgnRb74+li0KeRRkNI0KM6BK2IgZ8LirJuRRkFTc0uS/M7DI50IKmTb26ufdAayMsPLQCSkkME6J+O2SrASJskUhj4bsDgMxCqoDUQboFMCFFDIssGKm0gCeBIeQsyG7i5+IipUCEymURoEh5AjIFFSJ0UTMBNo8IqSQqYhJm5qoyZCKokIKmQI5NVGTYCFNUEIKScQALdynwidtABVSSFpgIgA7hwcLDCFHQK4kRyQgk2YnGtSFFJI0GacmzxVRHA1XIcdCEnOJFDbpBZCMMSGFpMY9SchWm0lakSLkWEhqpBKRQYtYqGgv5EjIVDwnBU5i/K8mYUIKmRIj0jSSxC4RKkIK2UFsNRyFZIwUoIQUkpinxCwgxQIKLKSQsfBTBOZYWF8YpYkq5CjINGhzUtcsQkwxZKIKOQIybeSUiJE/QcVze7qFHAWZDPsU1GlwXrkkhBQyNYPsmPurIgOpICGFhGZUJy7Sd0IKuQtJikd0LhLYQo6GJIWktGgK/Oky2Ba9Qh4HSS789B0N/LRIKuRcyHceQgoppJB/OD4BaooXNetuj0oAAAAASUVORK5CYII=" alt="QRCode">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKQAAACkCAAAAAA83tqdAAACNElEQVR42u2awW7CUAwE+f+fbk+VEEq846ioNDu5ACLwJlL2Zb324+sfHA8hhRRSyA+AfAzH8/c/719/8/w/R++n86d1heyGPLxpX8COIBP4dAFpXSGFPBLMJIhpkSQQsq6QQk4nnwEQqCQcIYW8IpwzEPL5zIgIKeRVg7E1CxPs21yQkLeDTIXYu15/tVoU8jaQqwAJ3vxTMEB+I2Q3JAmR0qIprDozw9HICFkJmQp/UnyhBYeLPROVkN2QNJyfxEGKLdI0ELIb8kwYU5CfNnRqUuJGL2QtZDKqNPg/gyBiWycYQt4WkhraFKYSQZBAFhkMIW8PuRFIKqLoha42cyGrIVMjKDWPpgfCpnATshsyBVfboosWZJMhEbIXcjwpBJ8kANg0/mOwL2QdJAlAaShPi7T1NIuQt4dMIWkaBtk2B8jgk5DdkMkwTJs7Kbom0GSMheyETKIhAiBFP21gjeGAkDWQmwYouuHDkAl5eAgp5GZYiRqOZIDXwhGyApIOr19pJG3ML3ZBQlZAXhoKBsEAaXxODwYhuyHJgNK2wCIb93ghQtZCpqEN0qBPDwMSKsRmk5BVkJswiRreJMjVZi5kDSQxElODiYqOfI6TA0JWQG7D+s2CZDBvbAYIWQuZCi1yLglUSXiAOmJCVkBeCUs34Sk1F3GaRUghQaE/BQIbMyKkkASSNO3JUMkVMQrZDUkDgMkUJ8GRTV1IIUkhRhuepMG5Mb5CdkJ+8iGkkEIK+YfHN1KXNiRV0MYdAAAAAElFTkSuQmCC" alt="QRCode">
     </li>
     
 
@@ -369,19 +369,25 @@
                     
                         
                         
-                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Bummock"><span class="post-toc-number">1.</span> <span class="post-toc-text">Bummock</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考"><span class="post-toc-number">2.</span> <span class="post-toc-text">参考</span></a></li></ol></div>
-                        
                     
                     <article id="post-content">
-                        <p>Elvis Operator 暂时没有找到好的中文翻译，暂时就叫做 Elvis 操作符。<br>kotlin 中 Elvis operator 是用来做 Null 检查的,<strong>空检查操作符</strong>。有点像 Java 中的三目运行<code>?</code>。<br>kotlin 中变量的类型只有两种，一个是非空的比如<code>val a:User</code>，一个是可空的<code>val a:User?</code>。<br>为了避免发生<code>NullPointException</code>，对于一个可空的变量，在使用的时候需要做非空判断<br>常见的非空判断</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// </span><br><span class="line">a?.name = &quot;&quot;</span><br><span class="line">//</span><br><span class="line">a?.let&#123; it.name = &quot;&quot; &#125;</span><br><span class="line">//</span><br><span class="line">val name = a?.name ?: &quot;default&quot;</span><br><span class="line">// </span><br><span class="line">lateinit var a :String</span><br></pre></td></tr></table></figure>
+                        <p>引子 <a href="https://blog.mindorks.com/function-literals-with-receiver-in-kotlin" target="_blank" rel="noopener">function-literals-with-receiver-in-kotlin</a></p>
+<p>在 kotlin  中函数也是一个变量类型，可以定义变量，定义参数。lambda 也是函数，在使用的时候发现有时候申明的方式却有点不同。比如在kotlin 中有两个预定义的方法<code>apply()</code> 和<code>also()</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public inline fun &lt;T&gt; T.also(block: (T) -&gt; Unit): T &#123;</span><br><span class="line">    contract &#123;</span><br><span class="line">        callsInPlace(block, InvocationKind.EXACTLY_ONCE)</span><br><span class="line">    &#125;</span><br><span class="line">    block(this)</span><br><span class="line">    return this</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="Bummock"><a href="#Bummock" class="headerlink" title="Bummock"></a>Bummock</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">val name = a?.name ?: <span class="string">"default"</span></span><br></pre></td></tr></table></figure>
-<p>编译后的Java 代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if (user == null || user.getName() == null) &#123;</span><br><span class="line"> String var10000 = &quot;default&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public inline fun &lt;T&gt; T.apply(block: T.() -&gt; Unit): T &#123;</span><br><span class="line">    contract &#123;</span><br><span class="line">        callsInPlace(block, InvocationKind.EXACTLY_ONCE)</span><br><span class="line">    &#125;</span><br><span class="line">    block()</span><br><span class="line">    return this</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>编译后的 Java 代码做了非空的校验</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://medium.com/tompee/idiomatic-kotlin-elvis-operator-d6f5639a5130" target="_blank" rel="noopener">Idiomatic kotlin: elvis operator</a> </p>
+<p>首先这两个函数都为<code>T</code>类型做了扩展函数申明，只不过传递的参数不一样。<br>参数一个是<code>block: (T) -&gt; Unit</code>，一个是<code>T.() -&gt; Unit</code> 。<br>第一个很好理解就是定义了一个lambda 函数，这个lambda函数类型是，<strong>需要传递一个参数<code>T</code>，并且返回空的函数</strong>。在调用的时候需要使用<code>it</code>修饰符来访问<code>T</code>类型的变量以及方法<br>第二个的作用其实跟第一个是一样的，也是传递参数<code>T</code>，只不过写法不一样。传递的是一个<code>T</code>类型的扩展函数。在调用的时候使用<code>this</code>修饰符，或者干脆就不要修饰符来访问<code>T</code>类型的变量或者函数。</p>
+<p><strong>在 lambda 函数体内可以不使用修饰符访问对象的其他属性</strong><br>下面就是两者的写法区别。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">val rect1 =Rect().also &#123; </span><br><span class="line">    it.left = 0</span><br><span class="line">    it.top = 0</span><br><span class="line">    it.right = 100</span><br><span class="line">    it.bottom = 100</span><br><span class="line">&#125;</span><br><span class="line">val rect2 =Rect().apply &#123;</span><br><span class="line">    left = 0</span><br><span class="line">    top = 0</span><br><span class="line">    right = 100</span><br><span class="line">    bottom = 100</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>在需要向lambda传递参数的时候两者是可以互换的，只不过写法不一样</strong>。</p>
+<blockquote>
+<p>带与不带接收者的函数类型非字面值可以互换，其中接收者可以替代第一个参数，反之亦然。例如，(A, B) -&gt; C 类型的值可以传给或赋值给期待 A.(B) -&gt; C 的地方，反之亦然：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">val repeatFun: String.(Int) -&gt; String = &#123; times -&gt; this.repeat(times) &#125;</span><br><span class="line">val twoParameters: (String, Int) -&gt; String = repeatFun // OK</span><br><span class="line"></span><br><span class="line">fun runTransformation(f: (String, Int) -&gt; String): String &#123;</span><br><span class="line">    return f(&quot;hello&quot;, 3)</span><br><span class="line">&#125;</span><br><span class="line">val result = runTransformation(repeatFun) // OK</span><br></pre></td></tr></table></figure>
+
+<p>参考:<br><a href="https://www.kotlincn.net/docs/reference/lambdas.html" target="_blank" rel="noopener">kotlin-lambdas</a><br><a href="https://stackoverflow.com/questions/57839564/understanding-a-parameter-that-is-initialized-as-an-extension-function/57839675#57839675" target="_blank" rel="noopener">Understanding a parameter that is initialized as an extension function</a></p>
 
                     </article>
                     
@@ -404,9 +410,9 @@
     </script>
 
 
-<p class="post-footer-info mb-0 pt-0">Published at&nbsp;<time datetime="2019-06-15T07:13:42.000Z" itemprop="datePublished">2019-06-15</time>
+<p class="post-footer-info mb-0 pt-0">Published at&nbsp;<time datetime="2019-06-15T07:15:47.000Z" itemprop="datePublished">2019-06-15</time>
 
-    , Updated at&nbsp;<time datetime="2019-12-21T07:14:22.566Z" itemprop="dateModified">2019-12-21</time>
+    , Updated at&nbsp;<time datetime="2019-12-21T11:50:29.853Z" itemprop="dateModified">2019-12-21</time>
 
 </p>
 <p class="post-footer-info mb-0 pt-2">
@@ -435,20 +441,13 @@
 <ul class="pagination">
     <!-- Prev Nav -->
     
-        <li class="page-item page-prev">
-            <a href="/2019/06/15/Idiomatic-Kotlin%EF%BC%9ALambda-with-receiver/" rel="prev">
-                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
-                <div class="page-item-subtitle">Idiomatic Kotlin：Lambda with receiver</div>
-            </a>
-        </li>
-    
 
     <!-- Next Nav -->
     
         <li class="page-item page-next">
-            <a href="/2019/06/15/Idiomatic-Kotlin-lambda-sam-constructors/" rel="next">
+            <a href="/2019/06/15/Idiomatic-kotlin-Elvis-Operator/" rel="next">
                 <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
-                <div class="page-item-subtitle">Idiomatic Kotlin: lambda sam constructors</div>
+                <div class="page-item-subtitle">Idiomatic kotlin: Elvis Operator</div>
             </a>
         </li>
     
@@ -462,8 +461,8 @@
                             <div id="disqus_thread"></div>
 <script>
     var disqus_config = function () {
-        this.page.url = 'http://lysmbetter.top/2019/06/15/Idiomatic-kotlin-Elvis-Operator/'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://lysmbetter.top/2019/06/15/Idiomatic-kotlin-Elvis-Operator/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://lysmbetter.top/2019/06/15/Idiomatic-Kotlin%EF%BC%9ALambda-with-receiver/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://lysmbetter.top/2019/06/15/Idiomatic-Kotlin%EF%BC%9ALambda-with-receiver/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
 <script id="disqus-thread-script">
