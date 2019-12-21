@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hans">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        hexo-theme-suka © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+    -->
+
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+    <link rel="dns-prefetch" href="//disqus.com">
+    <link rel="dns-prefetch" href="//lysmbetter.disqus.com">
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+    <!-- ## Preload ## -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
+
+    <!-- Title -->
+    <title>Idiomatic Kotlin：infix | Better</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/suka-favicon.ico">
+
+    <!-- ### Import File ### -->
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css"><style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: #0070ff;
+    }
+
+    a:active, a:focus, a:hover {
+        color: #0070ff;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: #005eb9;
+        opacity: 1;
+    }
+
+    
+
+    .post-entry .card-body a {
+        color: #0070ff;
+    }
+
+    .avatar {
+        background: #444;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: #0070ff;
+    }
+
+    .navbar-link:hover {
+        color: #0070ff;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: #727e96;
+        border-color: #727e96;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: #727e96;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style><link rel="stylesheet" href="/css/style.min.css">
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    <link rel="preload" href="/css/highlight/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/css/highlight/github.min.css"></noscript>
+
+
+
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="Better"><meta name="msapplication-starturl" content="http://lysmbetter.top"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Better"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="Idiomatic Kotlin：infix | Better"><meta property="og:site_name" content="Better"><meta property="og:type" content="article"><meta property="og:url" content="http:&#x2F;&#x2F;lysmbetter.top&#x2F;2019&#x2F;05&#x2F;26&#x2F;Idiomatic-Kotlin%EF%BC%9Ainfix&#x2F;"><meta property="og:locale" content="zh-Hans"><meta name="description" content="infix关键字标记的函数，可以使用中缀表达式的方式调用。使得在调用方法的时候，不需要dot.也不需要parentheses ()。  比如在构造Pair&amp;lt;A,B&amp;gt;对象的时候经常使用to函数来实现 1234# 使用中缀1 to &quot;one&quot;# 不使用中缀1.to(&quot;one&quot;)  这样提高了代码易读性  申明inflx方法，只需在普通的方法前面加infix关键字就行，但是需满足以下限制：  - Better - Better"><meta name="keywords" content="Android, Kotlin"><meta property="article:published_time" content="2019-05-26T06:53:17.000Z"><meta property="article:modified_time" content="2019-12-21T06:56:01.572Z"><meta property="og:updated_time" content="2019-12-21T06:56:01.572Z"><meta property="article:author" content="Better"><meta property="article:tag" content="Android, Kotlin"><meta name="twitter:card" content="summary">
+
+    
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://lysmbetter.top/2019/05/26/Idiomatic-Kotlin%EF%BC%9Ainfix/">
+
+    <meta name="generator" content="Hexo 4.0.0">
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "http://lysmbetter.top/2019/05/26/Idiomatic-Kotlin%EF%BC%9Ainfix/",
+    "@type": "BlogPosting",
+    "logo": "http://lysmbetter.top/img/suka-favicon.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://lysmbetter.top/2019/05/26/Idiomatic-Kotlin%EF%BC%9Ainfix/"
+    },
+    "headline": "Idiomatic Kotlin：infix | Better",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "http://lysmbetter.top/img/suka-favicon.ico"
+    },
+    
+    "datePublished": "2019-05-26T06:53:17.000Z",
+    "dateModified": "2019-12-21T06:56:01.572Z",
+    "author": {
+        "@type": "Person",
+        "name": "Better",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://lysmbetter.top/img/default_avatar.png"
+        },
+        "description": "业精于勤荒于嬉"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Better",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "http://lysmbetter.top/img/suka-favicon.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "http://lysmbetter.top/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "Android, Kotlin",
+    "description": "infix关键字标记的函数，可以使用中缀表达式的方式调用。使得在调用方法的时候，不需要dot.也不需要parentheses ()。  比如在构造Pair&amp;amp;lt;A,B&amp;amp;gt;对象的时候经常使用to函数来实现 1234# 使用中缀1 to &amp;quot;one&amp;quot;# 不使用中缀1.to(&amp;quot;one&amp;quot;)  这样提高了代码易读性  申明inflx方法，只需在普通的方法前面加infix关键字就行，但是需满足以下限制：  - Better - Better"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+</head>
+
+    <body>
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">Better</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                业精于勤荒于嬉
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">Home</a>
+    
+    
+        <a href="/archives/" class="navbar-link">Archives</a>
+    
+    
+        <a href="/search" class="navbar-link">Search</a>
+    
+    
+        <a href="/tags/" class="navbar-link">Tags</a>
+    
+        <a href="/about/" class="navbar-link">About</a>
+    
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    <div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">Idiomatic Kotlin：infix</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/default_avatar.png" src="/img/suka-lazyload.gif" alt="Better's Avatar">
+        <span>2019-05-26</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/Kotlin/">Kotlin</a>
+        
+        
+            <!-- Busuanzi Post Views -->
+<span id="busuanzi_container_page_pv" hidden>
+    <span class="suka-devide-dot"></span>
+    <span></span>
+    <span id="busuanzi_value_page_pv"></span>
+    <span>Views</span>
+</span>
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">Share the post</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=Idiomatic Kotlin：infix&url=http://lysmbetter.top/2019/05/26/Idiomatic-Kotlin%EF%BC%9Ainfix/&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+    </li>
+    
+
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=Idiomatic Kotlin：infix&url=http://lysmbetter.top/2019/05/26/Idiomatic-Kotlin%EF%BC%9Ainfix/&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+    </li>
+    
+
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top/2019/05/26/Idiomatic-Kotlin%EF%BC%9Ainfix/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+    </li>
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+    <li class="menu-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top/2019/05/26/Idiomatic-Kotlin%EF%BC%9Ainfix/&title=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+    </li>
+    
+
+    <!-- Share QQ -->
+    
+    <li class="menu-item">
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Better&summary=业精于勤荒于嬉&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top/2019/05/26/Idiomatic-Kotlin%EF%BC%9Ainfix/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+    </li>
+    
+
+    <!-- Share Telegram -->
+    
+    <li class="menu-item">
+        <a href="https://t.me/share/url?url=http://lysmbetter.top/2019/05/26/Idiomatic-Kotlin%EF%BC%9Ainfix/&text=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+    </li>
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKQAAACkCAAAAAA83tqdAAACOklEQVR42u2bQVLDQAwE/f9Pw4kDwatpLaaAVfuSpJxY7SpLSDPievsHxyWkkEIK+Qcgr+J4Pf/x+fX17v2nYOG6d+eFnA15+9AWwe4+3wHeBn65ySqukLMhVwmyLLSL330JBBJwFVdIIVPRJt+rriukkE9Brgp1Ktqp+Asp5E6DUSVISh56k9/ugoQ8DjINYj/1+ui0KOQxkFE0CoNUVcBXhfxxVU3IoyBJs5qEJ1KkKwFrOcQJORKSCFIkAVbiFRVhb5sQIUdCVqJ7etArkM7322aTkEdDkiLcEa9Soa/E1pjdQo6CXAlKqSGgzW1qKvAgJuQIyNXDTBKKmvQJMBZzIcdApoLcEaGISUrMfiGFTIW6s3iURP4kMmClV8hjIWmh7ooGu2Z9S+kV8khIYpynoGTop0KXkELuLIbQgT+ZUHFhWciRkLtGekeIIiJCFKyEHAtZFXIiDHSWmWIMIUdD0kY2iVDpXPojUYqoQo6C7DzYJNHSshwSsoQcCUmEpipw1agQ00BIIUnTuzugdRed4rWFHAm5mwBEVCXNy5aIKuTRkJ1FkWrhiTTD6SaEFDIlSxK1dozQdGNCCkku3hXl07nHNgeEPBKSmPNpkCJmOzHp25sDQh4JSYsxLdjEECCil5CzIUnCkKJMm1xi2AspZGeZo2MaPdYFCSnkxf75nCyDdkx5IYUkkJ2Fpm5zghZFhBwJSQcwIrJ2kg8LVkKOgtwRQVOCJAE1maJCzoX8y4eQQgop5C8e73WPtpUpQwy9AAAAAElFTkSuQmCC" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#define-and-use"><span class="post-toc-number">1.</span> <span class="post-toc-text">define and use</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#bummock"><span class="post-toc-number">2.</span> <span class="post-toc-text">bummock</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#precedence"><span class="post-toc-number">3.</span> <span class="post-toc-text">precedence</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#this"><span class="post-toc-number">4.</span> <span class="post-toc-text">this</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考"><span class="post-toc-number">5.</span> <span class="post-toc-text">参考</span></a></li></ol></div>
+                        
+                    
+                    <article id="post-content">
+                        <blockquote>
+<p><code>infix</code>关键字标记的函数，可以使用中缀表达式的方式调用。使得在调用方法的时候，不需要dot<code>.</code>也不需要parentheses <code>()</code>。</p>
+</blockquote>
+<p>比如在构造<code>Pair&lt;A,B&gt;</code>对象的时候经常使用<code>to</code>函数来实现</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 使用中缀</span><br><span class="line"><span class="number">1</span> to <span class="string">"one"</span></span><br><span class="line"># 不使用中缀</span><br><span class="line"><span class="number">1</span>.to(<span class="string">"one"</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这样提高了代码易读性</p>
+</blockquote>
+<p>申明<code>inflx</code>方法，只需在普通的方法前面加<code>infix</code>关键字就行，但是需满足以下限制：</p>
+<ol>
+<li>必须是成员函数或者是扩展函数</li>
+<li>方法的参数只能有一个，不能使用<code>vararg</code></li>
+<li>参数不能有默认值</li>
+</ol>
+<h2 id="define-and-use"><a href="#define-and-use" class="headerlink" title="define and use"></a>define and use</h2><p>define:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StringNames</span> </span>&#123;</span><br><span class="line">    <span class="function">infix fun <span class="title">appendOther</span><span class="params">(other: String)</span>: String </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"hello $other"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>use:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">val stringNames = StringNames()</span><br><span class="line">val helloworld = stringNames appendOther <span class="string">"world"</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="bummock"><a href="#bummock" class="headerlink" title="bummock"></a>bummock</h2><p>查看编译后的代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">StringNames</span> </span>&#123;</span><br><span class="line">   <span class="meta">@NotNull</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> String <span class="title">appendOther</span><span class="params">(@NotNull String other)</span> </span>&#123;</span><br><span class="line">      Intrinsics.checkParameterIsNotNull(other, <span class="string">"other"</span>);</span><br><span class="line">      <span class="keyword">return</span> <span class="string">"hello "</span> + other;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">TestStringNameKt</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      StringNames stringNames = <span class="keyword">new</span> StringNames();</span><br><span class="line">      String helloworld = stringNames.appendOther(<span class="string">"world"</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>infix</code>标记的函数被编译成<code>final</code>方法。而调用的时候没有特别的变化，跟普通的函数调用一样。在编译期间给转换成正常的 Java 代码了</p>
+<h2 id="precedence"><a href="#precedence" class="headerlink" title="precedence"></a>precedence</h2><p><code>infix</code>的调用跟运算符的调用很像。但是在优先级上是有一些先后区别的。</p>
+<ol>
+<li>低。<code>infix</code>比起算术运算符(+,-,*,/)，<code>type cast</code>,<code>rangeTo</code>低<ul>
+<li><code>1 add 2 + 3</code>等价于<code>1 add (2 + 3)</code></li>
+<li><code>10 until n * 2</code>等价于<code>0 until (n * 2)</code></li>
+<li><code>1xs union ys as Set&lt;*&gt;</code>等价于<code>xs union (ys as Set&lt;*&gt;)</code></li>
+</ul>
+</li>
+<li>高。<code>infix</code>比起 boolean 操作符要高 <code>&amp;&amp;</code> 与 <code>||</code>、<code>is</code> 与 <code>in</code><ul>
+<li><code>a &amp;&amp; b xor c</code>等价于<code>a &amp;&amp; (b xor c)</code></li>
+<li><code>a xor b in c</code>等价于<code>(a xor b) in c</code></li>
+</ul>
+</li>
+</ol>
+<p><a href="https://www.kotlincn.net/docs/reference/keyword-reference.html" target="_blank" rel="noopener">详细数据</a></p>
+<table>
+  <thead>
+    <tr>
+      <th>Precedence</th>
+      <th>Title</th>
+      <th>Symbols</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Highest</td>
+      <td>Postfix</td>
+      <td><code>++</code>, <code>--</code>, <code>.</code>, <code>?.</code>, <code>?</code></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>Prefix</td>
+      <td><code>-</code>, <code>+</code>, <code>++</code>, <code>--</code>, <code>!</code>, <a href="#label"><code>label</code></a></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>Type RHS</td>
+      <td><code>:</code>, <code>as</code>, <code>as?</code></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>Multiplicative</td>
+      <td><code>*</code>, <code>/</code>, <code>%</code></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>Additive</td>
+      <td><code>+</code>, <code>-</code></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>Range</td>
+      <td><code>..</code></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>Infix function</td>
+      <td><a href="#simpleIdentifier"><code>simpleIdentifier</code></a></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>Elvis</td>
+      <td><code>?:</code></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>Named checks</td>
+      <td><code>in</code>, <code>!in</code>, <code>is</code>, <code>!is</code></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>Comparison</td>
+      <td><code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>Equality</td>
+      <td><code>==</code>, <code>!==</code></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>Conjunction</td>
+      <td><code>&amp;&amp;</code></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>Disjunction</td>
+      <td><code>||</code></td>
+    </tr>
+    <tr>
+      <td>Lowest</td>
+      <td>Assignment</td>
+      <td><code>=</code>, <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>, <code>%=</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><p><code>infix</code>函数需要指定调用者以及参数。如果在调用者内部调用<code>infix</code>方法需要显示的使用<code>this</code>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StringCollection</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function">infix fun <span class="title">add</span><span class="params">(s: String)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// perform some action here</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">fun <span class="title">build</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span> add <span class="string">"abc"</span> <span class="comment">// Works fine, calls the infix function</span></span><br><span class="line">        add(<span class="string">"abc"</span>) <span class="comment">// Works fine, note this is not an infix call</span></span><br><span class="line">        add <span class="string">"abc"</span> <span class="comment">// error: the receiver must be specified</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.kotlincn.net/docs/reference/functions.html#%E4%B8%AD%E7%BC%80%E8%A1%A8%E7%A4%BA%E6%B3%95" target="_blank" rel="noopener">kotlinDoc-infix</a><br><a href="https://medium.com/tompee/idiomatic-kotlin-infix-functions-eea833f70c90" target="_blank" rel="noopener">Idiomatic Kotlin: Infix functions</a></p>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
+    <script>
+    (function() {
+        var dateUpdate = Date.parse("2019-12-21");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    })();
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">Published at&nbsp;<time datetime="2019-05-26T06:53:17.000Z" itemprop="datePublished">2019-05-26</time>
+
+    , Updated at&nbsp;<time datetime="2019-12-21T06:56:01.572Z" itemprop="dateModified">2019-12-21</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+<a class="post-categories-list-item" href='/categories/Kotlin/'>Kotlin</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+<a class="post-tags-list-item" href="/tags/Android/" rel="tag">#&nbsp;Android</a>
+
+<a class="post-tags-list-item" href="/tags/Kotlin/" rel="tag">#&nbsp;Kotlin</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2019/06/02/Idiomatic-Kotlin-class-delegates/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">Idiomatic Kotlin: class delegates</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2019/05/26/Idiomatic%20Kotlin%EF%BC%9Asealed%20class/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">Idiomatic Kotlin：sealed class</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                        <div class="card-footer post-comment">
+                            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://lysmbetter.top/2019/05/26/Idiomatic-Kotlin%EF%BC%9Ainfix/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://lysmbetter.top/2019/05/26/Idiomatic-Kotlin%EF%BC%9Ainfix/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script id="disqus-thread-script">
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//lysmbetter.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+                        </div>
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="http://lysmbetter.top">Better</a>
+        </p>
+
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+
+    
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+document.getElementById('copyright-year').textContent = new Date().getFullYear();
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
+</script>
+
+<script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
+    <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+<!-- Comment -->
+
+    
+        <script id="dsq-count-scr" src="https://lysmbetter.disqus.com/count.js" async></script>
+
+    
+
+
+<!-- ### Custom Footer ### -->
+
+    </body>
+
+</html>

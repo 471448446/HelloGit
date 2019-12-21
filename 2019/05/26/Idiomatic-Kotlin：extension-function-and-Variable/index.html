@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hans">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        hexo-theme-suka © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+    -->
+
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+    <link rel="dns-prefetch" href="//disqus.com">
+    <link rel="dns-prefetch" href="//lysmbetter.disqus.com">
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+    <!-- ## Preload ## -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
+
+    <!-- Title -->
+    <title>Idiomatic Kotlin：extension function and Variable | Better</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/suka-favicon.ico">
+
+    <!-- ### Import File ### -->
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css"><style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: #0070ff;
+    }
+
+    a:active, a:focus, a:hover {
+        color: #0070ff;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: #005eb9;
+        opacity: 1;
+    }
+
+    
+
+    .post-entry .card-body a {
+        color: #0070ff;
+    }
+
+    .avatar {
+        background: #444;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: #0070ff;
+    }
+
+    .navbar-link:hover {
+        color: #0070ff;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: #727e96;
+        border-color: #727e96;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: #727e96;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style><link rel="stylesheet" href="/css/style.min.css">
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    <link rel="preload" href="/css/highlight/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/css/highlight/github.min.css"></noscript>
+
+
+
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="Better"><meta name="msapplication-starturl" content="http://lysmbetter.top"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Better"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="Idiomatic Kotlin：extension function and Variable | Better"><meta property="og:site_name" content="Better"><meta property="og:type" content="article"><meta property="og:url" content="http:&#x2F;&#x2F;lysmbetter.top&#x2F;2019&#x2F;05&#x2F;26&#x2F;Idiomatic-Kotlin%EF%BC%9Aextension-function-and-Variable&#x2F;"><meta property="og:locale" content="zh-Hans"><meta name="description" content="extension 既扩展。在 kotlin 中可以不使用继承的方式，向类型中添加方法和变量。  比如在使用一些第三方的代码时，可以通过扩展直接向这些类中添加一些方法、变量，而不需要集成这些类来添加方法、变量。减少了一些不别要的派生类。(motivation)  这样的好处是，可以跟老的代码无缝的集成。  define and use定义函数Type.xxx()，定义变量Type.xxx。defi - Better - Better"><meta name="keywords" content="Android, Kotlin"><meta property="article:published_time" content="2019-05-26T06:45:40.000Z"><meta property="article:modified_time" content="2019-12-21T06:48:57.277Z"><meta property="og:updated_time" content="2019-12-21T06:48:57.277Z"><meta property="article:author" content="Better"><meta property="article:tag" content="Android, Kotlin"><meta name="twitter:card" content="summary">
+
+    
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://lysmbetter.top/2019/05/26/Idiomatic-Kotlin%EF%BC%9Aextension-function-and-Variable/">
+
+    <meta name="generator" content="Hexo 4.0.0">
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "http://lysmbetter.top/2019/05/26/Idiomatic-Kotlin%EF%BC%9Aextension-function-and-Variable/",
+    "@type": "BlogPosting",
+    "logo": "http://lysmbetter.top/img/suka-favicon.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://lysmbetter.top/2019/05/26/Idiomatic-Kotlin%EF%BC%9Aextension-function-and-Variable/"
+    },
+    "headline": "Idiomatic Kotlin：extension function and Variable | Better",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "http://lysmbetter.top/img/suka-favicon.ico"
+    },
+    
+    "datePublished": "2019-05-26T06:45:40.000Z",
+    "dateModified": "2019-12-21T06:48:57.277Z",
+    "author": {
+        "@type": "Person",
+        "name": "Better",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://lysmbetter.top/img/default_avatar.png"
+        },
+        "description": "业精于勤荒于嬉"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Better",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "http://lysmbetter.top/img/suka-favicon.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "http://lysmbetter.top/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "Android, Kotlin",
+    "description": "extension 既扩展。在 kotlin 中可以不使用继承的方式，向类型中添加方法和变量。  比如在使用一些第三方的代码时，可以通过扩展直接向这些类中添加一些方法、变量，而不需要集成这些类来添加方法、变量。减少了一些不别要的派生类。(motivation)  这样的好处是，可以跟老的代码无缝的集成。  define and use定义函数Type.xxx()，定义变量Type.xxx。defi - Better - Better"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+</head>
+
+    <body>
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">Better</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                业精于勤荒于嬉
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">Home</a>
+    
+    
+        <a href="/archives/" class="navbar-link">Archives</a>
+    
+    
+        <a href="/search" class="navbar-link">Search</a>
+    
+    
+        <a href="/tags/" class="navbar-link">Tags</a>
+    
+        <a href="/about/" class="navbar-link">About</a>
+    
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    <div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">Idiomatic Kotlin：extension function and Variable</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/default_avatar.png" src="/img/suka-lazyload.gif" alt="Better's Avatar">
+        <span>2019-05-26</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/Kotlin/">Kotlin</a>
+        
+        
+            <!-- Busuanzi Post Views -->
+<span id="busuanzi_container_page_pv" hidden>
+    <span class="suka-devide-dot"></span>
+    <span></span>
+    <span id="busuanzi_value_page_pv"></span>
+    <span>Views</span>
+</span>
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">Share the post</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=Idiomatic Kotlin：extension function and Variable&url=http://lysmbetter.top/2019/05/26/Idiomatic-Kotlin%EF%BC%9Aextension-function-and-Variable/&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+    </li>
+    
+
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=Idiomatic Kotlin：extension function and Variable&url=http://lysmbetter.top/2019/05/26/Idiomatic-Kotlin%EF%BC%9Aextension-function-and-Variable/&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+    </li>
+    
+
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top/2019/05/26/Idiomatic-Kotlin%EF%BC%9Aextension-function-and-Variable/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+    </li>
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+    <li class="menu-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top/2019/05/26/Idiomatic-Kotlin%EF%BC%9Aextension-function-and-Variable/&title=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+    </li>
+    
+
+    <!-- Share QQ -->
+    
+    <li class="menu-item">
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Better&summary=业精于勤荒于嬉&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top/2019/05/26/Idiomatic-Kotlin%EF%BC%9Aextension-function-and-Variable/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+    </li>
+    
+
+    <!-- Share Telegram -->
+    
+    <li class="menu-item">
+        <a href="https://t.me/share/url?url=http://lysmbetter.top/2019/05/26/Idiomatic-Kotlin%EF%BC%9Aextension-function-and-Variable/&text=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+    </li>
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAAAAAAYplnuAAACsElEQVR42u3c0U7DMAxG4b7/S8PtgMT/sdMhTT27mYDRfUFy49hm19cHPi7RokWLfiD6Kh4/fuHl69Vrfn9vdY3f11u9vnKIFk3Ru4vu3uj15+mZXJM6RIvuoFeBsQqQuAEsgrPCVe8nWvS70CvECtXdWHZ40aLfjd4lSLvA2i14lxiJFv0O9CSRSSjy+k7iJlo0RVcHyv98vu00LvrR6E5STw+oZONJAXhUNRX9aHRKZGiyswus02uLFt1Fk+BLBfCq8EIOwNWmJlr0KZoGBi3GpIJkp8gpWnQHXd7UQwEmBWI68KakSrToDpo259sJ+2YToU2jWIAULRoUIFOCThv7qZlEE6U/ixItGqBpY5M07KvmZ9qU0LCAaNEHtbxUhCGbUreYHm8MokVDNGmwd5o+qRnaXYho0R10KihOhljo8BYpPG6bn6JFN8+IqWhDCzCpSV8VjdonF9GiQSB1m5rtw+o0EEWLLjYX0oikw7HdZIsMvYgWPUFTXGcAlgxotf5YokUDdAomOghIm5pkGCUOqYgWHdDkDckwSRzavtg/YaJAFC262FxQQTtsKmngkA4IlIVL0aKH6E4TNDVGp4tsB6Jo0aAAOClA0gYq2kzSkIpo0SCfpoX1FGCTIn08iIgWDdAnA4CTgQBSQN8uRrRogK6KMtMhlGrjoolTvHuIFg0b+rQhWiU5ncI53dREi+6iJwNUJMhIYbPaUESLPkXTBlJMbhpDK7SBJFr0NfwAh26SUxVuSCN/1CgSLTo0P+kQK23+kEIPHWAULfrkYIsLJ6BhmgKMJFWiRU/RpIDYCap0SCU3gjhMKFr0zR+aXTWLWsMndIGiRd+IThsQaWjSoZVRAVK0aJgwVc2kdIilQXr7IUD049G0YT9ZXFXcpIUg0aI76E96iBYtWvSD0N9DZjrInYkVsAAAAABJRU5ErkJggg==" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#define-and-use"><span class="post-toc-number">1.</span> <span class="post-toc-text">define and use</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#bummock"><span class="post-toc-number">2.</span> <span class="post-toc-text">bummock</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#private"><span class="post-toc-number">3.</span> <span class="post-toc-text">private</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Inheritance"><span class="post-toc-number">4.</span> <span class="post-toc-text">Inheritance</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#as-member"><span class="post-toc-number">5.</span> <span class="post-toc-text">as member</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#name-conflict"><span class="post-toc-number">6.</span> <span class="post-toc-text">name conflict</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考"><span class="post-toc-number">7.</span> <span class="post-toc-text">参考</span></a></li></ol></div>
+                        
+                    
+                    <article id="post-content">
+                        <blockquote>
+<p>extension 既扩展。在 kotlin 中可以不使用继承的方式，向类型中添加方法和变量。</p>
+</blockquote>
+<p>比如在使用一些第三方的代码时，可以通过扩展直接向这些类中添加一些方法、变量，而不需要集成这些类来添加方法、变量。减少了一些不别要的派生类。(motivation)</p>
+<blockquote>
+<p>这样的好处是，可以跟老的代码无缝的集成。</p>
+</blockquote>
+<h2 id="define-and-use"><a href="#define-and-use" class="headerlink" title="define and use"></a>define and use</h2><p>定义函数<code>Type.xxx()</code>，定义变量<code>Type.xxx</code>。<br>define:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fun String.hello()&#123;</span><br><span class="line">    Log.e(<span class="string">"Hello"</span>,<span class="string">"hello world"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">val String.hello: String</span><br><span class="line">    get() = <span class="string">"hello world"</span></span><br></pre></td></tr></table></figure>
+
+<p>use:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"world"</span>.hello()</span><br><span class="line">val world = <span class="string">"world"</span>.hello</span><br></pre></td></tr></table></figure>
+
+<h2 id="bummock"><a href="#bummock" class="headerlink" title="bummock"></a>bummock</h2><p><code>Tools -&gt; Kotlin -&gt; Show Kotlin ByteCode</code>点击Decompile 按钮查看生成的代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">AKt</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">hello</span><span class="params">(@NotNull String $<span class="keyword">this</span>$hello)</span> </span>&#123;</span><br><span class="line">      Intrinsics.checkParameterIsNotNull($<span class="keyword">this</span>$hello, <span class="string">"$this$hello"</span>);</span><br><span class="line">      Log.e(<span class="string">"Hello"</span>, <span class="string">"hello world"</span>);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="meta">@NotNull</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String <span class="title">getHello</span><span class="params">(@NotNull String $<span class="keyword">this</span>$hello)</span> </span>&#123;</span><br><span class="line">      Intrinsics.checkParameterIsNotNull($<span class="keyword">this</span>$hello, <span class="string">"$this$hello"</span>);</span><br><span class="line">      <span class="keyword">return</span> <span class="string">"hello world"</span>;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>扩展函数 ，其实并没有真正的向类型中添加新的函数，而是通过静态方法来实现的</strong>。<br><strong>扩展变量，也只是通过静态方法来实现的，所有在定义的时候，必需写<code>getter()</code></strong>。</p>
+<h2 id="private"><a href="#private" class="headerlink" title="private"></a>private</h2><p>由于扩展函数并不是真正的向类型中增加函数。所以不能访问类型中的私有属性以及方法。</p>
+<h2 id="Inheritance"><a href="#Inheritance" class="headerlink" title="Inheritance"></a>Inheritance</h2><p>没有继承多态的效果。<strong>子类和父类申明扩展方法的时候，调用时，不管子类还是父类调用，始终至于父类的有效</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">open <span class="class"><span class="keyword">class</span> <span class="title">Feline</span></span></span><br><span class="line"><span class="class"><span class="title">fun</span> <span class="title">Feline</span>.<span class="title">speak</span>() </span>= <span class="string">"&lt;generic feline noise&gt;"</span></span><br><span class="line">class Cat : Feline()</span><br><span class="line">fun Cat.speak() = <span class="string">"meow!!"</span></span><br><span class="line"><span class="function">fun <span class="title">printSpeak</span><span class="params">(feline: Feline)</span> </span>&#123;</span><br><span class="line">println(feline.speak())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">printSpeak(Feline())</span><br><span class="line">printSpeak(Cat()</span><br></pre></td></tr></table></figure>
+<p>result:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;generic feline noise&gt;</span><br><span class="line">&lt;generic feline noise&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="as-member"><a href="#as-member" class="headerlink" title="as member"></a>as member</h2><p>扩展函数可以定义在类中作为一个普通的函数，这样就具有多态。这种情况需要区分<code>this</code>,<code>this@Class</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">open class <span class="title">Caregiver</span><span class="params">(val name: String)</span> </span>&#123;</span><br><span class="line">open fun Feline.react() = <span class="string">"PURRR!!!"</span></span><br><span class="line">fun Primate.react() = <span class="string">"*$name plays with $&#123;this@Caregiver.name&#125;*"</span></span><br><span class="line"><span class="function">fun <span class="title">takeCare</span><span class="params">(feline: Feline)</span> </span>&#123;</span><br><span class="line">    println(<span class="string">"Feline reacts: $&#123;feline.react()&#125;"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">fun <span class="title">takeCare</span><span class="params">(primate: Primate)</span></span>&#123;</span><br><span class="line">    println(<span class="string">"Primate reacts: $&#123;primate.react()&#125;"</span>)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">val adam = Caregiver(<span class="string">"Adam"</span>)</span><br><span class="line">val fulgencio = Cat()</span><br><span class="line">val koko = Primate(<span class="string">"Koko"</span>)</span><br><span class="line">adam.takeCare(fulgencio)</span><br><span class="line">adam.takeCare(koko)</span><br></pre></td></tr></table></figure>
+
+<p>result:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PURRR!!!</span><br><span class="line">*Koko plays with Adam*</span><br></pre></td></tr></table></figure>
+<h2 id="name-conflict"><a href="#name-conflict" class="headerlink" title="name conflict"></a>name conflict</h2><p>扩展函数和成员函数同名是支持的。</p>
+<ul>
+<li>默认执行的是成员函数，扩展函数是不会调用的。</li>
+<li>但是当成员函数是私有的时，是调用的扩展函数（因为无法访问私有的成员函数）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class Worker &#123;</span><br><span class="line">fun work() = &quot;*working hard*&quot;</span><br><span class="line">private fun rest() = &quot;*resting*&quot;</span><br><span class="line">&#125;</span><br><span class="line">fun Worker.work() = &quot;*not working so hard*&quot;</span><br><span class="line">fun &lt;T&gt; Worker.work(t:T) = &quot;*working on $t*&quot;</span><br><span class="line">fun Worker.rest() = &quot;*playing video games*&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">val worker = Worker()</span><br><span class="line">println(worker.work())</span><br><span class="line">println(worker.work(&quot;refactoring&quot;))</span><br><span class="line">println(worker.rest())</span><br></pre></td></tr></table></figure>
+
+<p>result：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">*working hard*</span><br><span class="line">*working on refactoring*</span><br><span class="line">*playing video games*</span><br></pre></td></tr></table></figure>
+
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://medium.com/tompee/idiomatic-kotlin-extension-functions-67735491851f" target="_blank" rel="noopener">Idiomatic Kotlin: Extension functions</a><br><a href="http://www.solutionsproj.net/software/functional_kotlin.pdf" target="_blank" rel="noopener">functional_kotlin</a></p>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
+    <script>
+    (function() {
+        var dateUpdate = Date.parse("2019-12-21");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    })();
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">Published at&nbsp;<time datetime="2019-05-26T06:45:40.000Z" itemprop="datePublished">2019-05-26</time>
+
+    , Updated at&nbsp;<time datetime="2019-12-21T06:48:57.277Z" itemprop="dateModified">2019-12-21</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+<a class="post-categories-list-item" href='/categories/Kotlin/'>Kotlin</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+<a class="post-tags-list-item" href="/tags/Android/" rel="tag">#&nbsp;Android</a>
+
+<a class="post-tags-list-item" href="/tags/Kotlin/" rel="tag">#&nbsp;Kotlin</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2019/05/26/Idiomatic%20Kotlin%EF%BC%9Asealed%20class/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">Idiomatic Kotlin：sealed class</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2019/05/25/Kotlin%20Android%20Extensions%EF%BC%9A%E6%AD%A3%E7%A1%AE%E7%9A%84%E7%BB%91%E5%AE%9AView/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">Kotlin Android Extensions：正确的绑定View</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                        <div class="card-footer post-comment">
+                            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://lysmbetter.top/2019/05/26/Idiomatic-Kotlin%EF%BC%9Aextension-function-and-Variable/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://lysmbetter.top/2019/05/26/Idiomatic-Kotlin%EF%BC%9Aextension-function-and-Variable/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script id="disqus-thread-script">
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//lysmbetter.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+                        </div>
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="http://lysmbetter.top">Better</a>
+        </p>
+
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+
+    
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+document.getElementById('copyright-year').textContent = new Date().getFullYear();
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
+</script>
+
+<script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
+    <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+<!-- Comment -->
+
+    
+        <script id="dsq-count-scr" src="https://lysmbetter.disqus.com/count.js" async></script>
+
+    
+
+
+<!-- ### Custom Footer ### -->
+
+    </body>
+
+</html>

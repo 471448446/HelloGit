@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hans">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        hexo-theme-suka © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+    -->
+
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+    <link rel="dns-prefetch" href="//disqus.com">
+    <link rel="dns-prefetch" href="//lysmbetter.disqus.com">
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+    <!-- ## Preload ## -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
+
+    <!-- Title -->
+    <title>Idiomatic Kotlin: lambda sam constructors | Better</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/suka-favicon.ico">
+
+    <!-- ### Import File ### -->
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css"><style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: #0070ff;
+    }
+
+    a:active, a:focus, a:hover {
+        color: #0070ff;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: #005eb9;
+        opacity: 1;
+    }
+
+    
+
+    .post-entry .card-body a {
+        color: #0070ff;
+    }
+
+    .avatar {
+        background: #444;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: #0070ff;
+    }
+
+    .navbar-link:hover {
+        color: #0070ff;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: #727e96;
+        border-color: #727e96;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: #727e96;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style><link rel="stylesheet" href="/css/style.min.css">
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    <link rel="preload" href="/css/highlight/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/css/highlight/github.min.css"></noscript>
+
+
+
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="Better"><meta name="msapplication-starturl" content="http://lysmbetter.top"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Better"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="Idiomatic Kotlin: lambda sam constructors | Better"><meta property="og:site_name" content="Better"><meta property="og:type" content="article"><meta property="og:url" content="http:&#x2F;&#x2F;lysmbetter.top&#x2F;2019&#x2F;06&#x2F;15&#x2F;Idiomatic-Kotlin-lambda-sam-constructors&#x2F;"><meta property="og:locale" content="zh-Hans"><meta name="description" content="lambda 表达式( lambda expressions)：一段可以传递给其他函数的代码块高阶函数(high-order-functions)：可以接受其他函数作为参数的就是高阶函数函数式编程(functional programming)：一个编程形式，支持函数作为一个普通类型的编程方式。函数可以作为变量，参数。函数式接口(functional interface)：内部只有一个方法的接口。 - Better - Better"><meta name="keywords" content="Android, Kotlin"><meta property="article:published_time" content="2019-06-15T07:09:29.000Z"><meta property="article:modified_time" content="2019-12-21T07:10:52.625Z"><meta property="og:updated_time" content="2019-12-21T07:10:52.625Z"><meta property="article:author" content="Better"><meta property="article:tag" content="Android, Kotlin"><meta name="twitter:card" content="summary">
+
+    
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://lysmbetter.top/2019/06/15/Idiomatic-Kotlin-lambda-sam-constructors/">
+
+    <meta name="generator" content="Hexo 4.0.0">
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "http://lysmbetter.top/2019/06/15/Idiomatic-Kotlin-lambda-sam-constructors/",
+    "@type": "BlogPosting",
+    "logo": "http://lysmbetter.top/img/suka-favicon.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://lysmbetter.top/2019/06/15/Idiomatic-Kotlin-lambda-sam-constructors/"
+    },
+    "headline": "Idiomatic Kotlin: lambda sam constructors | Better",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "http://lysmbetter.top/img/suka-favicon.ico"
+    },
+    
+    "datePublished": "2019-06-15T07:09:29.000Z",
+    "dateModified": "2019-12-21T07:10:52.625Z",
+    "author": {
+        "@type": "Person",
+        "name": "Better",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://lysmbetter.top/img/default_avatar.png"
+        },
+        "description": "业精于勤荒于嬉"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Better",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "http://lysmbetter.top/img/suka-favicon.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "http://lysmbetter.top/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "Android, Kotlin",
+    "description": "lambda 表达式( lambda expressions)：一段可以传递给其他函数的代码块高阶函数(high-order-functions)：可以接受其他函数作为参数的就是高阶函数函数式编程(functional programming)：一个编程形式，支持函数作为一个普通类型的编程方式。函数可以作为变量，参数。函数式接口(functional interface)：内部只有一个方法的接口。 - Better - Better"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+</head>
+
+    <body>
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">Better</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                业精于勤荒于嬉
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">Home</a>
+    
+    
+        <a href="/archives/" class="navbar-link">Archives</a>
+    
+    
+        <a href="/search" class="navbar-link">Search</a>
+    
+    
+        <a href="/tags/" class="navbar-link">Tags</a>
+    
+        <a href="/about/" class="navbar-link">About</a>
+    
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    <div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">Idiomatic Kotlin: lambda sam constructors</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/default_avatar.png" src="/img/suka-lazyload.gif" alt="Better's Avatar">
+        <span>2019-06-15</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/Kotlin/">Kotlin</a>
+        
+        
+            <!-- Busuanzi Post Views -->
+<span id="busuanzi_container_page_pv" hidden>
+    <span class="suka-devide-dot"></span>
+    <span></span>
+    <span id="busuanzi_value_page_pv"></span>
+    <span>Views</span>
+</span>
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">Share the post</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=Idiomatic Kotlin: lambda sam constructors&url=http://lysmbetter.top/2019/06/15/Idiomatic-Kotlin-lambda-sam-constructors/&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+    </li>
+    
+
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=Idiomatic Kotlin: lambda sam constructors&url=http://lysmbetter.top/2019/06/15/Idiomatic-Kotlin-lambda-sam-constructors/&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+    </li>
+    
+
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top/2019/06/15/Idiomatic-Kotlin-lambda-sam-constructors/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+    </li>
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+    <li class="menu-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top/2019/06/15/Idiomatic-Kotlin-lambda-sam-constructors/&title=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+    </li>
+    
+
+    <!-- Share QQ -->
+    
+    <li class="menu-item">
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Better&summary=业精于勤荒于嬉&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top/2019/06/15/Idiomatic-Kotlin-lambda-sam-constructors/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+    </li>
+    
+
+    <!-- Share Telegram -->
+    
+    <li class="menu-item">
+        <a href="https://t.me/share/url?url=http://lysmbetter.top/2019/06/15/Idiomatic-Kotlin-lambda-sam-constructors/&text=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+    </li>
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKQAAACkCAAAAAA83tqdAAACLUlEQVR42u3aQVLDMBBEUd//0rBhQ0rq+WNMETTfm0Di2E9VljJq6fr4B8clUqRIkW+AvMLx7Qtf/+8+T5+l99J9Rc5FLh/aF9Tq/NXfqXHpvOU1RY5Gvj64K+TunNSBCH53nkiRO+TudTkAb95LHUmkyA6SAHedizZapMhOgUEG8apB1fV/XAWJPA5ZdYTfen1stijyKGQZGi0G6ica92iqJvIoJAkHSChQ/R07yC7oEjkSWd0ghVepETtICl1FiqQPNr1xAu+g8foiRyKrhSFaENwNWGO4JXIkMgXxKcCiC6XVDwQKB0SOQ64GXbqoWRUfpOFbsMiRyDQpSgUEvWFncb9M1USORXYKiFSA0E1OKMEQOQ5ZdQoycHcWoEhjRc5E0sXJzoT/zkCPUjWRI5DdAZcUG50wFm8UETkKSSbtNNyim+ZTMCtSJLkB3XBXdUJa8IoUSRfTUxHbaRgpfkXORXbCzjSZihP9GxM8kTORnZtXnYZsPiGbmETORlYXqgIAUmB0N42IFElCKjpQdyZu5fsiRyNxsAkL3WqiRzqTyNlIMriSxXW6CE8GdpEiySbiahCvwoV0iBRJjjRJI591FqBEiqwe7moTU7n5CGwcvZWqiTweSRc7yXe6wVb8sRA5GkkXOMnCVBWaVguiIkV2kbRISAU16bAiRdKNIDREqELWMngQORrZuQkJpUjnu73rT+TxSPqDTxtDC+Oq8BU5E/nOh0iRIkX+4fEJpntFI4Ybd8EAAAAASUVORK5CYII=" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Define-and-use"><span class="post-toc-number">1.</span> <span class="post-toc-text">Define and use</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Differences-of-Java-and-Kotlin-Lambda"><span class="post-toc-number">2.</span> <span class="post-toc-text">Differences of Java and Kotlin Lambda</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Compatibity-with-Java-Functional-Interface"><span class="post-toc-number">3.</span> <span class="post-toc-text">Compatibity with Java Functional Interface</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Auto-Convert"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">Auto Convert</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#SAM-Constructor"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">SAM Constructor</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Java-SAM-vs-Kotlin-Function-Type"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">Java SAM vs. Kotlin Function Type</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#other"><span class="post-toc-number">4.</span> <span class="post-toc-text">other</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考"><span class="post-toc-number">5.</span> <span class="post-toc-text">参考</span></a></li></ol></div>
+                        
+                    
+                    <article id="post-content">
+                        <p>lambda 表达式( lambda expressions)：一段可以传递给其他函数的代码块<br>高阶函数(high-order-functions)：可以接受其他函数作为参数的就是高阶函数<br>函数式编程(functional programming)：一个编程形式，支持函数作为一个普通类型的编程方式。函数可以作为变量，参数。<br>函数式接口(functional interface)：内部只有一个方法的接口。Java 8 的 lambda 只支持这类函数写法。<br>SAM(signle abstract method)：函数式接口的一种叫法，只有一个抽象方法。比如一个方法的接口，一个抽象方法的类。<br>纯函数(pure function)：函数式编程中的一个概念，如果函数不依赖函数外部的变量，那么函数就是纯函数，就是后面说的<code>not capturing</code>。反之就是<code>capturing</code>。</p>
+<p>在 Java 8 之前通过匿名内部类的方式实现接口回调</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">button.setOnTouchListener(<span class="keyword">new</span> View.OnTouchListener() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onTouch</span><span class="params">(View v, MotionEvent event)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>Java 8 中的 lambda 写法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">button.setOnTouchListener((v, event) -&gt; <span class="keyword">false</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="Define-and-use"><a href="#Define-and-use" class="headerlink" title="Define and use"></a>Define and use</h2><p>kotlin 中的 lambda 于Java lambda 类似。由<code>{}</code>包裹起来,参数不需要<code>()</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; param1 : Type1, param2 : Type2 -&gt; body &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>最外部是一个大括号，大括号包裹者代码。</li>
+<li>左边是参数，不需要括号，由<code>-&gt;</code>区分开</li>
+<li>右边是函数体<code>body</code>。如果由返回值用<code>return@&lt;operation&gt;</code></li>
+</ul>
+<p>对于 lambda 的调用方式。可以直接向普通函数一样调用，也可以通过<code>invoke()</code>方法调用，也可以直接的运行，只不过这样可读性不是很好。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">val addOffset = &#123; x: Int -&gt; x + <span class="number">1</span> &#125;</span><br><span class="line"><span class="comment">// use</span></span><br><span class="line">println(addOffset(<span class="number">1</span>))</span><br><span class="line">println(addOffset.invoke(<span class="number">1</span>))</span><br><span class="line">println(&#123; x: Int -&gt; x + <span class="number">1</span> &#125;(<span class="number">1</span>))</span><br></pre></td></tr></table></figure>
+
+<p>当 lambda 是函数的最后一个参数时，写法上可以变动下，可以直接写在外部</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">fun <span class="title">addOffset</span><span class="params">(init: Int, block: (Int)</span> -&gt; Int): Int </span>= block(init)</span><br><span class="line"><span class="function">fun <span class="title">addOffset</span><span class="params">(block: (Int)</span> -&gt; Int, init: Int): Int </span>= block(init)</span><br><span class="line"><span class="comment">// use</span></span><br><span class="line">addOffset(<span class="number">1</span>) &#123; x: Int -&gt; x + <span class="number">1</span> &#125;</span><br><span class="line">addOffset(&#123; x: Int -&gt; x + <span class="number">1</span> &#125;, <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<p>由于类型可以被推断，所以可以省略参数的类型</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">addOffset(1) &#123; x -&gt; x + 1 &#125;</span><br><span class="line">addOffset(&#123; x -&gt; x + 1 &#125;, 1)</span><br></pre></td></tr></table></figure>
+
+<p>如果参数没有使用，可以用<code>_</code>符号省略</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">addOffset(<span class="number">1</span>) &#123; _ -&gt;  <span class="number">1</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果 lambda 的参数只有一个，参数也可以省略，使用<code>it</code>来访问</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">addOffset(<span class="number">1</span>) &#123; it + <span class="number">1</span> &#125;</span><br><span class="line">addOffset(&#123; it + <span class="number">1</span> &#125;, <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Differences-of-Java-and-Kotlin-Lambda"><a href="#Differences-of-Java-and-Kotlin-Lambda" class="headerlink" title="Differences of Java and Kotlin Lambda"></a>Differences of Java and Kotlin Lambda</h2><p>Java 中 lambda 访问外部变量必须为<code>final</code>。<br>Kotlin 中没有这个限制，外部被访问到的变量被翻译成<code>Ref</code>类型，可以传递修改变量。Local Function 中可以看见</p>
+<h2 id="Compatibity-with-Java-Functional-Interface"><a href="#Compatibity-with-Java-Functional-Interface" class="headerlink" title="Compatibity with Java Functional Interface"></a>Compatibity with Java Functional Interface</h2><p>Kotlin 中的 lambda 完全兼容 Java 中的 Functional Interface。</p>
+<h3 id="Auto-Convert"><a href="#Auto-Convert" class="headerlink" title="Auto Convert"></a>Auto Convert</h3><p>兼容方式一，通常编译器能够将 lambda 表达式自动转换成匿名内部类来实现 Functional Interface 。</p>
+<ul>
+<li>对于<code>capturing</code>的函数，Functional Interface 被编译成一个匿名内部类的实列</li>
+<li>对于<code>not capturing</code>的函数，Functional Interface 被编译成一个的实列（单列），在每个地方使用</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 访问了外部的 view</span></span><br><span class="line"><span class="function">fun <span class="title">testCapturing</span><span class="params">(context: Context)</span> </span>&#123;</span><br><span class="line">    val view = TextView(context)</span><br><span class="line">    view.setOnClickListener &#123;</span><br><span class="line">        view.text = <span class="string">""</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 使用lambda 函数的参数赋值</span></span><br><span class="line"><span class="function">fun <span class="title">testNotCapturing</span><span class="params">(context: Context)</span> </span>&#123;</span><br><span class="line">    val view = TextView(context)</span><br><span class="line">    view.setOnClickListener &#123;</span><br><span class="line">        (it as TextView).text = it.javaClass.simpleName</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>查看编译的 Java 代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public static final void testCapturing(@NotNull Context context) &#123;</span><br><span class="line">   Intrinsics.checkParameterIsNotNull(context, &quot;context&quot;);</span><br><span class="line">   final TextView view = new TextView(context);</span><br><span class="line">   view.setOnClickListener((OnClickListener)(new OnClickListener() &#123;</span><br><span class="line">      public final void onClick(View it) &#123;</span><br><span class="line">         view.setText((CharSequence)&quot;&quot;);</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public static final void testNotCapturing(@NotNull Context context) &#123;</span><br><span class="line">   Intrinsics.checkParameterIsNotNull(context, &quot;context&quot;);</span><br><span class="line">   TextView view = new TextView(context);</span><br><span class="line">   view.setOnClickListener((OnClickListener)null.INSTANCE);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="SAM-Constructor"><a href="#SAM-Constructor" class="headerlink" title="SAM Constructor"></a>SAM Constructor</h3><p>兼容方式二，有时候需要使用 SAM Constructor 可以将lambda 表达式转换成 Functional Interface 的实列。<br>SAM Constructor 语法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FunctionalInterfaceName &#123; lambda_function &#125;</span><br></pre></td></tr></table></figure>
+
+<p>以下情况：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 赋值给变量</span></span><br><span class="line">val runnable : Runnable = Runnable &#123; print(<span class="string">"I am a runnable"</span>)&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 用在返回参数中，返回参数类型被指定了</span></span><br><span class="line"><span class="function">fun <span class="title">createOnClickListener</span><span class="params">()</span> : View.OnClickListener </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> View.OnClickListener &#123; v -&gt; print(<span class="string">"I am clicked"</span>) &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>请注意，SAM 转换只适用于接口，而不适用于抽象类，即使这些抽象类也只有一个抽象方法。<br>还要注意，此功能只适用于 Java 互操作；因为 Kotlin 具有合适的函数类型，所以不需要将函数自动转换为 Kotlin 接口的实现，因此不受支持。</p>
+</blockquote>
+<h3 id="Java-SAM-vs-Kotlin-Function-Type"><a href="#Java-SAM-vs-Kotlin-Function-Type" class="headerlink" title="Java SAM vs. Kotlin Function Type"></a>Java SAM vs. Kotlin Function Type</h3><blockquote>
+<p>Kotlin uses function types instead of interfaces.So if you are coding in pure Kotlin, it is important to use function types for lambda types as Kotlin does not support conversion of lambdas to Kotlin interfaces</p>
+</blockquote>
+<p>在 kotlin 中 function types 定义了函数的规则,只要满足了这种规则的函数都是这一类函数。比如<code>()-&gt;Unit</code>是一个 function type,它描述了这样一类函数，不需要参数，返回值是 Void 的类型，比如<code>Runnable</code>接口就符合这种规则。<br>function type 定义的函数可以通过 SAM Constructor 方式转换成 Java 接口的实现。<br>function type 不能转换成 kotlin 中的接口实现，所以在定义 lambda 的时候用 function type，可以做更多的兼容。</p>
+<h2 id="other"><a href="#other" class="headerlink" title="other"></a>other</h2><p>简洁的 concise </p>
+<blockquote>
+<p>Lambda expressions represents these functional interfaces in a more concise way to deal with functional programming</p>
+</blockquote>
+<p>推断 inferred</p>
+<blockquote>
+<p>If the function has a single argument and its type can be inferred, an autogenerated variable named it will be available for you to use</p>
+</blockquote>
+<p>解释 interprets </p>
+<blockquote>
+<p>The compiler interprets a lambda function that represents a functional interface as a instance of an anonymous class implementing that functional interface</p>
+</blockquote>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.kotlincn.net/docs/reference/lambdas.html" target="_blank" rel="noopener">kotlinDoc-lambdas</a><br><a href="https://www.kotlincn.net/docs/reference/java-interop.html#sam-%E8%BD%AC%E6%8D%A2" target="_blank" rel="noopener">kotlinDoc-sam conversions</a><br><a href="https://medium.com/tompee/idiomatic-kotlin-lambdas-and-sam-constructors-fe2075965bfb" target="_blank" rel="noopener">Idiomatic Kotlin: lambda and sam constructors</a></p>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
+    <script>
+    (function() {
+        var dateUpdate = Date.parse("2019-12-21");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    })();
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">Published at&nbsp;<time datetime="2019-06-15T07:09:29.000Z" itemprop="datePublished">2019-06-15</time>
+
+    , Updated at&nbsp;<time datetime="2019-12-21T07:10:52.625Z" itemprop="dateModified">2019-12-21</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+<a class="post-categories-list-item" href='/categories/Kotlin/'>Kotlin</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+<a class="post-tags-list-item" href="/tags/Android/" rel="tag">#&nbsp;Android</a>
+
+<a class="post-tags-list-item" href="/tags/Kotlin/" rel="tag">#&nbsp;Kotlin</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2019/06/15/Idiomatic-kotlin-Elvis-Operator/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">Idiomatic kotlin: Elvis Operator</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2019/06/08/Idiomatic-Kotlin-object-and-Signleton/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">Idiomatic Kotlin: object and Signleton</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                        <div class="card-footer post-comment">
+                            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://lysmbetter.top/2019/06/15/Idiomatic-Kotlin-lambda-sam-constructors/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://lysmbetter.top/2019/06/15/Idiomatic-Kotlin-lambda-sam-constructors/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script id="disqus-thread-script">
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//lysmbetter.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+                        </div>
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="http://lysmbetter.top">Better</a>
+        </p>
+
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+
+    
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+document.getElementById('copyright-year').textContent = new Date().getFullYear();
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
+</script>
+
+<script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
+    <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+<!-- Comment -->
+
+    
+        <script id="dsq-count-scr" src="https://lysmbetter.disqus.com/count.js" async></script>
+
+    
+
+
+<!-- ### Custom Footer ### -->
+
+    </body>
+
+</html>

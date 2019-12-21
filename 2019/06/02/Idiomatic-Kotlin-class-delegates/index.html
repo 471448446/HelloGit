@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hans">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        hexo-theme-suka © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+    -->
+
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+    <link rel="dns-prefetch" href="//disqus.com">
+    <link rel="dns-prefetch" href="//lysmbetter.disqus.com">
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+    <!-- ## Preload ## -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
+
+    <!-- Title -->
+    <title>Idiomatic Kotlin: class delegates | Better</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/suka-favicon.ico">
+
+    <!-- ### Import File ### -->
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css"><style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: #0070ff;
+    }
+
+    a:active, a:focus, a:hover {
+        color: #0070ff;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: #005eb9;
+        opacity: 1;
+    }
+
+    
+
+    .post-entry .card-body a {
+        color: #0070ff;
+    }
+
+    .avatar {
+        background: #444;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: #0070ff;
+    }
+
+    .navbar-link:hover {
+        color: #0070ff;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: #727e96;
+        border-color: #727e96;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: #727e96;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style><link rel="stylesheet" href="/css/style.min.css">
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    <link rel="preload" href="/css/highlight/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/css/highlight/github.min.css"></noscript>
+
+
+
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="Better"><meta name="msapplication-starturl" content="http://lysmbetter.top"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Better"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="Idiomatic Kotlin: class delegates | Better"><meta property="og:site_name" content="Better"><meta property="og:type" content="article"><meta property="og:url" content="http:&#x2F;&#x2F;lysmbetter.top&#x2F;2019&#x2F;06&#x2F;02&#x2F;Idiomatic-Kotlin-class-delegates&#x2F;"><meta property="og:locale" content="zh-Hans"><meta name="description" content="类代理，指的是可以用另外一个实现了这个接口的类来代理实现这个接口。kotlin 在语言层中支持了类代理。 define and use这里其实是对实现一个 接口的快速实现，所以需要接口，以及一些默认的实现者实现接口。然后在类中代理。 123456789101112131415161718interface Bicycle &amp;#123;    fun bar(): String    fun whe - Better - Better"><meta name="keywords" content="Android, Kotlin"><meta property="article:published_time" content="2019-06-02T06:57:54.000Z"><meta property="article:modified_time" content="2019-12-21T07:13:00.916Z"><meta property="og:updated_time" content="2019-12-21T07:13:00.916Z"><meta property="article:author" content="Better"><meta property="article:tag" content="Android, Kotlin"><meta name="twitter:card" content="summary">
+
+    
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://lysmbetter.top/2019/06/02/Idiomatic-Kotlin-class-delegates/">
+
+    <meta name="generator" content="Hexo 4.0.0">
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "http://lysmbetter.top/2019/06/02/Idiomatic-Kotlin-class-delegates/",
+    "@type": "BlogPosting",
+    "logo": "http://lysmbetter.top/img/suka-favicon.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://lysmbetter.top/2019/06/02/Idiomatic-Kotlin-class-delegates/"
+    },
+    "headline": "Idiomatic Kotlin: class delegates | Better",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "http://lysmbetter.top/img/suka-favicon.ico"
+    },
+    
+    "datePublished": "2019-06-02T06:57:54.000Z",
+    "dateModified": "2019-12-21T07:13:00.916Z",
+    "author": {
+        "@type": "Person",
+        "name": "Better",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://lysmbetter.top/img/default_avatar.png"
+        },
+        "description": "业精于勤荒于嬉"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Better",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "http://lysmbetter.top/img/suka-favicon.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "http://lysmbetter.top/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "Android, Kotlin",
+    "description": "类代理，指的是可以用另外一个实现了这个接口的类来代理实现这个接口。kotlin 在语言层中支持了类代理。 define and use这里其实是对实现一个 接口的快速实现，所以需要接口，以及一些默认的实现者实现接口。然后在类中代理。 123456789101112131415161718interface Bicycle &amp;amp;#123;    fun bar(): String    fun whe - Better - Better"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+</head>
+
+    <body>
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">Better</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                业精于勤荒于嬉
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">Home</a>
+    
+    
+        <a href="/archives/" class="navbar-link">Archives</a>
+    
+    
+        <a href="/search" class="navbar-link">Search</a>
+    
+    
+        <a href="/tags/" class="navbar-link">Tags</a>
+    
+        <a href="/about/" class="navbar-link">About</a>
+    
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    <div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">Idiomatic Kotlin: class delegates</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/default_avatar.png" src="/img/suka-lazyload.gif" alt="Better's Avatar">
+        <span>2019-06-02</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/Kotlin/">Kotlin</a>
+        
+        
+            <!-- Busuanzi Post Views -->
+<span id="busuanzi_container_page_pv" hidden>
+    <span class="suka-devide-dot"></span>
+    <span></span>
+    <span id="busuanzi_value_page_pv"></span>
+    <span>Views</span>
+</span>
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">Share the post</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=Idiomatic Kotlin: class delegates&url=http://lysmbetter.top/2019/06/02/Idiomatic-Kotlin-class-delegates/&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+    </li>
+    
+
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=Idiomatic Kotlin: class delegates&url=http://lysmbetter.top/2019/06/02/Idiomatic-Kotlin-class-delegates/&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+    </li>
+    
+
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top/2019/06/02/Idiomatic-Kotlin-class-delegates/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+    </li>
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+    <li class="menu-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top/2019/06/02/Idiomatic-Kotlin-class-delegates/&title=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+    </li>
+    
+
+    <!-- Share QQ -->
+    
+    <li class="menu-item">
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Better&summary=业精于勤荒于嬉&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top/2019/06/02/Idiomatic-Kotlin-class-delegates/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+    </li>
+    
+
+    <!-- Share Telegram -->
+    
+    <li class="menu-item">
+        <a href="https://t.me/share/url?url=http://lysmbetter.top/2019/06/02/Idiomatic-Kotlin-class-delegates/&text=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+    </li>
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKQAAACkCAAAAAA83tqdAAACP0lEQVR42u2awW7EIAwF9/9/ur1WLfiN2a26xcMlSkJgkGKwn/34+AftIaSQQgr5BpCPon1///V+OWgYI/X93k/IuZC7CVfXFTgB2Y27m1dIIVc/++p9OWj4dtd3Na+QQladE/TOqHbvhRTyWcOpjKYCXRmckEJSSLJJV47tyeHwMi9IyOsgUyD2W9eXRotCXgOJhKNqoEMDermqJuQ1kGmj3gX8ZFGVoaTFCDkX8kRcqjb7KvBKgtaP90KOhNwF++THJ/fEAd4+E3IkJBGaqs07bf7Vd9XcQs6FJILSDjQ5u1XfI3FAyHGQVTKp2qTToUACOVQoIuQISJJAooJ99U06LOKJI+QYyBRItZLoQFyoFowCMSGvhyTBfjKqSlhNyfnSWRFyLCT5kBR5pk2/XRgl5EjIJHiSgo+UcCLiGC4UEXIEZBW4k0L55DSQwnhcKCLk9ZBEvE9OLwnkOgVQQgpZGVA36VQJBu1EqpBCwiKjjqhVLTAm9IUcCZmK4yrxKj0jQR4yHCFHQRInoJMsrZyG5Py2FQwhr4QkwVVyFohz0kkyCSkkDdifKQohkLF4ScgxkKmYiIjzNJlERSwhhaQi/UnwT4qZkOEIOQIyNSJOdZPvRNQXci5k+oGTI5ucFJooWBqikGMhk1DaFajIwtqGI+Q4yJMf/JmCkipBJaSQnYArGRFN0CeDFVJI6liQRBJ1LqITLORoyJOEJk3Op8OgpWAIOQKSBGJdA+s4y61KVCGvh3znJqSQQgr5h+0Tpnj2Vce2k8QAAAAASUVORK5CYII=" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#define-and-use"><span class="post-toc-number">1.</span> <span class="post-toc-text">define and use</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#bummock"><span class="post-toc-number">2.</span> <span class="post-toc-text">bummock</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#override"><span class="post-toc-number">3.</span> <span class="post-toc-text">override</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#other"><span class="post-toc-number">4.</span> <span class="post-toc-text">other</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考"><span class="post-toc-number">5.</span> <span class="post-toc-text">参考</span></a></li></ol></div>
+                        
+                    
+                    <article id="post-content">
+                        <p>类代理，指的是可以用另外一个实现了这个接口的类来代理实现这个接口。<br>kotlin 在语言层中支持了类代理。</p>
+<h2 id="define-and-use"><a href="#define-and-use" class="headerlink" title="define and use"></a>define and use</h2><p>这里其实是对实现一个 接口的快速实现，所以需要接口，以及一些默认的实现者实现接口。然后在类中代理。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Bicycle</span> </span>&#123;</span><br><span class="line">    <span class="function">fun <span class="title">bar</span><span class="params">()</span>: String</span></span><br><span class="line"><span class="function">    fun <span class="title">wheel</span><span class="params">()</span>: String</span></span><br><span class="line"><span class="function">&#125;</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">class NormalBicyle : Bicycle </span>&#123;</span><br><span class="line">    <span class="function">override fun <span class="title">bar</span><span class="params">()</span>: String </span>= <span class="string">"直杆"</span></span><br><span class="line"></span><br><span class="line">    <span class="function">override fun <span class="title">wheel</span><span class="params">()</span>: String </span>= <span class="string">"普通轮胎"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class MountainBicycle : Bicycle &#123;</span><br><span class="line">    <span class="function">override fun <span class="title">bar</span><span class="params">()</span>: String </span>= <span class="string">"直杆"</span></span><br><span class="line"></span><br><span class="line">    <span class="function">override fun <span class="title">wheel</span><span class="params">()</span>: String </span>= <span class="string">"防爆豪华轮胎"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class MyBiycle : Bicycle by MountainBicycle()</span><br></pre></td></tr></table></figure>
+
+<h2 id="bummock"><a href="#bummock" class="headerlink" title="bummock"></a>bummock</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Bicycle.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Bicycle</span> </span>&#123;</span><br><span class="line">   <span class="meta">@NotNull</span></span><br><span class="line">   <span class="function">String <span class="title">bar</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">   <span class="meta">@NotNull</span></span><br><span class="line">   <span class="function">String <span class="title">wheel</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// NormalBicyle.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">NormalBicyle</span> <span class="keyword">implements</span> <span class="title">Bicycle</span> </span>&#123;</span><br><span class="line">   <span class="meta">@NotNull</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> String <span class="title">bar</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">"直杆"</span>;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="meta">@NotNull</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> String <span class="title">wheel</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">"普通轮胎"</span>;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// MountainBicycle.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">MountainBicycle</span> <span class="keyword">implements</span> <span class="title">Bicycle</span> </span>&#123;</span><br><span class="line">   <span class="meta">@NotNull</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> String <span class="title">bar</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">"直杆"</span>;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="meta">@NotNull</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> String <span class="title">wheel</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">"防爆豪华轮胎"</span>;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// MyBiycle.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">MyBiycle</span> <span class="keyword">implements</span> <span class="title">Bicycle</span> </span>&#123;</span><br><span class="line">   <span class="comment">// $FF: synthetic field</span></span><br><span class="line">   <span class="keyword">private</span> <span class="keyword">final</span> MountainBicycle $$delegate_0 = <span class="keyword">new</span> MountainBicycle();</span><br><span class="line"></span><br><span class="line">   <span class="meta">@NotNull</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> String <span class="title">bar</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.$$delegate_0.bar();</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="meta">@NotNull</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> String <span class="title">wheel</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.$$delegate_0.wheel();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>类代理，其实就是在类中申明了代理对象，然后在对应的方法调用处，使用代理类来实现</strong><br>在抽象了一堆方法后，需要一个特殊的实列来实现这些方法，可以使用这种方式。</p>
+<h2 id="override"><a href="#override" class="headerlink" title="override"></a>override</h2><p>支持重载<br><strong>重载某个方法或者变量</strong>，类<strong>调用</strong>的时候对应的方法和变量<strong>就是被重载后的值</strong>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Base</span> </span>&#123;</span><br><span class="line">    <span class="function">fun <span class="title">printMessage</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    fun <span class="title">printMessageLine</span><span class="params">()</span></span></span><br><span class="line"><span class="function">&#125;</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">class <span class="title">BaseImpl</span><span class="params">(val x: Int)</span> : Base </span>&#123;</span><br><span class="line">    <span class="function">override fun <span class="title">printMessage</span><span class="params">()</span> </span>&#123; print(x) &#125;</span><br><span class="line">    <span class="function">override fun <span class="title">printMessageLine</span><span class="params">()</span> </span>&#123; println(x) &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Derived(b: Base) : Base by b &#123;</span><br><span class="line">    <span class="function">override fun <span class="title">printMessage</span><span class="params">()</span> </span>&#123; print(<span class="string">"abc"</span>) &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">fun <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    val b = BaseImpl(<span class="number">10</span>)</span><br><span class="line">    Derived(b).printMessage()</span><br><span class="line">    Derived(b).printMessageLine()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>列子中<code>Derived</code>重载了<code>printMessage()</code>，所以打印结果是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">abc10</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>以这种方式重写的成员不会在委托对象的成员中调用 ，委托对象的成员只能访问其自身对接口成员实现</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Base</span> </span>&#123;</span><br><span class="line">    val message: String</span><br><span class="line">    <span class="function">fun <span class="title">print</span><span class="params">()</span></span></span><br><span class="line"><span class="function">&#125;</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">class <span class="title">BaseImpl</span><span class="params">(val x: Int)</span> : Base </span>&#123;</span><br><span class="line">    override val message = <span class="string">"BaseImpl: x = $x"</span></span><br><span class="line">    <span class="function">override fun <span class="title">print</span><span class="params">()</span> </span>&#123; println(message) &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Derived(b: Base) : Base by b &#123;</span><br><span class="line">    <span class="comment">// 在 b 的 `print` 实现中不会访问到这个属性</span></span><br><span class="line">    override val message = <span class="string">"Message of Derived"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">fun <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    val b = BaseImpl(<span class="number">10</span>)</span><br><span class="line">    val derived = Derived(b)</span><br><span class="line">    derived.print()</span><br><span class="line">    println(derived.message)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>Derived</code>重载的变量<code>message</code>，但是代理对象却访问不了这个，所以在代理对象的<code>print()</code>中，还是访问的自己的<code>message</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">BaseImpl: x = 10</span><br><span class="line">Message of Derived</span><br></pre></td></tr></table></figure>
+
+<h2 id="other"><a href="#other" class="headerlink" title="other"></a>other</h2><p>面向对象设计 object oriented paradigm</p>
+<blockquote>
+<p>Delegation pattern is one of the design patterns in object oriented paradigm and it uses composition to achieve it.</p>
+</blockquote>
+<p>模板代码 boilerplate code</p>
+<blockquote>
+<p>Delegation pattern involves a lot of boilerplate code. Fortunately for us, Kotlin has first-class support for delegation as a language feature</p>
+</blockquote>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.kotlincn.net/docs/reference/delegation.html" target="_blank" rel="noopener">kotlinDoc-by</a><br><a href="https://medium.com/tompee/idiomatic-kotlin-class-delegates-288b24c37ac8" target="_blank" rel="noopener">Idiomatic Kotlin: Class Delegates</a></p>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
+    <script>
+    (function() {
+        var dateUpdate = Date.parse("2019-12-21");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    })();
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">Published at&nbsp;<time datetime="2019-06-02T06:57:54.000Z" itemprop="datePublished">2019-06-02</time>
+
+    , Updated at&nbsp;<time datetime="2019-12-21T07:13:00.916Z" itemprop="dateModified">2019-12-21</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+<a class="post-categories-list-item" href='/categories/Kotlin/'>Kotlin</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+<a class="post-tags-list-item" href="/tags/Android/" rel="tag">#&nbsp;Android</a>
+
+<a class="post-tags-list-item" href="/tags/Kotlin/" rel="tag">#&nbsp;Kotlin</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2019/06/02/Idiomatic-kotlin-property-delegates/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">Idiomatic kotlin:property delegates</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2019/05/26/Idiomatic-Kotlin%EF%BC%9Ainfix/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">Idiomatic Kotlin：infix</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                        <div class="card-footer post-comment">
+                            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://lysmbetter.top/2019/06/02/Idiomatic-Kotlin-class-delegates/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://lysmbetter.top/2019/06/02/Idiomatic-Kotlin-class-delegates/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script id="disqus-thread-script">
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//lysmbetter.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+                        </div>
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="http://lysmbetter.top">Better</a>
+        </p>
+
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+
+    
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+document.getElementById('copyright-year').textContent = new Date().getFullYear();
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
+</script>
+
+<script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
+    <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+<!-- Comment -->
+
+    
+        <script id="dsq-count-scr" src="https://lysmbetter.disqus.com/count.js" async></script>
+
+    
+
+
+<!-- ### Custom Footer ### -->
+
+    </body>
+
+</html>

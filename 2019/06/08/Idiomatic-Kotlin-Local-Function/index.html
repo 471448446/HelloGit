@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hans">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        hexo-theme-suka © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+    -->
+
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+    <link rel="dns-prefetch" href="//disqus.com">
+    <link rel="dns-prefetch" href="//lysmbetter.disqus.com">
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+    <!-- ## Preload ## -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
+
+    <!-- Title -->
+    <title>Idiomatic Kotlin: Local Function | Better</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/suka-favicon.ico">
+
+    <!-- ### Import File ### -->
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css"><style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: #0070ff;
+    }
+
+    a:active, a:focus, a:hover {
+        color: #0070ff;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: #005eb9;
+        opacity: 1;
+    }
+
+    
+
+    .post-entry .card-body a {
+        color: #0070ff;
+    }
+
+    .avatar {
+        background: #444;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: #0070ff;
+    }
+
+    .navbar-link:hover {
+        color: #0070ff;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: #727e96;
+        border-color: #727e96;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: #727e96;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style><link rel="stylesheet" href="/css/style.min.css">
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    <link rel="preload" href="/css/highlight/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/css/highlight/github.min.css"></noscript>
+
+
+
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="Better"><meta name="msapplication-starturl" content="http://lysmbetter.top"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Better"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="Idiomatic Kotlin: Local Function | Better"><meta property="og:site_name" content="Better"><meta property="og:type" content="article"><meta property="og:url" content="http:&#x2F;&#x2F;lysmbetter.top&#x2F;2019&#x2F;06&#x2F;08&#x2F;Idiomatic-Kotlin-Local-Function&#x2F;"><meta property="og:locale" content="zh-Hans"><meta name="description" content="申明函数是一种复用代码的好方式。  Local Function 就是申明在函数中的函数，嵌套在函数中，官方翻译局部函数。函数通常情况是申明在一个类中。如果只是在局部范围内可以复用，这种时候申明在一个类中，就有一点多余。 Define and use在 函数中使用fun关键字就可以申明一个嵌套的函数。下面在登录中验证用户名和密码的有效性 123456789101112fun login(usern - Better - Better"><meta name="keywords" content="Android, Kotlin"><meta property="article:published_time" content="2019-06-08T07:04:55.000Z"><meta property="article:modified_time" content="2019-12-21T07:12:49.357Z"><meta property="og:updated_time" content="2019-12-21T07:12:49.357Z"><meta property="article:author" content="Better"><meta property="article:tag" content="Android, Kotlin"><meta name="twitter:card" content="summary">
+
+    
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://lysmbetter.top/2019/06/08/Idiomatic-Kotlin-Local-Function/">
+
+    <meta name="generator" content="Hexo 4.0.0">
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "http://lysmbetter.top/2019/06/08/Idiomatic-Kotlin-Local-Function/",
+    "@type": "BlogPosting",
+    "logo": "http://lysmbetter.top/img/suka-favicon.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://lysmbetter.top/2019/06/08/Idiomatic-Kotlin-Local-Function/"
+    },
+    "headline": "Idiomatic Kotlin: Local Function | Better",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "http://lysmbetter.top/img/suka-favicon.ico"
+    },
+    
+    "datePublished": "2019-06-08T07:04:55.000Z",
+    "dateModified": "2019-12-21T07:12:49.357Z",
+    "author": {
+        "@type": "Person",
+        "name": "Better",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://lysmbetter.top/img/default_avatar.png"
+        },
+        "description": "业精于勤荒于嬉"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Better",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "http://lysmbetter.top/img/suka-favicon.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "http://lysmbetter.top/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "Android, Kotlin",
+    "description": "申明函数是一种复用代码的好方式。  Local Function 就是申明在函数中的函数，嵌套在函数中，官方翻译局部函数。函数通常情况是申明在一个类中。如果只是在局部范围内可以复用，这种时候申明在一个类中，就有一点多余。 Define and use在 函数中使用fun关键字就可以申明一个嵌套的函数。下面在登录中验证用户名和密码的有效性 123456789101112fun login(usern - Better - Better"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+</head>
+
+    <body>
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">Better</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                业精于勤荒于嬉
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">Home</a>
+    
+    
+        <a href="/archives/" class="navbar-link">Archives</a>
+    
+    
+        <a href="/search" class="navbar-link">Search</a>
+    
+    
+        <a href="/tags/" class="navbar-link">Tags</a>
+    
+        <a href="/about/" class="navbar-link">About</a>
+    
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    <div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">Idiomatic Kotlin: Local Function</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/default_avatar.png" src="/img/suka-lazyload.gif" alt="Better's Avatar">
+        <span>2019-06-08</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/Kotlin/">Kotlin</a>
+        
+        
+            <!-- Busuanzi Post Views -->
+<span id="busuanzi_container_page_pv" hidden>
+    <span class="suka-devide-dot"></span>
+    <span></span>
+    <span id="busuanzi_value_page_pv"></span>
+    <span>Views</span>
+</span>
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">Share the post</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=Idiomatic Kotlin: Local Function&url=http://lysmbetter.top/2019/06/08/Idiomatic-Kotlin-Local-Function/&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+    </li>
+    
+
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=Idiomatic Kotlin: Local Function&url=http://lysmbetter.top/2019/06/08/Idiomatic-Kotlin-Local-Function/&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+    </li>
+    
+
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top/2019/06/08/Idiomatic-Kotlin-Local-Function/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+    </li>
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+    <li class="menu-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top/2019/06/08/Idiomatic-Kotlin-Local-Function/&title=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+    </li>
+    
+
+    <!-- Share QQ -->
+    
+    <li class="menu-item">
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Better&summary=业精于勤荒于嬉&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top/2019/06/08/Idiomatic-Kotlin-Local-Function/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+    </li>
+    
+
+    <!-- Share Telegram -->
+    
+    <li class="menu-item">
+        <a href="https://t.me/share/url?url=http://lysmbetter.top/2019/06/08/Idiomatic-Kotlin-Local-Function/&text=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+    </li>
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKQAAACkCAAAAAA83tqdAAACP0lEQVR42u2a0W7CQAwE+f+fbp8qVWluPT6QoOfJCxIk3AThy3rXj69/cDyEFFJIIT8A8hGOn8//XHx573rN73PS96Z1hZwNefunLeDuQDvXkXWFnA2ZCuZ6Tqc4rsXVWldIIW9OrjbudAPkISGkkDuQqw36TjDcAd4Vj5BC7gqM1YIr6BUMETBCCtnddF/9+vJuUcgjIEvTaFEQaaHVQyAV3lOumpBHQaYmvxLBO2ZBWSzkiSPk0ZDEoCIwKzO1EinxMyFHQlaNVCqq1JARY6u9mQs5ArIySiszlBTTjngRcjZkMpbIpr0TDiTxLORsSBLEJ6FLAqZK5C7NKyHHQhLRQAdDaEhAQIWcC1mJgI7YSE0dvREhZ0Pumu47ApiaVkIK2THnU0NFAtB0o6gRE/J4yDTIQYRs18RPhYrCJiFHQNJBeBockUAKBaZCjoTcEbdUVNBCWgoRIUdCEuM9BUpUMG+FAkKOhKyaMSJC0sBm+r5WIybkKMgqhE83UhUEDQWEFPKVYpaYpMRMKB0MIUdAklCJBvhkMDn9GChsEvJ4SPpn7m7snXBJSCErSGIMVOfQoeXVjyDkXEgabpIhuEoME8O2HKgT8nhIEm52GqnqYUANVyHnQlZNFzX0sQkFjTEhZ0PSgtkVtjSAaqcPQh4NScOjneGkneERIYUkZgAxnkgDl0xZIYUkkMmcJ80cHWIuB0WEHAVZCYwqNKKNWXrvadEr5DGQdOCoe0PJCEAPBCFHQn7yIaSQQgr5xuMbSxHWdYrPbIEAAAAASUVORK5CYII=" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Define-and-use"><span class="post-toc-number">1.</span> <span class="post-toc-text">Define and use</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Bummock"><span class="post-toc-number">2.</span> <span class="post-toc-text">Bummock</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Performance-overhead"><span class="post-toc-number">3.</span> <span class="post-toc-text">Performance overhead</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#在Extension-方法中使用"><span class="post-toc-number">4.</span> <span class="post-toc-text">在Extension 方法中使用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Other"><span class="post-toc-number">5.</span> <span class="post-toc-text">Other</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考"><span class="post-toc-number">6.</span> <span class="post-toc-text">参考</span></a></li></ol></div>
+                        
+                    
+                    <article id="post-content">
+                        <blockquote>
+<p>申明函数是一种复用代码的好方式。</p>
+</blockquote>
+<p>Local Function 就是申明在函数中的函数，嵌套在函数中，官方翻译局部函数。函数通常情况是申明在一个类中。如果只是在局部范围内可以复用，这种时候申明在一个类中，就有一点多余。</p>
+<h2 id="Define-and-use"><a href="#Define-and-use" class="headerlink" title="Define and use"></a>Define and use</h2><p>在 函数中使用<code>fun</code>关键字就可以申明一个嵌套的函数。<br>下面在登录中验证用户名和密码的有效性</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">fun <span class="title">login</span><span class="params">(username: String, password: String)</span> : Boolean </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> something = <span class="number">1</span></span><br><span class="line">    <span class="function">fun <span class="title">validateInput</span><span class="params">(input: String)</span></span>&#123;</span><br><span class="line">        something++</span><br><span class="line">        <span class="keyword">if</span> (input.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">throw</span> IllegalArgumentException(<span class="string">"Must not be empty"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    validateInput(username)</span><br><span class="line">    validateInput(password)</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Bummock"><a href="#Bummock" class="headerlink" title="Bummock"></a>Bummock</h2><p>查看<code>decompile</code>后的 Java 代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">LoginKt</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">boolean</span> <span class="title">login</span><span class="params">(@NotNull String username, @NotNull String password)</span> </span>&#123;</span><br><span class="line">      Intrinsics.checkParameterIsNotNull(username, <span class="string">"username"</span>);</span><br><span class="line">      Intrinsics.checkParameterIsNotNull(password, <span class="string">"password"</span>);</span><br><span class="line">      <span class="keyword">final</span> IntRef something = <span class="keyword">new</span> IntRef();</span><br><span class="line">      something.element = <span class="number">1</span>;</span><br><span class="line">      &lt;undefinedtype&gt; $fun$validateInput$<span class="number">1</span> = <span class="keyword">new</span> Function1() &#123;</span><br><span class="line">         <span class="comment">// $FF: synthetic method</span></span><br><span class="line">         <span class="comment">// $FF: bridge method</span></span><br><span class="line">         <span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object var1)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.invoke((String)var1);</span><br><span class="line">            <span class="keyword">return</span> Unit.INSTANCE;</span><br><span class="line">         &#125;</span><br><span class="line"></span><br><span class="line">         <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">invoke</span><span class="params">(@NotNull String input)</span> </span>&#123;</span><br><span class="line">            Intrinsics.checkParameterIsNotNull(input, <span class="string">"input"</span>);</span><br><span class="line">            <span class="keyword">int</span> var10001 = something.element++;</span><br><span class="line">            CharSequence var2 = (CharSequence)input;</span><br><span class="line">            <span class="keyword">boolean</span> var3 = <span class="keyword">false</span>;</span><br><span class="line">            <span class="keyword">if</span> (var2.length() == <span class="number">0</span>) &#123;</span><br><span class="line">               <span class="keyword">throw</span> (Throwable)(<span class="keyword">new</span> IllegalArgumentException(<span class="string">"Must not be empty"</span>));</span><br><span class="line">            &#125;</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;;</span><br><span class="line">      $fun$validateInput$<span class="number">1</span>.invoke(username);</span><br><span class="line">      $fun$validateInput$<span class="number">1</span>.invoke(password);</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>原来的<code>int</code>类型被编译成了<code>IntRef</code>类型。通过将一个非<code>final</code>的变量包裹在<code>Ref</code>类型中，传递或者引用<strong>生成的包裹变量</strong>，使得可以在其他地方<strong>修改原来被包裹变量的值</strong>。这种功能叫做<code>capturing</code>。</li>
+<li>原来的局部函数被编译成了<code>Function</code>对象，并且通过<code>invoke()</code>调用。这种跟lambda 的实现由异曲同工的效果，lambda 最后也是被编译成<code>Function</code>对象。</li>
+</ol>
+<h2 id="Performance-overhead"><a href="#Performance-overhead" class="headerlink" title="Performance overhead"></a>Performance overhead</h2><p><code>Local Function</code>会存在一点点性能上的问题，虽然微不足道。<br>新增了一些类对象。比如上面的<code>Ref</code>，以及<code>Function</code>。<br>会增加Dex中方法数量。<code>Function</code>增加了函数个数。kotlin 中<code>inline</code>方法可以避免这种情况，但是<code>local function</code>并不能使用<code>inline</code>标记。</p>
+<h2 id="在Extension-方法中使用"><a href="#在Extension-方法中使用" class="headerlink" title="在Extension 方法中使用"></a>在Extension 方法中使用</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">data class <span class="title">Credentials</span><span class="params">(val username: String, val password: String)</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">fun Credentials.<span class="title">validate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="function">fun <span class="title">validateInput</span><span class="params">(input: String)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (input.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">throw</span> IllegalArgumentException(<span class="string">"Must not be empty"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    validateInput(username)</span><br><span class="line">    validateInput(password)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">fun <span class="title">login</span><span class="params">(credentials: Credentials)</span> </span>&#123;</span><br><span class="line">    credentials.validate()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>创建了<code>Credentials</code>类来封装<code>username</code>和<code>password</code>属性。申明了一个扩展方法<code>validate()</code>来验证属性的合法性，在内部申明了具体的验证操作。如果如果能够确认只会在某些地方才有使用这种验证逻辑，这样做是比较推荐的，不会直接修改<code>Credentials</code>。</p>
+<h2 id="Other"><a href="#Other" class="headerlink" title="Other"></a>Other</h2><p>污染 pollute </p>
+<blockquote>
+<p>This is useful in cases wherein you do not want to pollute the data class with private functions only a the login package will use</p>
+</blockquote>
+<p>垃圾的 littered </p>
+<blockquote>
+<p>However, this approach could easily end you up with a class littered with small functions with no clear relationship between each other..</p>
+</blockquote>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.kotlincn.net/docs/reference/functions.html#%E5%87%BD%E6%95%B0%E4%BD%9C%E7%94%A8%E5%9F%9F" target="_blank" rel="noopener">kotlinDoc-局部函数</a><br><a href="https://medium.com/tompee/idiomatic-kotlin-local-functions-4421f86ac864" target="_blank" rel="noopener">Idiomatic Kotlin:local function</a> </p>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
+    <script>
+    (function() {
+        var dateUpdate = Date.parse("2019-12-21");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    })();
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">Published at&nbsp;<time datetime="2019-06-08T07:04:55.000Z" itemprop="datePublished">2019-06-08</time>
+
+    , Updated at&nbsp;<time datetime="2019-12-21T07:12:49.357Z" itemprop="dateModified">2019-12-21</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+<a class="post-categories-list-item" href='/categories/Kotlin/'>Kotlin</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+<a class="post-tags-list-item" href="/tags/Android/" rel="tag">#&nbsp;Android</a>
+
+<a class="post-tags-list-item" href="/tags/Kotlin/" rel="tag">#&nbsp;Kotlin</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2019/06/08/Idiomatic-Kotlin-object-and-Signleton/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">Idiomatic Kotlin: object and Signleton</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2019/06/02/Idiomatic-kotlin-property-delegates/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">Idiomatic kotlin:property delegates</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                        <div class="card-footer post-comment">
+                            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://lysmbetter.top/2019/06/08/Idiomatic-Kotlin-Local-Function/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://lysmbetter.top/2019/06/08/Idiomatic-Kotlin-Local-Function/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script id="disqus-thread-script">
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//lysmbetter.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+                        </div>
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="http://lysmbetter.top">Better</a>
+        </p>
+
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+
+    
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+document.getElementById('copyright-year').textContent = new Date().getFullYear();
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
+</script>
+
+<script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
+    <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+<!-- Comment -->
+
+    
+        <script id="dsq-count-scr" src="https://lysmbetter.disqus.com/count.js" async></script>
+
+    
+
+
+<!-- ### Custom Footer ### -->
+
+    </body>
+
+</html>
