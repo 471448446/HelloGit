@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hans">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        hexo-theme-suka © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+    -->
+
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+    <link rel="dns-prefetch" href="//disqus.com">
+    <link rel="dns-prefetch" href="//lysmbetter.disqus.com">
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+    <!-- ## Preload ## -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
+
+    <!-- Title -->
+    <title>Idiomatic Kotlin: High-order functions and function types | Better</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/suka-favicon.ico">
+
+    <!-- ### Import File ### -->
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css"><style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: #0070ff;
+    }
+
+    a:active, a:focus, a:hover {
+        color: #0070ff;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: #005eb9;
+        opacity: 1;
+    }
+
+    
+
+    .post-entry .card-body a {
+        color: #0070ff;
+    }
+
+    .avatar {
+        background: #444;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: #0070ff;
+    }
+
+    .navbar-link:hover {
+        color: #0070ff;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: #727e96;
+        border-color: #727e96;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: #727e96;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style><link rel="stylesheet" href="/css/style.min.css">
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    <link rel="preload" href="/css/highlight/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/css/highlight/github.min.css"></noscript>
+
+
+
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="Better"><meta name="msapplication-starturl" content="http://lysmbetter.top"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Better"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="Idiomatic Kotlin: High-order functions and function types | Better"><meta property="og:site_name" content="Better"><meta property="og:type" content="article"><meta property="og:url" content="http:&#x2F;&#x2F;lysmbetter.top&#x2F;2019&#x2F;06&#x2F;21&#x2F;Idiomatic-Kotlin-High-order-functions-and-function-types&#x2F;"><meta property="og:locale" content="zh-Hans"><meta name="description" content="高阶函数就是可以接受函数作为参数或者将函数作为返回值的函数。Kotlin 中函数被当做普通数据类型（函数类型），可以做变量，参数，返回值。可以通过 lambda 表达式或者函数方法引用来实现。 函数类型(function type)的定义格式如下： 1(type1,type2) -&amp;gt; ReturnType Define And Use在函数参数类型，以及返回值处定义函数式类型的参数或返回值， - Better - Better"><meta name="keywords" content="Kotlin, Idiomatic Kotlin"><meta property="article:published_time" content="2019-06-21T13:45:01.000Z"><meta property="article:modified_time" content="2019-12-22T12:45:52.487Z"><meta property="og:updated_time" content="2019-12-22T12:45:52.487Z"><meta property="article:author" content="Better"><meta property="article:tag" content="Kotlin, Idiomatic Kotlin"><meta name="twitter:card" content="summary">
+
+    
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://lysmbetter.top/2019/06/21/Idiomatic-Kotlin-High-order-functions-and-function-types/">
+
+    <meta name="generator" content="Hexo 4.0.0">
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "http://lysmbetter.top/2019/06/21/Idiomatic-Kotlin-High-order-functions-and-function-types/",
+    "@type": "BlogPosting",
+    "logo": "http://lysmbetter.top/img/suka-favicon.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://lysmbetter.top/2019/06/21/Idiomatic-Kotlin-High-order-functions-and-function-types/"
+    },
+    "headline": "Idiomatic Kotlin: High-order functions and function types | Better",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "http://lysmbetter.top/img/suka-favicon.ico"
+    },
+    
+    "datePublished": "2019-06-21T13:45:01.000Z",
+    "dateModified": "2019-12-22T12:45:52.487Z",
+    "author": {
+        "@type": "Person",
+        "name": "Better",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://lysmbetter.top/img/default_avatar.png"
+        },
+        "description": "业精于勤荒于嬉"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Better",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "http://lysmbetter.top/img/suka-favicon.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "http://lysmbetter.top/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "Kotlin, Idiomatic Kotlin",
+    "description": "高阶函数就是可以接受函数作为参数或者将函数作为返回值的函数。Kotlin 中函数被当做普通数据类型（函数类型），可以做变量，参数，返回值。可以通过 lambda 表达式或者函数方法引用来实现。 函数类型(function type)的定义格式如下： 1(type1,type2) -&amp;amp;gt; ReturnType Define And Use在函数参数类型，以及返回值处定义函数式类型的参数或返回值， - Better - Better"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+</head>
+
+    <body>
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">Better</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                业精于勤荒于嬉
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">首页</a>
+    
+    
+        <a href="/archives/" class="navbar-link">归档</a>
+    
+    
+        <a href="/search" class="navbar-link">搜索</a>
+    
+    
+        <a href="/tags/" class="navbar-link">Tags</a>
+    
+        <a href="/about/" class="navbar-link">About</a>
+    
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    <div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">Idiomatic Kotlin: High-order functions and function types</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/default_avatar.png" src="/img/suka-lazyload.gif" alt="Better's Avatar">
+        <span>2019-06-21</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/Kotlin/">Kotlin</a>
+        
+        
+            <!-- Busuanzi Post Views -->
+<span id="busuanzi_container_page_pv" hidden>
+    <span class="suka-devide-dot"></span>
+    <span></span>
+    <span id="busuanzi_value_page_pv"></span>
+    <span>Views</span>
+</span>
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=Idiomatic Kotlin: High-order functions and function types&url=http://lysmbetter.top/2019/06/21/Idiomatic-Kotlin-High-order-functions-and-function-types/&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">分享到微博</a>
+    </li>
+    
+
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=Idiomatic Kotlin: High-order functions and function types&url=http://lysmbetter.top/2019/06/21/Idiomatic-Kotlin-High-order-functions-and-function-types/&via=Better" target="_blank" rel="external noopener noreferrer nofollow">分享到 Twitter</a>
+    </li>
+    
+
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top/2019/06/21/Idiomatic-Kotlin-High-order-functions-and-function-types/" target="_blank" rel="external noopener noreferrer nofollow">分享到 Facebook</a>
+    </li>
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+    <li class="menu-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top/2019/06/21/Idiomatic-Kotlin-High-order-functions-and-function-types/&title=Better" target="_blank" rel="external noopener noreferrer nofollow">分享到 LinkedIn</a>
+    </li>
+    
+
+    <!-- Share QQ -->
+    
+    <li class="menu-item">
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Better&summary=业精于勤荒于嬉&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top/2019/06/21/Idiomatic-Kotlin-High-order-functions-and-function-types/" target="_blank" rel="external noopener noreferrer nofollow"> 分享到 QQ</a>
+    </li>
+    
+
+    <!-- Share Telegram -->
+    
+    <li class="menu-item">
+        <a href="https://t.me/share/url?url=http://lysmbetter.top/2019/06/21/Idiomatic-Kotlin-High-order-functions-and-function-types/&text=Better" target="_blank" rel="external noopener noreferrer nofollow">分享到 Telegram</a>
+    </li>
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAAAAAAYplnuAAACt0lEQVR42u3c0VKDQBBEUf7/p+OrUuz07SWmtLh5UTHAwXJht2cqx+sfvg7RokWLfiD6GF7f33P13h8HHPY7v++8D3aIFg3Rl//0i+1XF3HeNoGni04O0aIb9PlgafvqZKufp8FLzyda9DvRzcC7Aq6w1CFa9G8NxKv90uCaJl0fuXuIfiR6mhS129ODhDyUbs3yRD8ePS0oP/n1batx0Y9Gx9APBC5psUsmSm9NTUU/Gp0mMqsJ/hQeknCxOb9o0TvoFLgQRHpw0CB9GdKLFl2g24dEUwBK23GYL1o0RE839Dug1UNpCndGh2jREJ1u+ikonwqdNLAnjQOiRe+g00AjC4KETxeyDC1FiwbondAbFXVgMXRcyJ4NokUDdLyhh+/p/mmgpgsXLbpBkyaUFNrQRipSUMXVLdGiQfGTBo87hVO6D2pSES16gZ4Ovj2xKR8gNKQULZqgU2GShI2xueSYG7/pYkS0aIJOE514oGFg7kyuxpuDaNElmgQqaaKTAhoygFEzoWjRIJ8mTX+0WDRNmkhwPzZeiRYd0GNjCGyUor9/Da9YHBUtGqBJcZ2G4k2jIP1jiRbdommjCVkgNI1W6SJxQV+0aFDQJyejhaHdJsOxmVC0aNBr2jarTAM3DdK02EChumjRoVBEF54kYG9CyBRcihbdopvwhBZ8dppQUJgvWjRE322wosXQ1BQQC1CiRRfotBilgWUKduhELXYhiBYN0ekgdNA0DSxpoiZadIOOAUmz8ASNW2QhgAv6okVvfhA8KbyTIlAbYFYNsqJFgwdDCmPiBAc22JKJk2jRLZoMLDI4E7aZVOEuBNGiNz8InixWm8ZYEsRvD0TRojfQ00KVNFKRCZho0XfCmhQW0ubXFj2F+6JF76BTQT81BpKiJ20MwANRtOjNfPovvUSLFi36QegvIJkb2RKxLgUAAAAASUVORK5CYII=" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Define-And-Use"><span class="post-toc-number">1.</span> <span class="post-toc-text">Define And Use</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Bummock"><span class="post-toc-number">2.</span> <span class="post-toc-text">Bummock</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#other"><span class="post-toc-number">3.</span> <span class="post-toc-text">other</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考"><span class="post-toc-number">4.</span> <span class="post-toc-text">参考</span></a></li></ol></div>
+                        
+                    
+                    <article id="post-content">
+                        <p><strong>高阶函数</strong>就是可以接受函数作为参数或者将函数作为返回值的函数。Kotlin 中函数被当做普通数据类型（函数类型），可以做变量，参数，返回值。可以通过 lambda 表达式或者函数方法引用来实现。</p>
+<p>函数类型(function type)的定义格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(type1,type2) -&gt; ReturnType</span><br></pre></td></tr></table></figure>
+<h2 id="Define-And-Use"><a href="#Define-And-Use" class="headerlink" title="Define And Use"></a>Define And Use</h2><p>在函数参数类型，以及返回值处定义函数式类型的参数或返回值，这个函数就是高阶函数，大致上分为三类来实现定义高阶函数：</p>
+<ul>
+<li>lamda</li>
+<li>匿名函数，就是之前的 Local 函数</li>
+<li>方法引用，直接引用以及申明了的函数</li>
+</ul>
+<p>kotlin 中的类型可以被实现处推断出来，所以变量的类型可以被赋值的时候推断出来，函数的返回值也从被函数的返回值推断出来。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">val lambda1: (Int) -&gt; Boolean = &#123; it &gt; <span class="number">2</span> &#125;</span><br><span class="line">val lambda2 = &#123; x: Int -&gt; x &gt; <span class="number">2</span> &#125;</span><br><span class="line"></span><br><span class="line">val anonymous1 = fun(x: Int): Boolean &#123; <span class="keyword">return</span> x &gt; <span class="number">2</span> &#125;</span><br><span class="line">val anonymous2 = fun(x: Int) = x &gt; <span class="number">2</span></span><br><span class="line"></span><br><span class="line">val functionReference = String::filter</span><br></pre></td></tr></table></figure>
+
+<p>调用高阶函数的方式跟调用普通函数类似</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lambda1(<span class="number">1</span>)</span><br><span class="line">lambda2.invoke(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Bummock"><a href="#Bummock" class="headerlink" title="Bummock"></a>Bummock</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@NotNull</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Function1 lambda1;</span><br><span class="line"><span class="meta">@NotNull</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Function1 anonymous1;</span><br><span class="line"><span class="meta">@NotNull</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> KFunction functionReference;</span><br><span class="line"></span><br><span class="line"><span class="meta">@NotNull</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Function1 <span class="title">getLambda1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">   <span class="keyword">return</span> lambda1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@NotNull</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Function1 <span class="title">getAnonymous1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">   <span class="keyword">return</span> anonymous1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@NotNull</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> KFunction <span class="title">getFunctionReference</span><span class="params">()</span> </span>&#123;</span><br><span class="line">   <span class="keyword">return</span> functionReference;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">   lambda1.invoke(<span class="number">1</span>);</span><br><span class="line">   anonymous1.invoke(<span class="number">1</span>);</span><br><span class="line">   ((Function2)functionReference).invoke(<span class="string">""</span>, <span class="keyword">null</span>.INSTANCE);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// $FF: synthetic method</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] var0)</span> </span>&#123;</span><br><span class="line">   main();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> &#123;</span><br><span class="line">   lambda1 = (Function1)<span class="keyword">null</span>.INSTANCE;</span><br><span class="line">   anonymous1 = (Function1)<span class="keyword">null</span>.INSTANCE;</span><br><span class="line">   functionReference = <span class="keyword">null</span>.INSTANCE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在<code>main()</code>函数调用处可以看见，lambda 、匿名函数以及方法引用都被编译成了<code>Function1</code>接口类型的实例对象了，所以才能通过<code>invoke()</code>方法调用高阶函数。在<code>package kotlin.jvm.functions</code>下，kotlin 替换了多至22个参数的<code>FunctionN</code>类型。所以在Java 中可以通过实现这些类来调用 Kotlin 中定义的高阶函数（本来 Kotlin 的编译器编译成 Java 代码后也是这样实现的），或者在Java 8 中通过Lambda 表达式来调用。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> kotlin.jvm.functions</span><br><span class="line"><span class="comment">/** A function that takes 1 argument. */</span></span><br><span class="line">public interface Function1&lt;in P1, out R&gt; : Function&lt;R&gt; &#123;</span><br><span class="line">    <span class="comment">/** Invokes the function with the specified argument. */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> operator fun <span class="title">invoke</span><span class="params">(p1: P1)</span>: R</span></span><br><span class="line"><span class="function">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>如果高阶函数是<code>not capturing</code>的时候，是会存在一定的开销的，可以使用<code>inline</code>关键字避免</p>
+<h2 id="other"><a href="#other" class="headerlink" title="other"></a>other</h2><p>多个的 multitude </p>
+<blockquote>
+<p>Function types can be instantiated in a multitude of ways</p>
+</blockquote>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://medium.com/tompee/idiomatic-kotlin-higher-order-functions-and-function-types-adb59172796" target="_blank" rel="noopener">Idiomatic Kotlin: High-Order functions and Function types</a> </p>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
+    <script>
+    (function() {
+        var dateUpdate = Date.parse("2019-12-22");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    })();
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2019-06-21T13:45:01.000Z" itemprop="datePublished">2019-06-21</time>
+
+    , 最后修改于&nbsp;<time datetime="2019-12-22T12:45:52.487Z" itemprop="dateModified">2019-12-22</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+<a class="post-categories-list-item" href='/categories/Kotlin/'>Kotlin</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+<a class="post-tags-list-item" href="/tags/Kotlin/" rel="tag">#&nbsp;Kotlin</a>
+
+<a class="post-tags-list-item" href="/tags/Idiomatic-Kotlin/" rel="tag">#&nbsp;Idiomatic Kotlin</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2019/06/21/Idiomatic-Kotlin-Inline-functions/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">Idiomatic Kotlin: Inline functions</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2019/06/15/Idiomatic-Kotlin%EF%BC%9ALambda-with-receiver/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">Idiomatic Kotlin：Lambda with receiver</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                        <div class="card-footer post-comment">
+                            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://lysmbetter.top/2019/06/21/Idiomatic-Kotlin-High-order-functions-and-function-types/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://lysmbetter.top/2019/06/21/Idiomatic-Kotlin-High-order-functions-and-function-types/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script id="disqus-thread-script">
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//lysmbetter.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+                        </div>
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="http://lysmbetter.top">Better</a>
+        </p>
+
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+
+    
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+document.getElementById('copyright-year').textContent = new Date().getFullYear();
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
+</script>
+
+<script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
+    <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+<!-- Comment -->
+
+    
+        <script id="dsq-count-scr" src="https://lysmbetter.disqus.com/count.js" async></script>
+
+    
+
+
+<!-- ### Custom Footer ### -->
+
+    </body>
+
+</html>
