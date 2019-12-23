@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hans">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        hexo-theme-suka © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+    -->
+
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+    <link rel="dns-prefetch" href="//disqus.com">
+    <link rel="dns-prefetch" href="//lysmbetter.disqus.com">
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+    <!-- ## Preload ## -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
+
+    <!-- Title -->
+    <title>Idiomatic Kotlin: reified parameters | Better</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/suka-favicon.ico">
+
+    <!-- ### Import File ### -->
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css"><style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: #0070ff;
+    }
+
+    a:active, a:focus, a:hover {
+        color: #0070ff;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: #005eb9;
+        opacity: 1;
+    }
+
+    
+
+    .post-entry .card-body a {
+        color: #0070ff;
+    }
+
+    .avatar {
+        background: #444;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: #0070ff;
+    }
+
+    .navbar-link:hover {
+        color: #0070ff;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: #727e96;
+        border-color: #727e96;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: #727e96;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style><link rel="stylesheet" href="/css/style.min.css">
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    <link rel="preload" href="/css/highlight/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/css/highlight/github.min.css"></noscript>
+
+
+
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="Better"><meta name="msapplication-starturl" content="http://lysmbetter.top"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Better"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="Idiomatic Kotlin: reified parameters | Better"><meta property="og:site_name" content="Better"><meta property="og:type" content="article"><meta property="og:url" content="http:&#x2F;&#x2F;lysmbetter.top&#x2F;2019&#x2F;06&#x2F;22&#x2F;Idiomatic-Kotlin-reified-parameters&#x2F;"><meta property="og:locale" content="zh-Hans"><meta name="description" content="Java 中的泛型在编译时期，泛型信息被擦除掉了，使用相近的父类或者直接是Object 类替换泛型，这就是类型擦除（Type Erasure）。类型擦除减少了中间变量来存储泛型信息，进而减少了运行时的性能开销。 Kotlin 中的类型擦除kotlin 中也使用到了类型擦除来处理泛型 1fun &amp;lt;T&amp;gt; getCount(list : List&amp;lt;T&amp;gt;) : Int = list - Better - Better"><meta name="keywords" content="Kotlin, Idiomatic Kotlin"><meta property="article:published_time" content="2019-06-22T13:55:53.000Z"><meta property="article:modified_time" content="2019-12-23T14:24:53.534Z"><meta property="og:updated_time" content="2019-12-23T14:24:53.534Z"><meta property="article:author" content="Better"><meta property="article:tag" content="Kotlin, Idiomatic Kotlin"><meta name="twitter:card" content="summary">
+
+    
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://lysmbetter.top/2019/06/22/Idiomatic-Kotlin-reified-parameters/">
+
+    <meta name="generator" content="Hexo 4.0.0">
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "http://lysmbetter.top/2019/06/22/Idiomatic-Kotlin-reified-parameters/",
+    "@type": "BlogPosting",
+    "logo": "http://lysmbetter.top/img/suka-favicon.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://lysmbetter.top/2019/06/22/Idiomatic-Kotlin-reified-parameters/"
+    },
+    "headline": "Idiomatic Kotlin: reified parameters | Better",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "http://lysmbetter.top/img/suka-favicon.ico"
+    },
+    
+    "datePublished": "2019-06-22T13:55:53.000Z",
+    "dateModified": "2019-12-23T14:24:53.534Z",
+    "author": {
+        "@type": "Person",
+        "name": "Better",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://lysmbetter.top/img/default_avatar.png"
+        },
+        "description": "业精于勤荒于嬉"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Better",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "http://lysmbetter.top/img/suka-favicon.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "http://lysmbetter.top/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "Kotlin, Idiomatic Kotlin",
+    "description": "Java 中的泛型在编译时期，泛型信息被擦除掉了，使用相近的父类或者直接是Object 类替换泛型，这就是类型擦除（Type Erasure）。类型擦除减少了中间变量来存储泛型信息，进而减少了运行时的性能开销。 Kotlin 中的类型擦除kotlin 中也使用到了类型擦除来处理泛型 1fun &amp;amp;lt;T&amp;amp;gt; getCount(list : List&amp;amp;lt;T&amp;amp;gt;) : Int = list - Better - Better"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+</head>
+
+    <body>
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">Better</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                业精于勤荒于嬉
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">Home</a>
+    
+    
+        <a href="/archives/" class="navbar-link">Archives</a>
+    
+    
+        <a href="/search" class="navbar-link">Search</a>
+    
+    
+        <a href="/tags/" class="navbar-link">Tags</a>
+    
+        <a href="/about/" class="navbar-link">About</a>
+    
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    <div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">Idiomatic Kotlin: reified parameters</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/default_avatar.png" src="/img/suka-lazyload.gif" alt="Better's Avatar">
+        <span>2019-06-22</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/Kotlin/">Kotlin</a>
+        
+        
+            <!-- Busuanzi Post Views -->
+<span id="busuanzi_container_page_pv" hidden>
+    <span class="suka-devide-dot"></span>
+    <span></span>
+    <span id="busuanzi_value_page_pv"></span>
+    <span>Views</span>
+</span>
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">Share the post</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=Idiomatic Kotlin: reified parameters&url=http://lysmbetter.top/2019/06/22/Idiomatic-Kotlin-reified-parameters/&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+    </li>
+    
+
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=Idiomatic Kotlin: reified parameters&url=http://lysmbetter.top/2019/06/22/Idiomatic-Kotlin-reified-parameters/&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+    </li>
+    
+
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top/2019/06/22/Idiomatic-Kotlin-reified-parameters/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+    </li>
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+    <li class="menu-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top/2019/06/22/Idiomatic-Kotlin-reified-parameters/&title=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+    </li>
+    
+
+    <!-- Share QQ -->
+    
+    <li class="menu-item">
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Better&summary=业精于勤荒于嬉&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top/2019/06/22/Idiomatic-Kotlin-reified-parameters/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+    </li>
+    
+
+    <!-- Share Telegram -->
+    
+    <li class="menu-item">
+        <a href="https://t.me/share/url?url=http://lysmbetter.top/2019/06/22/Idiomatic-Kotlin-reified-parameters/&text=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+    </li>
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKQAAACkCAAAAAA83tqdAAACMklEQVR42u3a0W6DMAyFYd7/pberSROKzzmGVqXxz83WlZEPCQfHzvHzBccBEiRIkA9AHuI4f///89/vq3Pcecm4IGcjlw/tacDzdyuAO1edtxwX5GjkKkBW/7y6uHr4E2w1LkiQbgKuHvAKUb0cQIK8i1So6mZUsgISZIKsAkNBXNJRJcQvz4JAbod0C7F3/XzpahHkNkhbNAoWWO4GXbDcrqqB3AqpFlzV4qlbTOgs3KI3DsitkWngqERWJcIqyaiuCXI2Uk3KKul1hX/XJHDFVJAgk0J+p3ilCqduIQcSpCsIqIm9M2m7ZmnUAAW5PdIFUJJMuMnfJbll8QrkWGTSYEoK+d2GlP07yLHI7oXcwj6FqGItyNnIbpOoMzGnm0ba0Q1yW6SbhF3xPmnod4MHJMh0kr6CSjeh2MABOQZ558FPN9K7JoEtWIEchUwKUq7B2Wm+p8EJci7SLaCSxpJLRFzRoUxuQI5Fqpd+CnFBkt6IrfSCHIVUBahOY14VHFqNVZBjkcliLP0uaiKJDSQgQbqNwp0Gpgu8tBkPcjYyTQbUwipJPpIbAAnSDegKo2khK5nwQYK8Wth3i/+kCOY2JYOcjXSHutCVAkISiCBnI5OGkcMmCa5LSKKmPMgxSJVsqADpblTuNPhBgkwDJhnUfY6TE5AgBchN0MmiK0msQYJMkGVS6grz5rDXBzkaqRKMBNfdXOeaAiBnIzuFpLQodWejHcjZyCcfIEGCBPnB4xdKwnbVa/XmogAAAABJRU5ErkJggg==" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Kotlin-中的类型擦除"><span class="post-toc-number">1.</span> <span class="post-toc-text">Kotlin 中的类型擦除</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#类型擦除的问题"><span class="post-toc-number">2.</span> <span class="post-toc-text">类型擦除的问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Reflection"><span class="post-toc-number">3.</span> <span class="post-toc-text">Reflection</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考"><span class="post-toc-number">4.</span> <span class="post-toc-text">参考</span></a></li></ol></div>
+                        
+                    
+                    <article id="post-content">
+                        <p>Java 中的泛型在编译时期，泛型信息被擦除掉了，使用相近的父类或者直接是Object 类替换泛型，这就是类型擦除（<code>Type Erasure</code>）。<br>类型擦除减少了中间变量来存储泛型信息，进而减少了运行时的性能开销。</p>
+<h2 id="Kotlin-中的类型擦除"><a href="#Kotlin-中的类型擦除" class="headerlink" title="Kotlin 中的类型擦除"></a>Kotlin 中的类型擦除</h2><p>kotlin 中也使用到了类型擦除来处理泛型</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fun &lt;T&gt; getCount(list : List&lt;T&gt;) : Int = list.size</span><br></pre></td></tr></table></figure>
+
+<p>编译后的代码,泛型<code>T</code>没有了</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">getCount</span><span class="params">(@NotNull List list)</span> </span>&#123;</span><br><span class="line">  Intrinsics.checkParameterIsNotNull(list, <span class="string">"list"</span>);</span><br><span class="line">  <span class="keyword">return</span> list.size();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="类型擦除的问题"><a href="#类型擦除的问题" class="headerlink" title="类型擦除的问题"></a>类型擦除的问题</h2><p>由于泛型类型被抹除掉了，所以就不能使用泛型的类型信息。</p>
+<p>比如不能使用<code>is</code>来判断类型,下面这样是编译不过的：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fun &lt;T&gt; isListOfString(arg : T) : Boolean&#123;</span><br><span class="line">    <span class="keyword">return</span> arg is List&lt;String&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>只能通过通过的基类信息来判断，比如使用<code>*</code>：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fun &lt;T&gt; isList(arg: T): Boolean &#123;</span><br><span class="line">    <span class="keyword">return</span> arg is List&lt;*&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>比如在使用<code>as?</code>来转换类型的时候，如果基类信息是一样，总是会成功，但是会提示<code>uncheck cast</code>的警告</p>
+<h2 id="Reflection"><a href="#Reflection" class="headerlink" title="Reflection"></a>Reflection</h2><p>使用 Reflection 可以让程序在运行期间保持泛型信息不被擦除。</p>
+<p>比如在<code>inline</code>函数中使用<code>reified</code>关键字可以在函数体中访问泛型参数。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">inline fun &lt;reified T&gt; doSomethingWithType(obj: T) &#123;</span><br><span class="line">    val typeName = T::<span class="class"><span class="keyword">class</span>.<span class="title">java</span></span></span><br><span class="line"><span class="class">    <span class="title">println</span>(<span class="title">typeName</span>)</span></span><br><span class="line"><span class="class">&#125;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line">fun main(args: Array&lt;String&gt;) &#123;</span><br><span class="line">    doSomethingWithType(String())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>查看编译后的代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">doSomethingWithType</span><span class="params">(Object obj)</span> </span>&#123;</span><br><span class="line">  Intrinsics.reifiedOperationMarker(<span class="number">4</span>, <span class="string">"T"</span>);</span><br><span class="line">  Class typeName = Object.class;</span><br><span class="line">  System.out.println(typeName);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(@NotNull String[] args)</span> </span>&#123;</span><br><span class="line">  Intrinsics.checkParameterIsNotNull(args, <span class="string">"args"</span>);</span><br><span class="line">  <span class="keyword">new</span> String();</span><br><span class="line">  Class typeName$iv = String.class;</span><br><span class="line">  System.out.println(typeName$iv);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p><code>inline</code>函数的泛型信息还是被擦除掉了</p>
+</li>
+<li><p>调用处，将泛型的信息替换成了具体的类型信息。这个其实是利用了<code>inline</code>函数的功能，<code>inline</code>函数在编译的时候是将函数体类的代码直接替换到调用处，顺便就将泛型信息进行了替换。</p>
+</li>
+</ol>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="[https://medium.com/tompee/idiomatic-kotlin-reified-parameters-e89f665ab026](https://medium.com/tompee/idiomatic-kotlin-reified-parameters-e89f665ab026)">Idiomatic Kotlin: reified parameters</a></p>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
+    <script>
+    (function() {
+        var dateUpdate = Date.parse("2019-12-23");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    })();
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">Published at&nbsp;<time datetime="2019-06-22T13:55:53.000Z" itemprop="datePublished">2019-06-22</time>
+
+    , Updated at&nbsp;<time datetime="2019-12-23T14:24:53.534Z" itemprop="dateModified">2019-12-23</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+<a class="post-categories-list-item" href='/categories/Kotlin/'>Kotlin</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+<a class="post-tags-list-item" href="/tags/Kotlin/" rel="tag">#&nbsp;Kotlin</a>
+
+<a class="post-tags-list-item" href="/tags/Idiomatic-Kotlin/" rel="tag">#&nbsp;Idiomatic Kotlin</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2019/06/21/Idiomatic-Kotlin-High-order-functions-and-function-types/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">Idiomatic Kotlin: High-order functions and function types</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                        <div class="card-footer post-comment">
+                            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://lysmbetter.top/2019/06/22/Idiomatic-Kotlin-reified-parameters/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://lysmbetter.top/2019/06/22/Idiomatic-Kotlin-reified-parameters/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script id="disqus-thread-script">
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//lysmbetter.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+                        </div>
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="http://lysmbetter.top">Better</a>
+        </p>
+
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+
+    
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+document.getElementById('copyright-year').textContent = new Date().getFullYear();
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
+</script>
+
+<script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
+    <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+<!-- Comment -->
+
+    
+        <script id="dsq-count-scr" src="https://lysmbetter.disqus.com/count.js" async></script>
+
+    
+
+
+<!-- ### Custom Footer ### -->
+
+    </body>
+
+</html>
