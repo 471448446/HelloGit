@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hans">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        hexo-theme-suka © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+    -->
+
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+    <link rel="dns-prefetch" href="//disqus.com">
+    <link rel="dns-prefetch" href="//lysmbetter.disqus.com">
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+    <!-- ## Preload ## -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
+
+    <!-- Title -->
+    <title>Idiomatic Kotlin: variance | Better</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/suka-favicon.ico">
+
+    <!-- ### Import File ### -->
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css"><style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: #0070ff;
+    }
+
+    a:active, a:focus, a:hover {
+        color: #0070ff;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: #005eb9;
+        opacity: 1;
+    }
+
+    
+
+    .post-entry .card-body a {
+        color: #0070ff;
+    }
+
+    .avatar {
+        background: #444;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: #0070ff;
+    }
+
+    .navbar-link:hover {
+        color: #0070ff;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: #727e96;
+        border-color: #727e96;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: #727e96;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style><link rel="stylesheet" href="/css/style.min.css">
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    <link rel="preload" href="/css/highlight/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/css/highlight/github.min.css"></noscript>
+
+
+
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="Better"><meta name="msapplication-starturl" content="http://lysmbetter.top"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Better"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="Idiomatic Kotlin: variance | Better"><meta property="og:site_name" content="Better"><meta property="og:type" content="article"><meta property="og:url" content="http:&#x2F;&#x2F;lysmbetter.top&#x2F;2019&#x2F;07&#x2F;03&#x2F;Idiomatic-Kotlin-variance&#x2F;"><meta property="og:locale" content="zh-Hans"><meta name="description" content="variance原文没有怎么看懂，翻译过来就是形变，更抽象。variance和variant都是一个意思。 variance定义了子类型和父类型的在进行一定操作后的结果之间的类型关系。  在面向对象语言中通常会有子类型（subtype）的概念，表示某类是某类的子类。 父类是可以引用子类类型对象的。 1A item = new B();  假设有A，B两个类，类B继承自类A，用≤表示继承关系，即B≤ - Better - Better"><meta name="keywords" content="android"><meta property="article:published_time" content="2019-07-03T13:57:06.000Z"><meta property="article:modified_time" content="2020-01-03T01:49:02.457Z"><meta property="og:updated_time" content="2020-01-03T01:49:02.457Z"><meta property="article:author" content="Better"><meta property="article:tag" content="android"><meta name="twitter:card" content="summary">
+
+    
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://lysmbetter.top/2019/07/03/Idiomatic-Kotlin-variance/">
+
+    <meta name="generator" content="Hexo 4.0.0">
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "http://lysmbetter.top/2019/07/03/Idiomatic-Kotlin-variance/",
+    "@type": "BlogPosting",
+    "logo": "http://lysmbetter.top/img/suka-favicon.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://lysmbetter.top/2019/07/03/Idiomatic-Kotlin-variance/"
+    },
+    "headline": "Idiomatic Kotlin: variance | Better",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "http://lysmbetter.top/img/suka-favicon.ico"
+    },
+    
+    "datePublished": "2019-07-03T13:57:06.000Z",
+    "dateModified": "2020-01-03T01:49:02.457Z",
+    "author": {
+        "@type": "Person",
+        "name": "Better",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://lysmbetter.top/img/default_avatar.png"
+        },
+        "description": "业精于勤荒于嬉"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Better",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "http://lysmbetter.top/img/suka-favicon.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "http://lysmbetter.top/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "android",
+    "description": "variance原文没有怎么看懂，翻译过来就是形变，更抽象。variance和variant都是一个意思。 variance定义了子类型和父类型的在进行一定操作后的结果之间的类型关系。  在面向对象语言中通常会有子类型（subtype）的概念，表示某类是某类的子类。 父类是可以引用子类类型对象的。 1A item = new B();  假设有A，B两个类，类B继承自类A，用≤表示继承关系，即B≤ - Better - Better"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+</head>
+
+    <body>
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">Better</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                业精于勤荒于嬉
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">首页</a>
+    
+    
+        <a href="/archives/" class="navbar-link">归档</a>
+    
+    
+        <a href="/search" class="navbar-link">搜索</a>
+    
+    
+        <a href="/tags/" class="navbar-link">Tags</a>
+    
+        <a href="/about/" class="navbar-link">About</a>
+    
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    <div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">Idiomatic Kotlin: variance</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/default_avatar.png" src="/img/suka-lazyload.gif" alt="Better's Avatar">
+        <span>2019-07-03</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/Kotlin/">Kotlin</a>
+        
+        
+            <!-- Busuanzi Post Views -->
+<span id="busuanzi_container_page_pv" hidden>
+    <span class="suka-devide-dot"></span>
+    <span></span>
+    <span id="busuanzi_value_page_pv"></span>
+    <span>Views</span>
+</span>
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=Idiomatic Kotlin: variance&url=http://lysmbetter.top/2019/07/03/Idiomatic-Kotlin-variance/&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">分享到微博</a>
+    </li>
+    
+
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=Idiomatic Kotlin: variance&url=http://lysmbetter.top/2019/07/03/Idiomatic-Kotlin-variance/&via=Better" target="_blank" rel="external noopener noreferrer nofollow">分享到 Twitter</a>
+    </li>
+    
+
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top/2019/07/03/Idiomatic-Kotlin-variance/" target="_blank" rel="external noopener noreferrer nofollow">分享到 Facebook</a>
+    </li>
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+    <li class="menu-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top/2019/07/03/Idiomatic-Kotlin-variance/&title=Better" target="_blank" rel="external noopener noreferrer nofollow">分享到 LinkedIn</a>
+    </li>
+    
+
+    <!-- Share QQ -->
+    
+    <li class="menu-item">
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Better&summary=业精于勤荒于嬉&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top/2019/07/03/Idiomatic-Kotlin-variance/" target="_blank" rel="external noopener noreferrer nofollow"> 分享到 QQ</a>
+    </li>
+    
+
+    <!-- Share Telegram -->
+    
+    <li class="menu-item">
+        <a href="https://t.me/share/url?url=http://lysmbetter.top/2019/07/03/Idiomatic-Kotlin-variance/&text=Better" target="_blank" rel="external noopener noreferrer nofollow">分享到 Telegram</a>
+    </li>
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB10lEQVR42u3a0W7EIAxE0fz/T7evUYVnxrupBM7NS9QqG04kwNhw/Wx4XaBAgQK1QF3iuj9zf3b5wsVvVn/LdkCNQVWNqEZXDbnfu3ZAzUL9fXny/9VdfYB6H6j3oaoJcQVyd1CgqueS6986OqjtUVWgVIF4GVTDAP3VKgHU9ijVSZ+8P5bNgNoaZYsO4eSaDpJHqi6gtkapjlhOcmKyVB+h3g9qFsp13jQgJ4s8NQBAzUGpAOo6bScxsItHUONQrrFqYKiJNCnyg5qFSju3e1YVz9yAATUPlSQLycJPPVclGKBmo1QRv7MJ2dnkthkyqCNRSeLQLYqpQWQTB1BHo9LA2VnIVUg7AYMaheoUVeMAGyzuQM1FJYf61MLPBWDVHqi5qLQBNTg6ATmuuoA6DqU6sluYucJG6z2gxqBUIyp56CzqqsESnwoCdTzKTYAqSXUF3HjDCNQIlDvUnD7rCmrRKgHU0ahkg7sbfNsbBKBGoDoHBbtFkOSwBKh5qOSgsUsmP9n8jk6agToWlXRwu+gPPw7Ue1AqoCagNFi3ChygxqK+SUyTQxig3of6tJDW2eAGNQ+VFmOTYltSqAU1G5VsZCfJQ3povizYgRqB2ukCBQoUqNv1C4Xt0OBo/KnGAAAAAElFTkSuQmCC" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#数组"><span class="post-toc-number">1.</span> <span class="post-toc-text">数组</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#泛型"><span class="post-toc-number">2.</span> <span class="post-toc-text">泛型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Java-中的泛型"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">Java 中的泛型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#declcration-sit-variance"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">declcration sit variance</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Kotlin-中的泛型"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">Kotlin 中的泛型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#use-site-variance"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">use-site variance</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#函数返回值的协变"><span class="post-toc-number">3.</span> <span class="post-toc-text">函数返回值的协变</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">参考</span></a></li></ol></li></ol></div>
+                        
+                    
+                    <article id="post-content">
+                        <p><code>variance</code>原文没有怎么看懂，翻译过来就是形变，更抽象。variance和variant都是一个意思。</p>
+<p><code>variance</code>定义了子类型和父类型的在进行一定操作后的结果之间的类型关系。 </p>
+<p>在面向对象语言中通常会有子类型（subtype）的概念，表示某类是某类的子类。</p>
+<p>父类是可以引用子类类型对象的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A item = <span class="keyword">new</span> B();</span><br></pre></td></tr></table></figure>
+
+<p>假设有A，B两个类，类B继承自类A，用<code>≤</code>表示继承关系，即<code>B≤A</code>。进行一定的变化操作后（通常是类型引用，数组，泛型），变化操作记作<code>f(⋅)</code></p>
+<ol>
+<li><p>如果<code>B≤A</code>，<code>f(B)≤f(A)</code>，那么操作<code>f(⋅)</code>就是<code>covariance（协变）</code></p>
+</li>
+<li><p>如果<code>B≤A</code>，<code>f(A)≤f(B)</code>，那么操作<code>f(⋅)</code>就是<code>contrvariance（协变）</code></p>
+</li>
+<li><p>如果<code>B≤A</code>，<code>f(A)</code>和<code>f(B)</code>之间没有继承关系，那么操作<code>f(⋅)</code>就是<code>invariance（不变）</code></p>
+</li>
+</ol>
+<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">B[] b = <span class="keyword">new</span> B[]&#123;<span class="keyword">new</span> B(), <span class="keyword">new</span> B()&#125;;</span><br><span class="line">A[] a = b;</span><br></pre></td></tr></table></figure>
+
+<p>Java 中父类的数组是可以持有子类的数组的，数组支持<code>covarance</code></p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> b: Array&lt;B&gt; = arrayOf(B())</span><br><span class="line"><span class="comment">// type mismatch</span></span><br><span class="line"><span class="keyword">val</span> a: Array&lt;A&gt; = b</span><br></pre></td></tr></table></figure>
+
+<p>Kotlin 中数组是不支持协变的</p>
+<h1 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h1><p>泛型在编译时期会检查类型，类型安全机制。</p>
+<h2 id="Java-中的泛型"><a href="#Java-中的泛型" class="headerlink" title="Java 中的泛型"></a>Java 中的泛型</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 编译失败</span></span><br><span class="line">ArrayList&lt;A&gt; a = <span class="keyword">new</span> ArrayList&lt;B&gt;();</span><br><span class="line"><span class="comment">// 编译失败</span></span><br><span class="line">ArrayList&lt;B&gt; b = <span class="keyword">new</span> ArrayList&lt;A&gt;();</span><br></pre></td></tr></table></figure>
+
+<p>两种方式都报错<code>incompatiable type</code>,所以泛型是不支持<code>covariance</code>，也不支持<code>contrvariance</code>，是<code>invariance</code>。</p>
+<p>由于泛型默认情况是是<code>invariance</code>,可以通过一定的方式让泛型支持<code>contrvariance</code>以及<code>covariance</code>。</p>
+<p>Java 中支持协变的方式是<code>extends</code>和<code>super</code>关键字。</p>
+<p>在泛型的传参处，申明<em>泛型实参类型</em>是受限制的边界类型，即 <strong><em>use-site variance</em></strong>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// covarance</span></span><br><span class="line">ArrayList&lt;? extends A&gt; array = <span class="keyword">new</span> ArrayList&lt;B&gt;();</span><br><span class="line"><span class="comment">// compile error</span></span><br><span class="line">array.add(<span class="keyword">new</span> B());</span><br><span class="line"><span class="comment">// ok</span></span><br><span class="line">arrar.get(<span class="number">0</span>);</span><br><span class="line"><span class="comment">// contrvarance</span></span><br><span class="line">ArrayList&lt;? <span class="keyword">super</span> B&gt; array = <span class="keyword">new</span> ArrayList&lt;A&gt;;</span><br><span class="line"><span class="comment">// ok</span></span><br><span class="line">arrary.add(<span class="keyword">new</span> B);</span><br><span class="line"><span class="comment">// compile error</span></span><br><span class="line">arrary.get(<span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>corvarince，只能获取元素，<strong>Producer Extends</strong></p>
+</li>
+<li><p>contrvariance，只能保存元素，<strong>Consumer Super</strong></p>
+</li>
+</ul>
+<h3 id="declcration-sit-variance"><a href="#declcration-sit-variance" class="headerlink" title="declcration sit variance"></a>declcration sit variance</h3><p>这种方式只是限制类泛型类型的实参类型，只能A或A的子类作为泛型的参数。并不是什么申明处形变。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> &lt;T extends A&gt; <span class="function"><span class="keyword">void</span> <span class="title">printDeclaration</span><span class="params">(T r)</span> </span>&#123;</span><br><span class="line">    System.out.print(r);</span><br><span class="line">&#125;</span><br><span class="line">printDeclaration(<span class="keyword">new</span> B());</span><br></pre></td></tr></table></figure>
+
+<h2 id="Kotlin-中的泛型"><a href="#Kotlin-中的泛型" class="headerlink" title="Kotlin 中的泛型"></a>Kotlin 中的泛型</h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> boxb: Box&lt;B&gt; = Box&lt;B&gt;()</span><br><span class="line"><span class="comment">// type mismatch</span></span><br><span class="line"><span class="keyword">val</span> boxa: Box&lt;A&gt; = boxb</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Box</span>&lt;<span class="type">T</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>泛型默认是不支持协变的，是<code>invariance</code></p>
+<p>Kotlin 中支持协变的方式是<code>in</code>和<code>out</code>关键字。在定义泛型类型类或泛型方法的时候申明支持哪种形变，即<strong>Declaration-site variance</strong></p>
+<ul>
+<li><p>covariance，只能读取元素并作为返回类型，<strong>out</strong></p>
+</li>
+<li><p>contravariance，只能保存元素并作为输入类型，<strong>in</strong></p>
+</li>
+</ul>
+<p>covariance use <strong>out</strong></p>
+<p><code>out</code> 标记的泛型，不能出现在参数中</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Producer</span>&lt;<span class="type">out T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">produce</span><span class="params">()</span></span>: T</span><br><span class="line">    <span class="comment">// compile error</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">input</span><span class="params">(T t)</span></span>:<span class="built_in">Boolean</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NumberProducer</span> : <span class="type">Producer</span>&lt;<span class="type">Number</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">produce</span><span class="params">()</span></span>: Number = Math.random()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> producer: Producer&lt;Any&gt; = NumberProducer()</span><br></pre></td></tr></table></figure>
+
+<p>contravariance use <strong>in</strong></p>
+<p><code>in</code>标记的泛型不能出现在返回值中。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Consumer</span>&lt;<span class="type">in T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">consume</span><span class="params">(input: <span class="type">T</span>)</span></span>: <span class="built_in">Boolean</span></span><br><span class="line">    <span class="comment">// compile error</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span>  <span class="title">consume</span><span class="params">()</span></span>:T</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NumberConsumer</span> : <span class="type">Consumer</span>&lt;<span class="type">Number</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">consume</span><span class="params">(input: <span class="type">Number</span>)</span></span>: <span class="built_in">Boolean</span> = <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">checkConsumer</span><span class="params">(consumer: <span class="type">NumberConsumer</span>)</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> intConsumer: Consumer&lt;<span class="built_in">Int</span>&gt; = consumer</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="use-site-variance"><a href="#use-site-variance" class="headerlink" title="use-site variance"></a>use-site variance</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Group</span>&lt;<span class="type">T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">setGroup</span><span class="params">(value: <span class="type">T</span>)</span></span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">getGroup</span><span class="params">()</span></span>: T</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">doSomething</span><span class="params">(input1: <span class="type">Group</span>&lt;<span class="type">out</span> <span class="type">Number</span>&gt;, input2: <span class="type">Group</span>&lt;<span class="type">in</span> <span class="type">Number</span>&gt;)</span></span> &#123;</span><br><span class="line">    input1.setGroup(<span class="number">12</span>) <span class="comment">// compile error</span></span><br><span class="line">    <span class="keyword">val</span> outGroup: Number = input1.getGroup()</span><br><span class="line"></span><br><span class="line">    input2.setGroup(<span class="number">12</span>)</span><br><span class="line">    <span class="keyword">val</span> inGroup: Number = input2.getGroup() <span class="comment">// compile error</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>跟 Java 中通配符泛型（generic wildcards）类似，语法上跟简洁了一些。</p>
+<h1 id="函数返回值的协变"><a href="#函数返回值的协变" class="headerlink" title="函数返回值的协变"></a>函数返回值的协变</h1><p>在重载一个方法时返回类型是可以返回一个更小的范围，可以返回父类返回类型的子类，意即返回值支持协变,<code>corvariance</code>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="function">Object <span class="title">print</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function">String <span class="title">print</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"B overide print()"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://fashare2015.github.io/2018/05/10/talk-about-generics-from-java-to-kotlin[Java]/" target="_blank" rel="noopener">也谈泛型，从 Java 到 Kotlin 之Java篇</a></p>
+<p><a href="https://blog.csdn.net/zxm317122667/article/details/78297955" target="_blank" rel="noopener">深入理解Java与Kotlin的泛型(Generic Type)和型变(Variance</a></p>
+<p><a href="https://medium.com/tompee/idiomatic-kotlin-variance-82355d9a71df" target="_blank" rel="noopener">idiomatic kotlin: variance</a></p>
+
+                    </article>
+                    
+
+
+
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2019-07-03T13:57:06.000Z" itemprop="datePublished">2019-07-03</time>
+
+    , 最后修改于&nbsp;<time datetime="2020-01-03T01:49:02.457Z" itemprop="dateModified">2020-01-03</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+<a class="post-categories-list-item" href='/categories/Kotlin/'>Kotlin</a>
+
+</span>
+
+
+
+
+</p>
+
+                </div>
+                <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2019/06/27/Java-%E6%B3%9B%E5%9E%8B/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">Java 泛型</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                        <div class="card-footer post-comment">
+                            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://lysmbetter.top/2019/07/03/Idiomatic-Kotlin-variance/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://lysmbetter.top/2019/07/03/Idiomatic-Kotlin-variance/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script id="disqus-thread-script">
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//lysmbetter.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+                        </div>
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="http://lysmbetter.top">Better</a>
+        </p>
+
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+
+    
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+document.getElementById('copyright-year').textContent = new Date().getFullYear();
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
+</script>
+
+<script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
+    <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+<!-- Comment -->
+
+    
+        <script id="dsq-count-scr" src="https://lysmbetter.disqus.com/count.js" async></script>
+
+    
+
+
+<!-- ### Custom Footer ### -->
+
+    </body>
+
+</html>

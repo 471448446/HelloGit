@@ -155,7 +155,7 @@
     <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="Better"><meta name="msapplication-starturl" content="http://lysmbetter.top"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Better"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- ### The Open Graph & Twitter Card Protocol ### -->
-    <meta property="og:title" content="Android 状态栏高度-屏幕划分-正确获取标题栏高度 | Better"><meta property="og:site_name" content="Better"><meta property="og:type" content="article"><meta property="og:url" content="http:&#x2F;&#x2F;lysmbetter.top&#x2F;2017&#x2F;11&#x2F;19&#x2F;Android%20%E7%8A%B6%E6%80%81%E6%A0%8F%E9%AB%98%E5%BA%A6-%E5%B1%8F%E5%B9%95%E5%88%92%E5%88%86-%E6%AD%A3%E7%A1%AE%E8%8E%B7%E5%8F%96%E6%A0%87%E9%A2%98%E6%A0%8F%E9%AB%98%E5%BA%A6&#x2F;"><meta property="og:locale" content="zh-Hans"><meta name="description" content="需求今天的需求是要获取到状态栏的高度没因为UI是全屏填充到顶部。通过margin来控制是否显示到状态栏下面。在网上看到一个见解：不同的Android设备状态栏的高度不一样。240x320高度是20px,320x480高度是25px，480x800是38px。记得以前有人说是25px，所以是不对的。获取方式是根据Window来获取： 1234567Rect rectangle = new Rect( - Better - Better"><meta name="keywords" content="状态栏高度, 导航栏高度"><meta property="og:image" content="https:&#x2F;&#x2F;lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com&#x2F;lysmbetter&#x2F;EFA6EFAE97E8D2C1FE89A14E6310A710.jpg"><meta property="og:image" content="https:&#x2F;&#x2F;lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com&#x2F;lysmbetter&#x2F;FCC43206BCA6C80611699AD0E9407D3D.jpg"><meta property="og:image" content="https:&#x2F;&#x2F;lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com&#x2F;lysmbetter&#x2F;0C847D7DB8261326D1FA7FC07CAF0317.jpg"><meta property="og:image" content="https:&#x2F;&#x2F;lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com&#x2F;lysmbetter&#x2F;EA4724A343DDAA44398F2D9C23FCB065.jpg"><meta property="og:image" content="https:&#x2F;&#x2F;lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com&#x2F;lysmbetter&#x2F;2A35B844FA80680D5A3FFA73F6536BF6.jpg"><meta property="og:image" content="https:&#x2F;&#x2F;lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com&#x2F;lysmbetter&#x2F;43AA05F0C1515C3F7228A17486537715.jpg"><meta property="og:image" content="https:&#x2F;&#x2F;lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com&#x2F;lysmbetter&#x2F;BCA5DFEC15790A7219899E7592F3447A.jpg"><meta property="og:image" content="https:&#x2F;&#x2F;lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com&#x2F;lysmbetter&#x2F;09EC57718E059F2ACBED7D0A55A29DE5.jpg"><meta property="article:published_time" content="2017-11-19T05:13:45.000Z"><meta property="article:modified_time" content="2018-11-10T01:52:37.123Z"><meta property="og:updated_time" content="2018-11-10T01:52:37.123Z"><meta property="article:author" content="Better"><meta property="article:tag" content="状态栏高度, 导航栏高度"><meta name="twitter:card" content="summary">
+    <meta property="og:title" content="Android 状态栏高度-屏幕划分-正确获取标题栏高度 | Better"><meta property="og:site_name" content="Better"><meta property="og:type" content="article"><meta property="og:url" content="http:&#x2F;&#x2F;lysmbetter.top&#x2F;2017&#x2F;11&#x2F;19&#x2F;Android%20%E7%8A%B6%E6%80%81%E6%A0%8F%E9%AB%98%E5%BA%A6-%E5%B1%8F%E5%B9%95%E5%88%92%E5%88%86-%E6%AD%A3%E7%A1%AE%E8%8E%B7%E5%8F%96%E6%A0%87%E9%A2%98%E6%A0%8F%E9%AB%98%E5%BA%A6&#x2F;"><meta property="og:locale" content="zh-Hans"><meta name="description" content="需求今天的需求是要获取到状态栏的高度没因为UI是全屏填充到顶部。通过margin来控制是否显示到状态栏下面。在网上看到一个见解：不同的Android设备状态栏的高度不一样。240x320高度是20px,320x480高度是25px，480x800是38px。记得以前有人说是25px，所以是不对的。获取方式是根据Window来获取： 1234567Rect rectangle = new Rect( - Better - Better"><meta name="keywords" content="状态栏高度, 导航栏高度, android"><meta property="og:image" content="https:&#x2F;&#x2F;lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com&#x2F;lysmbetter&#x2F;EFA6EFAE97E8D2C1FE89A14E6310A710.jpg"><meta property="og:image" content="https:&#x2F;&#x2F;lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com&#x2F;lysmbetter&#x2F;FCC43206BCA6C80611699AD0E9407D3D.jpg"><meta property="og:image" content="https:&#x2F;&#x2F;lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com&#x2F;lysmbetter&#x2F;0C847D7DB8261326D1FA7FC07CAF0317.jpg"><meta property="og:image" content="https:&#x2F;&#x2F;lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com&#x2F;lysmbetter&#x2F;EA4724A343DDAA44398F2D9C23FCB065.jpg"><meta property="og:image" content="https:&#x2F;&#x2F;lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com&#x2F;lysmbetter&#x2F;2A35B844FA80680D5A3FFA73F6536BF6.jpg"><meta property="og:image" content="https:&#x2F;&#x2F;lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com&#x2F;lysmbetter&#x2F;43AA05F0C1515C3F7228A17486537715.jpg"><meta property="og:image" content="https:&#x2F;&#x2F;lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com&#x2F;lysmbetter&#x2F;BCA5DFEC15790A7219899E7592F3447A.jpg"><meta property="og:image" content="https:&#x2F;&#x2F;lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com&#x2F;lysmbetter&#x2F;09EC57718E059F2ACBED7D0A55A29DE5.jpg"><meta property="article:published_time" content="2017-11-19T05:13:45.000Z"><meta property="article:modified_time" content="2018-11-10T01:52:37.123Z"><meta property="og:updated_time" content="2018-11-10T01:52:37.123Z"><meta property="article:author" content="Better"><meta property="article:tag" content="状态栏高度, 导航栏高度, android"><meta name="twitter:card" content="summary">
 
     
 
@@ -221,7 +221,7 @@
         "query-input": "required name=search_term_string"
     },
     
-    "keywords": "状态栏高度, 导航栏高度",
+    "keywords": "状态栏高度, 导航栏高度, android",
     "description": "需求今天的需求是要获取到状态栏的高度没因为UI是全屏填充到顶部。通过margin来控制是否显示到状态栏下面。在网上看到一个见解：不同的Android设备状态栏的高度不一样。240x320高度是20px,320x480高度是25px，480x800是38px。记得以前有人说是25px，所以是不对的。获取方式是根据Window来获取： 1234567Rect rectangle = new Rect( - Better - Better"
 }
 </script>
@@ -250,13 +250,13 @@
 
     <nav class="navbar-section text-center">
     
-        <a href="/" class="navbar-link">Home</a>
+        <a href="/" class="navbar-link">首页</a>
     
     
-        <a href="/archives/" class="navbar-link">Archives</a>
+        <a href="/archives/" class="navbar-link">归档</a>
     
     
-        <a href="/search" class="navbar-link">Search</a>
+        <a href="/search" class="navbar-link">搜索</a>
     
     
         <a href="/tags/" class="navbar-link">Tags</a>
@@ -305,26 +305,26 @@
     <div class="post-header-info-right">
         
             <div class="dropdown dropdown-right">
-<a class="dropdown-toggle" tabindex="0">Share the post</a>
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
 <ul class="menu share-menu">
     <!-- Share Weibo -->
     
     <li class="menu-item">
-        <a href="http://service.weibo.com/share/share.php?appkey=&title=Android 状态栏高度-屏幕划分-正确获取标题栏高度&url=http://lysmbetter.top/2017/11/19/Android%20%E7%8A%B6%E6%80%81%E6%A0%8F%E9%AB%98%E5%BA%A6-%E5%B1%8F%E5%B9%95%E5%88%92%E5%88%86-%E6%AD%A3%E7%A1%AE%E8%8E%B7%E5%8F%96%E6%A0%87%E9%A2%98%E6%A0%8F%E9%AB%98%E5%BA%A6/&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=Android 状态栏高度-屏幕划分-正确获取标题栏高度&url=http://lysmbetter.top/2017/11/19/Android%20%E7%8A%B6%E6%80%81%E6%A0%8F%E9%AB%98%E5%BA%A6-%E5%B1%8F%E5%B9%95%E5%88%92%E5%88%86-%E6%AD%A3%E7%A1%AE%E8%8E%B7%E5%8F%96%E6%A0%87%E9%A2%98%E6%A0%8F%E9%AB%98%E5%BA%A6/&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">分享到微博</a>
     </li>
     
 
     <!-- Share Twitter -->
     
     <li class="menu-item">
-        <a href="https://twitter.com/intent/tweet?text=Android 状态栏高度-屏幕划分-正确获取标题栏高度&url=http://lysmbetter.top/2017/11/19/Android%20%E7%8A%B6%E6%80%81%E6%A0%8F%E9%AB%98%E5%BA%A6-%E5%B1%8F%E5%B9%95%E5%88%92%E5%88%86-%E6%AD%A3%E7%A1%AE%E8%8E%B7%E5%8F%96%E6%A0%87%E9%A2%98%E6%A0%8F%E9%AB%98%E5%BA%A6/&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+        <a href="https://twitter.com/intent/tweet?text=Android 状态栏高度-屏幕划分-正确获取标题栏高度&url=http://lysmbetter.top/2017/11/19/Android%20%E7%8A%B6%E6%80%81%E6%A0%8F%E9%AB%98%E5%BA%A6-%E5%B1%8F%E5%B9%95%E5%88%92%E5%88%86-%E6%AD%A3%E7%A1%AE%E8%8E%B7%E5%8F%96%E6%A0%87%E9%A2%98%E6%A0%8F%E9%AB%98%E5%BA%A6/&via=Better" target="_blank" rel="external noopener noreferrer nofollow">分享到 Twitter</a>
     </li>
     
 
     <!-- Share Facebook -->
     
     <li class="menu-item">
-        <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top/2017/11/19/Android%20%E7%8A%B6%E6%80%81%E6%A0%8F%E9%AB%98%E5%BA%A6-%E5%B1%8F%E5%B9%95%E5%88%92%E5%88%86-%E6%AD%A3%E7%A1%AE%E8%8E%B7%E5%8F%96%E6%A0%87%E9%A2%98%E6%A0%8F%E9%AB%98%E5%BA%A6/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top/2017/11/19/Android%20%E7%8A%B6%E6%80%81%E6%A0%8F%E9%AB%98%E5%BA%A6-%E5%B1%8F%E5%B9%95%E5%88%92%E5%88%86-%E6%AD%A3%E7%A1%AE%E8%8E%B7%E5%8F%96%E6%A0%87%E9%A2%98%E6%A0%8F%E9%AB%98%E5%BA%A6/" target="_blank" rel="external noopener noreferrer nofollow">分享到 Facebook</a>
     </li>
     
 
@@ -334,21 +334,21 @@
     <!-- Share LinkedIn -->
     
     <li class="menu-item">
-        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top/2017/11/19/Android%20%E7%8A%B6%E6%80%81%E6%A0%8F%E9%AB%98%E5%BA%A6-%E5%B1%8F%E5%B9%95%E5%88%92%E5%88%86-%E6%AD%A3%E7%A1%AE%E8%8E%B7%E5%8F%96%E6%A0%87%E9%A2%98%E6%A0%8F%E9%AB%98%E5%BA%A6/&title=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top/2017/11/19/Android%20%E7%8A%B6%E6%80%81%E6%A0%8F%E9%AB%98%E5%BA%A6-%E5%B1%8F%E5%B9%95%E5%88%92%E5%88%86-%E6%AD%A3%E7%A1%AE%E8%8E%B7%E5%8F%96%E6%A0%87%E9%A2%98%E6%A0%8F%E9%AB%98%E5%BA%A6/&title=Better" target="_blank" rel="external noopener noreferrer nofollow">分享到 LinkedIn</a>
     </li>
     
 
     <!-- Share QQ -->
     
     <li class="menu-item">
-        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Better&summary=业精于勤荒于嬉&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top/2017/11/19/Android%20%E7%8A%B6%E6%80%81%E6%A0%8F%E9%AB%98%E5%BA%A6-%E5%B1%8F%E5%B9%95%E5%88%92%E5%88%86-%E6%AD%A3%E7%A1%AE%E8%8E%B7%E5%8F%96%E6%A0%87%E9%A2%98%E6%A0%8F%E9%AB%98%E5%BA%A6/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Better&summary=业精于勤荒于嬉&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top/2017/11/19/Android%20%E7%8A%B6%E6%80%81%E6%A0%8F%E9%AB%98%E5%BA%A6-%E5%B1%8F%E5%B9%95%E5%88%92%E5%88%86-%E6%AD%A3%E7%A1%AE%E8%8E%B7%E5%8F%96%E6%A0%87%E9%A2%98%E6%A0%8F%E9%AB%98%E5%BA%A6/" target="_blank" rel="external noopener noreferrer nofollow"> 分享到 QQ</a>
     </li>
     
 
     <!-- Share Telegram -->
     
     <li class="menu-item">
-        <a href="https://t.me/share/url?url=http://lysmbetter.top/2017/11/19/Android%20%E7%8A%B6%E6%80%81%E6%A0%8F%E9%AB%98%E5%BA%A6-%E5%B1%8F%E5%B9%95%E5%88%92%E5%88%86-%E6%AD%A3%E7%A1%AE%E8%8E%B7%E5%8F%96%E6%A0%87%E9%A2%98%E6%A0%8F%E9%AB%98%E5%BA%A6/&text=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+        <a href="https://t.me/share/url?url=http://lysmbetter.top/2017/11/19/Android%20%E7%8A%B6%E6%80%81%E6%A0%8F%E9%AB%98%E5%BA%A6-%E5%B1%8F%E5%B9%95%E5%88%92%E5%88%86-%E6%AD%A3%E7%A1%AE%E8%8E%B7%E5%8F%96%E6%A0%87%E9%A2%98%E6%A0%8F%E9%AB%98%E5%BA%A6/&text=Better" target="_blank" rel="external noopener noreferrer nofollow">分享到 Telegram</a>
     </li>
     
 
@@ -424,26 +424,10 @@
                     
 
 
-    <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
-    <script>
-    (function() {
-        var dateUpdate = Date.parse("2018-11-10");
-        var nowDate = new Date();
-        var a = nowDate.getTime();
-        var b = a - dateUpdate;
-        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
-        if (daysUpdateExpire >= 120) {
-            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
-        } else {
-            document.getElementById('date-expire-notification').style.display = 'none';
-        }
-    })();
-    </script>
 
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2017-11-19T05:13:45.000Z" itemprop="datePublished">2017-11-19</time>
 
-<p class="post-footer-info mb-0 pt-0">Published at&nbsp;<time datetime="2017-11-19T05:13:45.000Z" itemprop="datePublished">2017-11-19</time>
-
-    , Updated at&nbsp;<time datetime="2018-11-10T01:52:37.123Z" itemprop="dateModified">2018-11-10</time>
+    , 最后修改于&nbsp;<time datetime="2018-11-10T01:52:37.123Z" itemprop="dateModified">2018-11-10</time>
 
 </p>
 <p class="post-footer-info mb-0 pt-2">
