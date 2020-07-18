@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hans">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        hexo-theme-suka © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+    -->
+
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+    <link rel="dns-prefetch" href="//disqus.com">
+    <link rel="dns-prefetch" href="//lysmbetter.disqus.com">
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+    <!-- ## Preload ## -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
+
+    <!-- Title -->
+    <title>Windows obfuscator llvm6.0 | Better</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/img/suka-favicon.ico">
+
+    <!-- ### Import File ### -->
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css"><style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: #0070ff;
+    }
+
+    a:active, a:focus, a:hover {
+        color: #0070ff;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: #005eb9;
+        opacity: 1;
+    }
+
+    
+
+    .post-entry .card-body a {
+        color: #0070ff;
+    }
+
+    .avatar {
+        background: #444;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: #0070ff;
+    }
+
+    .navbar-link:hover {
+        color: #0070ff;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: #727e96;
+        border-color: #727e96;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: #727e96;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style><link rel="stylesheet" href="/css/style.min.css">
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    <link rel="preload" href="/css/highlight/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/css/highlight/github.min.css"></noscript>
+
+
+
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="Better"><meta name="msapplication-starturl" content="http://lysmbetter.top"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Better"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="Windows obfuscator llvm6.0 | Better"><meta property="og:site_name" content="Better"><meta property="og:type" content="article"><meta property="og:url" content="http://lysmbetter.top/2020/07/18/Windows-obfuscator-llvm6-0/"><meta property="og:locale" content="zh-Hans"><meta name="description" content="下面是Windows 10 中搭建 obfuscator llvm 步骤 准备环境gcc g++环境由于是在windows上安装的（系统是Windows 10），因为没有gcc g++环境，需要安装mingw。下载地址：mingw-w64离线包安装x86_64-posix-seh如果使用在线安装会很慢，所以下载了离线安装包。这样耗费了写时间下载离线安装包，解压就行。 添加路径 D:\mingw64 - Better - Better"><meta name="keywords" content="obfuscator-llvm, ollvm, android"><meta property="og:image" content="https://lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com/lysmbetter/ollvm_windows_wingw64_online.png"><meta property="og:image" content="https://lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com/lysmbetter/ollvm_windows_wingw64_online.png"><meta property="article:published_time" content="2020-07-18T13:21:57.000Z"><meta property="article:modified_time" content="2020-07-18T13:33:07.057Z"><meta property="og:updated_time" content="2020-07-18T13:33:07.057Z"><meta property="article:author" content="Better"><meta property="article:tag" content="obfuscator-llvm, ollvm, android"><meta name="twitter:card" content="summary">
+
+    
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://lysmbetter.top/2020/07/18/Windows-obfuscator-llvm6-0/">
+
+    <meta name="generator" content="Hexo 4.2.1">
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "http://lysmbetter.top/2020/07/18/Windows-obfuscator-llvm6-0/",
+    "@type": "BlogPosting",
+    "logo": "http://lysmbetter.top/img/suka-favicon.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://lysmbetter.top/2020/07/18/Windows-obfuscator-llvm6-0/"
+    },
+    "headline": "Windows obfuscator llvm6.0 | Better",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "http://lysmbetter.top/img/suka-favicon.ico"
+    },
+    
+    "datePublished": "2020-07-18T13:21:57.000Z",
+    "dateModified": "2020-07-18T13:33:07.057Z",
+    "author": {
+        "@type": "Person",
+        "name": "Better",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://lysmbetter.top/img/default_avatar.png"
+        },
+        "description": "业精于勤荒于嬉"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Better",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "http://lysmbetter.top/img/suka-favicon.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "http://lysmbetter.top/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "obfuscator-llvm, ollvm, android",
+    "description": "下面是Windows 10 中搭建 obfuscator llvm 步骤 准备环境gcc g++环境由于是在windows上安装的（系统是Windows 10），因为没有gcc g++环境，需要安装mingw。下载地址：mingw-w64离线包安装x86_64-posix-seh如果使用在线安装会很慢，所以下载了离线安装包。这样耗费了写时间下载离线安装包，解压就行。 添加路径 D:\mingw64 - Better - Better"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+</head>
+
+    <body>
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">Better</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                业精于勤荒于嬉
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">Home</a>
+    
+    
+        <a href="/archives/" class="navbar-link">Archives</a>
+    
+    
+        <a href="/search" class="navbar-link">Search</a>
+    
+    
+        <a href="/tags/" class="navbar-link">Tags</a>
+    
+        <a href="/about/" class="navbar-link">About</a>
+    
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    <div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">Windows obfuscator llvm6.0</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/default_avatar.png" src="/img/suka-lazyload.gif" alt="Better's Avatar">
+        <span>2020-07-18</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/llvm/">llvm</a>
+        
+        
+            <!-- Busuanzi Post Views -->
+<span id="busuanzi_container_page_pv" hidden>
+    <span class="suka-devide-dot"></span>
+    <span></span>
+    <span id="busuanzi_value_page_pv"></span>
+    <span>Views</span>
+</span>
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">Share the post</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=Windows obfuscator llvm6.0&url=http://lysmbetter.top/2020/07/18/Windows-obfuscator-llvm6-0/&pic=http://lysmbetter.top/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">Share to Weibo</a>
+    </li>
+    
+
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=Windows obfuscator llvm6.0&url=http://lysmbetter.top/2020/07/18/Windows-obfuscator-llvm6-0/&via=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Twitter</a>
+    </li>
+    
+
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://lysmbetter.top/2020/07/18/Windows-obfuscator-llvm6-0/" target="_blank" rel="external noopener noreferrer nofollow">Share to Facebook</a>
+    </li>
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+    <li class="menu-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lysmbetter.top/2020/07/18/Windows-obfuscator-llvm6-0/&title=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to LinkedIn</a>
+    </li>
+    
+
+    <!-- Share QQ -->
+    
+    <li class="menu-item">
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Better&title=Better&summary=业精于勤荒于嬉&pics=http://lysmbetter.top/img/suka-favicon.ico&url=http://lysmbetter.top/2020/07/18/Windows-obfuscator-llvm6-0/" target="_blank" rel="external noopener noreferrer nofollow"> Share to QQ</a>
+    </li>
+    
+
+    <!-- Share Telegram -->
+    
+    <li class="menu-item">
+        <a href="https://t.me/share/url?url=http://lysmbetter.top/2020/07/18/Windows-obfuscator-llvm6-0/&text=Better" target="_blank" rel="external noopener noreferrer nofollow">Share to Telegram</a>
+    </li>
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB3UlEQVR42u3bwXKDMAyEYb//S7fXTMbaXREOWPxc2rQJ/ugYYUnu+nvgsUCBAgVqg1ri+H7P9/e7c+xex+OAGoPaTrrihLsBdp/dwe04oEahdgM7nHvfbvBqHFDvQrnJXP0eFKjuRK+CqbshQL0DVU3U9kItuLifVwmgHo9SA9359bZsBtSjUbboEGLTB/UtVRdQj0apiehgHbQ6B6hZqDQJUAWL9MJUUgtqDkoVVpPAmiSh6gJAzUapor476QoOezOAGoNSzZ8U6AJq9EcANQLVKXIkjSL1ueqmADUPpRZ7qoDamczV52yGDOpIlCpWuAeuu6A0OIOag0qKX1c2TSQ3RNTFAnU86tdE1DUpVQAFNQuVPpzTBZ+7mCh4ghqDcg/ozmLQLfpAzUO5An0yYZONNupnoGahZHIoTuAa4FURrbUBB9SxKJcsdhZrSSE3akKCOh6VLOpUcplsDHNNTlAzUa5okWxKdU3JMjiDGoHqFDKSxlIyycsgDWoEKp2QqiiWJBVu0yqoWajO5FUTPw3A0aYuUMejXGE+bRxdedCDeh8qaUqrmyJJZkG9C+XAHahcUIIahXKNa7dYS4Pt5S4WqKNQnU3tneaSDZbL/OMFqCNRTzpAgQIF6uP4B/4vcUAa3FQXAAAAAElFTkSuQmCC" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#准备环境"><span class="post-toc-number">1.</span> <span class="post-toc-text">准备环境</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#gcc-g-环境"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">gcc g++环境</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#cmake"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">cmake</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#clang"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">clang</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#安装-obfuscator-llvm"><span class="post-toc-number">2.</span> <span class="post-toc-text">安装 obfuscator llvm</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第一步编译-obfuscator"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">第一步编译 obfuscator</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第二步集成到-Android-NDK"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">第二步集成到 Android NDK</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第三步如何使用"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">第三步如何使用</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参数解释"><span class="post-toc-number">3.</span> <span class="post-toc-text">参数解释</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#遇到的错误"><span class="post-toc-number">4.</span> <span class="post-toc-text">遇到的错误</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Cannot-open-dev-random"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">Cannot open &#x2F;dev&#x2F;random</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考"><span class="post-toc-number">5.</span> <span class="post-toc-text">参考</span></a></li></ol></div>
+                        
+                    
+                    <article id="post-content">
+                        <p>下面是Windows 10 中搭建 obfuscator llvm 步骤</p>
+<h1 id="准备环境"><a href="#准备环境" class="headerlink" title="准备环境"></a>准备环境</h1><h2 id="gcc-g-环境"><a href="#gcc-g-环境" class="headerlink" title="gcc g++环境"></a>gcc g++环境</h2><p>由于是在windows上安装的（系统是Windows 10），因为没有gcc g++环境，需要安装mingw。<br>下载地址：<a href="https://sourceforge.net/projects/mingw-w64/files/" target="_blank" rel="noopener">mingw-w64</a><br>离线包安装<a href="https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/8.1.0/threads-posix/seh/x86_64-8.1.0-release-posix-seh-rt_v6-rev0.7z" target="_blank" rel="noopener">x86_64-posix-seh</a><br>如果使用在线安装会很慢，所以下载了离线安装包。这样耗费了写时间<br><img src="https://lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com/lysmbetter/ollvm_windows_wingw64_online.png" alt="online"><br>下载离线安装包，解压就行。<br><img src="https://lysmbetter-1252916934.cos.ap-chengdu.myqcloud.com/lysmbetter/ollvm_windows_wingw64_online.png" alt="director"></p>
+<p><strong>添加路径 <code>D:\mingw64\bin</code> 以及 <code>D:\mingw64\include</code> 到系统环境变量中</strong></p>
+<p>这个是使用在线安装参考：<a href="https://www.cnblogs.com/findumars/p/8289454.html" target="_blank" rel="noopener">在Windows中安装MinGW-w64</a><br>离线安装参考:<a href="https://blog.csdn.net/ZHAOJUNWEI08/article/details/86602120" target="_blank" rel="noopener">MinGW-w64离线安装，测试可用</a><br>官方下载地址：<a href="https://sourceforge.net/projects/mingw-w64/" target="_blank" rel="noopener">mingw-w64</a></p>
+<h2 id="cmake"><a href="#cmake" class="headerlink" title="cmake"></a>cmake</h2><p>这里使用的是Android SDK自带的 3.10.2 版本<br>添加系统环境变量<code>D:\Software\Android\Android\cmake\3.10.2.4988404\bin</code> 方便直接使用<code>cmake</code>命令</p>
+<h2 id="clang"><a href="#clang" class="headerlink" title="clang"></a>clang</h2><p>检查本地的clang 版本，这个是非常重要的，决定了接下来编译哪个版本的 <code>obfuscator</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">D:\Software\Android\Android\ndk-bundle\toolchains\llvm\prebuilt\windows-x86_64\bin\clang++.exe --version</span><br><span class="line">Android (4691093 based on r316199) clang version 6.0.2 (https:&#x2F;&#x2F;android.googlesource.com&#x2F;toolchain&#x2F;clang 183abd29fc496f55536e7d904e0abae47888fc7f) (https:&#x2F;&#x2F;android.googlesource.com&#x2F;toolchain&#x2F;llvm 34361f192e41ed6e4e8f9aca80a4ea7e9856f327) (based on LLVM 6.0.2svn)</span><br><span class="line">Target: x86_64-w64-windows-gnu</span><br><span class="line">Thread model: posix</span><br><span class="line">InstalledDir: D:\Software\Android\Android\ndk-bundle\toolchains\llvm\prebuilt\windows-x86_64\bin</span><br></pre></td></tr></table></figure>
+
+<p>结果是 6.0.2的，之前一直使用4.0版本，各种出问题。</p>
+<h1 id="安装-obfuscator-llvm"><a href="#安装-obfuscator-llvm" class="headerlink" title="安装 obfuscator llvm"></a>安装 obfuscator llvm</h1><p>官方文档是4.0的：<a href="https://github.com/obfuscator-llvm/obfuscator/wiki/Installation" target="_blank" rel="noopener">wiki-Installation</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$ git clone -b llvm-4.0 https:&#x2F;&#x2F;github.com&#x2F;obfuscator-llvm&#x2F;obfuscator.git</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$ mkdir build</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$ cd build</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$ cmake -DCMAKE_BUILD_TYPE&#x3D;Release ..&#x2F;obfuscator&#x2F;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$ make -j7</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://github.com/yazhiwang/ollvm-tll" target="_blank" rel="noopener">6.0.0版本</a>：LLVM 6.0 + Ollvm + Armariris<br>文档上已经写的很清楚应该怎么做了，很好</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;yazhiwang&#x2F;ollvm-tll.git</span><br><span class="line">mkdir build</span><br><span class="line">cd build</span><br><span class="line">&#x2F;&#x2F; 编译</span><br><span class="line">cmake -G &quot;MinGW Makefiles&quot; -DCMAKE_BUILD_TYPE&#x3D;Release ..&#x2F;ollvm-tll&#x2F;</span><br><span class="line">make -j7</span><br><span class="line">&#x2F;&#x2F; 编译完成后，连接NDK</span><br><span class="line">$(NDK_FOLDER)&#x2F;toolchains&#x2F;</span><br><span class="line">cp -rf llvm orig_llvm</span><br><span class="line">cd llvm&#x2F;prebuilt&#x2F;darwin-x86_64 # it depends on your OS, darwin-x86_64 can be others</span><br><span class="line">rm -rf *</span><br><span class="line">cp -rf ($BUILD_OLLVM)&#x2F;bin .</span><br><span class="line">cp -rf ($BUILD_OLLVM)&#x2F;lib .</span><br></pre></td></tr></table></figure>
+
+
+<p><a href="https://github.com/GoSSIP-SJTU/Armariris" target="_blank" rel="noopener">Armariris</a>： 由上海交通大学密码与计算机安全实验室维护的LLVM混淆框架，主要是由字符串混淆。这里也有一个坑，从后面看到，就是设置种子的长度。</p>
+<p>编译过程中如果测试用例跑不过，可以在cmake 后面跟参数 <code>-DLLVM_INCLUDE_TESTS=OFF</code> 关闭测试用例检查，不过我没有出这个问题。</p>
+<h2 id="第一步编译-obfuscator"><a href="#第一步编译-obfuscator" class="headerlink" title="第一步编译 obfuscator"></a>第一步编译 obfuscator</h2><p>工程clone下来后，编译连接生成可执行文件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cmake -G <span class="string">"MinGW Makefiles"</span> -DCMAKE_BUILD_TYPE=Release ../ollvm-tll/</span><br><span class="line">mingw32-make -j7</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>windows 中并不能直接使用官方文档的参考，需要使用mingw</p>
+</blockquote>
+<p>这里在 <code>cmake</code> 的时候有点区别<br>1.如果build目录跟obfuscator同级别则</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmake -G &quot;MinGW Makefiles&quot; -DCMAKE_BUILD_TYPE&#x3D;Release ..&#x2F;obfuscator&#x2F;  |tee b_build.txt</span><br></pre></td></tr></table></figure>
+
+<p>2.如果build目录在obfuscator里面，则</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmake -G &quot;MinGW Makefiles&quot; -DCMAKE_BUILD_TYPE&#x3D;Release ..&#x2F; |tee b_build.txt</span><br></pre></td></tr></table></figure>
+
+
+<p><code>|tee b_build.txt</code>主要是将命令行日志打印到本地文件中</p>
+<p>具体是 在 cmd 中执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 生成 obfuscator</span><br><span class="line">cmake -G &quot;MinGW Makefiles&quot; -DCMAKE_BUILD_TYPE&#x3D;Release ..&#x2F; |tee b_build.txt</span><br><span class="line">&#x2F;&#x2F; 生成可执行程序</span><br><span class="line">mingw32-make -j7  |tee b_make.txt</span><br></pre></td></tr></table></figure>
+
+<p>主要是两个区别：</p>
+<ol>
+<li><code>-G &quot;MinGW Makefiles&quot;</code> 表示使用MinGW 来构建</li>
+<li>因为前面是mingw构建的，所有使用了<code>mingw32-make</code>而不是make指令。在这里耗费了写时间</li>
+</ol>
+<p>make 过程确实比较耗时，起码30分钟吧。</p>
+<ol>
+<li>生成obfuscator步骤后，就会在 build目录下生成<code>bin</code>、<code>lib</code>目录</li>
+<li>make 之后会在 build目录下生成<code>bin</code>、<code>lib</code>会有具体的执行文件和依赖库</li>
+</ol>
+<p>4.0版本能编译完成，提示有错误：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[100%] Built target llvm-lto2</span><br><span class="line">[100%] Linking CXX shared library ..\..\..\..\bin\libclang.dll</span><br><span class="line">[100%] Built target libclang</span><br><span class="line">mingw32-make: *** [Makefile:151: all] Error 2</span><br></pre></td></tr></table></figure>
+
+
+<p>下载6.0版本,过程中也有一些错误</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[ 98%] Built target arcmt-test</span><br><span class="line">[ 98%] Built target clang-check</span><br><span class="line">[ 98%] Built target clang-func-mapping</span><br><span class="line">[ 98%] Built target libclang</span><br><span class="line">[ 98%] Built target llvm-ranlib</span><br><span class="line">[ 98%] Built target llvm-lib</span><br><span class="line">[100%] Built target llvm-dlltool</span><br><span class="line">[100%] Built target c-index-test</span><br><span class="line">[100%] Built target c-arcmt-test</span><br></pre></td></tr></table></figure>
+
+
+<p>make过程中也会有错误，先不管，能编译完成就行。</p>
+<h2 id="第二步集成到-Android-NDK"><a href="#第二步集成到-Android-NDK" class="headerlink" title="第二步集成到 Android NDK"></a>第二步集成到 Android NDK</h2><p>一共看到3种方式，最后只有一种方式成功了。因为项目使用的cmake方式，但是网上大部分都是ndk-build的方式。<br>修改目录就行：<code>D:\Software\Android\Android\ndk-bundle\toolchains\llvm\prebuilt\windows-x86_64</code> </p>
+<ol>
+<li><strong>先备份下修改的目录</strong></li>
+<li>打开修改的目录，将<code>lib</code>和<code>bin</code>目录删除</li>
+<li>然后将将刚刚生成的<code>build</code>目录下的<code>bin</code>和<code>lib</code>拷贝过去</li>
+</ol>
+<p>就这样就使用了新的ollvm了。因为Cmake默认是要llvm的clang编译，这里相当于直接替换成了新的clang了。</p>
+<h2 id="第三步如何使用"><a href="#第三步如何使用" class="headerlink" title="第三步如何使用"></a>第三步如何使用</h2><p>项目使用的是Cmake，所以再工程的<code>CMakeLists.txt</code>中增加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SET(CMAKE_C_FLAGS &quot;$&#123;CMAKE_C_FLAGS&#125; -mllvm -fla&quot;)</span><br><span class="line">SET(CMAKE_CXX_FLAGS &quot;$&#123;CMAKE_CXX_FLAGS&#125; -mllvm -fla&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>打包APK编译就行</p>
+<h1 id="参数解释"><a href="#参数解释" class="headerlink" title="参数解释"></a>参数解释</h1><p>控制流扁平化<br>这个模式主要是把一些if-else语句，嵌套成do-while语句</p>
+<ul>
+<li>-mllvm -fla：激活控制流扁平化</li>
+<li>-mllvm -split：激活基本块分割。在一起使用时改善展平。</li>
+<li>-mllvm -split_num=3：如果激活了传递，则在每个基本块上应用3次。默认值：1</li>
+</ul>
+<p>指令替换<br>这个模式主要用功能上等效但更复杂的指令序列替换标准二元运算符(+ , – , &amp; , | 和 ^)</p>
+<ul>
+<li>-mllvm -sub：激活指令替换</li>
+<li>-mllvm -sub_loop=3：如果激活了传递，则在函数上应用3次。默认值：1</li>
+</ul>
+<p>虚假控制流程<br>这个模式主要嵌套几层判断逻辑，一个简单的运算都会在外面包几层if-else，所以这个模式加上编译速度会慢很多因为要做几层假的逻辑包裹真正有用的代码。<br>另外说一下这个模式编译的时候要浪费相当长时间</p>
+<ul>
+<li>-mllvm -bcf：激活虚假控制流程</li>
+<li>-mllvm -bcf_loop=3：如果激活了传递，则在函数上应用3次。默认值：1</li>
+<li>-mllvm -bcf_prob=40：如果激活了传递，基本块将以40％的概率进行模糊处理。默认值：30</li>
+</ul>
+<p>字符串混淆</p>
+<ul>
+<li>-mllvm -sobf：编译时候添加选项开启字符串加密</li>
+<li>-mllvm -seed=0xdeadbeaf：指定随机数生成器种子流程</li>
+</ul>
+<p>在build文件中添加：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">    defaultConfig &#123;       </span><br><span class="line">        externalNativeBuild &#123;</span><br><span class="line">            cmake &#123;</span><br><span class="line">                cppFlags &quot;-mllvm -fla -mllvm -sub -mllvm -bcf -mllvm -sobf -mllvm -seed&#x3D;0xdeadbeaf&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我是在<code>CMakeLists.txt</code>中修改的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">set(OLLVM &quot;-mllvm -fla -mllvm -seed&#x3D;32位长度大写 &quot;)</span><br><span class="line">SET(CMAKE_C_FLAGS &quot;$&#123;CMAKE_C_FLAGS&#125; $&#123;OLLVM&#125;&quot;)</span><br><span class="line">SET(CMAKE_CXX_FLAGS &quot;$&#123;CMAKE_CXX_FLAGS&#125; $&#123;OLLVM&#125;&quot;)</span><br></pre></td></tr></table></figure>
+
+
+<p><a href="https://blog.csdn.net/qq_42237638/article/details/104905061" target="_blank" rel="noopener">WIN10 x64搭建OLLVM4.0 android NDK 编译环境跨坑指南</a></p>
+<h1 id="遇到的错误"><a href="#遇到的错误" class="headerlink" title="遇到的错误"></a>遇到的错误</h1><h2 id="Cannot-open-dev-random"><a href="#Cannot-open-dev-random" class="headerlink" title="Cannot open /dev/random"></a>Cannot open /dev/random</h2><p>配置了AS工程后rebuild编译成功，但是又警告</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cannot open &#x2F;dev&#x2F;random</span><br></pre></td></tr></table></figure>
+
+<p>搜索到<a href="https://www.cnblogs.com/suanguade/p/10913303.html" target="_blank" rel="noopener">ollvm 使用——“Cannot open /dev/random”错误的解决方法</a><br>文中说到修改<code>\obfuscator-llvm-4.0\lib\Transforms\Obfuscation\CryptoUtils.cpp</code> 中<code>bool CryptoUtils::prng_seed()</code>方法。<br>我看了下这个文件是有这个方法<code>prng_seed</code>，按照他给的方法来做的话，完全行不通的样子，这个方法有返回值的，它提供的却没有。但是看到这个函数打印错误的地方，是seed的长度不匹配时，会这个报错</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">bool CryptoUtils::prng_seed(const std::string _seed) &#123;</span><br><span class="line">  unsigned char s[16];</span><br><span class="line">  unsigned int i &#x3D; 0;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  &#x2F;* We accept a prefix &quot;0x&quot; *&#x2F;</span><br><span class="line">  if (!(_seed.size() &#x3D;&#x3D; 32 || _seed.size() &#x3D;&#x3D; 34)) &#123;</span><br><span class="line">    errs()&lt;&lt;&quot;The AES-CTR PRNG seeding mechanism is expecting a 16-byte value &quot;</span><br><span class="line">              &quot;expressed in hexadecimal, like DEAD....BEEF\n&quot;;</span><br><span class="line"> return false;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  seed &#x3D; _seed;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>然后又看到文章<a href="https://www.politoinc.com/single-post/2020/03/02/Automated-Obfuscation-of-Windows-MalwareExploits-Using-O-LLVM" target="_blank" rel="noopener">Automated Obfuscation of Windows Malware and Exploits Using O-LLVM</a> 说到产生这个错误的原因时没有设置<code>aesSeed</code>，马上设置，但是还是报错。然后再<a href="https://github.com/GoSSIP-SJTU/Armariris" target="_blank" rel="noopener">Armariris</a> 官方文档上看到是要设置<code>-mllvm -seed=0xdeadbeaf</code>。也就是<code>seed</code>的长度必须时32或者时34。修改后搞定，没有报警告了。</p>
+<p>另外这里也有一个修改方案，不过没有使用<a href="https://blog.csdn.net/qq_42237638/article/details/104905061" target="_blank" rel="noopener">WIN10 x64搭建OLLVM4.0 android NDK 编译环境跨坑指南</a></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>文章是基于windows的：<br><a href="https://www.anquanke.com/post/id/86384" target="_blank" rel="noopener">【技术分享】为OLLVM添加字符串混淆功能</a><br><a href="https://www.cnblogs.com/shuqinjun/p/8595143.html" target="_blank" rel="noopener">windows系统OLLVM + NDK 混淆编译环境搭建</a></p>
+
+                    </article>
+                    
+
+
+
+<p class="post-footer-info mb-0 pt-0">Published at&nbsp;<time datetime="2020-07-18T13:21:57.000Z" itemprop="datePublished">2020-07-18</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+<a class="post-categories-list-item" href='/categories/llvm/'>llvm</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+<a class="post-tags-list-item" href="/tags/obfuscator-llvm/" rel="tag">#&nbsp;obfuscator-llvm</a>
+
+<a class="post-tags-list-item" href="/tags/ollvm/" rel="tag">#&nbsp;ollvm</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2020/01/12/Java-%E6%B3%9B%E5%9E%8B-SelfType/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">Java 泛型-SelfType</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                        <div class="card-footer post-comment">
+                            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://lysmbetter.top/2020/07/18/Windows-obfuscator-llvm6-0/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://lysmbetter.top/2020/07/18/Windows-obfuscator-llvm6-0/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script id="disqus-thread-script">
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//lysmbetter.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+                        </div>
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="http://lysmbetter.top">Better</a>
+        </p>
+
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+
+    
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+document.getElementById('copyright-year').textContent = new Date().getFullYear();
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
+</script>
+
+<script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
+    <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+<!-- Comment -->
+
+    
+        <script id="dsq-count-scr" src="https://lysmbetter.disqus.com/count.js" async></script>
+
+    
+
+
+<!-- ### Custom Footer ### -->
+
+    </body>
+
+</html>
